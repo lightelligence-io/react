@@ -3,7 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { string } from 'prop-types';
 
-// import style from './Divider.scss';
+import style from './Divider.scss';
 import { OLT_NAMESPACE } from '../../constants';
 
 export const Divider = ({ className, ...props }) => (
@@ -13,7 +13,7 @@ export const Divider = ({ className, ...props }) => (
       `${OLT_NAMESPACE}u-marginLeft3`,
       `${OLT_NAMESPACE}u-marginRight3`,
       `${OLT_NAMESPACE}u-textGray400`,
-      // style.divider,
+      style.divider,
       className,
     )}
   />

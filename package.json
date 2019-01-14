@@ -2,7 +2,7 @@
   "name": "@lightelligence/lightelligence-react",
   "version": "0.0.1",
   "private": true,
-  "main": "commonjs/index.js",
+  "main": "dist/bundle.web.js",
   "module": "es6/index.js",
   "scripts": {
     "start": "styleguidist server",
