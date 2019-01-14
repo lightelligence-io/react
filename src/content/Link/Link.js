@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { string, bool } from 'prop-types';
+import { string, bool, node } from 'prop-types';
 import { NavLink, matchPath } from 'react-router-dom';
 import classnames from 'classnames';
 
@@ -12,7 +12,7 @@ export class Link extends PureComponent {
   static propTypes = {
     to: string.isRequired,
     normal: bool,
-    children: Node,
+    children: node,
     className: string,
   };
 
