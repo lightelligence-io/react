@@ -1,0 +1,25 @@
+@import '@lightelligence/lightelligence-ui/src/core';
+
+.selectField {
+  :global {
+    .#{$namespace}Label {
+      color: initial;
+      line-height: 1;
+      height: 0.8rem;
+    }
+  }
+}
+
+.footer {
+  text-align: left;
+  font-size: $font-size-small;
+  height: $line-height-small;
+  margin-top: map-get($spacers, 1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.message {
+  text-align: left;
+  font-size: $font-size-small;
+}

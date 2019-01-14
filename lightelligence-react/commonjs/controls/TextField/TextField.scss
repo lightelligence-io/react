@@ -1,0 +1,5 @@
+.autogrow {
+	// overflow-x is important for firefox, because it reserves a fixed height for the horizontal scrollbar.
+	// see: https://stackoverflow.com/a/22700700
+	overflow: hidden;
+}
