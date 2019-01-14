@@ -47,7 +47,7 @@ const baseConfig = (env) => ({
             test: /\.css$/,
             use: [
               {
-                loader: 'style-loader',
+                loader: 'isomorphic-style-loader',
               },
               {
                 loader: 'css-loader',
@@ -66,7 +66,7 @@ const baseConfig = (env) => ({
           {
             test: /\.scss$/,
             use: [
-              require.resolve('style-loader'),
+              require.resolve('isomorphic-style-loader'),
               {
                 loader: require.resolve('css-loader'),
                 options: {
@@ -81,9 +81,6 @@ const baseConfig = (env) => ({
                     options,
                   ) => {
                     // don't apply css modules transformation for the node_modules folder
-
-                    console.log('hey:', Object.keys(loaderContext));
-                    console.log('options:', loaderContext.options);
 
                     const relPath = path.relative(
                       loaderContext.context,
@@ -161,13 +158,18 @@ const baseConfig = (env) => ({
   },
 });
 
+const outputCommon = {
+  globalObject: `typeof self !== 'undefined' ? self : this`,
+  path: path.resolve(__dirname, 'dist'),
+};
+
 const nodeConfigDev = {
   ...baseConfig('development'),
   devtool: 'source-map',
   mode: 'development',
   target: 'node',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    ...outputCommon,
     filename: 'bundle.node.js',
   },
 };
@@ -177,7 +179,7 @@ const nodeConfigProd = {
   mode: 'production',
   target: 'node',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    ...outputCommon,
     filename: 'bundle.node.min.js',
   },
 };
@@ -188,11 +190,11 @@ const webConfigDev = {
   mode: 'development',
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    ...outputCommon,
     filename: 'bundle.web.js',
-    library: 'lightelligence-js-sdk',
+    library: 'lightelligence-react',
     libraryTarget: 'umd',
-    umdNamedDefine: true,
+    // umdNamedDefine: true,
   },
 };
 
@@ -201,28 +203,12 @@ const webConfigProd = {
   mode: 'production',
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    ...outputCommon,
     filename: 'bundle.web.min.js',
-    library: 'lightelligence-js-sdk',
+    library: 'lightelligence-react',
     libraryTarget: 'umd',
-    umdNamedDefine: true,
+    // umdNamedDefine: true,
   },
 };
 
-const nodeConfigDevX = {
-  ...baseConfig('development'),
-  devtool: 'source-map',
-  mode: 'development',
-  target: 'node',
-  output: {
-    path: path.resolve(__dirname, 'dist/x'),
-  },
-};
-
-module.exports = [
-  nodeConfigDev,
-  nodeConfigProd,
-  webConfigDev,
-  webConfigProd,
-  nodeConfigDevX,
-];
+module.exports = [nodeConfigDev, nodeConfigProd, webConfigDev, webConfigProd];
