@@ -80,7 +80,7 @@ exports.Link = Link;
 (0, _defineProperty2.default)(Link, "propTypes", {
   to: _propTypes.string.isRequired,
   normal: _propTypes.bool,
-  children: Node,
+  children: _propTypes.node,
   className: _propTypes.string
 });
 (0, _defineProperty2.default)(Link, "defaultProps", {
