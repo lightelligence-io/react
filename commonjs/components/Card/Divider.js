@@ -17,16 +17,16 @@ var _classnames = _interopRequireDefault(require("classnames"));
 
 var _propTypes = require("prop-types");
 
-var _Divider = _interopRequireDefault(require("./Divider.scss"));
-
 var _constants = require("../../constants");
 
 // TODO: Move out of here
+// import style from './Divider.scss';
 var Divider = function Divider(_ref) {
   var className = _ref.className,
       props = (0, _objectWithoutProperties2.default)(_ref, ["className"]);
   return _react.default.createElement("div", (0, _extends2.default)({}, props, {
-    className: (0, _classnames.default)("".concat(_constants.OLT_NAMESPACE, "u-marginLeft3"), "".concat(_constants.OLT_NAMESPACE, "u-marginRight3"), "".concat(_constants.OLT_NAMESPACE, "u-textGray400"), _Divider.default.divider, className)
+    className: (0, _classnames.default)("".concat(_constants.OLT_NAMESPACE, "u-marginLeft3"), "".concat(_constants.OLT_NAMESPACE, "u-marginRight3"), "".concat(_constants.OLT_NAMESPACE, "u-textGray400"), // style.divider,
+    className)
   }));
 };
 
