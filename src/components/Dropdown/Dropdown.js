@@ -3,6 +3,7 @@ import { bool, string, node } from 'prop-types';
 import classnames from 'classnames';
 
 import { OLT_NAMESPACE } from '../../constants';
+import { isServerSideRendering } from '../../utils/isServerSideRendering';
 
 export class Dropdown extends Component {
   static propTypes = {
@@ -29,11 +30,15 @@ export class Dropdown extends Component {
   dropdownRef = React.createRef();
 
   componentDidMount() {
-    window.addEventListener('click', this.handleOffClick);
+    if (!isServerSideRendering()) {
+      window.addEventListener('click', this.handleOffClick);
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('click', this.handleOffClick);
+    if (!isServerSideRendering()) {
+      window.removeEventListener('click', this.handleOffClick);
+    }
   }
 
   handleOffClick = (event) => {

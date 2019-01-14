@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bool, string, node } from 'prop-types';
 import classnames from 'classnames';
+import { isServerSideRendering } from '../../utils/isServerSideRendering';
 
 import { OLT_NAMESPACE } from '../../constants';
 
@@ -30,11 +31,15 @@ export class Navbar extends Component {
   navbarRef = React.createRef();
 
   componentDidMount() {
-    window.addEventListener('click', this.handleOffClick);
+    if (!isServerSideRendering()) {
+      window.addEventListener('click', this.handleOffClick);
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('click', this.handleOffClick);
+    if (!isServerSideRendering()) {
+      window.removeEventListener('click', this.handleOffClick);
+    }
   }
 
   handleOffClick = (event) => {
