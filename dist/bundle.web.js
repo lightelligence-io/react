@@ -8196,7 +8196,7 @@ var isOldIE = memoize(function () {
 	// Tests for existence of standard globals is to allow style-loader
 	// to operate correctly into non-standard environments
 	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
+	return typeof window !== "undefined" && window && document && document.all && !window.atob;
 });
 
 var getTarget = function (target, parent) {
@@ -8429,7 +8429,7 @@ function addStyle (obj, options) {
 	// If a transform function was defined, run it on the css
 	if (options.transform && obj.css) {
 	    result = typeof options.transform === 'function'
-		 ? options.transform(obj.css) 
+		 ? options.transform(obj.css)
 		 : options.transform.default(obj.css);
 
 	    if (result) {
@@ -8683,7 +8683,7 @@ module.exports = function (css) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(process) {/* 
+/* WEBPACK VAR INJECTION */(function(process) {/*
 (The MIT License)
 Copyright (c) 2014 Halász Ádám <mail@adamhalasz.com>
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -8698,7 +8698,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 // ================================================
 var pid = process && process.pid ? process.pid.toString(36) : '' ;
 var address = '';
-if(false){ var i, mac, networkInterfaces; } 
+if(false){ var i, mac, networkInterfaces; }
 
 //  Exports
 // ================================================
