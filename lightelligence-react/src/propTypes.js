@@ -5,8 +5,6 @@ import * as constants from './constants';
 
 const childrenProp = oneOfType([arrayOf(node), node]);
 
-const gridAlignProp = oneOf(['start', 'center', 'end']);
-
 const colorProp = oneOf([
   constants.COLOR_PRIMARY,
   constants.COLOR_SECONDARY,
@@ -42,5 +40,4 @@ export {
   headlineTypeProp,
   copyTextTypeProp,
   copyTextSizeProp,
-  gridAlignProp,
 };
