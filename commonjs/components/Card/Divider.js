@@ -7,9 +7,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Divider = void 0;
 
-var _extends2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/extends"));
+var _extends2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/extends"));
 
-var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/objectWithoutProperties"));
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/objectWithoutProperties"));
 
 var _react = _interopRequireDefault(require("react"));
 
