@@ -2,12 +2,12 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("lightelligence-js-sdk", [], factory);
+		define("lightelligence-react", [], factory);
 	else if(typeof exports === 'object')
-		exports["lightelligence-js-sdk"] = factory();
+		exports["lightelligence-react"] = factory();
 	else
-		root["lightelligence-js-sdk"] = factory();
-})(window, function() {
+		root["lightelligence-react"] = factory();
+})(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
