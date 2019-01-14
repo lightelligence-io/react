@@ -1,329 +1,183 @@
-'use strict';
+"use strict";
 
-var _interopRequireWildcard = require('@babel/runtime/helpers/interopRequireWildcard');
+var _interopRequireWildcard = require("@babel/runtime-corejs2/helpers/interopRequireWildcard");
 
-var _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault');
+var _interopRequireDefault = require("@babel/runtime-corejs2/helpers/interopRequireDefault");
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.TextField = void 0;
 
-var _extends2 = _interopRequireDefault(
-  require('@babel/runtime/helpers/esm/extends'),
-);
+var _extends2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/extends"));
 
-var _objectSpread2 = _interopRequireDefault(
-  require('@babel/runtime/helpers/esm/objectSpread'),
-);
+var _objectSpread2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/objectSpread"));
 
-var _objectWithoutProperties2 = _interopRequireDefault(
-  require('@babel/runtime/helpers/esm/objectWithoutProperties'),
-);
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/objectWithoutProperties"));
 
-var _classCallCheck2 = _interopRequireDefault(
-  require('@babel/runtime/helpers/esm/classCallCheck'),
-);
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/classCallCheck"));
 
-var _createClass2 = _interopRequireDefault(
-  require('@babel/runtime/helpers/esm/createClass'),
-);
+var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/createClass"));
 
-var _possibleConstructorReturn2 = _interopRequireDefault(
-  require('@babel/runtime/helpers/esm/possibleConstructorReturn'),
-);
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn"));
 
-var _getPrototypeOf3 = _interopRequireDefault(
-  require('@babel/runtime/helpers/esm/getPrototypeOf'),
-);
+var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/getPrototypeOf"));
 
-var _inherits2 = _interopRequireDefault(
-  require('@babel/runtime/helpers/esm/inherits'),
-);
+var _inherits2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/inherits"));
 
-var _assertThisInitialized2 = _interopRequireDefault(
-  require('@babel/runtime/helpers/esm/assertThisInitialized'),
-);
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/assertThisInitialized"));
 
-var _defineProperty2 = _interopRequireDefault(
-  require('@babel/runtime/helpers/esm/defineProperty'),
-);
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime-corejs2/helpers/esm/defineProperty"));
 
-var _react = _interopRequireWildcard(require('react'));
+var _react = _interopRequireWildcard(require("react"));
 
-var _propTypes = require('prop-types');
+var _propTypes = require("prop-types");
 
-var _classnames = _interopRequireDefault(require('classnames'));
+var _classnames = _interopRequireDefault(require("classnames"));
 
-var _uniqid = _interopRequireDefault(require('uniqid'));
+var _uniqid = _interopRequireDefault(require("uniqid"));
 
-var _constants = require('../../constants');
+var _constants = require("../../constants");
 
-var styles = _interopRequireWildcard(require('./TextField.scss'));
+var styles = _interopRequireWildcard(require("./TextField.scss"));
 
 var TextField =
-  /*#__PURE__*/
-  (function(_PureComponent) {
-    (0, _inherits2.default)(TextField, _PureComponent);
+/*#__PURE__*/
+function (_PureComponent) {
+  (0, _inherits2.default)(TextField, _PureComponent);
 
-    function TextField() {
-      var _getPrototypeOf2;
+  function TextField() {
+    var _getPrototypeOf2;
 
-      var _this;
+    var _this;
 
-      (0, _classCallCheck2.default)(this, TextField);
+    (0, _classCallCheck2.default)(this, TextField);
 
-      for (
-        var _len = arguments.length, args = new Array(_len), _key = 0;
-        _key < _len;
-        _key++
-      ) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = (0, _possibleConstructorReturn2.default)(
-        this,
-        (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(
-          TextField,
-        )).call.apply(_getPrototypeOf2, [this].concat(args)),
-      );
-      (0, _defineProperty2.default)(
-        (0, _assertThisInitialized2.default)(
-          (0, _assertThisInitialized2.default)(_this),
-        ),
-        'elementId',
-        (0, _uniqid.default)(),
-      );
-      (0, _defineProperty2.default)(
-        (0, _assertThisInitialized2.default)(
-          (0, _assertThisInitialized2.default)(_this),
-        ),
-        'inputRef',
-        _react.default.createRef(),
-      );
-      (0, _defineProperty2.default)(
-        (0, _assertThisInitialized2.default)(
-          (0, _assertThisInitialized2.default)(_this),
-        ),
-        'applyAutogrow',
-        function() {
-          var tf = _this.inputRef.current;
-          var style = tf.style; // reset height and measure scrollHeight
-
-          style.cssText = 'height:auto;';
-          style.cssText = 'height:'.concat(tf.scrollHeight, 'px');
-        },
-      );
-      return _this;
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
     }
 
-    (0, _createClass2.default)(TextField, [
-      {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-          var inputNode = this.inputRef.current; // This initialises the input for the styleguide
-          // new OltTextField(inputNode); // eslint-disable-line no-new
+    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(TextField)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "elementId", (0, _uniqid.default)());
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "inputRef", _react.default.createRef());
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "applyAutogrow", function () {
+      var tf = _this.inputRef.current;
+      var style = tf.style; // reset height and measure scrollHeight
 
-          var autogrow = this.props.autogrow;
+      style.cssText = 'height:auto;';
+      style.cssText = "height:".concat(tf.scrollHeight, "px");
+    });
+    return _this;
+  }
 
-          if (autogrow) {
-            inputNode.addEventListener('input', this.applyAutogrow);
-            inputNode.addEventListener('change', this.applyAutogrow);
-            this.applyAutogrow();
-          }
-        },
-      },
-      {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-          var autogrow = this.props.autogrow;
-          var inputNode = this.inputRef.current;
+  (0, _createClass2.default)(TextField, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var inputNode = this.inputRef.current; // This initialises the input for the styleguide
+      // new OltTextField(inputNode); // eslint-disable-line no-new
 
-          if (autogrow) {
-            inputNode.removeEventListener('input', this.applyAutogrow);
-            inputNode.removeEventListener('change', this.applyAutogrow);
-          }
-        },
-      },
-      {
-        key: 'render',
-        value: function render() {
-          var _this$props = this.props,
-            className = _this$props.className,
-            defaultValue = _this$props.defaultValue,
-            disabled = _this$props.disabled,
-            errorMessage = _this$props.errorMessage,
-            fullwidth = _this$props.fullwidth,
-            icon = _this$props.icon,
-            infoText = _this$props.infoText,
-            label = _this$props.label,
-            floating = _this$props.floating,
-            onChange = _this$props.onChange,
-            onBlur = _this$props.onBlur,
-            readOnly = _this$props.readOnly,
-            textarea = _this$props.textarea,
-            value = _this$props.value,
-            style = _this$props.style,
-            autogrow = _this$props.autogrow,
-            placeholder = _this$props.placeholder,
-            required = _this$props.required,
-            noFooter = _this$props.noFooter,
-            rest = (0, _objectWithoutProperties2.default)(_this$props, [
-              'className',
-              'defaultValue',
-              'disabled',
-              'errorMessage',
-              'fullwidth',
-              'icon',
-              'infoText',
-              'label',
-              'floating',
-              'onChange',
-              'onBlur',
-              'readOnly',
-              'textarea',
-              'value',
-              'style',
-              'autogrow',
-              'placeholder',
-              'required',
-              'noFooter',
-            ]);
-          var elementId = this.elementId;
-          var Element = textarea || autogrow ? 'textarea' : 'input';
-          var hasFloatingLabel = floating && label;
-          var base = ''.concat(_constants.OLT_NAMESPACE, 'TextField');
-          var wrapperClasses = (0, _classnames.default)(
-            base,
-            fullwidth && 'is-fullwidth',
-            hasFloatingLabel && ''.concat(base, '--float'),
-            icon && 'has-icon',
-            !label && 'has-noLabel',
-            className,
-            errorMessage && 'has-error-message',
-          );
-          var elementClasses = (0, _classnames.default)(
-            ''
-              .concat(_constants.OLT_NAMESPACE, 'Input ')
-              .concat(base, '-input'),
-            errorMessage && 'is-error',
-            hasFloatingLabel && value && 'has-value',
-            autogrow && styles.autogrow,
-          );
-          var autogrowProps = autogrow
-            ? {
-                rows: '1',
-              }
-            : {};
-          var showLabel = label && (floating || (!errorMessage && !infoText));
-          var newPlaceholder =
-            placeholder || (!floating && !showLabel && label) || '';
+      var autogrow = this.props.autogrow;
 
-          var labelElement =
-            label &&
-            _react.default.createElement(
-              'label',
-              {
-                className: ''
-                  .concat(_constants.OLT_NAMESPACE, 'Label ')
-                  .concat(base, '-label'),
-                htmlFor: elementId,
-              },
-              label,
-              required && !readOnly ? '*' : null,
-            );
+      if (autogrow) {
+        inputNode.addEventListener('input', this.applyAutogrow);
+        inputNode.addEventListener('change', this.applyAutogrow);
+        this.applyAutogrow();
+      }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      var autogrow = this.props.autogrow;
+      var inputNode = this.inputRef.current;
 
-          var noFooterStyle = noFooter
-            ? {
-                marginBottom: 0,
-              }
-            : {};
-          var wrapperStyle = (0, _objectSpread2.default)(
-            {},
-            style,
-            noFooterStyle,
-          );
-          return _react.default.createElement(
-            'div',
-            {
-              className: wrapperClasses,
-              style: wrapperStyle,
-            },
-            !floating && labelElement,
-            _react.default.createElement(
-              Element,
-              (0, _extends2.default)(
-                {
-                  className: elementClasses,
-                  defaultValue: defaultValue,
-                  disabled: disabled,
-                  id: elementId,
-                  onChange: onChange,
-                  onBlur: onBlur,
-                  readOnly: readOnly,
-                  ref: this.inputRef,
-                  value: value,
-                  placeholder: newPlaceholder,
-                },
-                autogrowProps,
-                (0, _objectSpread2.default)({}, rest, {
-                  required: required,
-                }),
-              ),
-            ),
-            floating && labelElement,
-            !noFooter &&
-              _react.default.createElement(
-                'span',
-                {
-                  className: ''.concat(base, '-footer'),
-                },
-                errorMessage &&
-                  _react.default.createElement(
-                    'span',
-                    {
-                      className: ''
-                        .concat(base, '-message ')
-                        .concat(_constants.OLT_NAMESPACE, 'u-textError'),
-                    },
-                    readOnly
-                      ? _react.default.createElement('span', null, '\xA0')
-                      : errorMessage,
-                  ),
-                infoText &&
-                  _react.default.createElement(
-                    'span',
-                    {
-                      className: ''.concat(base, '-info'),
-                    },
-                    readOnly
-                      ? _react.default.createElement('span', null, '\xA0')
-                      : infoText,
-                  ),
-              ),
-            icon &&
-              _react.default.createElement(
-                'span',
-                {
-                  className: ''.concat(base, '-icon'),
-                  style: {
-                    pointerEvents: 'none',
-                  },
-                },
-                _react.default.createElement('i', {
-                  className: ''.concat(_constants.OLT_NAMESPACE, 'Icon'),
-                  'data-icon': icon,
-                }),
-              ),
-          );
-        },
-      },
-    ]);
-    return TextField;
-  })(_react.PureComponent);
+      if (autogrow) {
+        inputNode.removeEventListener('input', this.applyAutogrow);
+        inputNode.removeEventListener('change', this.applyAutogrow);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          className = _this$props.className,
+          defaultValue = _this$props.defaultValue,
+          disabled = _this$props.disabled,
+          errorMessage = _this$props.errorMessage,
+          fullwidth = _this$props.fullwidth,
+          icon = _this$props.icon,
+          infoText = _this$props.infoText,
+          label = _this$props.label,
+          floating = _this$props.floating,
+          onChange = _this$props.onChange,
+          onBlur = _this$props.onBlur,
+          readOnly = _this$props.readOnly,
+          textarea = _this$props.textarea,
+          value = _this$props.value,
+          style = _this$props.style,
+          autogrow = _this$props.autogrow,
+          placeholder = _this$props.placeholder,
+          required = _this$props.required,
+          noFooter = _this$props.noFooter,
+          rest = (0, _objectWithoutProperties2.default)(_this$props, ["className", "defaultValue", "disabled", "errorMessage", "fullwidth", "icon", "infoText", "label", "floating", "onChange", "onBlur", "readOnly", "textarea", "value", "style", "autogrow", "placeholder", "required", "noFooter"]);
+      var elementId = this.elementId;
+      var Element = textarea || autogrow ? 'textarea' : 'input';
+      var hasFloatingLabel = floating && label;
+      var base = "".concat(_constants.OLT_NAMESPACE, "TextField");
+      var wrapperClasses = (0, _classnames.default)(base, fullwidth && 'is-fullwidth', hasFloatingLabel && "".concat(base, "--float"), icon && 'has-icon', !label && 'has-noLabel', className, errorMessage && 'has-error-message');
+      var elementClasses = (0, _classnames.default)("".concat(_constants.OLT_NAMESPACE, "Input ").concat(base, "-input"), errorMessage && 'is-error', hasFloatingLabel && value && 'has-value', autogrow && styles.autogrow);
+      var autogrowProps = autogrow ? {
+        rows: '1'
+      } : {};
+      var showLabel = label && (floating || !errorMessage && !infoText);
+      var newPlaceholder = placeholder || !floating && !showLabel && label || '';
+
+      var labelElement = label && _react.default.createElement("label", {
+        className: "".concat(_constants.OLT_NAMESPACE, "Label ").concat(base, "-label"),
+        htmlFor: elementId
+      }, label, required && !readOnly ? '*' : null);
+
+      var noFooterStyle = noFooter ? {
+        marginBottom: 0
+      } : {};
+      var wrapperStyle = (0, _objectSpread2.default)({}, style, noFooterStyle);
+      return _react.default.createElement("div", {
+        className: wrapperClasses,
+        style: wrapperStyle
+      }, !floating && labelElement, _react.default.createElement(Element, (0, _extends2.default)({
+        className: elementClasses,
+        defaultValue: defaultValue,
+        disabled: disabled,
+        id: elementId,
+        onChange: onChange,
+        onBlur: onBlur,
+        readOnly: readOnly,
+        ref: this.inputRef,
+        value: value,
+        placeholder: newPlaceholder
+      }, autogrowProps, (0, _objectSpread2.default)({}, rest, {
+        required: required
+      }))), floating && labelElement, !noFooter && _react.default.createElement("span", {
+        className: "".concat(base, "-footer")
+      }, errorMessage && _react.default.createElement("span", {
+        className: "".concat(base, "-message ").concat(_constants.OLT_NAMESPACE, "u-textError")
+      }, readOnly ? _react.default.createElement("span", null, "\xA0") : errorMessage), infoText && _react.default.createElement("span", {
+        className: "".concat(base, "-info")
+      }, readOnly ? _react.default.createElement("span", null, "\xA0") : infoText)), icon && _react.default.createElement("span", {
+        className: "".concat(base, "-icon"),
+        style: {
+          pointerEvents: 'none'
+        }
+      }, _react.default.createElement("i", {
+        className: "".concat(_constants.OLT_NAMESPACE, "Icon"),
+        "data-icon": icon
+      })));
+    }
+  }]);
+  return TextField;
+}(_react.PureComponent);
 
 exports.TextField = TextField;
-(0, _defineProperty2.default)(TextField, 'propTypes', {
+(0, _defineProperty2.default)(TextField, "propTypes", {
   className: _propTypes.string,
   defaultValue: _propTypes.string,
   disabled: _propTypes.bool,
@@ -342,9 +196,9 @@ exports.TextField = TextField;
   autogrow: _propTypes.bool,
   noFooter: _propTypes.bool,
   placeholder: _propTypes.string,
-  style: (0, _propTypes.shape)({}),
+  style: (0, _propTypes.shape)({})
 });
-(0, _defineProperty2.default)(TextField, 'defaultProps', {
+(0, _defineProperty2.default)(TextField, "defaultProps", {
   className: null,
   defaultValue: undefined,
   disabled: false,
@@ -363,5 +217,5 @@ exports.TextField = TextField;
   autogrow: false,
   noFooter: false,
   placeholder: null,
-  style: null,
+  style: null
 });

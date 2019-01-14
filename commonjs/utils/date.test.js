@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
-var _date = require('./date');
+var _date = require("./date");
 
-test('Test date formater', function() {
+test('Test date formater', function () {
   // by string
   var value = '2018-10-25T14:03:28.952Z';
   expect((0, _date.date)(value).toString()).toBe('25.10.2018'); // default string t

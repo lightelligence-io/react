@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.OLT_NAMESPACE = exports.SNACKBAR_TIMEOUT_SHORT = exports.SNACKBAR_TIMEOUT_NORMAL = exports.KEY_CODE_BACKSPACE = exports.KEY_CODE_ENTER = exports.KEY_CODE_SPACE = exports.PATTERN_TAG = exports.ELEMENT_SPAN = exports.ELEMENT_P = exports.ELEMENT_H6 = exports.ELEMENT_H5 = exports.ELEMENT_H4 = exports.ELEMENT_H3 = exports.ELEMENT_H2 = exports.ELEMENT_H1 = exports.FONT_SIZE_XXLARGE = exports.FONT_SIZE_XLARGE = exports.FONT_SIZE_LARGE = exports.FONT_SIZE_MEDIUM = exports.FONT_SIZE_SMALL = exports.FONT_SIZE_XSMALL = exports.FONT_SIZE_XXSMALL = exports.AVATAR_SIZE_LARGE = exports.AVATAR_SIZE_MEDIUM = exports.AVATAR_TYPE_TENANT = exports.AVATAR_TYPE_USER = exports.COLOR_BLACK = exports.COLOR_GRAY_900 = exports.COLOR_GRAY_800 = exports.COLOR_GRAY_700 = exports.COLOR_GRAY_600 = exports.COLOR_GRAY_500 = exports.COLOR_GRAY_400 = exports.COLOR_GRAY_300 = exports.COLOR_GRAY_200 = exports.COLOR_GRAY_100 = exports.COLOR_WHITE = exports.COLOR_SUCCESS = exports.COLOR_NOTIFY = exports.COLOR_ALERT = exports.COLOR_SECONDARY = exports.COLOR_PRIMARY = void 0;
 var COLOR_PRIMARY = 'primary';

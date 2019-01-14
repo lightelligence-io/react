@@ -18,6 +18,7 @@
     "transpile-es6": "babel src -d es6 --copy-files"
   },
   "dependencies": {
+    "@babel/runtime-corejs2": "^7.2.0",
     "@lightelligence/lightelligence-ui": "bitbucket:lightelligence/styleguide#0.1.1",
     "classnames": "^2.2.6",
     "humps": "^2.0.1",

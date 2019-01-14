@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.MODAL_TYPE_NONE = exports.MODAL_TYPE_INFO = exports.MODAL_TYPE_SUCCESS = exports.MODAL_TYPE_ERROR = void 0;
 var MODAL_TYPE_ERROR = 'error';
