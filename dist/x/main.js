@@ -9099,6 +9099,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+/* harmony import */ var _utils_isServerSideRendering__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../utils/isServerSideRendering */ "./src/utils/isServerSideRendering.js");
+
 
 
 
@@ -9161,12 +9163,16 @@ function (_Component) {
   _babel_runtime_corejs2_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(Dropdown, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      window.addEventListener('click', this.handleOffClick);
+      if (!Object(_utils_isServerSideRendering__WEBPACK_IMPORTED_MODULE_13__["isServerSideRendering"])()) {
+        window.addEventListener('click', this.handleOffClick);
+      }
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      window.removeEventListener('click', this.handleOffClick);
+      if (!Object(_utils_isServerSideRendering__WEBPACK_IMPORTED_MODULE_13__["isServerSideRendering"])()) {
+        window.removeEventListener('click', this.handleOffClick);
+      }
     }
   }, {
     key: "render",
@@ -9963,7 +9969,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+/* harmony import */ var _utils_isServerSideRendering__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utils/isServerSideRendering */ "./src/utils/isServerSideRendering.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../constants */ "./src/constants.js");
+
 
 
 
@@ -10027,12 +10035,16 @@ function (_Component) {
   _babel_runtime_corejs2_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(Navbar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      window.addEventListener('click', this.handleOffClick);
+      if (!Object(_utils_isServerSideRendering__WEBPACK_IMPORTED_MODULE_12__["isServerSideRendering"])()) {
+        window.addEventListener('click', this.handleOffClick);
+      }
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      window.removeEventListener('click', this.handleOffClick);
+      if (!Object(_utils_isServerSideRendering__WEBPACK_IMPORTED_MODULE_12__["isServerSideRendering"])()) {
+        window.removeEventListener('click', this.handleOffClick);
+      }
     }
   }, {
     key: "render",
@@ -10047,7 +10059,7 @@ function (_Component) {
           props = _babel_runtime_corejs2_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_this$props, ["children", "className", "title", "home", "color", "outline"]);
 
       var open = this.state.open;
-      var base = "".concat(_constants__WEBPACK_IMPORTED_MODULE_12__["OLT_NAMESPACE"], "Navbar");
+      var base = "".concat(_constants__WEBPACK_IMPORTED_MODULE_13__["OLT_NAMESPACE"], "Navbar");
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("nav", _babel_runtime_corejs2_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
         ref: this.navbarRef
       }, props, {
@@ -13743,6 +13755,26 @@ var headlineTypeProp = Object(prop_types__WEBPACK_IMPORTED_MODULE_0__["oneOf"])(
 var copyTextTypeProp = Object(prop_types__WEBPACK_IMPORTED_MODULE_0__["oneOf"])([_constants__WEBPACK_IMPORTED_MODULE_1__["ELEMENT_P"], _constants__WEBPACK_IMPORTED_MODULE_1__["ELEMENT_SPAN"]]);
 var copyTextSizeProp = Object(prop_types__WEBPACK_IMPORTED_MODULE_0__["oneOf"])([_constants__WEBPACK_IMPORTED_MODULE_1__["FONT_SIZE_XXSMALL"], _constants__WEBPACK_IMPORTED_MODULE_1__["FONT_SIZE_XSMALL"], _constants__WEBPACK_IMPORTED_MODULE_1__["FONT_SIZE_SMALL"], _constants__WEBPACK_IMPORTED_MODULE_1__["FONT_SIZE_MEDIUM"], _constants__WEBPACK_IMPORTED_MODULE_1__["FONT_SIZE_LARGE"], _constants__WEBPACK_IMPORTED_MODULE_1__["FONT_SIZE_XLARGE"], _constants__WEBPACK_IMPORTED_MODULE_1__["FONT_SIZE_XXLARGE"]]);
 
+
+/***/ }),
+
+/***/ "./src/utils/isServerSideRendering.js":
+/*!********************************************!*\
+  !*** ./src/utils/isServerSideRendering.js ***!
+  \********************************************/
+/*! exports provided: isServerSideRendering */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isServerSideRendering", function() { return isServerSideRendering; });
+var isServerSideRendering = function () {
+  try {
+    return !(document !== undefined);
+  } catch (e) {
+    return true;
+  }
+}();
 
 /***/ }),
 
