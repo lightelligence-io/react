@@ -7,14 +7,15 @@
   "scripts": {
     "start": "styleguidist server",
     "build:styleguide": "styleguidist build",
-    "build": "rm -rf dist && webpack --config webpack.config.js && npm run transpile-esm",
+    "build": "rm -rf dist && webpack --config webpack.config.js && npm run transpile-esm && npm run transpile-cjs",
     "build:inc": "rm -rf dist && webpack --config webpack.config.js",
     "pretest": "npm run lint",
     "test": "node scripts/test.js --env=jsdom --coverage",
     "test:watch": "node scripts/test.js --env=jsdom",
     "lint": "eslint src/",
     "lint:fix": "eslint --fix src/ && prettier --write src/**/*.js",
-    "transpile-esm": "babel src -d dist/esm --copy-files"
+    "transpile-esm": "BABEL_ENV=esm babel src -d dist/esm --copy-files",
+    "transpile-cjs": "BABEL_ENV=cjs babel src -d dist/cjs --copy-files "
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.2.0",
