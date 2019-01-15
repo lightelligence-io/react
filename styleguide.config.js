@@ -1,5 +1,5 @@
 const path = require('path');
-const webpackConfig = require('./config/webpack.config.dev.js');
+const webpackConfig = require('./webpack.styleguide.config.js');
 
 module.exports = {
   serverPort: 5050,

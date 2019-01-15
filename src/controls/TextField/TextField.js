@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import uniqid from 'uniqid';
 
 import { OLT_NAMESPACE } from '../../constants';
-import * as styles from './TextField.scss';
 
 class TextField extends PureComponent {
   static propTypes = {
@@ -81,8 +80,8 @@ class TextField extends PureComponent {
     const tf = this.inputRef.current;
     const { style } = tf;
     // reset height and measure scrollHeight
-    style.cssText = 'height:auto;';
-    style.cssText = `height:${tf.scrollHeight}px`;
+    style.cssText = 'overflow:hidden; height:auto;';
+    style.cssText = `overflow:hidden; height:${tf.scrollHeight}px`;
   };
 
   render() {
@@ -127,8 +126,14 @@ class TextField extends PureComponent {
       `${OLT_NAMESPACE}Input ${base}-input`,
       errorMessage && 'is-error',
       hasFloatingLabel && value && 'has-value',
-      autogrow && styles.autogrow,
     );
+
+    const elementStyles = autogrow
+      ? {
+          ...rest.style,
+          overflow: 'hidden',
+        }
+      : rest.style;
 
     const autogrowProps = autogrow ? { rows: '1' } : {};
     const showLabel = label && (floating || (!errorMessage && !infoText));
@@ -154,6 +159,7 @@ class TextField extends PureComponent {
       <div className={wrapperClasses} style={wrapperStyle}>
         {!floating && labelElement}
         <Element
+          style={elementStyles}
           className={elementClasses}
           defaultValue={defaultValue}
           disabled={disabled}
