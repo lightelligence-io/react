@@ -1,7 +1,6 @@
 const path = require('path');
-const fs = require('fs');
-const loaderUtils = require('loader-utils');
 
+// TODO get rid of this, but we currently need it for styleguidist, because of the scss dependency
 const styleLoaderStyleguide = {
   test: /\.scss$/,
   use: [
@@ -29,7 +28,7 @@ const baseConfig = (env, isStyleguide = false) => {
 
   return {
     entry: './src/index.js',
-    // Don't bundle react or react-dom
+    // don't bundle peer dependencies
     externals: {
       react: {
         commonjs: 'react',
@@ -106,7 +105,6 @@ const baseConfig = (env, isStyleguide = false) => {
                 options: {},
               },
             },
-
             ...styleLoader,
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
@@ -154,11 +152,6 @@ const configDev = {
   },
 };
 
-const configStyleguide = {
-  ...configDev,
-  ...baseConfig('development', true),
-};
-
 const configProd = {
   ...baseConfig('production'),
   mode: 'production',
@@ -170,6 +163,12 @@ const configProd = {
     libraryTarget: 'umd',
     // umdNamedDefine: true,
   },
+};
+
+// the styleguide needs some adjustments
+const configStyleguide = {
+  ...configDev,
+  ...baseConfig('development', true),
 };
 
 module.exports = {

@@ -22,12 +22,8 @@ module.exports = {
     path.join(__dirname, 'node_modules/normalize.css'),
     path.join(
       __dirname,
+      // TODO don't use scss here
       'node_modules/@lightelligence/lightelligence-ui/src/index.scss',
     ),
-    // path.join(__dirname, 'node_modules/lightelligence-ui/source/style/framework.scss'),
-    // 'material-design-icons-iconfont/dist/material-design-icons.css',
-    // path.join(__dirname, 'src/styleguide/index.scss'),
-    // 'material-design-icons-iconfont',
-    // path.join(__dirname, 'styleguide/style.scss'),
   ],
 };
