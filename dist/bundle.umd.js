@@ -4334,7 +4334,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         /*!******************************************!*\
   !*** ./src/components/Snackbar/index.js ***!
   \******************************************/
-        /*! exports provided: Snackbar */
+        /*! exports provided: Snackbar, SNACKBAR_TYPE_ERROR, SNACKBAR_TYPE_SUCCESS */
         /***/ function(module, __webpack_exports__, __webpack_require__) {
           'use strict';
           __webpack_require__.r(__webpack_exports__);
@@ -4346,6 +4346,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             'Snackbar',
             function() {
               return _Snackbar__WEBPACK_IMPORTED_MODULE_0__['Snackbar'];
+            },
+          );
+
+          /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+            /*! ./types */ './src/components/Snackbar/types.js',
+          );
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'SNACKBAR_TYPE_ERROR',
+            function() {
+              return _types__WEBPACK_IMPORTED_MODULE_1__['SNACKBAR_TYPE_ERROR'];
+            },
+          );
+
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'SNACKBAR_TYPE_SUCCESS',
+            function() {
+              return _types__WEBPACK_IMPORTED_MODULE_1__[
+                'SNACKBAR_TYPE_SUCCESS'
+              ];
             },
           );
 
@@ -9910,7 +9931,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-        /*! exports provided: Button, Icon, Modal, ModalContent, ModalFooter, COLOR_PRIMARY, COLOR_SECONDARY, COLOR_ALERT, COLOR_NOTIFY, COLOR_SUCCESS, COLOR_WHITE, COLOR_GRAY_100, COLOR_GRAY_200, COLOR_GRAY_300, COLOR_GRAY_400, COLOR_GRAY_500, COLOR_GRAY_600, COLOR_GRAY_700, COLOR_GRAY_800, COLOR_GRAY_900, COLOR_BLACK, AVATAR_TYPE_USER, AVATAR_TYPE_TENANT, AVATAR_SIZE_MEDIUM, AVATAR_SIZE_LARGE, FONT_SIZE_XXSMALL, FONT_SIZE_XSMALL, FONT_SIZE_SMALL, FONT_SIZE_MEDIUM, FONT_SIZE_LARGE, FONT_SIZE_XLARGE, FONT_SIZE_XXLARGE, ELEMENT_H1, ELEMENT_H2, ELEMENT_H3, ELEMENT_H4, ELEMENT_H5, ELEMENT_H6, ELEMENT_P, ELEMENT_SPAN, PATTERN_TAG, KEY_CODE_SPACE, KEY_CODE_ENTER, KEY_CODE_BACKSPACE, SNACKBAR_TIMEOUT_NORMAL, SNACKBAR_TIMEOUT_SHORT, OLT_NAMESPACE, childrenProp, colorProp, headlineTypeProp, copyTextTypeProp, copyTextSizeProp, Avatar, Card, Divider, Dropdown, Menu, MenuItem, MODAL_TYPE_ERROR, MODAL_TYPE_SUCCESS, MODAL_TYPE_INFO, MODAL_TYPE_NONE, Navbar, Snackbar, Stepper, ControlledStepper, Tabs, Tab, Tag, Tooltip, Table, TableCell, TableHead, Headline, List, ListItem, Paragraph, Image, Link, Checkbox, Label, RadioButton, Select, SelectField, TextField, Container, Frame, Grid, GridItem */
+        /*! exports provided: Button, Icon, Modal, ModalContent, ModalFooter, COLOR_PRIMARY, COLOR_SECONDARY, COLOR_ALERT, COLOR_NOTIFY, COLOR_SUCCESS, COLOR_WHITE, COLOR_GRAY_100, COLOR_GRAY_200, COLOR_GRAY_300, COLOR_GRAY_400, COLOR_GRAY_500, COLOR_GRAY_600, COLOR_GRAY_700, COLOR_GRAY_800, COLOR_GRAY_900, COLOR_BLACK, AVATAR_TYPE_USER, AVATAR_TYPE_TENANT, AVATAR_SIZE_MEDIUM, AVATAR_SIZE_LARGE, FONT_SIZE_XXSMALL, FONT_SIZE_XSMALL, FONT_SIZE_SMALL, FONT_SIZE_MEDIUM, FONT_SIZE_LARGE, FONT_SIZE_XLARGE, FONT_SIZE_XXLARGE, ELEMENT_H1, ELEMENT_H2, ELEMENT_H3, ELEMENT_H4, ELEMENT_H5, ELEMENT_H6, ELEMENT_P, ELEMENT_SPAN, PATTERN_TAG, KEY_CODE_SPACE, KEY_CODE_ENTER, KEY_CODE_BACKSPACE, SNACKBAR_TIMEOUT_NORMAL, SNACKBAR_TIMEOUT_SHORT, OLT_NAMESPACE, childrenProp, colorProp, headlineTypeProp, copyTextTypeProp, copyTextSizeProp, Avatar, Card, Divider, Dropdown, Menu, MenuItem, MODAL_TYPE_ERROR, MODAL_TYPE_SUCCESS, MODAL_TYPE_INFO, MODAL_TYPE_NONE, Navbar, Snackbar, SNACKBAR_TYPE_ERROR, SNACKBAR_TYPE_SUCCESS, Stepper, ControlledStepper, Tabs, Tab, Tag, Tooltip, Table, TableCell, TableHead, Headline, List, ListItem, Paragraph, Image, Link, Checkbox, Label, RadioButton, Select, SelectField, TextField, Container, Frame, Grid, GridItem */
         /***/ function(module, __webpack_exports__, __webpack_require__) {
           'use strict';
           __webpack_require__.r(__webpack_exports__);
@@ -10089,6 +10110,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             function() {
               return _components_Snackbar__WEBPACK_IMPORTED_MODULE_8__[
                 'Snackbar'
+              ];
+            },
+          );
+
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'SNACKBAR_TYPE_ERROR',
+            function() {
+              return _components_Snackbar__WEBPACK_IMPORTED_MODULE_8__[
+                'SNACKBAR_TYPE_ERROR'
+              ];
+            },
+          );
+
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'SNACKBAR_TYPE_SUCCESS',
+            function() {
+              return _components_Snackbar__WEBPACK_IMPORTED_MODULE_8__[
+                'SNACKBAR_TYPE_SUCCESS'
               ];
             },
           );
