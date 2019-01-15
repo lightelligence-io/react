@@ -7,8 +7,28 @@ import { string, arrayOf, shape, bool } from 'prop-types';
 import classnames from 'classnames';
 import { OLT_NAMESPACE } from '../../constants';
 import { Label } from '../Label';
-import { Select } from '../Select/Select';
-import * as styles from './SelectField.scss';
+import { Select } from '../Select/Select'; // TODO move the following styles to the styleguide?
+// TODO check if we need an autoprefixer here
+
+const labelStyle = {
+  color: 'initial',
+  lineHeight: '1',
+  height: '0.8rem',
+};
+const footerStyle = {
+  textAlign: 'left',
+  display: 'flex',
+  justifyContent: 'space-between',
+  fontSize: '0.8rem',
+  // TODO use css-variable this was $font-size-small
+  height: '1.35rem',
+  // TODO use css-variable this was $line-height-small;
+  marginTop: '0.25rem', // TODO use css-variable this was map-get($spacers, 1);
+};
+const messageStyle = {
+  textAlign: 'left',
+  fontSize: '0.8rem', // TODO use css-variable this was $font-size-small
+};
 
 class SelectField extends PureComponent {
   render() {
@@ -38,12 +58,14 @@ class SelectField extends PureComponent {
     return React.createElement(
       'div',
       {
-        className: `${OLT_NAMESPACE}SelectField ${styles.selectField}`,
+        className: `${OLT_NAMESPACE}SelectField`,
       },
       label &&
         React.createElement(
           Label,
-          null,
+          {
+            style: labelStyle,
+          },
           label,
           required && !readOnly ? '*' : null,
         ),
@@ -65,13 +87,14 @@ class SelectField extends PureComponent {
       React.createElement(
         'span',
         {
-          className: styles.footer,
+          style: footerStyle,
         },
         errorMessage &&
           React.createElement(
             'span',
             {
-              className: `${styles.message} ${OLT_NAMESPACE}u-textError`,
+              style: messageStyle,
+              className: `${OLT_NAMESPACE}u-textError`,
             },
             errorMessage,
           ),

@@ -37,13 +37,13 @@ export class Dropdown extends Component {
   }
 
   componentDidMount() {
-    if (!isServerSideRendering()) {
+    if (!isServerSideRendering) {
       window.addEventListener('click', this.handleOffClick);
     }
   }
 
   componentWillUnmount() {
-    if (!isServerSideRendering()) {
+    if (!isServerSideRendering) {
       window.removeEventListener('click', this.handleOffClick);
     }
   }
