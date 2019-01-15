@@ -1,21 +1,20 @@
 {
   "name": "@lightelligence/lightelligence-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "main": "dist/bundle.umd.js",
-  "module": "es6/index.js",
+  "module": "dist/esm/index.js",
   "scripts": {
     "start": "styleguidist server",
     "build:styleguide": "styleguidist build",
-    "build": "rm -rf dist && webpack --config webpack.config.js",
+    "build": "rm -rf dist && webpack --config webpack.config.js && npm run transpile-esm",
     "build:inc": "rm -rf dist && webpack --config webpack.config.js",
     "pretest": "npm run lint",
     "test": "node scripts/test.js --env=jsdom --coverage",
     "test:watch": "node scripts/test.js --env=jsdom",
     "lint": "eslint src/",
     "lint:fix": "eslint --fix src/ && prettier --write src/**/*.js",
-    "transpile-commonjs": "babel src -d commonjs --copy-files --presets @babel/preset-env",
-    "transpile-es6": "babel src -d es6 --copy-files"
+    "transpile-esm": "babel src -d dist/esm --copy-files"
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.2.0",
@@ -128,9 +127,6 @@
       "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web"
-    },
     "moduleFileExtensions": [
       "web.js",
       "js",

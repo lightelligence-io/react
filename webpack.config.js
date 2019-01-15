@@ -47,6 +47,20 @@ const baseConfig = (env) => ({
           options: {
             presets: ['@babel/preset-env'],
             sourceMaps: true,
+            plugins: [
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-transform-react-jsx',
+              '@babel/plugin-proposal-object-rest-spread',
+              [
+                '@babel/plugin-transform-runtime',
+                {
+                  corejs: false,
+                  helpers: true,
+                  regenerator: true,
+                  useESModules: false,
+                },
+              ],
+            ],
           },
         },
       },
