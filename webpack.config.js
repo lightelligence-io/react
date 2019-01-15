@@ -4,8 +4,32 @@ const loaderUtils = require('loader-utils');
 
 const baseConfig = (env) => ({
   entry: './src/index.js',
+  // Don't bundle react or react-dom
   externals: {
-    react: 'commonjs react', // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React',
+    },
+    'react-router-dom': {
+      commonjs: 'react-router-dom',
+      commonjs2: 'react-router-dom',
+      amd: 'ReactRouterDOM',
+      root: 'ReactRouterDOM',
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'ReactDOM',
+      root: 'ReactDOM',
+    },
+    'prop-types': {
+      commonjs: 'prop-types',
+      commonjs2: 'prop-types',
+      amd: 'PropTypes',
+      root: 'PropTypes',
+    },
   },
   module: {
     rules: [
@@ -113,14 +137,7 @@ const baseConfig = (env) => ({
               {
                 loader: require.resolve('sass-loader'),
                 options: {
-                  includePaths: [
-                    path.join(__dirname, 'node_modules'),
-                    path.join(__dirname, 'node_modules/@material/*'),
-                    path.join(
-                      __dirname,
-                      'node_modules/@lightelligence/lightelligence-ui/node_modules',
-                    ),
-                  ],
+                  includePaths: [path.join(__dirname, 'node_modules')],
                 },
               },
             ],
@@ -164,52 +181,31 @@ const outputCommon = {
   path: path.resolve(__dirname, 'dist'),
 };
 
-const nodeConfigDev = {
-  ...baseConfig('development'),
-  devtool: 'source-map',
-  mode: 'development',
-  target: 'node',
-  output: {
-    ...outputCommon,
-    filename: 'bundle.node.js',
-  },
-};
-
-const nodeConfigProd = {
-  ...baseConfig('production'),
-  mode: 'production',
-  target: 'node',
-  output: {
-    ...outputCommon,
-    filename: 'bundle.node.min.js',
-  },
-};
-
-const webConfigDev = {
+const configDev = {
   ...baseConfig('development'),
   devtool: 'source-map',
   mode: 'development',
   target: 'web',
   output: {
     ...outputCommon,
-    filename: 'bundle.web.js',
+    filename: 'bundle.umd.js',
     library: 'lightelligence-react',
     libraryTarget: 'umd',
     // umdNamedDefine: true,
   },
 };
 
-const webConfigProd = {
+const configProd = {
   ...baseConfig('production'),
   mode: 'production',
   target: 'web',
   output: {
     ...outputCommon,
-    filename: 'bundle.web.min.js',
+    filename: 'bundle.umd.min.js',
     library: 'lightelligence-react',
     libraryTarget: 'umd',
     // umdNamedDefine: true,
   },
 };
 
-module.exports = [nodeConfigDev, nodeConfigProd, webConfigDev, webConfigProd];
+module.exports = [configDev, configProd];
