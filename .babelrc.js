@@ -1,5 +1,4 @@
 const env = process.env.BABEL_ENV;
-console.log(env);
 
 const runtimeOptions =
   env === 'esm' ? { useEsModules: true } : { useEsModules: false };
