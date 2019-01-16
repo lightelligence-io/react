@@ -7303,63 +7303,113 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
             _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__,
           );
-          /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+            /*! @babel/runtime/helpers/objectSpread */ './node_modules/@babel/runtime/helpers/objectSpread.js',
+          );
+          /* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+            _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__,
+          );
+          /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
             /*! @babel/runtime/helpers/objectWithoutProperties */ './node_modules/@babel/runtime/helpers/objectWithoutProperties.js',
           );
-          /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
-            _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__,
+          /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+            _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__,
           );
-          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
             /*! react */ 'react',
           );
-          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_2__,
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_3__,
           );
-          /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
             /*! classnames */ './node_modules/classnames/index.js',
           );
-          /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(
-            classnames__WEBPACK_IMPORTED_MODULE_3__,
+          /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/ __webpack_require__.n(
+            classnames__WEBPACK_IMPORTED_MODULE_4__,
           );
-          /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+          /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
             /*! prop-types */ 'prop-types',
           );
-          /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/ __webpack_require__.n(
-            prop_types__WEBPACK_IMPORTED_MODULE_4__,
+          /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/ __webpack_require__.n(
+            prop_types__WEBPACK_IMPORTED_MODULE_5__,
           );
-          /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+          /* harmony import */ var humps__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+            /*! humps */ './node_modules/humps/humps.js',
+          );
+          /* harmony import */ var humps__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/ __webpack_require__.n(
+            humps__WEBPACK_IMPORTED_MODULE_6__,
+          );
+          /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
             /*! ../../constants */ './src/constants.js',
+          );
+          /* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+            /*! ../../propTypes */ './src/propTypes.js',
           );
 
           var Paragraph = function Paragraph(_ref) {
             var className = _ref.className,
-              props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(
+              element = _ref.element,
+              style = _ref.style,
+              size = _ref.size,
+              props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2___default()(
                 _ref,
-                ['className'],
+                ['className', 'element', 'style', 'size'],
               );
 
-            return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(
-              'p',
+            var Component = element;
+
+            var elemStyle = _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()(
+              {},
+              style,
+              {
+                // TODO: move this to the styleguide (modifier or default?)
+                wordBreak: 'break-all',
+                // TODO: Don't overwrite styleguide margins here, but it's currently used with these values in the portal and marketing site.
+                // In the styleguide we use margin-bottom = 1rem and also have a last-child rule. We have to adjust this
+                // either here or in the styleguide.
+                margin: '0 0 0.5rem',
+              },
+            );
+
+            var classes = classnames__WEBPACK_IMPORTED_MODULE_4___default()(
+              ''.concat(
+                _constants__WEBPACK_IMPORTED_MODULE_7__['OLT_NAMESPACE'],
+                'Paragraph',
+              ),
+              ''
+                .concat(
+                  _constants__WEBPACK_IMPORTED_MODULE_7__['OLT_NAMESPACE'],
+                  'u-fontSize',
+                )
+                .concat(
+                  Object(humps__WEBPACK_IMPORTED_MODULE_6__['pascalize'])(size),
+                ),
+              className,
+            );
+            return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(
+              Component,
               _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()(
                 {},
                 props,
                 {
-                  className: classnames__WEBPACK_IMPORTED_MODULE_3___default()(
-                    ''.concat(
-                      _constants__WEBPACK_IMPORTED_MODULE_5__['OLT_NAMESPACE'],
-                      'Paragraph',
-                    ),
-                    className,
-                  ),
+                  style: elemStyle,
+                  className: classes,
                 },
               ),
             );
           };
           Paragraph.propTypes = {
-            className: prop_types__WEBPACK_IMPORTED_MODULE_4__['string'],
+            className: prop_types__WEBPACK_IMPORTED_MODULE_5__['string'],
+            element:
+              _propTypes__WEBPACK_IMPORTED_MODULE_8__['copyTextTypeProp'],
+            size: _propTypes__WEBPACK_IMPORTED_MODULE_8__['copyTextSizeProp'],
+            style: Object(prop_types__WEBPACK_IMPORTED_MODULE_5__['shape'])({}),
           };
           Paragraph.defaultProps = {
             className: null,
+            element: 'p',
+            size: _constants__WEBPACK_IMPORTED_MODULE_7__['FONT_SIZE_SMALL'],
+            style: null,
           };
 
           /***/
