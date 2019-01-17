@@ -4911,6 +4911,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     value: function getDerivedStateFromProps(_ref, state) {
                       var currentStepIdx = _ref.currentStepIdx;
 
+                      // eslint-disable-line react/prop-types
                       if (currentStepIdx) {
                         return {
                           currentStepIdx: currentStepIdx,
@@ -4925,12 +4926,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
               return Stepper;
             })(react__WEBPACK_IMPORTED_MODULE_8__['PureComponent']);
-          Stepper.propTypes = {
-            currentStepIdx: prop_types__WEBPACK_IMPORTED_MODULE_9__['number'],
-          };
-          Stepper.defaultProps = {
-            currentStepIdx: null,
-          };
 
           /***/
         },

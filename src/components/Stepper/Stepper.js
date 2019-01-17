@@ -5,6 +5,7 @@ import { ControlledStepper } from './ControlledStepper';
 
 export class Stepper extends PureComponent {
   static getDerivedStateFromProps({ currentStepIdx }, state) {
+    // eslint-disable-line react/prop-types
     if (currentStepIdx) {
       return {
         currentStepIdx,
@@ -32,11 +33,3 @@ export class Stepper extends PureComponent {
     );
   }
 }
-
-Stepper.propTypes = {
-  currentStepIdx: number,
-};
-
-Stepper.defaultProps = {
-  currentStepIdx: null,
-};
