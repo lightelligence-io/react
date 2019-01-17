@@ -1,4 +1,5 @@
 import _extends from '@babel/runtime/helpers/extends';
+import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
 import _defineProperty from '@babel/runtime/helpers/defineProperty';
 import React, { PureComponent } from 'react';
 import { number } from 'prop-types';
@@ -19,7 +20,6 @@ export class Stepper extends PureComponent {
   }
 
   static getDerivedStateFromProps({ currentStepIdx }, state) {
-    // eslint-disable-line react/prop-types
     if (currentStepIdx) {
       return {
         currentStepIdx,
@@ -30,16 +30,26 @@ export class Stepper extends PureComponent {
   }
 
   render() {
-    const { currentStepIdx } = this.state;
+    const _this$props = this.props,
+      { currentStepIdx } = _this$props,
+      props = _objectWithoutProperties(_this$props, ['currentStepIdx']);
+
+    const { currentStepIdx: currentStepIdxState } = this.state;
     return React.createElement(
       ControlledStepper,
       _extends(
         {
-          currentStepIdx: currentStepIdx,
+          currentStepIdx: currentStepIdxState,
           onChange: this.change,
         },
-        this.props,
+        props,
       ),
     );
   }
 }
+Stepper.propTypes = {
+  currentStepIdx: number,
+};
+Stepper.defaultProps = {
+  currentStepIdx: null,
+};

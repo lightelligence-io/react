@@ -4763,68 +4763,74 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
             _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__,
           );
-          /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+          /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+            /*! @babel/runtime/helpers/objectWithoutProperties */ './node_modules/@babel/runtime/helpers/objectWithoutProperties.js',
+          );
+          /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
+            _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__,
+          );
+          /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
             /*! @babel/runtime/helpers/classCallCheck */ './node_modules/@babel/runtime/helpers/classCallCheck.js',
           );
-          /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
-            _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__,
+          /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
+            _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__,
           );
-          /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+          /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
             /*! @babel/runtime/helpers/createClass */ './node_modules/@babel/runtime/helpers/createClass.js',
           );
-          /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(
-            _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__,
+          /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(
+            _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__,
           );
-          /* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+          /* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
             /*! @babel/runtime/helpers/possibleConstructorReturn */ './node_modules/@babel/runtime/helpers/possibleConstructorReturn.js',
           );
-          /* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(
-            _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__,
+          /* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/ __webpack_require__.n(
+            _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__,
           );
-          /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+          /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
             /*! @babel/runtime/helpers/getPrototypeOf */ './node_modules/@babel/runtime/helpers/getPrototypeOf.js',
           );
-          /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/ __webpack_require__.n(
-            _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__,
+          /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/ __webpack_require__.n(
+            _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__,
           );
-          /* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+          /* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
             /*! @babel/runtime/helpers/inherits */ './node_modules/@babel/runtime/helpers/inherits.js',
           );
-          /* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/ __webpack_require__.n(
-            _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5__,
+          /* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/ __webpack_require__.n(
+            _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__,
           );
-          /* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+          /* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
             /*! @babel/runtime/helpers/assertThisInitialized */ './node_modules/@babel/runtime/helpers/assertThisInitialized.js',
           );
-          /* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/ __webpack_require__.n(
-            _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__,
+          /* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/ __webpack_require__.n(
+            _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7__,
           );
-          /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+          /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
             /*! @babel/runtime/helpers/defineProperty */ './node_modules/@babel/runtime/helpers/defineProperty.js',
           );
-          /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/ __webpack_require__.n(
-            _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__,
+          /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/ __webpack_require__.n(
+            _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8__,
           );
-          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
             /*! react */ 'react',
           );
-          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_8__,
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_9__,
           );
-          /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+          /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
             /*! prop-types */ 'prop-types',
           );
-          /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/ __webpack_require__.n(
-            prop_types__WEBPACK_IMPORTED_MODULE_9__,
+          /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/ __webpack_require__.n(
+            prop_types__WEBPACK_IMPORTED_MODULE_10__,
           );
-          /* harmony import */ var _ControlledStepper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+          /* harmony import */ var _ControlledStepper__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
             /*! ./ControlledStepper */ './src/components/Stepper/ControlledStepper.js',
           );
 
           var Stepper =
             /*#__PURE__*/
             (function(_PureComponent) {
-              _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5___default()(
+              _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6___default()(
                 Stepper,
                 _PureComponent,
               );
@@ -4834,7 +4840,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
                 var _this;
 
-                _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(
+                _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default()(
                   this,
                   Stepper,
                 );
@@ -4847,16 +4853,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                   args[_key] = arguments[_key];
                 }
 
-                _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(
+                _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(
                   this,
-                  (_getPrototypeOf2 = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(
+                  (_getPrototypeOf2 = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(
                     Stepper,
                   )).call.apply(_getPrototypeOf2, [this].concat(args)),
                 );
 
-                _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(
-                  _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6___default()(
-                    _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6___default()(
+                _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default()(
+                  _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7___default()(
+                    _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7___default()(
                       _this,
                     ),
                   ),
@@ -4866,9 +4872,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                   },
                 );
 
-                _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(
-                  _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6___default()(
-                    _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6___default()(
+                _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default()(
+                  _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7___default()(
+                    _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_7___default()(
                       _this,
                     ),
                   ),
@@ -4883,23 +4889,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 return _this;
               }
 
-              _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(
+              _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(
                 Stepper,
                 [
                   {
                     key: 'render',
                     value: function render() {
-                      var currentStepIdx = this.state.currentStepIdx;
-                      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(
-                        _ControlledStepper__WEBPACK_IMPORTED_MODULE_10__[
+                      var _this$props = this.props,
+                        currentStepIdx = _this$props.currentStepIdx,
+                        props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(
+                          _this$props,
+                          ['currentStepIdx'],
+                        );
+
+                      var currentStepIdxState = this.state.currentStepIdx;
+                      return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(
+                        _ControlledStepper__WEBPACK_IMPORTED_MODULE_11__[
                           'ControlledStepper'
                         ],
                         _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()(
                           {
-                            currentStepIdx: currentStepIdx,
+                            currentStepIdx: currentStepIdxState,
                             onChange: this.change,
                           },
-                          this.props,
+                          props,
                         ),
                       );
                     },
@@ -4911,7 +4924,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     value: function getDerivedStateFromProps(_ref, state) {
                       var currentStepIdx = _ref.currentStepIdx;
 
-                      // eslint-disable-line react/prop-types
                       if (currentStepIdx) {
                         return {
                           currentStepIdx: currentStepIdx,
@@ -4925,7 +4937,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
               );
 
               return Stepper;
-            })(react__WEBPACK_IMPORTED_MODULE_8__['PureComponent']);
+            })(react__WEBPACK_IMPORTED_MODULE_9__['PureComponent']);
+          Stepper.propTypes = {
+            currentStepIdx: prop_types__WEBPACK_IMPORTED_MODULE_10__['number'],
+          };
+          Stepper.defaultProps = {
+            currentStepIdx: null,
+          };
 
           /***/
         },
