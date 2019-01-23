@@ -71,7 +71,7 @@ export class Navbar extends Component {
     return React.createElement("nav", _extends({
       ref: this.navbarRef
     }, props, {
-      className: classnames(base, `${base}--${color}`, outline && `${base}--outline`, open && 'is-open')
+      className: classnames(base, `${base}--${color}`, outline && `${base}--outline`, open && 'is-open', className)
     }), React.createElement("button", {
       type: "button",
       className: `${base}-toggle`,

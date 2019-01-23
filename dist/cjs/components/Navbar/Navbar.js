@@ -109,7 +109,7 @@ function (_Component) {
       return _react.default.createElement("nav", (0, _extends2.default)({
         ref: this.navbarRef
       }, props, {
-        className: (0, _classnames.default)(base, "".concat(base, "--").concat(color), outline && "".concat(base, "--outline"), open && 'is-open')
+        className: (0, _classnames.default)(base, "".concat(base, "--").concat(color), outline && "".concat(base, "--outline"), open && 'is-open', className)
       }), _react.default.createElement("button", {
         type: "button",
         className: "".concat(base, "-toggle"),
