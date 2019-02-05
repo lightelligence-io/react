@@ -20,7 +20,6 @@ function pad(value) {
  *  date('2018-10-25T14:03:28.952Z').longFormat => '25.10.2018 14:03'
  */
 
-
 function date(value) {
   const dateObject = new Date(value);
   const isValid = dateObject instanceof Date && !isNaN(dateObject);
@@ -30,10 +29,7 @@ function date(value) {
     isValid,
 
     get longFormat() {
-      const {
-        dateFormat,
-        timeFormat
-      } = this;
+      const { dateFormat, timeFormat } = this;
       return [dateFormat, timeFormat].join(' ');
     },
 
@@ -49,7 +45,11 @@ function date(value) {
 
     get dateFormat() {
       if (isValid) {
-        return [dateObject.getDate(), dateObject.getMonth() + 1, dateObject.getFullYear()].join('.');
+        return [
+          dateObject.getDate(),
+          dateObject.getMonth() + 1,
+          dateObject.getFullYear(),
+        ].join('.');
       }
 
       return '';
@@ -57,8 +57,7 @@ function date(value) {
 
     toString() {
       return this.dateFormat;
-    }
-
+    },
   };
 }
 

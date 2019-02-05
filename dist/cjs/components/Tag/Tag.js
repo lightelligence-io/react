@@ -1,110 +1,83 @@
-"use strict";
-
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Tag = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _propTypes = require("prop-types");
-
-var _constants = require("../../constants");
-
-// import { colorProp, childrenProp } from '../../propTypes';
+import _extends from '@babel/runtime/helpers/extends';
+import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
+import _defineProperty from '@babel/runtime/helpers/defineProperty';
+import React, { PureComponent } from 'react';
+import classnames from 'classnames';
+import { bool, func, string, node } from 'prop-types'; // import { colorProp, childrenProp } from '../../propTypes';
 // replaced with string & node, otherwise we need to maintain the prop types
 // definition, which doesn't add a lot of benefits
-var Tag =
-/*#__PURE__*/
-function (_PureComponent) {
-  (0, _inherits2.default)(Tag, _PureComponent);
 
-  function Tag() {
-    var _getPrototypeOf2;
+import { OLT_NAMESPACE } from '../../constants';
 
-    var _this;
+class Tag extends PureComponent {
+  constructor(...args) {
+    super(...args);
 
-    (0, _classCallCheck2.default)(this, Tag);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Tag)).call.apply(_getPrototypeOf2, [this].concat(args)));
-    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "handleClick", function (e) {
-      var _this$props = _this.props,
-          selectable = _this$props.selectable,
-          onClick = _this$props.onClick;
+    _defineProperty(this, 'handleClick', (e) => {
+      const { selectable, onClick } = this.props;
 
       if (selectable) {
         onClick(e);
       }
     });
-    return _this;
   }
 
-  (0, _createClass2.default)(Tag, [{
-    key: "render",
-    value: function render() {
-      var _this$props2 = this.props,
-          className = _this$props2.className,
-          children = _this$props2.children,
-          color = _this$props2.color,
-          outline = _this$props2.outline,
-          selectable = _this$props2.selectable,
-          onClick = _this$props2.onClick,
-          props = (0, _objectWithoutProperties2.default)(_this$props2, ["className", "children", "color", "outline", "selectable", "onClick"]);
-      var base = "".concat(_constants.OLT_NAMESPACE, "Tag");
-      var Element = selectable ? 'button' : 'span';
-      return _react.default.createElement(Element, (0, _extends2.default)({}, props, {
-        onClick: this.handleClick,
-        className: (0, _classnames.default)(base, onClick && "".concat(base, "--selectable"), outline && "".concat(base, "--outline"), color && "".concat(base, "--").concat(color), className)
-      }), children);
-    }
-  }]);
-  return Tag;
-}(_react.PureComponent);
+  render() {
+    const _this$props = this.props,
+      {
+        className,
+        children,
+        color,
+        outline,
+        selectable,
+        onClick,
+      } = _this$props,
+      props = _objectWithoutProperties(_this$props, [
+        'className',
+        'children',
+        'color',
+        'outline',
+        'selectable',
+        'onClick',
+      ]);
 
-exports.Tag = Tag;
-(0, _defineProperty2.default)(Tag, "propTypes", {
-  className: _propTypes.string,
-  color: _propTypes.string,
-  children: _propTypes.node,
-  outline: _propTypes.bool,
-  selectable: _propTypes.bool,
-  icon: _propTypes.node,
-  onClick: _propTypes.func
+    const base = `${OLT_NAMESPACE}Tag`;
+    const Element = selectable ? 'button' : 'span';
+    return React.createElement(
+      Element,
+      _extends({}, props, {
+        onClick: this.handleClick,
+        className: classnames(
+          base,
+          onClick && `${base}--selectable`,
+          outline && `${base}--outline`,
+          color && `${base}--${color}`,
+          className,
+        ),
+      }),
+      children,
+    );
+  }
+}
+
+_defineProperty(Tag, 'propTypes', {
+  className: string,
+  color: string,
+  children: node,
+  outline: bool,
+  selectable: bool,
+  icon: node,
+  onClick: func,
 });
-(0, _defineProperty2.default)(Tag, "defaultProps", {
+
+_defineProperty(Tag, 'defaultProps', {
   className: null,
   children: null,
   outline: false,
   selectable: false,
   icon: null,
   onClick: null,
-  color: null
+  color: null,
 });
+
+export { Tag };

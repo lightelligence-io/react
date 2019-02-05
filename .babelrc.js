@@ -1,9 +1,9 @@
 const env = process.env.BABEL_ENV;
 
 const runtimeOptions =
-  env === 'esm' ? { useESModules: true } : { useESModules: false };
+  env === 'esm' ? { useEsModules: true } : { useEsModules: false };
 
-const presets = [...(env == 'esm' ? [] : ['@babel/preset-env'])];
+const presets = [];
 const plugins = [
   '@babel/plugin-proposal-class-properties',
   '@babel/plugin-transform-react-jsx',

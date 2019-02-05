@@ -1,23 +1,23 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
-import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+import _extends from '@babel/runtime/helpers/extends';
+import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
+import _defineProperty from '@babel/runtime/helpers/defineProperty';
 import React, { PureComponent } from 'react';
 import { node, number, string, shape, oneOfType } from 'prop-types';
 import classnames from 'classnames';
 import { OLT_NAMESPACE } from '../../constants';
 
-const isFirstBreakpoint = breakpoint => breakpoint === 'xs';
+const isFirstBreakpoint = (breakpoint) => breakpoint === 'xs';
 
 class GridItem extends PureComponent {
   render() {
     const _this$props = this.props,
-          {
-      className,
-      children,
-      size,
-      offset
-    } = _this$props,
-          props = _objectWithoutProperties(_this$props, ["className", "children", "size", "offset"]);
+      { className, children, size, offset } = _this$props,
+      props = _objectWithoutProperties(_this$props, [
+        'className',
+        'children',
+        'size',
+        'offset',
+      ]);
 
     const classes = [`${OLT_NAMESPACE}Grid-item`]; // NOTE: This is using new props-API:
     // TODO: Make it a single line!
@@ -40,25 +40,31 @@ class GridItem extends PureComponent {
       classes.push(`${OLT_NAMESPACE}Grid-item--offset${offset}`);
     }
 
-    return React.createElement("div", _extends({
-      className: classnames(...classes, className)
-    }, props), children);
+    return React.createElement(
+      'div',
+      _extends(
+        {
+          className: classnames(...classes, className),
+        },
+        props,
+      ),
+      children,
+    );
   }
-
 }
 
-_defineProperty(GridItem, "propTypes", {
+_defineProperty(GridItem, 'propTypes', {
   children: node,
   className: string,
   size: oneOfType([number, string, shape({})]),
-  offset: oneOfType([number, string, shape({})])
+  offset: oneOfType([number, string, shape({})]),
 });
 
-_defineProperty(GridItem, "defaultProps", {
+_defineProperty(GridItem, 'defaultProps', {
   children: null,
   className: null,
   size: 'auto',
-  offset: ''
+  offset: '',
 });
 
 export { GridItem };

@@ -1,75 +1,50 @@
-"use strict";
+import _extends from '@babel/runtime/helpers/extends';
+import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
+import _defineProperty from '@babel/runtime/helpers/defineProperty';
+import React, { PureComponent } from 'react';
+import { string, bool, node } from 'prop-types';
+import classnames from 'classnames';
+import { OLT_NAMESPACE } from '../../constants';
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+class Grid extends PureComponent {
+  render() {
+    const _this$props = this.props,
+      { noPadding, children, className } = _this$props,
+      props = _objectWithoutProperties(_this$props, [
+        'noPadding',
+        'children',
+        'className',
+      ]);
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Grid = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _propTypes = require("prop-types");
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _constants = require("../../constants");
-
-var Grid =
-/*#__PURE__*/
-function (_PureComponent) {
-  (0, _inherits2.default)(Grid, _PureComponent);
-
-  function Grid() {
-    (0, _classCallCheck2.default)(this, Grid);
-    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Grid).apply(this, arguments));
-  }
-
-  (0, _createClass2.default)(Grid, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          noPadding = _this$props.noPadding,
-          children = _this$props.children,
-          className = _this$props.className,
-          props = (0, _objectWithoutProperties2.default)(_this$props, ["noPadding", "children", "className"]);
-      var classes = (0, _classnames.default)("".concat(_constants.OLT_NAMESPACE, "Grid"), noPadding && "".concat(_constants.OLT_NAMESPACE, "Grid--noPadding"), // NOTE: What about --gutterless?
+    const classes = classnames(
+      `${OLT_NAMESPACE}Grid`,
+      noPadding && `${OLT_NAMESPACE}Grid--noPadding`, // NOTE: What about --gutterless?
       // ...or maybe better: Provide list of gutters like spacings and modifiers like `--gutter{0-4}`.
-      className);
-      return _react.default.createElement("div", (0, _extends2.default)({
-        className: classes
-      }, props), children);
-    }
-  }]);
-  return Grid;
-}(_react.PureComponent);
+      className,
+    );
+    return React.createElement(
+      'div',
+      _extends(
+        {
+          className: classes,
+        },
+        props,
+      ),
+      children,
+    );
+  }
+}
 
-exports.Grid = Grid;
-(0, _defineProperty2.default)(Grid, "propTypes", {
-  noPadding: _propTypes.bool,
-  className: _propTypes.string,
-  children: _propTypes.node
+_defineProperty(Grid, 'propTypes', {
+  noPadding: bool,
+  className: string,
+  children: node,
 });
-(0, _defineProperty2.default)(Grid, "defaultProps", {
+
+_defineProperty(Grid, 'defaultProps', {
   noPadding: false,
   className: null,
-  children: null
+  children: null,
 });
+
+export { Grid };

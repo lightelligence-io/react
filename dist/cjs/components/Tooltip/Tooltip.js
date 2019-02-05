@@ -1,79 +1,57 @@
-"use strict";
+import _extends from '@babel/runtime/helpers/extends';
+import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
+import _defineProperty from '@babel/runtime/helpers/defineProperty';
+import React, { PureComponent } from 'react';
+import { string, element, bool } from 'prop-types';
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Tooltip = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _propTypes = require("prop-types");
-
-var Tooltip =
-/*#__PURE__*/
-function (_PureComponent) {
-  (0, _inherits2.default)(Tooltip, _PureComponent);
-
-  function Tooltip() {
-    (0, _classCallCheck2.default)(this, Tooltip);
-    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Tooltip).apply(this, arguments));
+class Tooltip extends PureComponent {
+  renderMessage() {
+    const { message, wide } = this.props;
+    return wide
+      ? React.createElement('p', null, message)
+      : React.createElement('span', null, message);
   }
 
-  (0, _createClass2.default)(Tooltip, [{
-    key: "renderMessage",
-    value: function renderMessage() {
-      var _this$props = this.props,
-          message = _this$props.message,
-          wide = _this$props.wide;
-      return wide ? _react.default.createElement("p", null, message) : _react.default.createElement("span", null, message);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props2 = this.props,
-          children = _this$props2.children,
-          wide = _this$props2.wide,
-          bottom = _this$props2.bottom,
-          props = (0, _objectWithoutProperties2.default)(_this$props2, ["children", "wide", "bottom"]);
-      var classes = bottom ? 'olt-Tooltip olt-Tooltip--bottom' : 'olt-Tooltip';
-      return _react.default.createElement("div", (0, _extends2.default)({
-        className: classes
-      }, props), children, _react.default.createElement("div", {
-        className: "olt-Tooltip-content"
-      }, this.renderMessage()));
-    }
-  }]);
-  return Tooltip;
-}(_react.PureComponent);
+  render() {
+    const _this$props = this.props,
+      { children, wide, bottom } = _this$props,
+      props = _objectWithoutProperties(_this$props, [
+        'children',
+        'wide',
+        'bottom',
+      ]);
 
-exports.Tooltip = Tooltip;
-(0, _defineProperty2.default)(Tooltip, "propTypes", {
-  message: _propTypes.string.isRequired,
-  children: _propTypes.element.isRequired,
-  wide: _propTypes.bool,
-  bottom: _propTypes.bool
+    const classes = bottom ? 'olt-Tooltip olt-Tooltip--bottom' : 'olt-Tooltip';
+    return React.createElement(
+      'div',
+      _extends(
+        {
+          className: classes,
+        },
+        props,
+      ),
+      children,
+      React.createElement(
+        'div',
+        {
+          className: 'olt-Tooltip-content',
+        },
+        this.renderMessage(),
+      ),
+    );
+  }
+}
+
+_defineProperty(Tooltip, 'propTypes', {
+  message: string.isRequired,
+  children: element.isRequired,
+  wide: bool,
+  bottom: bool,
 });
-(0, _defineProperty2.default)(Tooltip, "defaultProps", {
+
+_defineProperty(Tooltip, 'defaultProps', {
   wide: false,
-  bottom: false
+  bottom: false,
 });
+
+export { Tooltip };

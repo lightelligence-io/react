@@ -1,7 +1,7 @@
-import _extends from "@babel/runtime/helpers/esm/extends";
-import _objectSpread from "@babel/runtime/helpers/esm/objectSpread";
-import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
-import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+import _extends from '@babel/runtime/helpers/extends';
+import _objectSpread from '@babel/runtime/helpers/objectSpread';
+import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
+import _defineProperty from '@babel/runtime/helpers/defineProperty';
 import React, { PureComponent } from 'react';
 import { string, node, shape } from 'prop-types';
 import classnames from 'classnames';
@@ -9,31 +9,37 @@ import { OLT_NAMESPACE } from '../../constants';
 export class Label extends PureComponent {
   render() {
     const _this$props = this.props,
-          {
-      className,
+      { className, children, style } = _this$props,
+      props = _objectWithoutProperties(_this$props, [
+        'className',
+        'children',
+        'style',
+      ]);
+
+    return React.createElement(
+      'label',
+      _extends(
+        {
+          style: _objectSpread({}, style, {
+            display: 'block',
+          }),
+          className: classnames(`${OLT_NAMESPACE}Label`, className),
+        },
+        props,
+      ),
       children,
-      style
-    } = _this$props,
-          props = _objectWithoutProperties(_this$props, ["className", "children", "style"]);
-
-    return React.createElement("label", _extends({
-      style: _objectSpread({}, style, {
-        display: 'block'
-      }),
-      className: classnames(`${OLT_NAMESPACE}Label`, className)
-    }, props), children);
+    );
   }
-
 }
 
-_defineProperty(Label, "propTypes", {
+_defineProperty(Label, 'propTypes', {
   className: string,
   children: node,
-  style: shape({})
+  style: shape({}),
 });
 
-_defineProperty(Label, "defaultProps", {
+_defineProperty(Label, 'defaultProps', {
   className: null,
   children: null,
-  style: undefined
+  style: undefined,
 });

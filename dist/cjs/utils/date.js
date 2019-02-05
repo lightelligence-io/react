@@ -1,10 +1,3 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.date = date;
-
 /**
  * generate a two char value of numeric value
  *
@@ -27,25 +20,23 @@ function pad(value) {
  *  date('2018-10-25T14:03:28.952Z').longFormat => '25.10.2018 14:03'
  */
 
-
 function date(value) {
-  var dateObject = new Date(value);
-  var isValid = dateObject instanceof Date && !isNaN(dateObject);
+  const dateObject = new Date(value);
+  const isValid = dateObject instanceof Date && !isNaN(dateObject);
   return {
-    value: value,
-    dateObject: dateObject,
-    isValid: isValid,
+    value,
+    dateObject,
+    isValid,
 
     get longFormat() {
-      var dateFormat = this.dateFormat,
-          timeFormat = this.timeFormat;
+      const { dateFormat, timeFormat } = this;
       return [dateFormat, timeFormat].join(' ');
     },
 
     get timeFormat() {
       if (isValid) {
-        var hours = dateObject.getHours();
-        var timezone = dateObject.getTimezoneOffset() / 60;
+        const hours = dateObject.getHours();
+        const timezone = dateObject.getTimezoneOffset() / 60;
         return [hours + timezone, pad(dateObject.getMinutes())].join(':');
       }
 
@@ -54,14 +45,20 @@ function date(value) {
 
     get dateFormat() {
       if (isValid) {
-        return [dateObject.getDate(), dateObject.getMonth() + 1, dateObject.getFullYear()].join('.');
+        return [
+          dateObject.getDate(),
+          dateObject.getMonth() + 1,
+          dateObject.getFullYear(),
+        ].join('.');
       }
 
       return '';
     },
 
-    toString: function toString() {
+    toString() {
       return this.dateFormat;
-    }
+    },
   };
 }
+
+export { date };

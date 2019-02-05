@@ -1,94 +1,81 @@
-"use strict";
+import _extends from '@babel/runtime/helpers/extends';
+import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
+import _defineProperty from '@babel/runtime/helpers/defineProperty';
+import React, { PureComponent } from 'react';
+import { string, arrayOf, shape, bool } from 'prop-types';
+import classnames from 'classnames';
+import { OLT_NAMESPACE } from '../../constants';
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Select = void 0;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _propTypes = require("prop-types");
-
-var _classnames = _interopRequireDefault(require("classnames"));
-
-var _constants = require("../../constants");
-
-var Select =
-/*#__PURE__*/
-function (_PureComponent) {
-  (0, _inherits2.default)(Select, _PureComponent);
-
-  function Select() {
-    (0, _classCallCheck2.default)(this, Select);
-    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Select).apply(this, arguments));
+class Select extends PureComponent {
+  static renderOptions(options, value) {
+    return options.map((option) => {
+      const key = `${option.value}-${option.label}`;
+      return React.createElement(
+        'option',
+        {
+          value: option.value,
+          key: key,
+        },
+        option.label,
+      );
+    });
   }
 
-  (0, _createClass2.default)(Select, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          disabled = _this$props.disabled,
-          options = _this$props.options,
-          value = _this$props.value,
-          fullwidth = _this$props.fullwidth,
-          props = (0, _objectWithoutProperties2.default)(_this$props, ["className", "disabled", "options", "value", "fullwidth"]);
-      var base = "".concat(_constants.OLT_NAMESPACE, "Select");
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("select", (0, _extends2.default)({
-        value: value,
-        className: (0, _classnames.default)(base, fullwidth && "".concat(base, "--fullwidth"), disabled && "is-disabled", !value && 'is-placeholder', className),
-        disabled: disabled
-      }, props), Select.renderOptions(options, value)));
-    }
-  }], [{
-    key: "renderOptions",
-    value: function renderOptions(options, value) {
-      return options.map(function (option) {
-        var key = "".concat(option.value, "-").concat(option.label);
-        return _react.default.createElement("option", {
-          value: option.value,
-          key: key
-        }, option.label);
-      });
-    }
-  }]);
-  return Select;
-}(_react.PureComponent);
+  render() {
+    const _this$props = this.props,
+      { className, disabled, options, value, fullwidth } = _this$props,
+      props = _objectWithoutProperties(_this$props, [
+        'className',
+        'disabled',
+        'options',
+        'value',
+        'fullwidth',
+      ]);
 
-exports.Select = Select;
-(0, _defineProperty2.default)(Select, "propTypes", {
-  className: _propTypes.string,
-  value: _propTypes.string,
-  fullwidth: _propTypes.bool,
-  disabled: _propTypes.bool,
-  options: (0, _propTypes.arrayOf)((0, _propTypes.shape)({
-    label: _propTypes.string,
-    value: _propTypes.string
-  })).isRequired
+    const base = `${OLT_NAMESPACE}Select`;
+    return React.createElement(
+      React.Fragment,
+      null,
+      React.createElement(
+        'select',
+        _extends(
+          {
+            value: value,
+            className: classnames(
+              base,
+              fullwidth && `${base}--fullwidth`,
+              disabled && `is-disabled`,
+              !value && 'is-placeholder',
+              className,
+            ),
+            disabled: disabled,
+          },
+          props,
+        ),
+        Select.renderOptions(options, value),
+      ),
+    );
+  }
+}
+
+_defineProperty(Select, 'propTypes', {
+  className: string,
+  value: string,
+  fullwidth: bool,
+  disabled: bool,
+  options: arrayOf(
+    shape({
+      label: string,
+      value: string,
+    }),
+  ).isRequired,
 });
-(0, _defineProperty2.default)(Select, "defaultProps", {
+
+_defineProperty(Select, 'defaultProps', {
   className: null,
   fullwidth: false,
   disabled: false,
-  value: null
+  value: null,
 });
+
+export { Select };

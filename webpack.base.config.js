@@ -134,8 +134,8 @@ const baseConfig = (env, isStyleguide = false) => {
 
 const outputCommon = {
   // workaround for 'window is not defined' see https://github.com/webpack/webpack/issues/6522
-  // globalObject: `typeof self !== 'undefined' ? self : this`,
-  // path: path.resolve(__dirname, 'dist'),
+  globalObject: `typeof self !== 'undefined' ? self : this`,
+  path: path.resolve(__dirname, 'dist'),
 };
 
 const configDev = {

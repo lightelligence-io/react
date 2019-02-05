@@ -1,16 +1,7 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.isServerSideRendering = void 0;
-
-var isServerSideRendering = function () {
+export const isServerSideRendering = (() => {
   try {
     return !(document !== undefined);
   } catch (e) {
     return true;
   }
-}();
-
-exports.isServerSideRendering = isServerSideRendering;
+})();

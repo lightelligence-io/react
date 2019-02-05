@@ -1,4 +1,4 @@
-import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+import _defineProperty from '@babel/runtime/helpers/defineProperty';
 import React, { PureComponent } from 'react';
 import { number, bool } from 'prop-types';
 import { OLT_NAMESPACE } from '../../constants';
@@ -11,29 +11,29 @@ import { OLT_NAMESPACE } from '../../constants';
 
 class TableCellRowIndex extends PureComponent {
   get value() {
-    const {
-      rowIndex,
-      increase
-    } = this.props;
+    const { rowIndex, increase } = this.props;
     return increase ? rowIndex + 1 : rowIndex;
   }
 
   render() {
-    return React.createElement("td", {
-      className: `${OLT_NAMESPACE}Table-data`
-    }, this.value);
+    return React.createElement(
+      'td',
+      {
+        className: `${OLT_NAMESPACE}Table-data`,
+      },
+      this.value,
+    );
   }
-
 }
 
-_defineProperty(TableCellRowIndex, "propTypes", {
+_defineProperty(TableCellRowIndex, 'propTypes', {
   increase: bool,
-  rowIndex: number
+  rowIndex: number,
 });
 
-_defineProperty(TableCellRowIndex, "defaultProps", {
+_defineProperty(TableCellRowIndex, 'defaultProps', {
   increase: true,
-  rowIndex: 0
+  rowIndex: 0,
 });
 
 export { TableCellRowIndex };
