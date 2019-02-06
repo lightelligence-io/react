@@ -1160,6 +1160,465 @@
           /***/
         },
 
+      /***/ './node_modules/react-uid/dist/es2015/Control.js':
+        /*!*******************************************************!*\
+  !*** ./node_modules/react-uid/dist/es2015/Control.js ***!
+  \*******************************************************/
+        /*! exports provided: UIDReset, UIDFork, UIDConsumer */
+        /***/ function(module, __webpack_exports__, __webpack_require__) {
+          'use strict';
+          __webpack_require__.r(__webpack_exports__);
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'UIDReset',
+            function() {
+              return UIDReset;
+            },
+          );
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'UIDFork',
+            function() {
+              return UIDFork;
+            },
+          );
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'UIDConsumer',
+            function() {
+              return UIDConsumer;
+            },
+          );
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+            /*! react */ 'react',
+          );
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__,
+          );
+          /* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+            /*! ./context */ './node_modules/react-uid/dist/es2015/context.js',
+          );
+          /* harmony import */ var _UIDComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+            /*! ./UIDComponent */ './node_modules/react-uid/dist/es2015/UIDComponent.js',
+          );
+
+          var UIDReset = function(_a) {
+            var children = _a.children;
+            return react__WEBPACK_IMPORTED_MODULE_0__['createElement'](
+              _context__WEBPACK_IMPORTED_MODULE_1__['source'].Provider,
+              {
+                value: Object(
+                  _context__WEBPACK_IMPORTED_MODULE_1__['createSource'],
+                )(),
+              },
+              children,
+            );
+          };
+          var UIDFork = function(_a) {
+            var children = _a.children;
+            return react__WEBPACK_IMPORTED_MODULE_0__['createElement'](
+              UIDConsumer,
+              null,
+              function(id) {
+                return react__WEBPACK_IMPORTED_MODULE_0__['createElement'](
+                  _context__WEBPACK_IMPORTED_MODULE_1__['source'].Provider,
+                  {
+                    value: Object(
+                      _context__WEBPACK_IMPORTED_MODULE_1__['createSource'],
+                    )(id + '-'),
+                  },
+                  children,
+                );
+              },
+            );
+          };
+          var UIDConsumer = function(_a) {
+            var name = _a.name,
+              children = _a.children;
+            return react__WEBPACK_IMPORTED_MODULE_0__['createElement'](
+              _context__WEBPACK_IMPORTED_MODULE_1__['source'].Consumer,
+              null,
+              function(value) {
+                return react__WEBPACK_IMPORTED_MODULE_0__['createElement'](
+                  _UIDComponent__WEBPACK_IMPORTED_MODULE_2__['UID'],
+                  { name: name, idSource: value, children: children },
+                );
+              },
+            );
+          };
+
+          /***/
+        },
+
+      /***/ './node_modules/react-uid/dist/es2015/UIDComponent.js':
+        /*!************************************************************!*\
+  !*** ./node_modules/react-uid/dist/es2015/UIDComponent.js ***!
+  \************************************************************/
+        /*! exports provided: UID */
+        /***/ function(module, __webpack_exports__, __webpack_require__) {
+          'use strict';
+          __webpack_require__.r(__webpack_exports__);
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'UID',
+            function() {
+              return UID;
+            },
+          );
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+            /*! react */ 'react',
+          );
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__,
+          );
+          /* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+            /*! ./context */ './node_modules/react-uid/dist/es2015/context.js',
+          );
+          var __extends =
+            (undefined && undefined.__extends) ||
+            (function() {
+              var extendStatics =
+                Object.setPrototypeOf ||
+                ({ __proto__: [] } instanceof Array &&
+                  function(d, b) {
+                    d.__proto__ = b;
+                  }) ||
+                function(d, b) {
+                  for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+                };
+              return function(d, b) {
+                extendStatics(d, b);
+                function __() {
+                  this.constructor = d;
+                }
+                d.prototype =
+                  b === null
+                    ? Object.create(b)
+                    : ((__.prototype = b.prototype), new __());
+              };
+            })();
+
+          var UID = (function(_super) {
+            __extends(UID, _super);
+            function UID() {
+              var _this =
+                (_super !== null && _super.apply(this, arguments)) || this;
+              _this.state = {
+                quartz:
+                  _this.props.idSource ||
+                  _context__WEBPACK_IMPORTED_MODULE_1__['counter'],
+                prefix: Object(
+                  _context__WEBPACK_IMPORTED_MODULE_1__['getPrefix'],
+                )(_this.props.idSource),
+                id: Object(_context__WEBPACK_IMPORTED_MODULE_1__['getId'])(
+                  _this.props.idSource ||
+                    _context__WEBPACK_IMPORTED_MODULE_1__['counter'],
+                ),
+              };
+              _this.uid = function(item) {
+                return _this.prefixId(
+                  _this.state.id + '-' + _this.state.quartz.uid(item),
+                );
+              };
+              return _this;
+            }
+            UID.prototype.prefixId = function(id) {
+              var uid = this.state.prefix + id;
+              return String(this.props.name ? this.props.name(uid) : uid);
+            };
+            UID.prototype.render = function() {
+              var children = this.props.children;
+              var id = this.state.id;
+              return children(this.prefixId(id), this.uid);
+            };
+            return UID;
+          })(react__WEBPACK_IMPORTED_MODULE_0__['Component']);
+
+          /***/
+        },
+
+      /***/ './node_modules/react-uid/dist/es2015/context.js':
+        /*!*******************************************************!*\
+  !*** ./node_modules/react-uid/dist/es2015/context.js ***!
+  \*******************************************************/
+        /*! exports provided: createSource, counter, source, lastUsed, getId, getPrefix */
+        /***/ function(module, __webpack_exports__, __webpack_require__) {
+          'use strict';
+          __webpack_require__.r(__webpack_exports__);
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'createSource',
+            function() {
+              return createSource;
+            },
+          );
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'counter',
+            function() {
+              return counter;
+            },
+          );
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'source',
+            function() {
+              return source;
+            },
+          );
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'lastUsed',
+            function() {
+              return lastUsed;
+            },
+          );
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'getId',
+            function() {
+              return getId;
+            },
+          );
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'getPrefix',
+            function() {
+              return getPrefix;
+            },
+          );
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+            /*! react */ 'react',
+          );
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__,
+          );
+          /* harmony import */ var _uid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+            /*! ./uid */ './node_modules/react-uid/dist/es2015/uid.js',
+          );
+
+          var createSource = function(prefix) {
+            if (prefix === void 0) {
+              prefix = '';
+            }
+            return {
+              value: 1,
+              prefix: prefix,
+              uid: Object(_uid__WEBPACK_IMPORTED_MODULE_1__['generateUID'])(),
+            };
+          };
+          var counter = createSource();
+          var source = react__WEBPACK_IMPORTED_MODULE_0__['createContext'](
+            createSource(),
+          );
+          var lastUsed = react__WEBPACK_IMPORTED_MODULE_0__['createContext'](
+            '',
+          );
+          var getId = function(source) {
+            return source.value++;
+          };
+          var getPrefix = function(source) {
+            return source ? source.prefix : '';
+          };
+
+          /***/
+        },
+
+      /***/ './node_modules/react-uid/dist/es2015/hooks.js':
+        /*!*****************************************************!*\
+  !*** ./node_modules/react-uid/dist/es2015/hooks.js ***!
+  \*****************************************************/
+        /*! exports provided: useUID, useUIDSeed */
+        /***/ function(module, __webpack_exports__, __webpack_require__) {
+          'use strict';
+          __webpack_require__.r(__webpack_exports__);
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'useUID',
+            function() {
+              return useUID;
+            },
+          );
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'useUIDSeed',
+            function() {
+              return useUIDSeed;
+            },
+          );
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+            /*! react */ 'react',
+          );
+          /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__,
+          );
+          /* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+            /*! ./context */ './node_modules/react-uid/dist/es2015/context.js',
+          );
+
+          var generateUID = function(context) {
+            var quartz =
+              context || _context__WEBPACK_IMPORTED_MODULE_1__['counter'];
+            var prefix = Object(
+              _context__WEBPACK_IMPORTED_MODULE_1__['getPrefix'],
+            )(quartz);
+            var id = Object(_context__WEBPACK_IMPORTED_MODULE_1__['getId'])(
+              quartz,
+            );
+            var uid = prefix + id;
+            var gen = function(item) {
+              return uid + quartz.uid(item);
+            };
+            return { uid: uid, gen: gen };
+          };
+          var useUIDState = function() {
+            if (true) {
+              if (!('useContext' in react__WEBPACK_IMPORTED_MODULE_0__)) {
+                throw new Error('Hooks API requires React 16.7+');
+              }
+            }
+            return react__WEBPACK_IMPORTED_MODULE_0__['useState'](
+              generateUID(
+                react__WEBPACK_IMPORTED_MODULE_0__['useContext'](
+                  _context__WEBPACK_IMPORTED_MODULE_1__['source'],
+                ),
+              ),
+            );
+          };
+          var useUID = function() {
+            var uid = useUIDState()[0].uid;
+            return uid;
+          };
+          var useUIDSeed = function() {
+            var gen = useUIDState()[0].gen;
+            return gen;
+          };
+
+          /***/
+        },
+
+      /***/ './node_modules/react-uid/dist/es2015/index.js':
+        /*!*****************************************************!*\
+  !*** ./node_modules/react-uid/dist/es2015/index.js ***!
+  \*****************************************************/
+        /*! exports provided: generateUID, uid, UID, UIDConsumer, UIDReset, UIDFork, useUID, useUIDSeed */
+        /***/ function(module, __webpack_exports__, __webpack_require__) {
+          'use strict';
+          __webpack_require__.r(__webpack_exports__);
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'uid',
+            function() {
+              return uid;
+            },
+          );
+          /* harmony import */ var _uid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+            /*! ./uid */ './node_modules/react-uid/dist/es2015/uid.js',
+          );
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'generateUID',
+            function() {
+              return _uid__WEBPACK_IMPORTED_MODULE_0__['generateUID'];
+            },
+          );
+
+          /* harmony import */ var _Control__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+            /*! ./Control */ './node_modules/react-uid/dist/es2015/Control.js',
+          );
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'UIDConsumer',
+            function() {
+              return _Control__WEBPACK_IMPORTED_MODULE_1__['UIDConsumer'];
+            },
+          );
+
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'UIDReset',
+            function() {
+              return _Control__WEBPACK_IMPORTED_MODULE_1__['UIDReset'];
+            },
+          );
+
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'UIDFork',
+            function() {
+              return _Control__WEBPACK_IMPORTED_MODULE_1__['UIDFork'];
+            },
+          );
+
+          /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+            /*! ./hooks */ './node_modules/react-uid/dist/es2015/hooks.js',
+          );
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'useUID',
+            function() {
+              return _hooks__WEBPACK_IMPORTED_MODULE_2__['useUID'];
+            },
+          );
+
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'useUIDSeed',
+            function() {
+              return _hooks__WEBPACK_IMPORTED_MODULE_2__['useUIDSeed'];
+            },
+          );
+
+          /* harmony import */ var _UIDComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+            /*! ./UIDComponent */ './node_modules/react-uid/dist/es2015/UIDComponent.js',
+          );
+          /* harmony reexport (safe) */ __webpack_require__.d(
+            __webpack_exports__,
+            'UID',
+            function() {
+              return _UIDComponent__WEBPACK_IMPORTED_MODULE_3__['UID'];
+            },
+          );
+
+          var uid = Object(_uid__WEBPACK_IMPORTED_MODULE_0__['generateUID'])();
+
+          /***/
+        },
+
+      /***/ './node_modules/react-uid/dist/es2015/uid.js':
+        /*!***************************************************!*\
+  !*** ./node_modules/react-uid/dist/es2015/uid.js ***!
+  \***************************************************/
+        /*! exports provided: generateUID */
+        /***/ function(module, __webpack_exports__, __webpack_require__) {
+          'use strict';
+          __webpack_require__.r(__webpack_exports__);
+          /* harmony export (binding) */ __webpack_require__.d(
+            __webpack_exports__,
+            'generateUID',
+            function() {
+              return generateUID;
+            },
+          );
+          var generateUID = function() {
+            var counter = 1;
+            var map = new WeakMap();
+            var uid = function(item, index) {
+              if (typeof item === 'number' || typeof item === 'string') {
+                return index ? 'idx-' + index : 'val-' + item;
+              }
+              if (!map.has(item)) {
+                map.set(item, counter++);
+                return uid(item);
+              }
+              return 'uid' + map.get(item);
+            };
+            return uid;
+          };
+
+          /***/
+        },
+
       /***/ './node_modules/uniqid/index.js':
         /*!**************************************!*\
   !*** ./node_modules/uniqid/index.js ***!
@@ -8280,7 +8739,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/ __webpack_require__.n(
             prop_types__WEBPACK_IMPORTED_MODULE_8__,
           );
-          /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+          /* harmony import */ var react_uid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+            /*! react-uid */ './node_modules/react-uid/dist/es2015/index.js',
+          );
+          /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
             /*! ../../constants */ './src/constants.js',
           );
 
@@ -8328,7 +8790,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     var _this$props = _this.props,
                       checked = _this$props.checked,
                       onChange = _this$props.onChange;
-                    if (onChange) onChange(!checked);
+
+                    if (onChange) {
+                      onChange(!checked);
+                    }
                   },
                 );
 
@@ -8341,63 +8806,73 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                   {
                     key: 'render',
                     value: function render() {
+                      var _this2 = this;
+
                       var _this$props2 = this.props,
                         children = _this$props2.children,
                         checked = _this$props2.checked;
-                      var label =
-                        children &&
-                        react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(
-                          'label',
-                          {
-                            htmlFor: 'checkbox1',
-                            className: 'label '
-                              .concat(
-                                _constants__WEBPACK_IMPORTED_MODULE_9__[
-                                  'OLT_NAMESPACE'
-                                ],
-                                'Checkbox-label ',
-                              )
-                              .concat(
-                                _constants__WEBPACK_IMPORTED_MODULE_9__[
-                                  'OLT_NAMESPACE'
-                                ],
-                                'u-fontSizeSmall ',
-                              )
-                              .concat(
-                                _constants__WEBPACK_IMPORTED_MODULE_9__[
-                                  'OLT_NAMESPACE'
-                                ],
-                                'u-marginBottom1',
-                              ),
-                          },
-                          children,
-                        );
                       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(
-                        'div',
+                        react_uid__WEBPACK_IMPORTED_MODULE_9__['UID'],
                         {
-                          className: ''.concat(
-                            _constants__WEBPACK_IMPORTED_MODULE_9__[
-                              'OLT_NAMESPACE'
-                            ],
-                            'Checkbox',
-                          ),
-                        },
-                        react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(
-                          'input',
-                          {
-                            id: 'checkbox1',
-                            type: 'checkbox',
-                            className: ''.concat(
-                              _constants__WEBPACK_IMPORTED_MODULE_9__[
-                                'OLT_NAMESPACE'
-                              ],
-                              'Checkbox-input',
-                            ),
-                            checked: checked,
-                            onChange: this.onChange,
+                          name: function name(id) {
+                            return 'checkbox'.concat(id);
                           },
-                        ),
-                        label,
+                        },
+                        function(id) {
+                          return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(
+                            'div',
+                            {
+                              className: ''.concat(
+                                _constants__WEBPACK_IMPORTED_MODULE_10__[
+                                  'OLT_NAMESPACE'
+                                ],
+                                'Checkbox',
+                              ),
+                            },
+                            react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(
+                              'input',
+                              {
+                                id: id,
+                                type: 'checkbox',
+                                className: ''.concat(
+                                  _constants__WEBPACK_IMPORTED_MODULE_10__[
+                                    'OLT_NAMESPACE'
+                                  ],
+                                  'Checkbox-input',
+                                ),
+                                checked: checked,
+                                onChange: _this2.onChange,
+                              },
+                            ),
+                            children &&
+                              react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(
+                                'label',
+                                {
+                                  htmlFor: id,
+                                  className: 'label '
+                                    .concat(
+                                      _constants__WEBPACK_IMPORTED_MODULE_10__[
+                                        'OLT_NAMESPACE'
+                                      ],
+                                      'Checkbox-label ',
+                                    )
+                                    .concat(
+                                      _constants__WEBPACK_IMPORTED_MODULE_10__[
+                                        'OLT_NAMESPACE'
+                                      ],
+                                      'u-fontSizeSmall ',
+                                    )
+                                    .concat(
+                                      _constants__WEBPACK_IMPORTED_MODULE_10__[
+                                        'OLT_NAMESPACE'
+                                      ],
+                                      'u-marginBottom1',
+                                    ),
+                                },
+                                children,
+                              ),
+                          );
+                        },
                       );
                     },
                   },

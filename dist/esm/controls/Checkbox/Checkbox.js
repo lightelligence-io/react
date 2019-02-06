@@ -1,6 +1,7 @@
 import _defineProperty from '@babel/runtime/helpers/defineProperty';
 import React, { PureComponent } from 'react';
 import { func, node, bool } from 'prop-types';
+import { UID } from 'react-uid';
 import { OLT_NAMESPACE } from '../../constants';
 export class Checkbox extends PureComponent {
   constructor(...args) {
@@ -8,35 +9,43 @@ export class Checkbox extends PureComponent {
 
     _defineProperty(this, 'onChange', () => {
       const { checked, onChange } = this.props;
-      if (onChange) onChange(!checked);
+
+      if (onChange) {
+        onChange(!checked);
+      }
     });
   }
 
   render() {
     const { children, checked } = this.props;
-    const label =
-      children &&
-      React.createElement(
-        'label',
-        {
-          htmlFor: 'checkbox1',
-          className: `label ${OLT_NAMESPACE}Checkbox-label ${OLT_NAMESPACE}u-fontSizeSmall ${OLT_NAMESPACE}u-marginBottom1`,
-        },
-        children,
-      );
     return React.createElement(
-      'div',
+      UID,
       {
-        className: `${OLT_NAMESPACE}Checkbox`,
+        name: (id) => `checkbox${id}`,
       },
-      React.createElement('input', {
-        id: 'checkbox1',
-        type: 'checkbox',
-        className: `${OLT_NAMESPACE}Checkbox-input`,
-        checked: checked,
-        onChange: this.onChange,
-      }),
-      label,
+      (id) =>
+        React.createElement(
+          'div',
+          {
+            className: `${OLT_NAMESPACE}Checkbox`,
+          },
+          React.createElement('input', {
+            id: id,
+            type: 'checkbox',
+            className: `${OLT_NAMESPACE}Checkbox-input`,
+            checked: checked,
+            onChange: this.onChange,
+          }),
+          children &&
+            React.createElement(
+              'label',
+              {
+                htmlFor: id,
+                className: `label ${OLT_NAMESPACE}Checkbox-label ${OLT_NAMESPACE}u-fontSizeSmall ${OLT_NAMESPACE}u-marginBottom1`,
+              },
+              children,
+            ),
+        ),
     );
   }
 }

@@ -22,6 +22,7 @@
     "@lightelligence/lightelligence-ui": "bitbucket:lightelligence/styleguide#0.1.1",
     "classnames": "^2.2.6",
     "humps": "^2.0.1",
+    "react-uid": "^2.2.0",
     "uniqid": "^5.0.3",
     "url-polyfill": "^1.1.3"
   },

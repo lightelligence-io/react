@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { func, node, bool } from 'prop-types';
+import { UID } from 'react-uid';
 import { OLT_NAMESPACE } from '../../constants';
 
 export class Checkbox extends PureComponent {
@@ -17,31 +18,35 @@ export class Checkbox extends PureComponent {
 
   onChange = () => {
     const { checked, onChange } = this.props;
-    if (onChange) onChange(!checked);
+    if (onChange) {
+      onChange(!checked);
+    }
   };
 
   render() {
     const { children, checked } = this.props;
-    const label = children && (
-      <label
-        htmlFor="checkbox1"
-        className={`label ${OLT_NAMESPACE}Checkbox-label ${OLT_NAMESPACE}u-fontSizeSmall ${OLT_NAMESPACE}u-marginBottom1`}
-      >
-        {children}
-      </label>
-    );
-
     return (
-      <div className={`${OLT_NAMESPACE}Checkbox`}>
-        <input
-          id="checkbox1"
-          type="checkbox"
-          className={`${OLT_NAMESPACE}Checkbox-input`}
-          checked={checked}
-          onChange={this.onChange}
-        />
-        {label}
-      </div>
+      <UID name={(id) => `checkbox${id}`}>
+        {(id) => (
+          <div className={`${OLT_NAMESPACE}Checkbox`}>
+            <input
+              id={id}
+              type="checkbox"
+              className={`${OLT_NAMESPACE}Checkbox-input`}
+              checked={checked}
+              onChange={this.onChange}
+            />
+            {children && (
+              <label
+                htmlFor={id}
+                className={`label ${OLT_NAMESPACE}Checkbox-label ${OLT_NAMESPACE}u-fontSizeSmall ${OLT_NAMESPACE}u-marginBottom1`}
+              >
+                {children}
+              </label>
+            )}
+          </div>
+        )}
+      </UID>
     );
   }
 }
