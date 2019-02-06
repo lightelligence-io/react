@@ -8,12 +8,14 @@ export class Checkbox extends PureComponent {
     children: node,
     onChange: func,
     checked: bool,
+    disabled: bool,
   };
 
   static defaultProps = {
     children: null,
     checked: false,
     onChange: null,
+    disabled: false,
   };
 
   onChange = () => {
@@ -24,7 +26,7 @@ export class Checkbox extends PureComponent {
   };
 
   render() {
-    const { children, checked } = this.props;
+    const { children, checked, disabled } = this.props;
     return (
       <UID name={(id) => `checkbox${id}`}>
         {(id) => (
@@ -35,6 +37,7 @@ export class Checkbox extends PureComponent {
               className={`${OLT_NAMESPACE}Checkbox-input`}
               checked={checked}
               onChange={this.onChange}
+              disabled={disabled}
             />
             {children && (
               <label

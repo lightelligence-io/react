@@ -8810,7 +8810,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
                       var _this$props2 = this.props,
                         children = _this$props2.children,
-                        checked = _this$props2.checked;
+                        checked = _this$props2.checked,
+                        disabled = _this$props2.disabled;
                       return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(
                         react_uid__WEBPACK_IMPORTED_MODULE_9__['UID'],
                         {
@@ -8842,6 +8843,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                 ),
                                 checked: checked,
                                 onChange: _this2.onChange,
+                                disabled: disabled,
                               },
                             ),
                             children &&
@@ -8889,6 +8891,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
               children: prop_types__WEBPACK_IMPORTED_MODULE_8__['node'],
               onChange: prop_types__WEBPACK_IMPORTED_MODULE_8__['func'],
               checked: prop_types__WEBPACK_IMPORTED_MODULE_8__['bool'],
+              disabled: prop_types__WEBPACK_IMPORTED_MODULE_8__['bool'],
             },
           );
 
@@ -8899,6 +8902,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
               children: null,
               checked: false,
               onChange: null,
+              disabled: false,
             },
           );
 

@@ -17,7 +17,7 @@ export class Checkbox extends PureComponent {
   }
 
   render() {
-    const { children, checked } = this.props;
+    const { children, checked, disabled } = this.props;
     return React.createElement(
       UID,
       {
@@ -35,6 +35,7 @@ export class Checkbox extends PureComponent {
             className: `${OLT_NAMESPACE}Checkbox-input`,
             checked: checked,
             onChange: this.onChange,
+            disabled: disabled,
           }),
           children &&
             React.createElement(
@@ -54,10 +55,12 @@ _defineProperty(Checkbox, 'propTypes', {
   children: node,
   onChange: func,
   checked: bool,
+  disabled: bool,
 });
 
 _defineProperty(Checkbox, 'defaultProps', {
   children: null,
   checked: false,
   onChange: null,
+  disabled: false,
 });
