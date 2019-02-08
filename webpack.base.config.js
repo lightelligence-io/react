@@ -2,24 +2,11 @@ const path = require('path');
 
 // TODO get rid of this, but we currently need it for styleguidist, because of the scss dependency
 const styleLoaderStyleguide = {
-  test: /\.scss$/,
+  test: /\.css$/,
   use: [
     require.resolve('style-loader'),
-    {
-      loader: require.resolve('postcss-loader'),
-    },
-    {
-      loader: require.resolve('sass-loader'),
-      options: {
-        includePaths: [
-          path.join(__dirname, 'node_modules'),
-          path.join(
-            __dirname,
-            'node_modules/@lightelligence/lightelligence-ui/node_modules',
-          ),
-        ],
-      },
-    },
+    require.resolve('css-loader'),
+    require.resolve('postcss-loader'),
   ],
 };
 

@@ -22,8 +22,7 @@ module.exports = {
     path.join(__dirname, 'node_modules/normalize.css'),
     path.join(
       __dirname,
-      // TODO don't use scss here
-      'node_modules/@lightelligence/lightelligence-ui/src/index.scss',
+      'node_modules/@lightelligence/lightelligence-ui/dist/index.css',
     ),
   ],
 };
