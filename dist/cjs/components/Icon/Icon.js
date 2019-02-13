@@ -1,47 +1,51 @@
-import _extends from '@babel/runtime/helpers/extends';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
-import React from 'react';
-import { string, node } from 'prop-types';
-import classnames from 'classnames';
-import { pascalize } from 'humps';
-import { OLT_NAMESPACE } from '../../constants';
+"use strict";
 
-const Icon = (_ref) => {
-  let { name, size, color, children, className } = _ref,
-    props = _objectWithoutProperties(_ref, [
-      'name',
-      'size',
-      'color',
-      'children',
-      'className',
-    ]);
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-  const base = `${OLT_NAMESPACE}Icon`;
-  return React.createElement(
-    'i',
-    _extends({}, props, {
-      'data-icon': name,
-      className: classnames(
-        base,
-        color && `${base}--${color}`,
-        size && `${OLT_NAMESPACE}u-fontSize${pascalize(size)}`,
-        className,
-      ),
-    }),
-  );
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Icon = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = require("prop-types");
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _humps = require("humps");
+
+var _constants = require("../../constants");
+
+var Icon = function Icon(_ref) {
+  var name = _ref.name,
+      size = _ref.size,
+      color = _ref.color,
+      children = _ref.children,
+      className = _ref.className,
+      props = (0, _objectWithoutProperties2.default)(_ref, ["name", "size", "color", "children", "className"]);
+  var base = "".concat(_constants.OLT_NAMESPACE, "Icon");
+  return _react.default.createElement("i", (0, _extends2.default)({}, props, {
+    "data-icon": name,
+    className: (0, _classnames.default)(base, color && "".concat(base, "--").concat(color), size && "".concat(_constants.OLT_NAMESPACE, "u-fontSize").concat((0, _humps.pascalize)(size)), className)
+  }));
 };
 
+exports.Icon = Icon;
 Icon.propTypes = {
-  name: string.isRequired,
-  color: string,
-  size: string,
-  className: string,
-  children: node,
+  name: _propTypes.string.isRequired,
+  color: _propTypes.string,
+  size: _propTypes.string,
+  className: _propTypes.string,
+  children: _propTypes.node
 };
 Icon.defaultProps = {
   className: null,
   color: '',
   size: '',
-  children: null,
+  children: null
 };
-export { Icon };

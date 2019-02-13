@@ -1,57 +1,83 @@
-import _extends from '@babel/runtime/helpers/extends';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
-import _defineProperty from '@babel/runtime/helpers/defineProperty';
-import React, { PureComponent } from 'react';
-import { string, node, oneOf, bool } from 'prop-types';
-import { pascalize } from 'humps';
-import classnames from 'classnames';
-import { OLT_NAMESPACE } from '../../constants';
+"use strict";
 
-class Headline extends PureComponent {
-  render() {
-    const _this$props = this.props,
-      { regular, tag, children, size, className, color } = _this$props,
-      props = _objectWithoutProperties(_this$props, [
-        'regular',
-        'tag',
-        'children',
-        'size',
-        'className',
-        'color',
-      ]);
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-    const Element = tag || `h${size}`;
-    return React.createElement(
-      Element,
-      _extends({}, props, {
-        className: classnames(
-          `${OLT_NAMESPACE}Headline`,
-          `${OLT_NAMESPACE}Headline--${size}`,
-          regular && `${OLT_NAMESPACE}Headline--regular`,
-          color && `${OLT_NAMESPACE}u-text${pascalize(color)}`,
-          className,
-        ),
-      }),
-      children,
-    );
-  }
-}
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-_defineProperty(Headline, 'propTypes', {
-  tag: string,
-  size: oneOf([1, 2, 3, 4, 5, 6]),
-  children: node.isRequired,
-  color: string,
-  className: string,
-  regular: bool,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+exports.Headline = void 0;
 
-_defineProperty(Headline, 'defaultProps', {
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _propTypes = require("prop-types");
+
+var _humps = require("humps");
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _constants = require("../../constants");
+
+var Headline =
+/*#__PURE__*/
+function (_PureComponent) {
+  (0, _inherits2.default)(Headline, _PureComponent);
+
+  function Headline() {
+    (0, _classCallCheck2.default)(this, Headline);
+    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Headline).apply(this, arguments));
+  }
+
+  (0, _createClass2.default)(Headline, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          regular = _this$props.regular,
+          tag = _this$props.tag,
+          children = _this$props.children,
+          size = _this$props.size,
+          className = _this$props.className,
+          color = _this$props.color,
+          props = (0, _objectWithoutProperties2.default)(_this$props, ["regular", "tag", "children", "size", "className", "color"]);
+      var Element = tag || "h".concat(size);
+      return _react.default.createElement(Element, (0, _extends2.default)({}, props, {
+        className: (0, _classnames.default)("".concat(_constants.OLT_NAMESPACE, "Headline"), "".concat(_constants.OLT_NAMESPACE, "Headline--").concat(size), regular && "".concat(_constants.OLT_NAMESPACE, "Headline--regular"), color && "".concat(_constants.OLT_NAMESPACE, "u-text").concat((0, _humps.pascalize)(color)), className)
+      }), children);
+    }
+  }]);
+  return Headline;
+}(_react.PureComponent);
+
+exports.Headline = Headline;
+(0, _defineProperty2.default)(Headline, "propTypes", {
+  tag: _propTypes.string,
+  size: (0, _propTypes.oneOf)([1, 2, 3, 4, 5, 6]),
+  children: _propTypes.node.isRequired,
+  color: _propTypes.string,
+  className: _propTypes.string,
+  regular: _propTypes.bool
+});
+(0, _defineProperty2.default)(Headline, "defaultProps", {
   tag: null,
   size: 5,
   color: null,
   className: null,
-  regular: false,
+  regular: false
 });
-
-export { Headline };

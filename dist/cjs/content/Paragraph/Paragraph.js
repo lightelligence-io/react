@@ -1,57 +1,62 @@
-import _extends from '@babel/runtime/helpers/extends';
-import _objectSpread from '@babel/runtime/helpers/objectSpread';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
-import React from 'react';
-import classnames from 'classnames';
-import { string, shape } from 'prop-types';
-import { pascalize } from 'humps';
-import { OLT_NAMESPACE, FONT_SIZE_SMALL } from '../../constants';
-import { copyTextTypeProp, copyTextSizeProp } from '../../propTypes';
-export const Paragraph = (_ref) => {
-  let { className, element, style, size } = _ref,
-    props = _objectWithoutProperties(_ref, [
-      'className',
-      'element',
-      'style',
-      'size',
-    ]);
+"use strict";
 
-  const Component = element;
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-  const elemStyle = _objectSpread(
-    {
-      // TODO: move this to the styleguide (modifier or default?)
-      wordBreak: 'break-all',
-      // TODO: Don't overwrite styleguide margins here, but it's currently used with these values in the portal and marketing site.
-      // In the styleguide we use margin-bottom = 1rem and also have a last-child rule. We have to adjust this
-      // either here or in the styleguide.
-      margin: '0 0 0.5rem',
-    },
-    style,
-  );
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Paragraph = void 0;
 
-  const classes = classnames(
-    `${OLT_NAMESPACE}Paragraph`,
-    `${OLT_NAMESPACE}u-fontSize${pascalize(size)}`,
-    className,
-  );
-  return React.createElement(
-    Component,
-    _extends({}, props, {
-      style: elemStyle,
-      className: classes,
-    }),
-  );
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/objectSpread"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _propTypes = require("prop-types");
+
+var _humps = require("humps");
+
+var _constants = require("../../constants");
+
+var _propTypes2 = require("../../propTypes");
+
+var Paragraph = function Paragraph(_ref) {
+  var className = _ref.className,
+      element = _ref.element,
+      style = _ref.style,
+      size = _ref.size,
+      props = (0, _objectWithoutProperties2.default)(_ref, ["className", "element", "style", "size"]);
+  var Component = element;
+  var elemStyle = (0, _objectSpread2.default)({
+    // TODO: move this to the styleguide (modifier or default?)
+    wordBreak: 'break-all',
+    // TODO: Don't overwrite styleguide margins here, but it's currently used with these values in the portal and marketing site.
+    // In the styleguide we use margin-bottom = 1rem and also have a last-child rule. We have to adjust this
+    // either here or in the styleguide.
+    margin: '0 0 0.5rem'
+  }, style);
+  var classes = (0, _classnames.default)("".concat(_constants.OLT_NAMESPACE, "Paragraph"), "".concat(_constants.OLT_NAMESPACE, "u-fontSize").concat((0, _humps.pascalize)(size)), className);
+  return _react.default.createElement(Component, (0, _extends2.default)({}, props, {
+    style: elemStyle,
+    className: classes
+  }));
 };
+
+exports.Paragraph = Paragraph;
 Paragraph.propTypes = {
-  className: string,
-  element: copyTextTypeProp,
-  size: copyTextSizeProp,
-  style: shape({}),
+  className: _propTypes.string,
+  element: _propTypes2.copyTextTypeProp,
+  size: _propTypes2.copyTextSizeProp,
+  style: (0, _propTypes.shape)({})
 };
 Paragraph.defaultProps = {
   className: null,
   element: 'p',
-  size: FONT_SIZE_SMALL,
-  style: null,
+  size: _constants.FONT_SIZE_SMALL,
+  style: null
 };

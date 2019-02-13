@@ -1,6 +1,6 @@
-import _objectSpread from '@babel/runtime/helpers/objectSpread';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
-import _defineProperty from '@babel/runtime/helpers/defineProperty';
+import _objectSpread from "@babel/runtime/helpers/objectSpread";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React, { PureComponent } from 'react';
 import { string, bool, node } from 'prop-types';
 import { NavLink, matchPath } from 'react-router-dom';
@@ -13,50 +13,41 @@ import { OLT_NAMESPACE } from '../../constants';
 export class Link extends PureComponent {
   render() {
     const _this$props = this.props,
-      { to, children, className, normal } = _this$props,
-      props = _objectWithoutProperties(_this$props, [
-        'to',
-        'children',
-        'className',
-        'normal',
-      ]); // React routers matchPath will return a match object if the link matches an
+          {
+      to,
+      children,
+      className,
+      normal
+    } = _this$props,
+          props = _objectWithoutProperties(_this$props, ["to", "children", "className", "normal"]); // React routers matchPath will return a match object if the link matches an
     // internal link otherwise it returns null. Uses the "Route" logic to match.
+
 
     const match = matchPath(to, {
       path: '/',
-      exact: false,
+      exact: false
     });
     const Element = match ? NavLink : 'a';
-    return React.createElement(
-      Element,
-      _objectSpread(
-        {},
-        match
-          ? {
-              to,
-            }
-          : {
-              href: to,
-            },
-        props,
-        {
-          className: classnames(!normal && `${OLT_NAMESPACE}Link`, className),
-        },
-      ),
-      children,
-    );
+    return React.createElement(Element, _objectSpread({}, match ? {
+      to
+    } : {
+      href: to
+    }, props, {
+      className: classnames(!normal && `${OLT_NAMESPACE}Link`, className)
+    }), children);
   }
+
 }
 
-_defineProperty(Link, 'propTypes', {
+_defineProperty(Link, "propTypes", {
   to: string.isRequired,
   normal: bool,
   children: node,
-  className: string,
+  className: string
 });
 
-_defineProperty(Link, 'defaultProps', {
+_defineProperty(Link, "defaultProps", {
   normal: false,
   className: null,
-  children: null,
+  children: null
 });

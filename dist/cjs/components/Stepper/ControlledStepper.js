@@ -1,132 +1,145 @@
-import _extends from '@babel/runtime/helpers/extends';
-import _defineProperty from '@babel/runtime/helpers/defineProperty';
-// TODO: Let's move this to applicaton level
-import React, { PureComponent, Fragment } from 'react';
-import {
-  arrayOf,
-  shape,
-  string,
-  number,
-  node,
-  oneOfType,
-  func,
-  bool,
-} from 'prop-types';
-import classnames from 'classnames';
-import { OLT_NAMESPACE } from '../../constants';
-export class ControlledStepper extends PureComponent {
-  constructor(...args) {
-    super(...args);
+"use strict";
 
-    _defineProperty(this, 'setStep', (stepId) => {
-      const { onChange } = this.props;
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ControlledStepper = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _propTypes = require("prop-types");
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _constants = require("../../constants");
+
+// TODO: Let's move this to applicaton level
+var ControlledStepper =
+/*#__PURE__*/
+function (_PureComponent) {
+  (0, _inherits2.default)(ControlledStepper, _PureComponent);
+
+  function ControlledStepper() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    (0, _classCallCheck2.default)(this, ControlledStepper);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(ControlledStepper)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "setStep", function (stepId) {
+      var onChange = _this.props.onChange;
       onChange(stepId);
     });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "nextStep", function () {
+      var currentStepIdx = _this.props.currentStepIdx;
 
-    _defineProperty(this, 'nextStep', () => {
-      const { currentStepIdx } = this.props;
-      this.setStep(currentStepIdx + 1);
+      _this.setStep(currentStepIdx + 1);
     });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "prevStep", function () {
+      var currentStepIdx = _this.props.currentStepIdx;
 
-    _defineProperty(this, 'prevStep', () => {
-      const { currentStepIdx } = this.props;
-      this.setStep(currentStepIdx - 1);
+      _this.setStep(currentStepIdx - 1);
     });
-
-    _defineProperty(this, 'renderNavigationStep', ({ id, label, disabled }) => {
-      const { currentStepIdx } = this.props;
-      const clickProps = disabled
-        ? {}
-        : {
-            onClick: () => this.setStep(id),
-          };
-      const classes = classnames(
-        `${OLT_NAMESPACE}Stepper-header`,
-        id === currentStepIdx && 'is-active',
-      );
-      return React.createElement(
-        'div',
-        _extends(
-          {
-            className: classes,
-            role: 'presentation',
-            disabled: disabled,
-          },
-          clickProps,
-          {
-            style: {
-              marginTop: 20,
-              marginBottom: 10,
-            },
-          },
-        ),
-        React.createElement('span', null, label),
-      );
-    });
-
-    _defineProperty(this, 'renderContent', ({ id, content }) => {
-      const { currentStepIdx } = this.props;
-      const classes = classnames(
-        `${OLT_NAMESPACE}Stepper-content`,
-        id === currentStepIdx && 'is-active',
-      );
-      const contentBody =
-        typeof content === 'function'
-          ? content({
-              setStep: this.setStep,
-              nextStep: this.nextStep,
-              previousStep: this.previousStep,
-              currentStepIdx,
-            })
-          : content;
-      return React.createElement(
-        'div',
-        {
-          className: classes,
-        },
-        contentBody,
-      );
-    });
-  }
-
-  render() {
-    const { className, steps } = this.props;
-    const classes = classnames(`${OLT_NAMESPACE}Stepper`, className);
-    return React.createElement(
-      'section',
-      {
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "renderNavigationStep", function (_ref) {
+      var id = _ref.id,
+          label = _ref.label,
+          disabled = _ref.disabled;
+      var currentStepIdx = _this.props.currentStepIdx;
+      var clickProps = disabled ? {} : {
+        onClick: function onClick() {
+          return _this.setStep(id);
+        }
+      };
+      var classes = (0, _classnames.default)("".concat(_constants.OLT_NAMESPACE, "Stepper-header"), id === currentStepIdx && 'is-active');
+      return _react.default.createElement("div", (0, _extends2.default)({
         className: classes,
-      },
-      steps.map((x, i) =>
-        React.createElement(
-          Fragment,
-          {
-            key: `${x.id}`,
-          },
-          this.renderNavigationStep(x),
-          this.renderContent(x),
-        ),
-      ),
-    );
+        role: "presentation",
+        disabled: disabled
+      }, clickProps, {
+        style: {
+          marginTop: 20,
+          marginBottom: 10
+        }
+      }), _react.default.createElement("span", null, label));
+    });
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "renderContent", function (_ref2) {
+      var id = _ref2.id,
+          content = _ref2.content;
+      var currentStepIdx = _this.props.currentStepIdx;
+      var classes = (0, _classnames.default)("".concat(_constants.OLT_NAMESPACE, "Stepper-content"), id === currentStepIdx && 'is-active');
+      var contentBody = typeof content === 'function' ? content({
+        setStep: _this.setStep,
+        nextStep: _this.nextStep,
+        previousStep: _this.previousStep,
+        currentStepIdx: currentStepIdx
+      }) : content;
+      return _react.default.createElement("div", {
+        className: classes
+      }, contentBody);
+    });
+    return _this;
   }
-}
 
-_defineProperty(ControlledStepper, 'propTypes', {
-  className: string,
-  steps: arrayOf(
-    shape({
-      id: number.isRequired,
-      label: string.isRequired,
-      content: oneOfType([node, func]).isRequired,
-      disabled: bool,
-    }),
-  ).isRequired,
-  currentStepIdx: number,
+  (0, _createClass2.default)(ControlledStepper, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props = this.props,
+          className = _this$props.className,
+          steps = _this$props.steps;
+      var classes = (0, _classnames.default)("".concat(_constants.OLT_NAMESPACE, "Stepper"), className);
+      return _react.default.createElement("section", {
+        className: classes
+      }, steps.map(function (x, i) {
+        return _react.default.createElement(_react.Fragment, {
+          key: "".concat(x.id)
+        }, _this2.renderNavigationStep(x), _this2.renderContent(x));
+      }));
+    }
+  }]);
+  return ControlledStepper;
+}(_react.PureComponent);
+
+exports.ControlledStepper = ControlledStepper;
+(0, _defineProperty2.default)(ControlledStepper, "propTypes", {
+  className: _propTypes.string,
+  steps: (0, _propTypes.arrayOf)((0, _propTypes.shape)({
+    id: _propTypes.number.isRequired,
+    label: _propTypes.string.isRequired,
+    content: (0, _propTypes.oneOfType)([_propTypes.node, _propTypes.func]).isRequired,
+    disabled: _propTypes.bool
+  })).isRequired,
+  currentStepIdx: _propTypes.number,
   // eslint-disable-line
-  onChange: func.isRequired,
+  onChange: _propTypes.func.isRequired
 });
-
-_defineProperty(ControlledStepper, 'defaultProps', {
+(0, _defineProperty2.default)(ControlledStepper, "defaultProps", {
   className: null,
-  currentStepIdx: undefined,
+  currentStepIdx: undefined
 });

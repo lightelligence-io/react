@@ -1,5 +1,5 @@
-import _extends from '@babel/runtime/helpers/extends';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
+import _extends from "@babel/runtime/helpers/extends";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
 import React from 'react';
 import { string, node } from 'prop-types';
 import classnames from 'classnames';
@@ -7,28 +7,20 @@ import { pascalize } from 'humps';
 import { OLT_NAMESPACE } from '../../constants';
 
 const Icon = (_ref) => {
-  let { name, size, color, children, className } = _ref,
-    props = _objectWithoutProperties(_ref, [
-      'name',
-      'size',
-      'color',
-      'children',
-      'className',
-    ]);
+  let {
+    name,
+    size,
+    color,
+    children,
+    className
+  } = _ref,
+      props = _objectWithoutProperties(_ref, ["name", "size", "color", "children", "className"]);
 
   const base = `${OLT_NAMESPACE}Icon`;
-  return React.createElement(
-    'i',
-    _extends({}, props, {
-      'data-icon': name,
-      className: classnames(
-        base,
-        color && `${base}--${color}`,
-        size && `${OLT_NAMESPACE}u-fontSize${pascalize(size)}`,
-        className,
-      ),
-    }),
-  );
+  return React.createElement("i", _extends({}, props, {
+    "data-icon": name,
+    className: classnames(base, color && `${base}--${color}`, size && `${OLT_NAMESPACE}u-fontSize${pascalize(size)}`, className)
+  }));
 };
 
 Icon.propTypes = {
@@ -36,12 +28,12 @@ Icon.propTypes = {
   color: string,
   size: string,
   className: string,
-  children: node,
+  children: node
 };
 Icon.defaultProps = {
   className: null,
   color: '',
   size: '',
-  children: null,
+  children: null
 };
 export { Icon };

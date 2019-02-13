@@ -1,61 +1,52 @@
-import _extends from '@babel/runtime/helpers/extends';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
-import React from 'react';
-import { string, bool, node } from 'prop-types';
-import classnames from 'classnames';
-import { OLT_NAMESPACE } from '../../constants';
+"use strict";
 
-const Button = (_ref) => {
-  let {
-      className,
-      color,
-      outline,
-      children,
-      selectable,
-      disabled,
-      tag,
-      icon,
-    } = _ref,
-    props = _objectWithoutProperties(_ref, [
-      'className',
-      'color',
-      'outline',
-      'children',
-      'selectable',
-      'disabled',
-      'tag',
-      'icon',
-    ]);
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-  const base = `${OLT_NAMESPACE}Button`;
-  const Element = tag || 'button';
-  return React.createElement(
-    Element,
-    _extends({}, props, {
-      className: classnames(
-        base,
-        color && `${base}--${color}`,
-        outline && `${base}--outline`,
-        icon && `${base}--icon`,
-        selectable && `${base}--selectable`,
-        disabled ? 'is-disabled' : '',
-        className,
-      ),
-      'data-icon': icon || undefined,
-    }),
-    children,
-  );
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Button = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = require("prop-types");
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _constants = require("../../constants");
+
+var Button = function Button(_ref) {
+  var className = _ref.className,
+      color = _ref.color,
+      outline = _ref.outline,
+      children = _ref.children,
+      selectable = _ref.selectable,
+      disabled = _ref.disabled,
+      tag = _ref.tag,
+      icon = _ref.icon,
+      props = (0, _objectWithoutProperties2.default)(_ref, ["className", "color", "outline", "children", "selectable", "disabled", "tag", "icon"]);
+  var base = "".concat(_constants.OLT_NAMESPACE, "Button");
+  var Element = tag || 'button';
+  return _react.default.createElement(Element, (0, _extends2.default)({}, props, {
+    className: (0, _classnames.default)(base, color && "".concat(base, "--").concat(color), outline && "".concat(base, "--outline"), icon && "".concat(base, "--icon"), selectable && "".concat(base, "--selectable"), disabled ? 'is-disabled' : '', className),
+    "data-icon": icon || undefined
+  }), children);
 };
 
+exports.Button = Button;
 Button.propTypes = {
-  tag: string,
-  className: string,
-  selectable: bool,
-  outline: bool,
-  icon: string,
-  disabled: bool,
-  children: node,
-  color: string,
+  tag: _propTypes.string,
+  className: _propTypes.string,
+  selectable: _propTypes.bool,
+  outline: _propTypes.bool,
+  icon: _propTypes.string,
+  disabled: _propTypes.bool,
+  children: _propTypes.node,
+  color: _propTypes.string
 };
 Button.defaultProps = {
   tag: 'button',
@@ -65,6 +56,5 @@ Button.defaultProps = {
   icon: '',
   outline: false,
   children: null,
-  color: '',
+  color: ''
 };
-export { Button };

@@ -1,7 +1,7 @@
-import _extends from '@babel/runtime/helpers/extends';
-import _objectSpread from '@babel/runtime/helpers/objectSpread';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
-import _defineProperty from '@babel/runtime/helpers/defineProperty';
+import _extends from "@babel/runtime/helpers/extends";
+import _objectSpread from "@babel/runtime/helpers/objectSpread";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React, { PureComponent } from 'react';
 import { string, func, bool, shape } from 'prop-types';
 import classnames from 'classnames';
@@ -12,13 +12,15 @@ class TextField extends PureComponent {
   constructor(...args) {
     super(...args);
 
-    _defineProperty(this, 'elementId', uniqid());
+    _defineProperty(this, "elementId", uniqid());
 
-    _defineProperty(this, 'inputRef', React.createRef());
+    _defineProperty(this, "inputRef", React.createRef());
 
-    _defineProperty(this, 'applyAutogrow', () => {
+    _defineProperty(this, "applyAutogrow", () => {
       const tf = this.inputRef.current;
-      const { style } = tf; // reset height and measure scrollHeight
+      const {
+        style
+      } = tf; // reset height and measure scrollHeight
 
       style.cssText = 'overflow:hidden; height:auto;';
       style.cssText = `overflow:hidden; height:${tf.scrollHeight}px`;
@@ -29,7 +31,9 @@ class TextField extends PureComponent {
     const inputNode = this.inputRef.current; // This initialises the input for the styleguide
     // new OltTextField(inputNode); // eslint-disable-line no-new
 
-    const { autogrow } = this.props;
+    const {
+      autogrow
+    } = this.props;
 
     if (autogrow) {
       inputNode.addEventListener('input', this.applyAutogrow);
@@ -39,7 +43,9 @@ class TextField extends PureComponent {
   }
 
   componentWillUnmount() {
-    const { autogrow } = this.props;
+    const {
+      autogrow
+    } = this.props;
     const inputNode = this.inputRef.current;
 
     if (autogrow) {
@@ -50,173 +56,92 @@ class TextField extends PureComponent {
 
   render() {
     const _this$props = this.props,
-      {
-        className,
-        defaultValue,
-        disabled,
-        errorMessage,
-        fullwidth,
-        icon,
-        infoText,
-        label,
-        floating,
-        onChange,
-        onBlur,
-        readOnly,
-        textarea,
-        value,
-        style,
-        autogrow,
-        placeholder,
-        required,
-        noFooter,
-      } = _this$props,
-      rest = _objectWithoutProperties(_this$props, [
-        'className',
-        'defaultValue',
-        'disabled',
-        'errorMessage',
-        'fullwidth',
-        'icon',
-        'infoText',
-        'label',
-        'floating',
-        'onChange',
-        'onBlur',
-        'readOnly',
-        'textarea',
-        'value',
-        'style',
-        'autogrow',
-        'placeholder',
-        'required',
-        'noFooter',
-      ]);
+          {
+      className,
+      defaultValue,
+      disabled,
+      errorMessage,
+      fullwidth,
+      icon,
+      infoText,
+      label,
+      floating,
+      onChange,
+      onBlur,
+      readOnly,
+      textarea,
+      value,
+      style,
+      autogrow,
+      placeholder,
+      required,
+      noFooter
+    } = _this$props,
+          rest = _objectWithoutProperties(_this$props, ["className", "defaultValue", "disabled", "errorMessage", "fullwidth", "icon", "infoText", "label", "floating", "onChange", "onBlur", "readOnly", "textarea", "value", "style", "autogrow", "placeholder", "required", "noFooter"]);
 
-    const { elementId } = this;
+    const {
+      elementId
+    } = this;
     const Element = textarea || autogrow ? 'textarea' : 'input';
     const hasFloatingLabel = floating && label;
     const base = `${OLT_NAMESPACE}TextField`;
-    const wrapperClasses = classnames(
-      base,
-      fullwidth && 'is-fullwidth',
-      hasFloatingLabel && `${base}--float`,
-      icon && 'has-icon',
-      !label && 'has-noLabel',
-      className,
-      errorMessage && 'has-error-message',
-    );
-    const elementClasses = classnames(
-      `${OLT_NAMESPACE}Input ${base}-input`,
-      errorMessage && 'is-error',
-      hasFloatingLabel && value && 'has-value',
-    );
-    const elementStyles = autogrow
-      ? _objectSpread({}, rest.style, {
-          overflow: 'hidden',
-        })
-      : rest.style;
-    const autogrowProps = autogrow
-      ? {
-          rows: '1',
-        }
-      : {};
-    const showLabel = label && (floating || (!errorMessage && !infoText));
-    const newPlaceholder =
-      placeholder || (!floating && !showLabel && label) || '';
-    const labelElement =
-      label &&
-      React.createElement(
-        'label',
-        {
-          className: `${OLT_NAMESPACE}Label ${base}-label`,
-          htmlFor: elementId,
-        },
-        label,
-        required && !readOnly ? '*' : null,
-      );
-    const noFooterStyle = noFooter
-      ? {
-          marginBottom: 0,
-        }
-      : {};
+    const wrapperClasses = classnames(base, fullwidth && 'is-fullwidth', hasFloatingLabel && `${base}--float`, icon && 'has-icon', !label && 'has-noLabel', className, errorMessage && 'has-error-message');
+    const elementClasses = classnames(`${OLT_NAMESPACE}Input ${base}-input`, errorMessage && 'is-error', hasFloatingLabel && value && 'has-value');
+    const elementStyles = autogrow ? _objectSpread({}, rest.style, {
+      overflow: 'hidden'
+    }) : rest.style;
+    const autogrowProps = autogrow ? {
+      rows: '1'
+    } : {};
+    const showLabel = label && (floating || !errorMessage && !infoText);
+    const newPlaceholder = placeholder || !floating && !showLabel && label || '';
+    const labelElement = label && React.createElement("label", {
+      className: `${OLT_NAMESPACE}Label ${base}-label`,
+      htmlFor: elementId
+    }, label, required && !readOnly ? '*' : null);
+    const noFooterStyle = noFooter ? {
+      marginBottom: 0
+    } : {};
 
     const wrapperStyle = _objectSpread({}, style, noFooterStyle);
 
-    return React.createElement(
-      'div',
-      {
-        className: wrapperClasses,
-        style: wrapperStyle,
-      },
-      !floating && labelElement,
-      React.createElement(
-        Element,
-        _extends(
-          {
-            style: elementStyles,
-            className: elementClasses,
-            defaultValue: defaultValue,
-            disabled: disabled,
-            id: elementId,
-            onChange: onChange,
-            onBlur: onBlur,
-            readOnly: readOnly,
-            ref: this.inputRef,
-            value: value,
-            placeholder: newPlaceholder,
-          },
-          autogrowProps,
-          _objectSpread({}, rest, {
-            required,
-          }),
-        ),
-      ),
-      floating && labelElement,
-      !noFooter &&
-        React.createElement(
-          'span',
-          {
-            className: `${base}-footer`,
-          },
-          errorMessage &&
-            React.createElement(
-              'span',
-              {
-                className: `${base}-message ${OLT_NAMESPACE}u-textError`,
-              },
-              readOnly
-                ? React.createElement('span', null, '\xA0')
-                : errorMessage,
-            ),
-          infoText &&
-            React.createElement(
-              'span',
-              {
-                className: `${base}-info`,
-              },
-              readOnly ? React.createElement('span', null, '\xA0') : infoText,
-            ),
-        ),
-      icon &&
-        React.createElement(
-          'span',
-          {
-            className: `${base}-icon`,
-            style: {
-              pointerEvents: 'none',
-            },
-          },
-          React.createElement('i', {
-            className: `${OLT_NAMESPACE}Icon`,
-            'data-icon': icon,
-          }),
-        ),
-    );
+    return React.createElement("div", {
+      className: wrapperClasses,
+      style: wrapperStyle
+    }, !floating && labelElement, React.createElement(Element, _extends({
+      style: elementStyles,
+      className: elementClasses,
+      defaultValue: defaultValue,
+      disabled: disabled,
+      id: elementId,
+      onChange: onChange,
+      onBlur: onBlur,
+      readOnly: readOnly,
+      ref: this.inputRef,
+      value: value,
+      placeholder: newPlaceholder
+    }, autogrowProps, _objectSpread({}, rest, {
+      required
+    }))), floating && labelElement, !noFooter && React.createElement("span", {
+      className: `${base}-footer`
+    }, errorMessage && React.createElement("span", {
+      className: `${base}-message ${OLT_NAMESPACE}u-textError`
+    }, readOnly ? React.createElement("span", null, "\xA0") : errorMessage), infoText && React.createElement("span", {
+      className: `${base}-info`
+    }, readOnly ? React.createElement("span", null, "\xA0") : infoText)), icon && React.createElement("span", {
+      className: `${base}-icon`,
+      style: {
+        pointerEvents: 'none'
+      }
+    }, React.createElement("i", {
+      className: `${OLT_NAMESPACE}Icon`,
+      "data-icon": icon
+    })));
   }
+
 }
 
-_defineProperty(TextField, 'propTypes', {
+_defineProperty(TextField, "propTypes", {
   className: string,
   defaultValue: string,
   disabled: bool,
@@ -235,10 +160,10 @@ _defineProperty(TextField, 'propTypes', {
   autogrow: bool,
   noFooter: bool,
   placeholder: string,
-  style: shape({}),
+  style: shape({})
 });
 
-_defineProperty(TextField, 'defaultProps', {
+_defineProperty(TextField, "defaultProps", {
   className: null,
   defaultValue: undefined,
   disabled: false,
@@ -257,7 +182,7 @@ _defineProperty(TextField, 'defaultProps', {
   autogrow: false,
   noFooter: false,
   placeholder: null,
-  style: null,
+  style: null
 });
 
 export { TextField };

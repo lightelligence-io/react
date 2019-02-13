@@ -1,39 +1,73 @@
-import _defineProperty from '@babel/runtime/helpers/defineProperty';
-import React, { PureComponent } from 'react';
-import { number, bool } from 'prop-types';
-import { OLT_NAMESPACE } from '../../constants';
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TableCellRowIndex = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _propTypes = require("prop-types");
+
+var _constants = require("../../constants");
+
 /**
  * Define the cell rendering item with current index
  *
  * @props rowIndex dynamic prop, passed from parent
  * @props cellIndex dynamic prop, passed from parent
  */
+var TableCellRowIndex =
+/*#__PURE__*/
+function (_PureComponent) {
+  (0, _inherits2.default)(TableCellRowIndex, _PureComponent);
 
-class TableCellRowIndex extends PureComponent {
-  get value() {
-    const { rowIndex, increase } = this.props;
-    return increase ? rowIndex + 1 : rowIndex;
+  function TableCellRowIndex() {
+    (0, _classCallCheck2.default)(this, TableCellRowIndex);
+    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(TableCellRowIndex).apply(this, arguments));
   }
 
-  render() {
-    return React.createElement(
-      'td',
-      {
-        className: `${OLT_NAMESPACE}Table-data`,
-      },
-      this.value,
-    );
-  }
-}
+  (0, _createClass2.default)(TableCellRowIndex, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("td", {
+        className: "".concat(_constants.OLT_NAMESPACE, "Table-data")
+      }, this.value);
+    }
+  }, {
+    key: "value",
+    get: function get() {
+      var _this$props = this.props,
+          rowIndex = _this$props.rowIndex,
+          increase = _this$props.increase;
+      return increase ? rowIndex + 1 : rowIndex;
+    }
+  }]);
+  return TableCellRowIndex;
+}(_react.PureComponent);
 
-_defineProperty(TableCellRowIndex, 'propTypes', {
-  increase: bool,
-  rowIndex: number,
+exports.TableCellRowIndex = TableCellRowIndex;
+(0, _defineProperty2.default)(TableCellRowIndex, "propTypes", {
+  increase: _propTypes.bool,
+  rowIndex: _propTypes.number
 });
-
-_defineProperty(TableCellRowIndex, 'defaultProps', {
+(0, _defineProperty2.default)(TableCellRowIndex, "defaultProps", {
   increase: true,
-  rowIndex: 0,
+  rowIndex: 0
 });
-
-export { TableCellRowIndex };

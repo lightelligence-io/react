@@ -1,6 +1,6 @@
-import _extends from '@babel/runtime/helpers/extends';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
-import _defineProperty from '@babel/runtime/helpers/defineProperty';
+import _extends from "@babel/runtime/helpers/extends";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React, { PureComponent } from 'react';
 import { string, any, func } from 'prop-types';
 import classnames from 'classnames';
@@ -15,7 +15,11 @@ import { OLT_NAMESPACE } from '../../constants';
 
 class TableCell extends PureComponent {
   get value() {
-    const { row, field, renderer } = this.props;
+    const {
+      row,
+      field,
+      renderer
+    } = this.props;
 
     try {
       if (typeof renderer === 'function') {
@@ -36,30 +40,23 @@ class TableCell extends PureComponent {
 
   render() {
     const _this$props = this.props,
-      { row, field, renderer, className } = _this$props,
-      props = _objectWithoutProperties(_this$props, [
-        'row',
-        'field',
-        'renderer',
-        'className',
-      ]);
+          {
+      row,
+      field,
+      renderer,
+      className
+    } = _this$props,
+          props = _objectWithoutProperties(_this$props, ["row", "field", "renderer", "className"]);
 
     const classes = classnames(`${OLT_NAMESPACE}Table-data`, className);
-    return React.createElement(
-      'td',
-      _extends(
-        {
-          className: classes,
-        },
-        props,
-      ),
-      ' ',
-      this.value,
-    );
+    return React.createElement("td", _extends({
+      className: classes
+    }, props), ' ', this.value);
   }
+
 }
 
-_defineProperty(TableCell, 'propTypes', {
+_defineProperty(TableCell, "propTypes", {
   /**
    * define the key if object
    */
@@ -77,13 +74,13 @@ _defineProperty(TableCell, 'propTypes', {
    * @info not use field to resolve the line, always use the row data
    */
   renderer: func,
-  className: string,
+  className: string
 });
 
-_defineProperty(TableCell, 'defaultProps', {
+_defineProperty(TableCell, "defaultProps", {
   row: null,
   renderer: null,
-  className: null,
+  className: null
 });
 
 export { TableCell };

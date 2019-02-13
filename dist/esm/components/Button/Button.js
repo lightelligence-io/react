@@ -1,5 +1,5 @@
-import _extends from '@babel/runtime/helpers/extends';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
+import _extends from "@babel/runtime/helpers/extends";
+import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
 import React from 'react';
 import { string, bool, node } from 'prop-types';
 import classnames from 'classnames';
@@ -7,44 +7,23 @@ import { OLT_NAMESPACE } from '../../constants';
 
 const Button = (_ref) => {
   let {
-      className,
-      color,
-      outline,
-      children,
-      selectable,
-      disabled,
-      tag,
-      icon,
-    } = _ref,
-    props = _objectWithoutProperties(_ref, [
-      'className',
-      'color',
-      'outline',
-      'children',
-      'selectable',
-      'disabled',
-      'tag',
-      'icon',
-    ]);
+    className,
+    color,
+    outline,
+    children,
+    selectable,
+    disabled,
+    tag,
+    icon
+  } = _ref,
+      props = _objectWithoutProperties(_ref, ["className", "color", "outline", "children", "selectable", "disabled", "tag", "icon"]);
 
   const base = `${OLT_NAMESPACE}Button`;
   const Element = tag || 'button';
-  return React.createElement(
-    Element,
-    _extends({}, props, {
-      className: classnames(
-        base,
-        color && `${base}--${color}`,
-        outline && `${base}--outline`,
-        icon && `${base}--icon`,
-        selectable && `${base}--selectable`,
-        disabled ? 'is-disabled' : '',
-        className,
-      ),
-      'data-icon': icon || undefined,
-    }),
-    children,
-  );
+  return React.createElement(Element, _extends({}, props, {
+    className: classnames(base, color && `${base}--${color}`, outline && `${base}--outline`, icon && `${base}--icon`, selectable && `${base}--selectable`, disabled ? 'is-disabled' : '', className),
+    "data-icon": icon || undefined
+  }), children);
 };
 
 Button.propTypes = {
@@ -55,7 +34,7 @@ Button.propTypes = {
   icon: string,
   disabled: bool,
   children: node,
-  color: string,
+  color: string
 };
 Button.defaultProps = {
   tag: 'button',
@@ -65,6 +44,6 @@ Button.defaultProps = {
   icon: '',
   outline: false,
   children: null,
-  color: '',
+  color: ''
 };
 export { Button };
