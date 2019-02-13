@@ -18,14 +18,17 @@ export const Paragraph = (_ref) => {
 
   const Component = element;
 
-  const elemStyle = _objectSpread({}, style, {
-    // TODO: move this to the styleguide (modifier or default?)
-    wordBreak: 'break-all',
-    // TODO: Don't overwrite styleguide margins here, but it's currently used with these values in the portal and marketing site.
-    // In the styleguide we use margin-bottom = 1rem and also have a last-child rule. We have to adjust this
-    // either here or in the styleguide.
-    margin: '0 0 0.5rem',
-  });
+  const elemStyle = _objectSpread(
+    {
+      // TODO: move this to the styleguide (modifier or default?)
+      wordBreak: 'break-all',
+      // TODO: Don't overwrite styleguide margins here, but it's currently used with these values in the portal and marketing site.
+      // In the styleguide we use margin-bottom = 1rem and also have a last-child rule. We have to adjust this
+      // either here or in the styleguide.
+      margin: '0 0 0.5rem',
+    },
+    style,
+  );
 
   const classes = classnames(
     `${OLT_NAMESPACE}Paragraph`,

@@ -7831,8 +7831,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             var Component = element;
 
             var elemStyle = _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()(
-              {},
-              style,
               {
                 // TODO: move this to the styleguide (modifier or default?)
                 wordBreak: 'break-all',
@@ -7841,6 +7839,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 // either here or in the styleguide.
                 margin: '0 0 0.5rem',
               },
+              style,
             );
 
             var classes = classnames__WEBPACK_IMPORTED_MODULE_4___default()(
