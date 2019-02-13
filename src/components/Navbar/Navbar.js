@@ -86,6 +86,7 @@ export class Navbar extends Component {
           `${base}--${color}`,
           outline && `${base}--outline`,
           open && 'is-open',
+          className,
         )}
       >
         <button

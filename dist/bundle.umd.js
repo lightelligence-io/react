@@ -4509,6 +4509,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                               ''.concat(base, '--').concat(color),
                               outline && ''.concat(base, '--outline'),
                               open && 'is-open',
+                              className,
                             ),
                           },
                         ),
