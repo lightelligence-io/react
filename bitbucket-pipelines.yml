@@ -1,0 +1,65 @@
+image: node:dubnium
+
+definitions:
+  steps:
+
+    - step: &Audit-Step
+        name: Audit NPM vulnerabilities
+        image:
+          name: oltregistry.azurecr.io/tools/npm-audit-ci:latest
+          username: $REGISTRY_USER
+          password: $REGISTRY_PASSWORD
+        script:
+          - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          - npm install
+          - /app/bin/npm-audit-ci -m
+        caches:
+          - node
+
+    - step: &Build-Step
+        name: Build
+        script:
+          - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          - npm install
+          - npm run build
+        caches:
+          - node
+        artifacts:
+          - dist/**
+
+    - step: &Test-Step
+        name: Run tests
+        script:
+          - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          - npm install
+          - npm test
+        caches:
+          - node
+
+pipelines:
+
+  default:
+    - step: *Audit-Step
+    - step: *Build-Step
+    - step: *Test-Step
+
+  branches:
+    master:
+      - step: *Audit-Step
+      - step: *Build-Step
+      - step: *Test-Step
+
+  tags:
+    '*.*.*':
+      - step: *Audit-Step
+      - step: *Build-Step
+      - step: *Test-Step
+      - step:
+          name: Publish package on NPM
+          script:
+            - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN_PUBLISH}" > .npmrc
+            - npm install
+            - npm version --no-git-tag-version ${BITBUCKET_TAG}
+            - npm publish
+          caches:
+            - node
