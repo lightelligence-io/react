@@ -2,7 +2,6 @@
   "name": "@lightelligence/react",
   "version": "0.2.1",
   "main": "dist/bundle.umd.js",
-  "module": "dist/esm/index.js",
   "scripts": {
     "start": "styleguidist server",
     "build:styleguide": "styleguidist build",
@@ -69,7 +68,7 @@
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.5",
-    "react-styleguidist": "^7.3.8",
+    "react-styleguidist": "^8.0.6",
     "react-testing-library": "^5.1.0",
     "resolve": "1.6.0",
     "sass-loader": "^7.1.0",
