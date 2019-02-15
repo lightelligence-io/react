@@ -1,18 +1,32 @@
 const path = require('path');
 const webpackConfig = require('./webpack.styleguide.config.js');
 
+function getVersion() {
+  return process.env['BITBUCKET_TAG'] || require('./package.json').version;
+}
+
 module.exports = {
   serverPort: 5050,
   pagePerSection: true,
-  // TODO: Don't let us show sub-components inadvertently, see: https://react-styleguidist.js.org/docs/cookbook.html#how-to-hide-some-components-in-style-guide-but-make-them-available-in-examples
-  // skipComponentsWithoutExample: true,
+  styleguideDir: 'docs',
+  version: getVersion(),
   sections: [
+    {
+      name: 'Introduction',
+      content: 'src/index.md',
+    },
     {
       name: 'Components',
       components: 'src/**/[A-Z]*.js',
       sectionDepth: 2,
     },
   ],
+  getComponentPathLine(componentPath) {
+    const name = path.basename(componentPath, '.js');
+    return `import {${name}} from '@lightelligence/react';`;
+  },
+  exampleMode: 'expand',
+  usageMode: 'expand',
   ignore: ['src/**/[A-Z]*.test.js'],
   webpackConfig,
   styleguideComponents: {

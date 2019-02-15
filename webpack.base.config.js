@@ -1,6 +1,5 @@
 const path = require('path');
 
-// TODO get rid of this, but we currently need it for styleguidist, because of the scss dependency
 const styleLoaderStyleguide = {
   test: /\.css$/,
   use: [
