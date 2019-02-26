@@ -3,6 +3,7 @@
 Either pass items as children of type `MenuItem`...
 
 ```jsx
+import { Menu, MenuItem } from '@lightelligence/react';
 const onClick = (event) => {
   console.log('clicked');
 };
@@ -15,6 +16,7 @@ const onClick = (event) => {
 ...or provide `items` as an array prop.
 
 ```jsx
+import { Menu } from '@lightelligence/react';
 const onClick = (event) => {
   console.log('clicked');
 };
@@ -37,6 +39,7 @@ Since `MenuItem` uses our router-aware `Link`-Component under the hood, you coul
 Declare submenus by the corresponding flag `submenu`
 
 ```jsx
+import { Menu } from '@lightelligence/react';
 const onClick = (event) => {
   console.log('clicked');
 };

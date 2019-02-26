@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { oneOf, string } from 'prop-types';
 import classnames from 'classnames';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 import {
-  OLT_NAMESPACE,
   AVATAR_TYPE_USER,
   AVATAR_TYPE_TENANT,
   AVATAR_SIZE_LARGE,
@@ -25,16 +25,15 @@ export class Avatar extends PureComponent {
 
   render() {
     const { type, size, name, className, ...props } = this.props;
-    const base = `${OLT_NAMESPACE}Avatar`;
     const shortName = name.substr(0, 1);
 
     return (
       <i
         {...props}
         className={classnames(
-          base,
-          size === AVATAR_SIZE_LARGE && `${base}--large`,
-          type === 'tenant' ? `${base}--tenant` : `${base}--user`,
+          olt.Avatar,
+          size === AVATAR_SIZE_LARGE && olt.AvatarLarge,
+          type === 'tenant' ? olt.AvatarTenant : olt.AvatarUser,
           className,
         )}
       >

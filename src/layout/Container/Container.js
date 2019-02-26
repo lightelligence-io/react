@@ -1,16 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
-
 import { bool, string } from 'prop-types';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 export const Container = ({ className, noPadding, ...props }) => (
   <div
     {...props}
     className={classnames(
-      `${OLT_NAMESPACE}Container`,
-      noPadding && `${OLT_NAMESPACE}Container--noPadding`,
+      olt.Container,
+      noPadding && olt.ContainerNoPadding,
       className,
     )}
   />

@@ -1,6 +1,7 @@
 Snackbar example that indicates a successful operation.
 
 ```jsx
+import { Headline, Button, Snackbar, Icon } from '@lightelligence/react';
 initialState = {
     open: false,
 }
@@ -31,6 +32,7 @@ const setOpen = () => {
 Snackbar example that indicates an error.
 
 ```jsx
+import { Headline, Button, Snackbar, Icon } from '@lightelligence/react';
 initialState = {
     open: false,
 }

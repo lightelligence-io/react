@@ -1,8 +1,7 @@
 import React, { PureComponent, cloneElement } from 'react';
 import { arrayOf, element, object, string, bool, func } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 class Table extends PureComponent {
   static propTypes = {
@@ -37,10 +36,7 @@ class Table extends PureComponent {
 
     return (
       <tr
-        className={classnames(
-          `${OLT_NAMESPACE}Table-row`,
-          `${OLT_NAMESPACE}Table-row--selectable`,
-        )}
+        className={classnames(olt.TableRow, olt.TableRowSelectable)}
         key={rowIndex}
         onClick={this.handleRowClick}
       >
@@ -71,20 +67,19 @@ class Table extends PureComponent {
       justify,
       ...props
     } = this.props;
-    const base = `${OLT_NAMESPACE}Table`;
 
     return (
-      <div className={`${OLT_NAMESPACE}u-overflowXAuto`}>
+      <div className={olt.uOverflowXAuto}>
         <table
           className={classnames(
-            base,
-            selectable && `${base}--selectable`,
-            justify && `${base}--justify`,
+            olt.Table,
+            selectable && olt.TableSelectable,
+            justify && olt.TableJustify,
           )}
           {...props}
         >
           {header}
-          <tbody className={`${base}-body`}>{rows.map(this.renderRow)}</tbody>
+          <tbody className={olt.TableBody}>{rows.map(this.renderRow)}</tbody>
         </table>
       </div>
     );

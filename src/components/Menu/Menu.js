@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { bool, string, node, arrayOf, shape } from 'prop-types';
 import classnames from 'classnames';
+import { pascalize } from 'humps';
+import * as olt from '@lightelligence/lightelligence-ui';
 
-import { OLT_NAMESPACE } from '../../constants';
 import { MenuItem } from './MenuItem';
 
 export class Menu extends PureComponent {
@@ -46,19 +47,17 @@ export class Menu extends PureComponent {
       items,
       ...props
     } = this.props;
-    const base = `${OLT_NAMESPACE}Menu`;
-    const navbarBase = `${OLT_NAMESPACE}Navbar`;
 
     return (
       <div
         {...props}
         className={classnames(
-          base,
-          color && `${base}--${color}`,
-          outline && `${base}--outline`,
-          submenu && `${base}--sub`,
-          disabled && 'is-disabled',
-          navbar && `${navbarBase}-menu`,
+          olt.Menu,
+          color && olt[`Menu${pascalize(color)}`],
+          outline && olt.MenuOutline,
+          submenu && olt.MenuSub,
+          disabled && olt.isDisabled,
+          navbar && olt.NavbarMenu,
         )}
       >
         {items.length > 0

@@ -1,8 +1,8 @@
 import React from 'react';
+import { pascalize } from 'humps';
 import { string, bool, node } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 const Button = ({
   className,
@@ -15,19 +15,18 @@ const Button = ({
   icon,
   ...props
 }) => {
-  const base = `${OLT_NAMESPACE}Button`;
   const Element = tag || 'button';
 
   return (
     <Element
       {...props}
       className={classnames(
-        base,
-        color && `${base}--${color}`,
-        outline && `${base}--outline`,
-        icon && `${base}--icon`,
-        selectable && `${base}--selectable`,
-        disabled ? 'is-disabled' : '',
+        olt.Button,
+        color && olt[`Button${pascalize(color)}`],
+        outline && olt.ButtonOutline,
+        icon && olt.ButtonIcon,
+        selectable && olt.ButtonSelectable,
+        disabled && olt.isDisabled,
         className,
       )}
       data-icon={icon || undefined}
@@ -56,7 +55,7 @@ Button.defaultProps = {
   icon: '',
   outline: false,
   children: null,
-  color: '',
+  color: undefined,
 };
 
 export { Button };

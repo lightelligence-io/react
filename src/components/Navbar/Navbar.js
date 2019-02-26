@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { bool, string, node } from 'prop-types';
+import { string, node } from 'prop-types';
 import classnames from 'classnames';
-import { isServerSideRendering } from '../../utils/isServerSideRendering';
+import { pascalize } from 'humps';
+import * as olt from '@lightelligence/lightelligence-ui';
 
-import { OLT_NAMESPACE } from '../../constants';
+import { isServerSideRendering } from '../../utils/isServerSideRendering';
 
 export class Navbar extends Component {
   static propTypes = {
@@ -12,7 +13,6 @@ export class Navbar extends Component {
     title: node,
     home: string,
     color: string,
-    outline: bool,
   };
 
   static defaultProps = {
@@ -21,7 +21,6 @@ export class Navbar extends Component {
     title: null,
     home: '/',
     color: 'dark',
-    outline: false,
   };
 
   state = {
@@ -65,40 +64,29 @@ export class Navbar extends Component {
   };
 
   render() {
-    const {
-      children,
-      className,
-      title,
-      home,
-      color,
-      outline,
-      ...props
-    } = this.props;
+    const { children, className, title, home, color, ...props } = this.props;
     const { open } = this.state;
-    const base = `${OLT_NAMESPACE}Navbar`;
 
     return (
       <nav
         ref={this.navbarRef}
         {...props}
         className={classnames(
-          base,
-          `${base}--${color}`,
-          outline && `${base}--outline`,
-          open && 'is-open',
-          className,
+          olt.Navbar,
+          olt[`Navbar${pascalize(color)}`],
+          open && olt.isOpen,
         )}
       >
         <button
           type="button"
-          className={`${base}-toggle`}
+          className={olt.NavbarToggle}
           onClick={this.handleClick}
         />
-        <a className={`${base}-title`} href={home}>
+        <a className={olt.NavbarTitle} href={home}>
           {title}
         </a>
-        <div className={`${base}-content`}>
-          <a className={`${base}-title`} href={home}>
+        <div className={olt.NavbarContent}>
+          <a className={olt.NavbarTitle} href={home}>
             {title}
           </a>
           {children}

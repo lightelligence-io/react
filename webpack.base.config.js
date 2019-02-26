@@ -5,15 +5,31 @@ const styleLoaderStyleguide = {
   use: [
     require.resolve('style-loader'),
     require.resolve('css-loader'),
-    require.resolve('postcss-loader'),
+    {
+      loader: require.resolve('postcss-loader'),
+      options: {
+        config: {
+          path: __dirname,
+        },
+      },
+    },
   ],
 };
 
 const baseConfig = (env, isStyleguide = false) => {
   const styleLoader = isStyleguide ? [styleLoaderStyleguide] : [];
-
+  const resolveConfig = isStyleguide
+    ? {
+        resolve: {
+          alias: {
+            '@lightelligence/react': path.resolve(__dirname, 'src/index.js'),
+          },
+        },
+      }
+    : {};
   return {
     entry: './src/index.js',
+    ...resolveConfig,
     // don't bundle peer dependencies
     externals: {
       react: {

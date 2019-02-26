@@ -1,4 +1,5 @@
 ```js
+import { Grid, GridItem, Card } from '@lightelligence/react';
 <div>
     <Grid>
         <GridItem size={{ xs: 12, sm: 6, lg: 4 }}>

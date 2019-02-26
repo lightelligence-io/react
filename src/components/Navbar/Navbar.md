@@ -1,4 +1,5 @@
 ```jsx
+import { Navbar, Menu, MenuItem, Dropdown } from '@lightelligence/react';
 <Navbar color="dark">
   <Menu navbar>
     <MenuItem href="https://google.com">MenuItem 1</MenuItem>

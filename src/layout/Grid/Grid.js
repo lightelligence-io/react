@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { string, bool, node } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 class Grid extends PureComponent {
   static propTypes = {
@@ -21,8 +20,8 @@ class Grid extends PureComponent {
     const { noPadding, children, className, ...props } = this.props;
 
     const classes = classnames(
-      `${OLT_NAMESPACE}Grid`,
-      noPadding && `${OLT_NAMESPACE}Grid--noPadding`, // NOTE: What about --gutterless?
+      olt.Grid,
+      noPadding && olt.GridNoPadding, // NOTE: What about --gutterless?
       // ...or maybe better: Provide list of gutters like spacings and modifiers like `--gutter{0-4}`.
       className,
     );

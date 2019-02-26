@@ -1,4 +1,5 @@
 ```js
+import { Select } from '@lightelligence/react';
 initialState = {
     options: [
         { label: 'Option 1', value: 'option_1' },
@@ -14,6 +15,7 @@ const onChange = (event) => { setState({ value: event.target.value }); };
 
 ### Disabled
 ```js
+import { Select } from '@lightelligence/react';
 initialState = {
     options: [
         { label: 'Option 1', value: 'option_1' },

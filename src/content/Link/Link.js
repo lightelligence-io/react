@@ -2,8 +2,7 @@ import React, { PureComponent } from 'react';
 import { string, bool, node } from 'prop-types';
 import { NavLink, matchPath } from 'react-router-dom';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 /**
  * Combines router navigation with standard link, seasoned with some spicy color schemes
@@ -37,7 +36,7 @@ export class Link extends PureComponent {
         {...{
           ...(match ? { to } : { href: to }),
           ...props,
-          className: classnames(!normal && `${OLT_NAMESPACE}Link`, className),
+          className: classnames(!normal && olt.Link, className),
         }}
       >
         {children}

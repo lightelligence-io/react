@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { arrayOf, string } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 class TableHead extends PureComponent {
   static propTypes = {
@@ -20,15 +19,14 @@ class TableHead extends PureComponent {
 
   render() {
     const { labels, className } = this.props;
-    const classes = classnames(`${OLT_NAMESPACE}Table-row`, className);
 
     return (
-      <thead className={`${OLT_NAMESPACE}Table-head`}>
-        <tr className={classes}>
+      <thead className={olt.TableHead}>
+        <tr className={classnames(olt.TableRow, className)}>
           {labels.map((label) => (
             <th
               key={`${label}`}
-              className={`${OLT_NAMESPACE}Table-header`}
+              className={olt.TableHeader}
               style={{ width: 'auto' }}
             >
               {label}

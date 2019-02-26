@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { func, string, node, bool } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 export class Tabs extends PureComponent {
   static propTypes = {
@@ -27,14 +26,13 @@ export class Tabs extends PureComponent {
       navigation,
       ...props
     } = this.props;
-    const base = `${OLT_NAMESPACE}Tabs`;
 
     return (
       <div
         {...props}
         className={classnames(
-          base,
-          navigation && `${base}--navigation`,
+          olt.Tabs,
+          navigation && olt.TabsNavigation,
           className,
         )}
       >

@@ -1,6 +1,7 @@
 A simple checkbox
 
 ```js
+import { Checkbox } from '@lightelligence/react';
 initialState = { checked: false };
 const onChange = (checked) => { setState({ checked }); }
 

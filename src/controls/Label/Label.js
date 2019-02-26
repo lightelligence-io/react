@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { string, node, shape } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 export class Label extends PureComponent {
   static propTypes = {
@@ -23,7 +22,7 @@ export class Label extends PureComponent {
     return (
       <label
         style={{ ...style, display: 'block' }}
-        className={classnames(`${OLT_NAMESPACE}Label`, className)}
+        className={classnames(olt.Label, className)}
         {...props}
       >
         {children}

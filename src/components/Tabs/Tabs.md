@@ -2,6 +2,7 @@
 Simple Tabs example
 
 ```js
+import { Tabs, Tab } from '@lightelligence/react';
 initialState = { value: 'tab1' };
 const onSelect = (value) => { setState({ value }); };
 
@@ -15,7 +16,7 @@ const onSelect = (value) => { setState({ value }); };
 Tabs with content
 
 ```js
-
+import { Container, Headline, Tabs, Tab } from '@lightelligence/react';
 initialState = { value: 'tab1' };
 const onSelect = (value) => {
 	setState({ value });

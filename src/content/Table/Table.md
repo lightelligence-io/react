@@ -1,6 +1,7 @@
 #### Basic table component without header
 
 ```js
+import { Table, TableCell } from '@lightelligence/react';
 initialState = {
   rows: [
     {firstname: 'Frank', lastname: 'Obenauf', age: 64},
@@ -18,6 +19,7 @@ initialState = {
 
 #### With basic header, and two types of cells
 ```js
+import { Table, TableHead, TableCell, TableCellRowIndex } from '@lightelligence/react';
 initialState = {
   headerLabels: ['#', 'Firstname', 'Lastname', 'Age'],
   rows: [
@@ -41,7 +43,18 @@ initialState = {
 
 #### Complex example with flexible design cells, Devices
 ```js
-const { date } = require('../../utils/date'); // only for demonstration
+import { 
+  Table, 
+  TableHead, 
+  TableCell, 
+  TableCellRowIndex, 
+  Headline, 
+  Icon, 
+  Tag, 
+  GridItem,
+  Grid
+} from '@lightelligence/react';
+import { date } from '../../utils/date'; // only for demonstration
 
 initialState = {
   headerLabels: ['Name/ID', 'Type', 'Model', 'Firmware', 'Tags', 'Date', 'Status'],
@@ -81,7 +94,7 @@ initialState = {
     )
   } />
   <TableCell field="owner" />
-  <TableCell field="firmware" className="olt-u-textPrimary"/>
+  <TableCell field="firmware" className="olt-u-colorPrimary"/>
   <TableCell field="tags" renderer={
     ({ tags }) => (
         <Grid>
@@ -97,7 +110,7 @@ initialState = {
   } />
   <TableCell field="meta" renderer={
         ({ status }) => <React.Fragment>
-          <i className="olt-u-textSuccess">●</i>
+          <i className="olt-u-colorSuccess">●</i>
           { status }
         </React.Fragment>
       } />

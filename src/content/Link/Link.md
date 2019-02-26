@@ -1,12 +1,14 @@
 Simple Textlink
 
 ```js
+import { Link } from '@lightelligence/react';
 <Link target="_blank" to="https://google.com">Read Tutorial</Link>
 ```
 
 Router navigation
 ```js
-const { MemoryRouter } = require('react-router');
+import { Link } from '@lightelligence/react';
+import { MemoryRouter } from 'react-router';
 
 <MemoryRouter
   initialEntries={[ '/devices' ]}

@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { node, bool, string } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 export class List extends PureComponent {
   static propTypes = {
@@ -14,22 +13,21 @@ export class List extends PureComponent {
 
   static defaultProps = {
     children: null,
-    className: string,
+    className: null,
     ordered: false,
     definition: false,
   };
 
   render() {
     const { children, className, ordered, definition, ...props } = this.props;
-    const base = `${OLT_NAMESPACE}List`;
 
     return (
       <ul
         {...props}
         className={classnames(
-          base,
-          ordered && `${base}--ordered`,
-          definition && `${base}--definition`,
+          olt.List,
+          ordered && olt.ListOrdered,
+          definition && olt.ListDefinition,
           className,
         )}
       >

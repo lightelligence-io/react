@@ -1,33 +1,10 @@
 import React, { PureComponent } from 'react';
 import { string, arrayOf, shape, bool } from 'prop-types';
 import classnames from 'classnames';
+import * as olt from '@lightelligence/lightelligence-ui';
 
-import { OLT_NAMESPACE } from '../../constants';
 import { Label } from '../Label';
 import { Select } from '../Select/Select';
-
-// TODO move the following styles to the styleguide?
-// TODO check if we need an autoprefixer here
-
-const labelStyle = {
-  color: 'initial',
-  lineHeight: '1',
-  height: '0.8rem',
-};
-
-const footerStyle = {
-  textAlign: 'left',
-  display: 'flex',
-  justifyContent: 'space-between',
-  fontSize: '0.8rem', // TODO use css-variable this was $font-size-small
-  height: '1.35rem', // TODO use css-variable this was $line-height-small;
-  marginTop: '0.25rem', // TODO use css-variable this was map-get($spacers, 1);
-};
-
-const messageStyle = {
-  textAlign: 'left',
-  fontSize: '0.8rem', // TODO use css-variable this was $font-size-small
-};
 
 class SelectField extends PureComponent {
   static propTypes = {
@@ -63,11 +40,16 @@ class SelectField extends PureComponent {
       ...props
     } = this.props;
 
-    const selectClasses = classnames(className, errorMessage && 'is-error');
     return (
-      <div className={`${OLT_NAMESPACE}SelectField`}>
+      <div className={olt.SelectField}>
         {label && (
-          <Label style={labelStyle}>
+          <Label
+            style={{
+              color: 'initial',
+              lineHeight: '1',
+              height: '0.8rem',
+            }}
+          >
             {label}
             {required && !readOnly ? '*' : null}
           </Label>
@@ -75,15 +57,33 @@ class SelectField extends PureComponent {
         <Select
           fullwidth={fullwidth}
           disabled={disabled}
-          className={selectClasses}
+          className={classnames(
+            olt.SelectInput,
+            className,
+            errorMessage && olt.isError,
+          )}
           options={options}
           {...{ ...props, required, readOnly }}
         />
-        <span style={footerStyle}>
+        <span
+          className={olt.SelectFooter}
+          style={{
+            textAlign: 'left',
+            display: 'flex',
+            justifyContent: 'space-between',
+            fontSize: olt.theme.fontSize.small,
+            height: '1.35rem', // TODO use css-variable this was $line-height-small;
+            marginTop: olt.theme.spacing[1],
+          }}
+        >
           {errorMessage && (
             <span
-              style={messageStyle}
-              className={`${OLT_NAMESPACE}u-textError`}
+              style={{
+                textAlign: 'left',
+                fontSize: olt.theme.fontSize.small,
+                color: olt.theme.color.error,
+              }}
+              className={olt.SelectMessage}
             >
               {errorMessage}
             </span>

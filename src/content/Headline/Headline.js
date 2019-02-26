@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { string, node, oneOf, bool } from 'prop-types';
 import { pascalize } from 'humps';
 import classnames from 'classnames';
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 class Headline extends PureComponent {
   static propTypes = {
@@ -39,12 +39,14 @@ class Headline extends PureComponent {
       <Element
         {...props}
         className={classnames(
-          `${OLT_NAMESPACE}Headline`,
-          `${OLT_NAMESPACE}Headline--${size}`,
-          regular && `${OLT_NAMESPACE}Headline--regular`,
-          color && `${OLT_NAMESPACE}u-text${pascalize(color)}`,
+          olt.Headline,
+          olt[`Headline${pascalize(String(size))}`],
+          regular && olt.HeadlineRegular,
           className,
         )}
+        style={{
+          color: color ? olt.theme.color[color] : undefined,
+        }}
       >
         {children}
       </Element>

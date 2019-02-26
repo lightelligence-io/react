@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { node, string, bool, func } from 'prop-types';
 import classnames from 'classnames';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 export class Tab extends PureComponent {
   static propTypes = {
@@ -32,14 +33,12 @@ export class Tab extends PureComponent {
         <button
           type="button"
           onClick={this.handleChange}
-          className={classnames('olt-Tabs-header', active && 'is-active')}
+          className={classnames(olt.TabsHeader, active && olt.isActive)}
         >
           {label}
         </button>
         {children && (
-          <div
-            className={classnames('olt-Tabs-content', active && 'is-active')}
-          >
+          <div className={classnames(olt.TabsContent, active && olt.isActive)}>
             {children}
           </div>
         )}

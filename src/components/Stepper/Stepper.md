@@ -12,6 +12,7 @@ Stepper accepts either a node or a function (render prop) as the steps content. 
 The result will be rendered as the step content.
 
 ```js
+import { Stepper, Button } from '@lightelligence/react';
 const steps = [
   {
     id: 1,

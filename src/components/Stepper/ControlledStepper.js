@@ -10,9 +10,8 @@ import {
   func,
   bool,
 } from 'prop-types';
-
 import classnames from 'classnames';
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 export class ControlledStepper extends PureComponent {
   static propTypes = {
@@ -59,8 +58,8 @@ export class ControlledStepper extends PureComponent {
         };
 
     const classes = classnames(
-      `${OLT_NAMESPACE}Stepper-header`,
-      id === currentStepIdx && 'is-active',
+      olt.StepperHeader,
+      id === currentStepIdx && olt.isActive,
     );
     return (
       <div
@@ -78,8 +77,8 @@ export class ControlledStepper extends PureComponent {
   renderContent = ({ id, content }) => {
     const { currentStepIdx } = this.props;
     const classes = classnames(
-      `${OLT_NAMESPACE}Stepper-content`,
-      id === currentStepIdx && 'is-active',
+      olt.StepperContent,
+      id === currentStepIdx && olt.isActive,
     );
 
     const contentBody =
@@ -96,7 +95,7 @@ export class ControlledStepper extends PureComponent {
 
   render() {
     const { className, steps } = this.props;
-    const classes = classnames(`${OLT_NAMESPACE}Stepper`, className);
+    const classes = classnames(olt.Stepper, className);
 
     return (
       <section className={classes}>

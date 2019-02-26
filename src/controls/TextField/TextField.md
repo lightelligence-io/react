@@ -1,4 +1,5 @@
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: ''};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -9,17 +10,8 @@ const onChange = (event) => {
 ### Label
 
 ```js
-initialState = { value: 'Value'};
-const onChange = (event) => {
-    setState({ value: event.target.value });
-};
-<TextField label="Label" value={state.value} onChange={onChange}/>
-```
-
-### Label
-
-```js
-initialState = { value: 'Value'};
+import { TextField } from '@lightelligence/react';
+initialState = { value: ''};
 const onChange = (event) => {
     setState({ value: event.target.value });
 };
@@ -29,6 +21,7 @@ const onChange = (event) => {
 
 ### As Textarea
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -38,6 +31,7 @@ const onChange = (event) => {
 
 ### Disabled
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -47,6 +41,7 @@ const onChange = (event) => {
 
 ### Readonly
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -56,6 +51,7 @@ const onChange = (event) => {
 
 ### Required with error-message
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -65,6 +61,7 @@ const onChange = (event) => {
 
 ### With Info Text
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -74,6 +71,7 @@ const onChange = (event) => {
 
 ### With Icon
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -84,6 +82,7 @@ const onChange = (event) => {
 
 ### With Icon non-floating
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -94,6 +93,7 @@ const onChange = (event) => {
 
 ### Fullwidth
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -103,6 +103,7 @@ const onChange = (event) => {
 
 ### Autogrow
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -113,6 +114,7 @@ const onChange = (event) => {
 
 ### Required with error-message and info-text
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -122,6 +124,7 @@ const onChange = (event) => {
 
 ### Required with info-text
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -131,6 +134,7 @@ const onChange = (event) => {
 
 ### Required with info-text
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
@@ -141,6 +145,7 @@ const onChange = (event) => {
 
 ### info-text and non-floating
 ```js
+import { TextField } from '@lightelligence/react';
 initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });

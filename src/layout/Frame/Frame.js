@@ -1,11 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import { string } from 'prop-types';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 export const Frame = ({ className, ...props }) => (
-  <div {...props} className={classnames(`${OLT_NAMESPACE}Frame`, className)} />
+  <div {...props} className={classnames(olt.Frame, className)} />
 );
 
 Frame.propTypes = {

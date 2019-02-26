@@ -1,8 +1,9 @@
 const path = require('path');
 const webpackConfig = require('./webpack.styleguide.config.js');
+const pkg = require('./package.json');
 
 function getVersion() {
-  return process.env['BITBUCKET_TAG'] || require('./package.json').version;
+  return process.env.BITBUCKET_TAG || pkg.version;
 }
 
 module.exports = {

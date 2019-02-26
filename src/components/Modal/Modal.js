@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { bool, node, func, oneOf, string } from 'prop-types';
 import classnames from 'classnames';
+import { pascalize } from 'humps';
+import * as olt from '@lightelligence/lightelligence-ui';
 
-import { OLT_NAMESPACE } from '../../constants';
 import { Button } from '../Button';
 import {
   MODAL_TYPE_ERROR,
@@ -53,37 +54,32 @@ class Modal extends PureComponent {
       className,
       ...props
     } = this.props;
-    const base = `${OLT_NAMESPACE}Modal`;
 
     document.documentElement.style.overflow = open ? 'hidden' : '';
 
     return (
       <section
         className={classnames(
-          base,
-          fullscreen && `${base}--fullscreen`,
-          type !== 'none' && `${base}--${type}`,
-          open && 'is-open',
+          olt.Modal,
+          fullscreen && olt.ModalFullscreen,
+          type !== MODAL_TYPE_NONE && olt[`Modal${pascalize(type)}`],
+          open && olt.isOpen,
           className,
         )}
         {...(closable
           ? { onClick: (e) => e.target === e.currentTarget && onClose() }
           : undefined)}
       >
-        <div className={`${base}-dialog`} {...props}>
+        <div className={olt.ModalDialog} {...props}>
           {closable && !fullscreen && (
-            <Button
-              icon="close"
-              className={`${base}-close`}
-              onClick={onClose}
-            />
+            <Button icon="close" className={olt.ModalClose} onClick={onClose} />
           )}
-          {title && <div className={`${base}-header`}>{title}</div>}
-          {children && <div className={`${base}-content`}>{children}</div>}
-          {footer && <div className={`${base}-footer`}>{footer}</div>}
+          {title && <div className={olt.ModalHeader}>{title}</div>}
+          {children && <div className={olt.ModalContent}>{children}</div>}
+          {footer && <div className={olt.ModalFooter}>{footer}</div>}
         </div>
         {fullscreen && closable && (
-          <Button icon="close" className={`${base}-close`} onClick={onClose} />
+          <Button icon="close" className={olt.ModalClose} onClick={onClose} />
         )}
       </section>
     );

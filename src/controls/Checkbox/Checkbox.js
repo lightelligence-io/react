@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import { func, node, bool } from 'prop-types';
 import { UID } from 'react-uid';
-import { OLT_NAMESPACE } from '../../constants';
+import classnames from 'classnames';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 export class Checkbox extends PureComponent {
   static propTypes = {
@@ -30,11 +31,11 @@ export class Checkbox extends PureComponent {
     return (
       <UID name={(id) => `checkbox${id}`}>
         {(id) => (
-          <div className={`${OLT_NAMESPACE}Checkbox`}>
+          <div className={olt.Checkbox}>
             <input
               id={id}
               type="checkbox"
-              className={`${OLT_NAMESPACE}Checkbox-input`}
+              className={olt.CheckboxInput}
               checked={checked}
               onChange={this.onChange}
               disabled={disabled}
@@ -42,7 +43,11 @@ export class Checkbox extends PureComponent {
             {children && (
               <label
                 htmlFor={id}
-                className={`label ${OLT_NAMESPACE}Checkbox-label ${OLT_NAMESPACE}u-fontSizeSmall ${OLT_NAMESPACE}u-marginBottom1`}
+                className={classnames(olt.Label, olt.CheckboxLabel)}
+                style={{
+                  fontSize: olt.theme.fontSize.small,
+                  marginBottom: olt.theme.spacing[1],
+                }}
               >
                 {children}
               </label>

@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import { bool, func, string, node } from 'prop-types';
+import { pascalize } from 'humps';
+import * as olt from '@lightelligence/lightelligence-ui';
 // import { colorProp, childrenProp } from '../../propTypes';
 // replaced with string & node, otherwise we need to maintain the prop types
 // definition, which doesn't add a lot of benefits
-import { OLT_NAMESPACE } from '../../constants';
 
 class Tag extends PureComponent {
   static propTypes = {
@@ -24,7 +25,7 @@ class Tag extends PureComponent {
     selectable: false,
     icon: null,
     onClick: null,
-    color: null,
+    color: undefined,
   };
 
   handleClick = (e) => {
@@ -44,7 +45,6 @@ class Tag extends PureComponent {
       onClick,
       ...props
     } = this.props;
-    const base = `${OLT_NAMESPACE}Tag`;
     const Element = selectable ? 'button' : 'span';
 
     return (
@@ -52,10 +52,10 @@ class Tag extends PureComponent {
         {...props}
         onClick={this.handleClick}
         className={classnames(
-          base,
-          onClick && `${base}--selectable`,
-          outline && `${base}--outline`,
-          color && `${base}--${color}`,
+          olt.Tag,
+          onClick && olt.TagSelectable,
+          outline && olt.TagOutline,
+          color && olt[`Tag${pascalize(color)}`],
           className,
         )}
       >

@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import { func, bool, string, node } from 'prop-types';
 import classnames from 'classnames';
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
-// TODO: Styleguide implementation
+// TODO: Styleguide implementation!
+// NOTE: Since we haven't got anything in place, non-existing css classes have been removed for now
 export class RadioButton extends PureComponent {
   static propTypes = {
     value: string.isRequired,
@@ -31,12 +32,11 @@ export class RadioButton extends PureComponent {
     const { children, selected, value, className, disabled } = this.props;
 
     const label = children && (
-      <span className={`${OLT_NAMESPACE}Label`}>{children}</span>
+      <span className={classnames(olt.Label)}>{children}</span>
     );
 
-    const classes = classnames(`${OLT_NAMESPACE}Radio`, className);
     return (
-      <label className={classes}>
+      <label className={className}>
         {label}
         <input
           type="radio"
@@ -46,7 +46,8 @@ export class RadioButton extends PureComponent {
           checked={selected}
           disabled={disabled}
         />
-        <span className={`${OLT_NAMESPACE}Radio-checkmark`} />
+        {/* Radio checkmark doesn't exist */}
+        <span />
       </label>
     );
   }

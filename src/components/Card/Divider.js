@@ -3,8 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 import uniqid from 'uniqid';
 import { string } from 'prop-types';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 // TODO check if we need an autoprefixer here
 // TODO maybe we should solve the :after style otherwise
@@ -12,7 +11,7 @@ import { OLT_NAMESPACE } from '../../constants';
 const dividerAfterStyle = (id) => `.${id}:after {
   content: '';
   width: 2px;
-  background: currentColor;
+  background: ${olt.theme.gray[300]};
   position: absolute;
   top: 0;
   bottom: 0;
@@ -20,24 +19,19 @@ const dividerAfterStyle = (id) => `.${id}:after {
 }`;
 
 export const Divider = ({ className, ...props }) => {
-  const id = uniqid('olt_');
+  const id = uniqid();
   const styles = {
     display: 'inline-block',
     width: '2px',
     marginTop: '0',
     marginBottom: '0',
   };
+
   return (
     <div
       {...props}
       style={styles}
-      className={classnames(
-        `${OLT_NAMESPACE}u-marginLeft3`,
-        `${OLT_NAMESPACE}u-marginRight3`,
-        `${OLT_NAMESPACE}u-textGray400`,
-        id,
-        className,
-      )}
+      className={classnames(olt.uMarginX3, olt.uTextGray400, id, className)}
     >
       <style>{dividerAfterStyle(id)}</style>
     </div>

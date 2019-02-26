@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import { bool, string, node, oneOfType } from 'prop-types';
 import classnames from 'classnames';
+import { pascalize } from 'humps';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 import { colorProp } from '../../propTypes';
-import { OLT_NAMESPACE } from '../../constants';
 
 import { Image } from '../../content/Image';
 import { Link } from '../../content/Link';
@@ -29,7 +30,7 @@ export class Card extends PureComponent {
     description: null,
     image: null,
     action: null,
-    color: null,
+    color: undefined,
     selectable: false,
     disabled: false,
     to: '',
@@ -50,29 +51,25 @@ export class Card extends PureComponent {
       ...props
     } = this.props;
 
-    const base = `${OLT_NAMESPACE}Card`;
-
-    const classes = classnames(
-      base,
-      color && `${base}--${color}`,
-      selectable && `${base}--selectable`,
-      className,
-      disabled && 'is-disabled',
-    );
-
     const Element = selectable && !to ? 'button' : (to && Link) || 'div';
 
     return (
       <Element
         to={to || undefined}
         normal={to ? true : undefined}
-        className={classes}
+        className={classnames(
+          olt.Card,
+          color && olt[`Card${pascalize(color)}`],
+          selectable && olt.ButtonSelectable,
+          className,
+          disabled && olt.isDisabled,
+        )}
         {...props}
       >
         {image &&
           (typeof image === 'string' ? (
             <Image
-              className={`Image ${OLT_NAMESPACE}Card-image`}
+              className={classnames(olt.Image, olt.CardImage)}
               src={image}
               fluid
             />
@@ -80,23 +77,15 @@ export class Card extends PureComponent {
             image
           ))}
         {(title || description || action) && (
-          <div className={`${OLT_NAMESPACE}Card-header`}>
-            {title && (
-              <div className={`${OLT_NAMESPACE}Card-title`}>{title}</div>
-            )}
+          <div className={olt.CardHeader}>
+            {title && <div className={olt.CardTitle}>{title}</div>}
             {description && (
-              <div className={`${OLT_NAMESPACE}Card-description`}>
-                {description}
-              </div>
+              <div className={olt.CardDescription}>{description}</div>
             )}
-            {action && (
-              <div className={`${OLT_NAMESPACE}Card-action`}>{action}</div>
-            )}
+            {action && <div className={olt.CardAction}>{action}</div>}
           </div>
         )}
-        {children && (
-          <div className={`${OLT_NAMESPACE}Card-content`}>{children}</div>
-        )}
+        {children && <div className={olt.CardContent}>{children}</div>}
       </Element>
     );
   }

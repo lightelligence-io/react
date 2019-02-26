@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { bool, node, string, oneOf } from 'prop-types';
 import classnames from 'classnames';
+import { pascalize } from 'humps';
+import * as olt from '@lightelligence/lightelligence-ui';
 
-import { OLT_NAMESPACE } from '../../constants';
 import { SNACKBAR_TYPE_ERROR, SNACKBAR_TYPE_SUCCESS } from './types';
 
 class Snackbar extends PureComponent {
@@ -24,14 +25,13 @@ class Snackbar extends PureComponent {
 
   render() {
     const { children, className, open, hidden, type, ...rest } = this.props;
-    const base = `${OLT_NAMESPACE}Snackbar`;
 
     return (
       <div
         className={classnames(
-          base,
-          type && `${base}--${type}`,
-          open && 'is-open',
+          olt.Snackbar,
+          type && olt[`Snackbar${pascalize(type)}`],
+          open && olt.isOpen,
           className,
         )}
         {...rest}

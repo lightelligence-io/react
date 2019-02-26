@@ -1,4 +1,5 @@
 ```jsx
+import { Frame, Navbar, Menu, MenuItem, Dropdown } from '@lightelligence/react';
 <Frame>
   <Navbar>
     <Menu>

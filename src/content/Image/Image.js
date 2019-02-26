@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { string, bool } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 export class Image extends PureComponent {
   static propTypes = {
@@ -23,11 +22,7 @@ export class Image extends PureComponent {
 
     return (
       <img
-        className={classnames(
-          `${OLT_NAMESPACE}Image`,
-          fluid && `${OLT_NAMESPACE}Image--fluid`,
-          className,
-        )}
+        className={classnames(olt.Image, fluid && olt.ImageFluid, className)}
         src={src}
         alt={alt}
       />

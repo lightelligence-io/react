@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { bool, string, node } from 'prop-types';
 import classnames from 'classnames';
+import { pascalize } from 'humps';
+import * as olt from '@lightelligence/lightelligence-ui';
 
-import { OLT_NAMESPACE } from '../../constants';
 import { isServerSideRendering } from '../../utils/isServerSideRendering';
 
 export class Dropdown extends Component {
@@ -18,7 +19,7 @@ export class Dropdown extends Component {
   static defaultProps = {
     children: null,
     className: null,
-    color: '',
+    color: undefined,
     outline: false,
     disabled: false,
   };
@@ -71,31 +72,29 @@ export class Dropdown extends Component {
       disabled,
       ...props
     } = this.props;
-
     const { open } = this.state;
-    const base = `${OLT_NAMESPACE}Dropdown`;
 
     return (
       <div
         ref={this.dropdownRef}
         {...props}
         className={classnames(
-          base,
-          color && `${base}--${color}`,
-          outline && `${base}--outline`,
+          olt.Dropdown,
+          color && olt[`Dropdown${pascalize(color)}`],
+          outline && olt.DropdownOutline,
           className,
-          open && `is-open`,
-          disabled && `is-disabled`,
+          open && olt.isOpen,
+          disabled && olt.isDisabled,
         )}
       >
         <button
           type="button"
-          className={`${OLT_NAMESPACE}Dropdown-label`}
+          className={olt.DropdownLabel}
           onClick={this.handleClick}
         >
           {label}
         </button>
-        <div className={`${OLT_NAMESPACE}Dropdown-content`}>{children}</div>
+        <div className={olt.DropdownContent}>{children}</div>
       </div>
     );
   }

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { number, bool } from 'prop-types';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 /**
  * Define the cell rendering item with current index
@@ -26,7 +25,7 @@ class TableCellRowIndex extends PureComponent {
   }
 
   render() {
-    return <td className={`${OLT_NAMESPACE}Table-data`}>{this.value}</td>;
+    return <td className={olt.TableData}>{this.value}</td>;
   }
 }
 

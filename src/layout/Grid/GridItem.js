@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { node, number, string, shape, oneOfType } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import { pascalize } from 'humps';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 const isFirstBreakpoint = (breakpoint) => breakpoint === 'xs';
 
@@ -32,26 +32,28 @@ class GridItem extends PureComponent {
   render() {
     const { className, children, size, offset, ...props } = this.props;
 
-    const classes = [`${OLT_NAMESPACE}Grid-item`];
+    const classes = [olt.GridItem];
 
     // NOTE: This is using new props-API:
     // TODO: Make it a single line!
     if (typeof size === 'object') {
       for (const [breakpoint, value] of Object.entries(size)) {
         const infix = isFirstBreakpoint(breakpoint) ? '' : `${breakpoint}-`;
-        classes.push(`${OLT_NAMESPACE}Grid-item--${infix}${value}`);
+        classes.push(olt[`GridItem${pascalize(infix + value)}`]);
       }
     } else if (size) {
-      classes.push(`${OLT_NAMESPACE}Grid-item--${size}`);
+      classes.push(olt[`GridItem${pascalize(size)}`]);
     }
 
     if (typeof offset === 'object') {
       for (const [breakpoint, value] of Object.entries(offset)) {
         const infix = isFirstBreakpoint(breakpoint) ? '' : `${breakpoint}-`;
-        classes.push(`${OLT_NAMESPACE}Grid-item--${infix}offset${value}`);
+        classes.push(
+          olt[`GridItem${pascalize(infix)}Offset${pascalize(value)}`],
+        );
       }
     } else if (offset) {
-      classes.push(`${OLT_NAMESPACE}Grid-item--offset${offset}`);
+      classes.push(olt[`GridItemOffset${pascalize(offset)}`]);
     }
 
     return (

@@ -1,4 +1,5 @@
 ```jsx
+import { List, ListItem } from '@lightelligence/react';
 <List>
   <ListItem>Item One</ListItem>
   <ListItem>Item Two</ListItem>
@@ -9,6 +10,7 @@
 Ordered Lists
 
 ```jsx
+import { List, ListItem } from '@lightelligence/react';
 <List ordered>
   <ListItem>Item One</ListItem>
   <ListItem>Item Two</ListItem>
@@ -19,6 +21,7 @@ Ordered Lists
 Definition Lists
 
 ```jsx
+import { List, ListItem, Tag } from '@lightelligence/react';
 <List definition>
   <ListItem term="Device Name">Waterproofed solar roof</ListItem>
   <ListItem term="Device Type">Gateway</ListItem>

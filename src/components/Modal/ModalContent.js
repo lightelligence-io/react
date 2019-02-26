@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { string, bool, node } from 'prop-types';
 import classnames from 'classnames';
+import * as olt from '@lightelligence/lightelligence-ui';
 
-import { OLT_NAMESPACE } from '../../constants';
 import { Headline } from '../../content/Headline';
 import { Container } from '../../layout/Container';
 
@@ -25,10 +25,7 @@ class ModalContent extends PureComponent {
     const { children, className, headline, error, ...props } = this.props;
 
     return (
-      <div
-        className={classnames(`${OLT_NAMESPACE}Modal-inner`, className)}
-        {...props}
-      >
+      <div className={classnames(olt.ModalInner, className)} {...props}>
         {headline && (
           <Container noPadding>
             <Headline size={6}>{headline}</Headline>

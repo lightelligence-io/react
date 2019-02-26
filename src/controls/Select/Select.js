@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { string, arrayOf, shape, bool } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 class Select extends PureComponent {
   static propTypes = {
@@ -40,17 +39,16 @@ class Select extends PureComponent {
       fullwidth,
       ...props
     } = this.props;
-    const base = `${OLT_NAMESPACE}Select`;
 
     return (
       <React.Fragment>
         <select
           value={value}
           className={classnames(
-            base,
-            fullwidth && `${base}--fullwidth`,
-            disabled && `is-disabled`,
-            !value && 'is-placeholder',
+            olt.Select,
+            fullwidth && olt.SelectFullwidth,
+            disabled && olt.isDisabled,
+            !value && olt.isPlaceholder,
             className,
           )}
           disabled={disabled}

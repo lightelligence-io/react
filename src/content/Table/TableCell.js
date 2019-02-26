@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { string, any, func } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 /**
  * Define the cell rendering item
@@ -58,9 +57,8 @@ class TableCell extends PureComponent {
 
   render() {
     const { row, field, renderer, className, ...props } = this.props;
-    const classes = classnames(`${OLT_NAMESPACE}Table-data`, className);
     return (
-      <td className={classes} {...props}>
+      <td className={classnames(olt.TableData, className)} {...props}>
         {' '}
         {this.value}
       </td>

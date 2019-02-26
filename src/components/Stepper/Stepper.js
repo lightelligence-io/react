@@ -24,6 +24,7 @@ export class Stepper extends PureComponent {
   render() {
     const { currentStepIdx, ...props } = this.props;
     const { currentStepIdx: currentStepIdxState } = this.state;
+
     return (
       <ControlledStepper
         currentStepIdx={currentStepIdxState}

@@ -2,8 +2,7 @@ import React, { PureComponent } from 'react';
 import { string, func, bool, shape } from 'prop-types';
 import classnames from 'classnames';
 import uniqid from 'uniqid';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 class TextField extends PureComponent {
   static propTypes = {
@@ -110,22 +109,22 @@ class TextField extends PureComponent {
     const { elementId } = this;
     const Element = textarea || autogrow ? 'textarea' : 'input';
     const hasFloatingLabel = floating && label;
-    const base = `${OLT_NAMESPACE}TextField`;
 
     const wrapperClasses = classnames(
-      base,
-      fullwidth && 'is-fullwidth',
-      hasFloatingLabel && `${base}--float`,
-      icon && 'has-icon',
-      !label && 'has-noLabel',
+      olt.TextField,
+      fullwidth && olt.TextFieldFullwidth,
+      hasFloatingLabel && olt.TextFieldFloat,
+      icon && olt.hasIcon,
+      !label && olt.hasNoLabel,
       className,
-      errorMessage && 'has-error-message',
+      errorMessage && olt.hasErrorMessage,
     );
 
     const elementClasses = classnames(
-      `${OLT_NAMESPACE}Input ${base}-input`,
-      errorMessage && 'is-error',
-      hasFloatingLabel && value && 'has-value',
+      olt.Input,
+      olt.TextFieldInput,
+      errorMessage && olt.isError,
+      hasFloatingLabel && value && olt.hasValue,
     );
 
     const elementStyles = autogrow
@@ -142,7 +141,7 @@ class TextField extends PureComponent {
 
     const labelElement = label && (
       <label
-        className={`${OLT_NAMESPACE}Label ${base}-label`}
+        className={classnames(olt.Label, olt.TextFieldLabel)}
         htmlFor={elementId}
       >
         {label}
@@ -175,14 +174,19 @@ class TextField extends PureComponent {
         />
         {floating && labelElement}
         {!noFooter && (
-          <span className={`${base}-footer`}>
+          <span className={olt.TextFieldFooter}>
             {errorMessage && (
-              <span className={`${base}-message ${OLT_NAMESPACE}u-textError`}>
+              <span
+                className={olt.TextFieldMessage}
+                style={{
+                  color: olt.theme.color.error,
+                }}
+              >
                 {readOnly ? <span>&nbsp;</span> : errorMessage}
               </span>
             )}
             {infoText && (
-              <span className={`${base}-info`}>
+              <span className={olt.TextFieldInfo}>
                 {readOnly ? <span>&nbsp;</span> : infoText}
               </span>
             )}
@@ -190,8 +194,8 @@ class TextField extends PureComponent {
         )}
 
         {icon && (
-          <span className={`${base}-icon`} style={{ pointerEvents: 'none' }}>
-            <i className={`${OLT_NAMESPACE}Icon`} data-icon={icon} />
+          <span className={olt.TextFieldIcon} style={{ pointerEvents: 'none' }}>
+            <i className={olt.Icon} data-icon={icon} />
           </span>
         )}
       </div>

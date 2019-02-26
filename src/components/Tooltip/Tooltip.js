@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import { string, element, bool } from 'prop-types';
+import classnames from 'classnames';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 class Tooltip extends PureComponent {
   static propTypes = {
@@ -22,11 +24,13 @@ class Tooltip extends PureComponent {
 
   render() {
     const { children, wide, bottom, ...props } = this.props;
-    const classes = bottom ? 'olt-Tooltip olt-Tooltip--bottom' : 'olt-Tooltip';
     return (
-      <div className={classes} {...props}>
+      <div
+        className={classnames(olt.Tooltip, bottom && olt.TooltipBottom)}
+        {...props}
+      >
         {children}
-        <div className="olt-Tooltip-content">{this.renderMessage()}</div>
+        <div className={olt.TooltipContent}>{this.renderMessage()}</div>
       </div>
     );
   }

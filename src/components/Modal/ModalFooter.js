@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { string, node } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/lightelligence-ui';
 
 export class ModalFooter extends PureComponent {
   static propTypes = {
@@ -19,10 +18,7 @@ export class ModalFooter extends PureComponent {
     const { children, className, ...props } = this.props;
 
     return (
-      <div
-        className={classnames(`${OLT_NAMESPACE}Modal-footer`, className)}
-        {...props}
-      >
+      <div className={classnames(olt.ModalFooter, className)} {...props}>
         {children}
       </div>
     );
