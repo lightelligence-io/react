@@ -1,0 +1,10 @@
+
+labels:
+  buildingBlock: lightelligence-design-system
+  component: lightelligence-design-system
+
+replicaCount: 1
+
+cert:
+  request: true
+  secretName: lightelligence-design-system-tls

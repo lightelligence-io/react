@@ -1,0 +1,9 @@
+apiVersion: v1
+description: Lightelligence React Styleguide
+name: lightelligence-design-system
+version: 0.1.0
+maintainers:
+  - name: Ivan Drinchev
+    email: drinchev+osram@gmail.com
+  - name: Jonathan Stoye
+    email: J.Stoye@osram.com
