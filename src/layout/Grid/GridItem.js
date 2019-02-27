@@ -42,18 +42,18 @@ class GridItem extends PureComponent {
         classes.push(olt[`GridItem${pascalize(infix + value)}`]);
       }
     } else if (size) {
-      classes.push(olt[`GridItem${pascalize(size)}`]);
+      classes.push(olt[`GridItem${pascalize(String(size))}`]);
     }
 
     if (typeof offset === 'object') {
       for (const [breakpoint, value] of Object.entries(offset)) {
         const infix = isFirstBreakpoint(breakpoint) ? '' : `${breakpoint}-`;
         classes.push(
-          olt[`GridItem${pascalize(infix)}Offset${pascalize(value)}`],
+          olt[`GridItem${pascalize(infix)}Offset${pascalize(String(value))}`],
         );
       }
     } else if (offset) {
-      classes.push(olt[`GridItemOffset${pascalize(offset)}`]);
+      classes.push(olt[`GridItemOffset${pascalize(String(offset))}`]);
     }
 
     return (

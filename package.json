@@ -1,8 +1,8 @@
 {
   "name": "@lightelligence/react",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "license": "UNLICENSED",
-  "main": "dist/bundle.umd.js",
+  "main": "dist/cjs/index.js",
   "scripts": {
     "start": "styleguidist server",
     "build": "rm -rf dist && npm run transpile-umd && npm run transpile-esm && npm run transpile-cjs",
