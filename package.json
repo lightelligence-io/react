@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.2.0",
-    "@lightelligence/lightelligence-ui": "^0.3.2",
+    "@lightelligence/lightelligence-ui": "^0.3.3",
     "classnames": "^2.2.6",
     "humps": "^2.0.1",
     "react-uid": "^2.2.0",
