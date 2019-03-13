@@ -3,7 +3,7 @@ import { bool, node, func, oneOf, string } from 'prop-types';
 import classnames from 'classnames';
 import { pascalize } from 'humps';
 import * as olt from '@lightelligence/lightelligence-ui';
-
+import { isServerSideRendering } from '../../utils/isServerSideRendering';
 import { Button } from '../Button';
 import {
   MODAL_TYPE_ERROR,
@@ -55,7 +55,9 @@ class Modal extends PureComponent {
       ...props
     } = this.props;
 
-    document.documentElement.style.overflow = open ? 'hidden' : '';
+    if (!isServerSideRendering) {
+      document.documentElement.style.overflow = open ? 'hidden' : '';
+    }
 
     return (
       <section
