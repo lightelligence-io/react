@@ -1,6 +1,6 @@
 {
   "name": "@lightelligence/react",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "license": "UNLICENSED",
   "main": "dist/cjs/index.js",
   "scripts": {
