@@ -75,6 +75,7 @@ export class Navbar extends Component {
           olt.Navbar,
           olt[`Navbar${pascalize(color)}`],
           open && olt.isOpen,
+          className,
         )}
       >
         <button
