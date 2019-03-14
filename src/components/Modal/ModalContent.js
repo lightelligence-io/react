@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { string, bool, node } from 'prop-types';
 import classnames from 'classnames';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 import { Headline } from '../../content/Headline';
 import { Container } from '../../layout/Container';

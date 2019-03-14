@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { bool, string, node, oneOfType } from 'prop-types';
 import classnames from 'classnames';
 import { pascalize } from 'humps';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 import { colorProp } from '../../propTypes';
 

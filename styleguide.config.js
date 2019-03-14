@@ -108,9 +108,6 @@ module.exports = {
   },
   require: [
     path.join(__dirname, 'node_modules/normalize.css'),
-    path.join(
-      __dirname,
-      'node_modules/@lightelligence/lightelligence-ui/dist/index.css',
-    ),
+    path.join(__dirname, 'node_modules/@lightelligence/styles/dist/index.css'),
   ],
 };

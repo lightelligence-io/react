@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { func, node, bool } from 'prop-types';
 import { UID } from 'react-uid';
 import classnames from 'classnames';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 export class Checkbox extends PureComponent {
   static propTypes = {

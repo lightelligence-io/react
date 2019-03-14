@@ -4,3 +4,13 @@
 /Dockerfile
 /docs
 /docs-image.docker
+
+/.eslintignore
+/.eslintrc
+/.prettierrc
+/.npmrc
+/.babel.config.js
+/styleguide.config.js
+
+# Log files
+npm-debug.log*

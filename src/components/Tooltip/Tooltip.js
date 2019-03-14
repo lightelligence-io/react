@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { string, element, bool } from 'prop-types';
 import classnames from 'classnames';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 class Tooltip extends PureComponent {
   static propTypes = {

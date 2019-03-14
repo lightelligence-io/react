@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { bool, node, string, oneOf } from 'prop-types';
 import classnames from 'classnames';
 import { pascalize } from 'humps';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 import { SNACKBAR_TYPE_ERROR, SNACKBAR_TYPE_SUCCESS } from './types';
 

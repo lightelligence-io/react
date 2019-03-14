@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { string, shape } from 'prop-types';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 import { copyTextTypeProp, copyTextSizeProp } from '../../propTypes';
 import { FONT_SIZE_SMALL } from '../../constants';

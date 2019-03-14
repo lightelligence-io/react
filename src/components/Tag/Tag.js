@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import { bool, func, string, node } from 'prop-types';
 import { pascalize } from 'humps';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 // import { colorProp, childrenProp } from '../../propTypes';
 // replaced with string & node, otherwise we need to maintain the prop types
 // definition, which doesn't add a lot of benefits

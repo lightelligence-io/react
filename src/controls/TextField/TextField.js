@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { string, func, bool, shape } from 'prop-types';
 import classnames from 'classnames';
 import uniqid from 'uniqid';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 class TextField extends PureComponent {
   static propTypes = {

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { func, bool, string, node } from 'prop-types';
 import classnames from 'classnames';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 // TODO: Styleguide implementation!
 // NOTE: Since we haven't got anything in place, non-existing css classes have been removed for now

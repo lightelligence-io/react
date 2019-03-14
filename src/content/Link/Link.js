@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { string, bool, node } from 'prop-types';
 import { NavLink, matchPath } from 'react-router-dom';
 import classnames from 'classnames';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 /**
  * Combines router navigation with standard link, seasoned with some spicy color schemes

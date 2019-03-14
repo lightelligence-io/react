@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { string, node } from 'prop-types';
 import classnames from 'classnames';
 import { pascalize } from 'humps';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 import { isServerSideRendering } from '../../utils/isServerSideRendering';
 

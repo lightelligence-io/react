@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { string, node, oneOf, bool } from 'prop-types';
 import { pascalize } from 'humps';
 import classnames from 'classnames';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 class Headline extends PureComponent {
   static propTypes = {

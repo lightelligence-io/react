@@ -2,7 +2,7 @@ import React from 'react';
 import { pascalize } from 'humps';
 import { string, bool, node } from 'prop-types';
 import classnames from 'classnames';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 const Button = ({
   className,

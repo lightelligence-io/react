@@ -1,7 +1,7 @@
 import React, { PureComponent, cloneElement } from 'react';
 import { arrayOf, element, object, string, bool, func } from 'prop-types';
 import classnames from 'classnames';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 class Table extends PureComponent {
   static propTypes = {

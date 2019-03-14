@@ -3,7 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 import uniqid from 'uniqid';
 import { string } from 'prop-types';
-import * as olt from '@lightelligence/lightelligence-ui';
+import * as olt from '@lightelligence/styles';
 
 // TODO check if we need an autoprefixer here
 // TODO maybe we should solve the :after style otherwise
