@@ -16,7 +16,7 @@ class Select extends PureComponent {
     className: null,
     fullwidth: false,
     disabled: false,
-    value: null,
+    value: undefined,
   };
 
   static renderOptions(options, value) {

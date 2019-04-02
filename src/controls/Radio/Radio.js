@@ -5,7 +5,7 @@ import * as olt from '@lightelligence/styles';
 
 // TODO: Styleguide implementation!
 // NOTE: Since we haven't got anything in place, non-existing css classes have been removed for now
-export class RadioButton extends PureComponent {
+export class Radio extends PureComponent {
   static propTypes = {
     value: string.isRequired,
     children: node,
