@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { string, func, bool, shape } from 'prop-types';
 import classnames from 'classnames';
-import uniqid from 'uniqid';
+import { UID } from 'react-uid';
 import * as olt from '@lightelligence/styles';
+import { TextFieldLabel } from './TextFieldLabel';
 
 class TextField extends PureComponent {
   static propTypes = {
@@ -48,8 +49,6 @@ class TextField extends PureComponent {
     placeholder: null,
     style: null,
   };
-
-  elementId = uniqid();
 
   inputRef = React.createRef();
 
@@ -106,7 +105,6 @@ class TextField extends PureComponent {
       noFooter,
       ...rest
     } = this.props;
-    const { elementId } = this;
     const Element = textarea || autogrow ? 'textarea' : 'input';
     const hasFloatingLabel = floating && label;
 
@@ -139,15 +137,6 @@ class TextField extends PureComponent {
     const newPlaceholder =
       placeholder || (!floating && !showLabel && label) || '';
 
-    const labelElement = label && (
-      <label
-        className={classnames(olt.Label, olt.TextFieldLabel)}
-        htmlFor={elementId}
-      >
-        {label}
-        {required && !readOnly ? '*' : null}
-      </label>
-    );
     const noFooterStyle = noFooter ? { marginBottom: 0 } : {};
     const wrapperStyle = {
       ...style,
@@ -155,50 +144,71 @@ class TextField extends PureComponent {
     };
 
     return (
-      <div className={wrapperClasses} style={wrapperStyle}>
-        {!floating && labelElement}
-        <Element
-          style={elementStyles}
-          className={elementClasses}
-          defaultValue={defaultValue}
-          disabled={disabled}
-          id={elementId}
-          onChange={onChange}
-          onBlur={onBlur}
-          readOnly={readOnly}
-          ref={this.inputRef}
-          value={value}
-          placeholder={newPlaceholder}
-          {...autogrowProps}
-          {...{ ...rest, required }}
-        />
-        {floating && labelElement}
-        {!noFooter && (
-          <span className={olt.TextFieldFooter}>
-            {errorMessage && (
-              <span
-                className={olt.TextFieldMessage}
-                style={{
-                  color: olt.theme.color.error,
-                }}
-              >
-                {readOnly ? <span>&nbsp;</span> : errorMessage}
+      <UID name={(id) => `textfield${id}`}>
+        {(id) => (
+          <div className={wrapperClasses} style={wrapperStyle}>
+            {!floating && label && (
+              <TextFieldLabel
+                label={label}
+                htmlFor={id}
+                required={required}
+                readOnly={readOnly}
+              />
+            )}
+            <Element
+              style={elementStyles}
+              className={elementClasses}
+              defaultValue={defaultValue}
+              disabled={disabled}
+              id={id}
+              onChange={onChange}
+              onBlur={onBlur}
+              readOnly={readOnly}
+              ref={this.inputRef}
+              value={value}
+              placeholder={newPlaceholder}
+              {...autogrowProps}
+              {...{ ...rest, required }}
+            />
+            {floating && label && (
+              <TextFieldLabel
+                label={label}
+                htmlFor={id}
+                required={required}
+                readOnly={readOnly}
+              />
+            )}
+            {!noFooter && (
+              <span className={olt.TextFieldFooter}>
+                {errorMessage && (
+                  <span
+                    className={olt.TextFieldMessage}
+                    style={{
+                      color: olt.theme.color.error,
+                    }}
+                  >
+                    {readOnly ? <span>&nbsp;</span> : errorMessage}
+                  </span>
+                )}
+                {infoText && (
+                  <span className={olt.TextFieldInfo}>
+                    {readOnly ? <span>&nbsp;</span> : infoText}
+                  </span>
+                )}
               </span>
             )}
-            {infoText && (
-              <span className={olt.TextFieldInfo}>
-                {readOnly ? <span>&nbsp;</span> : infoText}
-              </span>
-            )}
-          </span>
-        )}
 
-        {icon && (
-          <span className={olt.TextFieldIcon} style={{ pointerEvents: 'none' }}>
-            <i className={olt.Icon} data-icon={icon} />
-          </span>
+            {icon && (
+              <span
+                className={olt.TextFieldIcon}
+                style={{ pointerEvents: 'none' }}
+              >
+                <i className={olt.Icon} data-icon={icon} />
+              </span>
+            )}
+          </div>
         )}
-      </div>
+      </UID>
     );
   }
 }

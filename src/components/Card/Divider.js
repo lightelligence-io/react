@@ -1,7 +1,7 @@
 // TODO: Move out of here
 import React from 'react';
 import classnames from 'classnames';
-import uniqid from 'uniqid';
+import { UID } from 'react-uid';
 import { string } from 'prop-types';
 import * as olt from '@lightelligence/styles';
 
@@ -19,7 +19,6 @@ const dividerAfterStyle = (id) => `.${id}:after {
 }`;
 
 export const Divider = ({ className, ...props }) => {
-  const id = uniqid();
   const styles = {
     display: 'inline-block',
     width: '2px',
@@ -28,13 +27,17 @@ export const Divider = ({ className, ...props }) => {
   };
 
   return (
-    <div
-      {...props}
-      style={styles}
-      className={classnames(olt.uMarginX3, olt.uTextGray400, id, className)}
-    >
-      <style>{dividerAfterStyle(id)}</style>
-    </div>
+    <UID name={(id) => `divider${id}`}>
+      {(id) => (
+        <div
+          {...props}
+          style={styles}
+          className={classnames(olt.uMarginX3, olt.uTextGray400, id, className)}
+        >
+          <style>{dividerAfterStyle(id)}</style>
+        </div>
+      )}
+    </UID>
   );
 };
 

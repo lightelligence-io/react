@@ -60,8 +60,7 @@
     "react-dom": "^16.8.4",
     "react-router-dom": "^5.0.0",
     "react-uid": "^2.2.0",
-    "react": "^16.8.4",
-    "uniqid": "^5.0.3"
+    "react": "^16.8.4"
   },
   "husky": {
     "hooks": {
