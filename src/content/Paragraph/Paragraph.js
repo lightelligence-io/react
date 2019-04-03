@@ -22,6 +22,7 @@ export const Paragraph = ({ className, element, style, size, ...props }) => {
         // either here or in the styleguide.
         marginBottom: olt.theme.spacing[2],
         fontSize: size ? olt.theme.fontSize[size] : undefined,
+        lineHeight: size ? olt.theme.lineHeight[size] : undefined,
         ...style,
       }}
       className={classnames(olt.Paragraph, className)}
