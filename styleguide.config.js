@@ -17,13 +17,17 @@ module.exports = {
     },
     {
       name: 'Components',
-      components: 'src/**/[A-Z]*.js',
+      components: 'src/**/[A-Z]*.js', // exclude index.js files https://react-styleguidist.js.org/docs/components.html#finding-components
       sectionDepth: 2,
     },
   ],
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, '.js');
     return `import {${name}} from '@lightelligence/react';`;
+  },
+  skipComponentsWithoutExample: true,
+  getExampleFilename(componentPath) {
+    return componentPath.replace(/\.jsx?$/, '.md')
   },
   exampleMode: 'expand',
   usageMode: 'expand',
