@@ -52,23 +52,6 @@ definitions:
         artifacts:
           - docs-image.docker
 
-    - step: &Build-Docs-Container-Release
-        name: Build docs container
-        script:
-          - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-          - npm install
-          - npm version --no-git-tag-version ${BITBUCKET_TAG}
-          - npm run build:docs
-          - docker build -t ${DOCKER_REPO}/${BITBUCKET_REPO_SLUG}:${BITBUCKET_BRANCH}_${BITBUCKET_BUILD_NUMBER} .
-          - docker save --output docs-image.docker ${DOCKER_REPO}/${BITBUCKET_REPO_SLUG}:${BITBUCKET_BRANCH}_${BITBUCKET_BUILD_NUMBER}
-        services:
-          - docker
-        caches:
-          - docker
-          - node
-        artifacts:
-          - docs-image.docker
-
     - step: &Upload-Docs-Container
         name: Upload docs container
         script:
@@ -122,7 +105,7 @@ pipelines:
       - step: *Audit-Step
       - step: *Build-Step
       - step: *Test-Step
-      - step: *Build-Docs-Container-Release
+      - step: *Build-Docs-Container
       - step:
           name: Publish package on NPM
           script:

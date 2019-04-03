@@ -2,7 +2,7 @@ const path = require('path');
 const pkg = require('./package.json');
 
 function getVersion() {
-  return process.env.BITBUCKET_TAG || pkg.version;
+  return process.env.BITBUCKET_TAG || 'dev';
 }
 
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
   },
   skipComponentsWithoutExample: true,
   getExampleFilename(componentPath) {
-    return componentPath.replace(/\.jsx?$/, '.md')
+    return componentPath.replace(/\.jsx?$/, '.md');
   },
   exampleMode: 'expand',
   usageMode: 'expand',
