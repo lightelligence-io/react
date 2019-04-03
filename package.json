@@ -26,7 +26,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/runtime": "^7.2.0",
     "@babel/runtime-corejs2": "^7.4.2",
-    "@lightelligence/styles": "^0.4.1",
+    "@lightelligence/styles": "^0.4.3",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "classnames": "^2.2.6",
     "css-loader": "^2.1.1",
