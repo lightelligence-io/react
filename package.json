@@ -14,7 +14,12 @@
     "transpile-esm": "BABEL_ENV=esm babel src -d dist/esm --copy-files",
     "transpile-cjs": "BABEL_ENV=cjs babel src -d dist/cjs --copy-files "
   },
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "humps": "^2.0.1",
+    "prop-types": "^15.6.2",
+    "react-uid": "^2.2.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
@@ -24,8 +29,6 @@
     "@babel/plugin-transform-react-jsx": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
-    "@babel/runtime": "^7.2.0",
-    "@babel/runtime-corejs2": "^7.4.2",
     "@lightelligence/styles": "^0.4.3",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "classnames": "^2.2.6",
@@ -54,12 +57,8 @@
   },
   "peerDependencies": {
     "@lightelligence/styles": "^0.4.1",
-    "classnames": "^2.2.6",
-    "humps": "^2.0.1",
-    "prop-types": "^15.6.2",
     "react-dom": "^16.8.4",
     "react-router-dom": "^5.0.0",
-    "react-uid": "^2.2.0",
     "react": "^16.8.4"
   },
   "husky": {
