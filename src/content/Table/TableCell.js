@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { string, any, func } from 'prop-types';
+import { string, any, func, number } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
@@ -29,12 +29,16 @@ class TableCell extends PureComponent {
     renderer: func,
 
     className: string,
+    rowIndex: number,
+    cellIndex: number,
   };
 
   static defaultProps = {
     row: null,
     renderer: null,
     className: null,
+    rowIndex: 0,
+    cellIndex: 0,
   };
 
   get value() {
@@ -56,7 +60,15 @@ class TableCell extends PureComponent {
   }
 
   render() {
-    const { row, field, renderer, className, ...props } = this.props;
+    const {
+      row,
+      field,
+      renderer,
+      className,
+      rowIndex,
+      cellIndex,
+      ...props
+    } = this.props;
     return (
       <td className={classnames(olt.TableData, className)} {...props}>
         {' '}

@@ -12,20 +12,28 @@ class TableCellRowIndex extends PureComponent {
   static propTypes = {
     increase: bool,
     rowIndex: number,
+    cellIndex: number,
   };
 
   static defaultProps = {
     increase: true,
     rowIndex: 0,
+    cellIndex: undefined,
   };
 
-  get value() {
-    const { rowIndex, increase } = this.props;
-    return increase ? rowIndex + 1 : rowIndex;
-  }
-
   render() {
-    return <td className={olt.TableData}>{this.value}</td>;
+    const {
+      rowIndex,
+      increase,
+      cellIndex, // eslint-disable-line no-unused-vars
+      ...props
+    } = this.props;
+    const value = increase ? rowIndex + 1 : rowIndex;
+    return (
+      <td className={olt.TableData} {...props}>
+        {value}
+      </td>
+    );
   }
 }
 
