@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { string, node, oneOf, bool } from 'prop-types';
+import { string, node, oneOf, bool, shape } from 'prop-types';
 import { pascalize } from 'humps';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
@@ -12,10 +12,12 @@ class Headline extends PureComponent {
     color: string,
     className: string,
     regular: bool,
+    style: shape({}),
   };
 
   static defaultProps = {
     tag: null,
+    style: undefined,
     size: 5,
     color: null,
     className: null,
@@ -30,6 +32,7 @@ class Headline extends PureComponent {
       size,
       className,
       color,
+      style,
       ...props
     } = this.props;
 
@@ -45,6 +48,7 @@ class Headline extends PureComponent {
           className,
         )}
         style={{
+          ...style,
           color: color ? olt.theme.color[color] : undefined,
         }}
       >
