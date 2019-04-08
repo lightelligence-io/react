@@ -9,8 +9,8 @@
     "build:docs": "styleguidist build",
     "pretest": "npm run lint",
     "test": "react-scripts test",
-    "lint": "eslint src/ && prettier -c 'src/**/*.js'",
-    "lint:fix": "eslint --fix src/ && prettier -c --write 'src/**/*.js'",
+    "lint": "eslint src/ && prettier -c \"src/**/*.js\"",
+    "lint:fix": "eslint --fix src/ && prettier -c --write \"src/**/*.js\"",
     "transpile-esm": "BABEL_ENV=esm babel src -d dist/esm --copy-files",
     "transpile-cjs": "BABEL_ENV=cjs babel src -d dist/cjs --copy-files "
   },
@@ -63,7 +63,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && sh scripts/branch-name"
     }
   },
   "lint-staged": {
