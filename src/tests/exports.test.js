@@ -28,6 +28,7 @@ import {
   Checkbox,
   Label,
   Radio,
+  RadioGroup,
   Select,
   SelectField,
   TextField,
@@ -48,12 +49,6 @@ describe('Avatar', () => {
 describe('Button', () => {
   it('should render without failing', () => {
     render(<Button />);
-  });
-});
-
-describe('Card', () => {
-  it('should render without failing', () => {
-    render(<Card />);
   });
 });
 
@@ -165,7 +160,18 @@ describe('Paragraph', () => {
 
 describe('Radio', () => {
   it('should render withour failing', () => {
-    render(<Radio value="Foo" />);
+    render(<Radio value="foo" />);
+  });
+});
+
+describe('RadioGroup', () => {
+  it('should render withour failing', () => {
+    render(
+      <RadioGroup name="radio-group" value="foo" onChange={jest.fn()}>
+        <Radio value="foo">Foo</Radio>
+        <Radio value="bar">Bar</Radio>
+      </RadioGroup>,
+    );
   });
 });
 

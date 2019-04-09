@@ -3,12 +3,11 @@ import { func, bool, string, node } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
-// TODO: Styleguide implementation!
-// NOTE: Since we haven't got anything in place, non-existing css classes have been removed for now
 export class Radio extends PureComponent {
   static propTypes = {
     value: string.isRequired,
     children: node,
+    name: string,
     onChange: func,
     selected: bool,
     disabled: bool,
@@ -17,6 +16,7 @@ export class Radio extends PureComponent {
 
   static defaultProps = {
     children: null,
+    name: null,
     selected: null,
     onChange: null,
     disabled: null,
@@ -29,25 +29,20 @@ export class Radio extends PureComponent {
   };
 
   render() {
-    const { children, selected, value, className, disabled } = this.props;
-
-    const label = children && (
-      <span className={classnames(olt.Label)}>{children}</span>
-    );
+    const { children, name, selected, value, className, disabled } = this.props;
 
     return (
-      <label className={className}>
-        {label}
+      <label className={classnames(olt.Radio, className)}>
         <input
           type="radio"
-          name="radio"
+          name={name}
           value={value}
           onChange={this.onChange}
           checked={selected}
           disabled={disabled}
         />
-        {/* Radio checkmark doesn't exist */}
-        <span />
+        <span className={olt.RadioButton} />
+        <span className={olt.RadioLabel}>{children}</span>
       </label>
     );
   }
