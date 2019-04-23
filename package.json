@@ -48,7 +48,7 @@
     "react-dom": "^16.8.4",
     "react-router-dom": "^5.0.0",
     "react-router-prop-types": "^1.0.4",
-    "react-scripts": "^2.1.8",
+    "react-scripts": "^3.0.0",
     "react-styleguidist": "^9.0.4",
     "react-testing-library": "^6.0.1",
     "react-uid": "^2.2.0",

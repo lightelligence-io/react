@@ -5,12 +5,5 @@
     "comment": "The dependency is used for generating our documentation",
     "issue": "OLT-4427",
     "severity": "high"
-  },
-  {
-    "path": "react-scripts>fsevents>node-pre-gyp>tar",
-    "advisory": "803",
-    "comment": "The dependency is used for our build scripts",
-    "issue": "OLT-4427",
-    "severity": "high"
   }
 ]
