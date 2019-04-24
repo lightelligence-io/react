@@ -8,7 +8,7 @@ const onClick = (event) => {
   console.log('clicked');
 };
 <Menu>
-  <MenuItem to="https://google.com" target="_blank">MenuItem 1</MenuItem>
+  <MenuItem to="https://lightelligence.io" target="_blank">MenuItem 1</MenuItem>
   <MenuItem onClick={onClick}>MenuItem 2</MenuItem>
 </Menu>
 ```
@@ -22,7 +22,7 @@ const onClick = (event) => {
 };
 <Menu items={[{
   label: 'MenuItem 1',
-  to: 'https://google.com',
+  to: 'https://lightelligence.io',
   target: '_blank'
 },
 {
@@ -47,7 +47,7 @@ const onClick = (event) => {
   submenu
   items={[{
     label: 'MenuItem 1',
-    to: 'https://google.com',
+    to: 'https://lightelligence.io',
     target: '_blank'
   }, {
     label: 'MenuItem 2', onClick

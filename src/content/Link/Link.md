@@ -2,7 +2,7 @@ Simple Textlink
 
 ```js
 import { Link } from '@lightelligence/react';
-<Link target="_blank" to="https://google.com">Read Tutorial</Link>
+<Link target="_blank" to="https://lightelligence.io">Read Tutorial</Link>
 ```
 
 Router navigation
