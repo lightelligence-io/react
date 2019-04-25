@@ -1,6 +1,9 @@
 image: node:dubnium
 
 definitions:
+  caches:
+    npm: $HOME/.npm
+
   steps:
 
     - step: &Audit-Step
@@ -11,19 +14,21 @@ definitions:
           password: $REGISTRY_PASSWORD
         script:
           - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-          - npm install
+          - npm ci
           - /app/bin/npm-audit-ci -m
         caches:
           - node
+          - npm
 
     - step: &Build-Step
         name: Build
         script:
           - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-          - npm install
+          - npm ci
           - npm run build
         caches:
           - node
+          - npm
         artifacts:
           - dist/**
 
@@ -31,16 +36,17 @@ definitions:
         name: Run tests
         script:
           - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-          - npm install
+          - npm ci
           - npm test
         caches:
           - node
+          - npm
 
     - step: &Build-Docs-Container
         name: Build docs container
         script:
           - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-          - npm install
+          - npm ci
           - npm run build:docs
           - docker build -t ${DOCKER_REPO}/${BITBUCKET_REPO_SLUG}:${BITBUCKET_BRANCH}_${BITBUCKET_BUILD_NUMBER} .
           - docker save --output docs-image.docker ${DOCKER_REPO}/${BITBUCKET_REPO_SLUG}:${BITBUCKET_BRANCH}_${BITBUCKET_BUILD_NUMBER}
@@ -49,6 +55,7 @@ definitions:
         caches:
           - docker
           - node
+          - npm
         artifacts:
           - docs-image.docker
 
@@ -110,11 +117,12 @@ pipelines:
           name: Publish package on NPM
           script:
             - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN_PUBLISH}" > .npmrc
-            - npm install
+            - npm ci
             - npm version --no-git-tag-version ${BITBUCKET_TAG}
             - npm publish
           caches:
             - node
+            - npm
       - step: *Upload-Docs-Container
       - step: *Lint-Helm-Config
       - step:
