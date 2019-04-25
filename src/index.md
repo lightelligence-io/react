@@ -1,6 +1,5 @@
-
 React components for Lightelligence. These React Components represent [Lightelligence
-UI Styleguide](https://developers.lightelligence.io/ui).
+UI Styleguide](https://developers.lightelligence.io/styles).
 
 ## Getting Started
 
@@ -9,7 +8,7 @@ npm.
 
 ```bash
 $ npm install @lightelligence/react
-$ npm install @lightelligence/ui
+$ npm install @lightelligence/styles
 ```
 
 ## Usage
@@ -28,9 +27,9 @@ const App = () => (
 ```
 
 The components rely on [Lightelligence
-UI Styleguide](https://developers.lightelligence.io/ui), so make sure that
+UI Styleguide](https://developers.lightelligence.io/styles), so make sure that
 it is loaded via webpack 
 
-```css
-@import "@lightelligence/ui/src/index";
+```js static
+import '@lightelligence/styles/dist/index.css';
 ```

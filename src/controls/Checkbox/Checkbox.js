@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { func, node, bool } from 'prop-types';
+import { func, node, bool, string } from 'prop-types';
 import { UID } from 'react-uid';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
@@ -7,15 +7,19 @@ import * as olt from '@lightelligence/styles';
 export class Checkbox extends PureComponent {
   static propTypes = {
     children: node,
+    className: string,
     onChange: func,
     checked: bool,
+    indeterminate: bool,
     disabled: bool,
   };
 
   static defaultProps = {
     children: null,
-    checked: false,
+    className: null,
     onChange: null,
+    checked: false,
+    indeterminate: false,
     disabled: false,
   };
 
@@ -27,15 +31,21 @@ export class Checkbox extends PureComponent {
   };
 
   render() {
-    const { children, checked, disabled } = this.props;
+    const {
+      children,
+      className,
+      checked,
+      indeterminate,
+      disabled,
+    } = this.props;
     return (
       <UID name={(id) => `checkbox${id}`}>
         {(id) => (
-          <div className={olt.Checkbox}>
+          <div className={classnames(olt.Checkbox, className)}>
             <input
               id={id}
               type="checkbox"
-              className={olt.CheckboxInput}
+              className={classnames(olt.CheckboxInput)}
               checked={checked}
               onChange={this.onChange}
               disabled={disabled}
@@ -43,7 +53,11 @@ export class Checkbox extends PureComponent {
             {children && (
               <label
                 htmlFor={id}
-                className={classnames(olt.Label, olt.CheckboxLabel)}
+                className={classnames(
+                  olt.Label,
+                  olt.CheckboxLabel,
+                  indeterminate && olt.CheckboxIndeterminate,
+                )}
                 style={{
                   fontSize: olt.theme.fontSize.small,
                   marginBottom: olt.theme.spacing[1],
