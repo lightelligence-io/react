@@ -1,0 +1,14 @@
+/Dockerfile
+/docs
+/docs-image.docker
+
+/.eslintignore
+/.eslintrc
+/.prettierrc
+/.npmrc
+/babel.config.js
+/styleguide.config.js
+/scripts
+
+# Log files
+npm-debug.log*
