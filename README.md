@@ -1,5 +1,7 @@
 # LIGHTELLIGENCE design system (React version)
 
+[User Documentation](https://developers.lightelligence.io/react)
+
 React components for the lightelligence platform.
 
 ## Getting Started
