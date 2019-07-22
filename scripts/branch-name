@@ -4,7 +4,7 @@
 
 # Check branch name
 
-regex="^(feat|fix|hotfix|chore|refactor|docs)_.+_OLT-\d{4}$|^(release)_v\d{1,}.\d{1,}.\d{1,}$"
+regex="^(feat|fix|hotfix|chore|refactor|docs)_.+_OLT-[0-9]{4}$|^(release)_v[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$"
 
 BRANCH_NAME_LENGTH=`git rev-parse --abbrev-ref HEAD | grep -E $regex | wc -c`
 
