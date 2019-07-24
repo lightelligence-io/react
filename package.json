@@ -11,7 +11,7 @@
     "start": "styleguidist server",
     "build": "rm -rf dist && rm -rf styles && npm run transpile-esm && npm run transpile-cjs && npm run build:copy-styles",
     "build:copy-styles": "cp -r src/index.css dist/ && mv dist/cjs/styles .",
-    "build:docs": "styleguidist build",
+    "build:docs": "styleguidist build && touch ./docs/.nojekyll",
     "pretest": "npm run lint",
     "test": "react-scripts test",
     "lint": "eslint src/ --max-warnings 0 && prettier -c \"src/**/*.js\"",
