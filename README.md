@@ -1,44 +1,51 @@
-# LIGHTELLIGENCE design system (React version)
+<a href="https://lightelligence.io" align="right">
+    <img src="/resources/logo.png" alt="logo" title="logo" align="right" />
+</a>
 
-[User Documentation](https://developers.lightelligence.io/react)
+# Styles
 
-React components for the lightelligence platform.
+[![Build Status](https://img.shields.io/travis/com/lightelligence-io/react.svg)](https://travis-ci.com/lightelligence-io/react/branches)
+[![Dependencies](https://img.shields.io/david/lightelligence-io/react.svg)](https://david-dm.org/lightelligence-io/react)
+[![npm (scoped)](https://img.shields.io/npm/v/@lightelligence/react.svg)](https://www.npmjs.com/package/@lightelligence/react)
 
-## Getting Started
+> The Lightelligence design system React Components
 
-Install dependencies
-
-```
-npm install
-```
-
-Run development server on port 5050.
+## Installation
 
 ```
-npm run start
+npm install @lightelligence/react
 ```
 
-## Running the tests
+## Features
 
-Run unit tests
-`npm run test`
+The Lightelligence React are a set of React components, styled according to our
+design system. It is a representation of
+[Lightelligence Styles](https://github.com/lightelligence-io/styles).
 
-### And coding style tests
+## Usage
 
-- JavaScript/React: [airbnb coding guidelines](https://www.npmjs.com/package/eslint-config-airbnb).
-- Code formatting: [prettier](https://github.com/prettier/prettier).
+Make sure to include the bundled CSS in your React Application as well as
+wrapping your content in [`<Frame />`](https://lightelligence-io.github.io/react/#/Components/Frame)
+component.
 
-Please, consider installing eslint and prettier plugins for your IDE.
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import '@lightelligence/react/dist/index.css';
+import { Button, COLOR_PRIMARY } from '@lightelligence/react';
 
-### Build
+const App = () => (
+  <Frame>
+    <Button color={COLOR_PRIMARY}>Hello World</Button>
+  </Frame>
+);
 
-Build all project parts by using node scripts.
+ReactDOM.render(<App />, document.getElementById('root'));
+```
 
-## Built With
+Check out [the API reference](https://lightelligence-io.github.io/react/)
+to see the full documentation.
 
-- [react](https://reactjs.org/)
-- [LIGHTELLIGENCE CSS styleguide](https://github.com/lightelligence-io/styles) The CSS implementation of the lightelligence design-system
+## License
 
-## Contributing
-
-## Acknowledgments
+MIT
