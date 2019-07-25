@@ -1,44 +1,52 @@
-# LIGHTELLIGENCE design system (React version)
+<a href="https://lightelligence.io" align="right">
+    <img src="/resources/logo.png" alt="logo" title="logo" align="right" />
+</a>
 
-[User Documentation](https://developers.lightelligence.io/react)
+# React
 
-React components for the lightelligence platform.
+[![Build Status](https://img.shields.io/travis/com/lightelligence-io/react.svg)](https://travis-ci.com/lightelligence-io/react/branches)
+[![Code Coverage](https://img.shields.io/coveralls/github/lightelligence-io/react.svg)](https://coveralls.io/github/lightelligence-io/react)
+[![Dependencies](https://img.shields.io/david/lightelligence-io/react.svg)](https://david-dm.org/lightelligence-io/react)
+[![npm (scoped)](https://img.shields.io/npm/v/@lightelligence/react.svg)](https://www.npmjs.com/package/@lightelligence/react)
 
-## Getting Started
+> The Lightelligence design system React Components
 
-Install dependencies
+## Installation
 
 ```
-npm install
+npm install @lightelligence/react
 ```
 
-Run development server on port 5050.
+## Features
 
+Lightelligence React is a set of React components, styled according to our
+design system. It is a React.js implementation of
+[Lightelligence Styles](https://github.com/lightelligence-io/styles).
+
+## Usage
+
+Make sure to include the bundled CSS in your React Application as well as
+wrapping your content in [`<Frame />`](https://lightelligence-io.github.io/react/#/Components/Frame)
+component.
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import '@lightelligence/react/dist/index.css';
+import { Button, Frame, COLOR_PRIMARY } from '@lightelligence/react';
+
+const App = () => (
+  <Frame>
+    <Button color={COLOR_PRIMARY}>Hello World</Button>
+  </Frame>
+);
+
+ReactDOM.render(<App />, document.getElementById('root'));
 ```
-npm run start
-```
 
-## Running the tests
+Check out [the API reference](https://lightelligence-io.github.io/react/)
+to see the full documentation.
 
-Run unit tests
-`npm run test`
+## License
 
-### And coding style tests
-
-- JavaScript/React: [airbnb coding guidelines](https://www.npmjs.com/package/eslint-config-airbnb).
-- Code formatting: [prettier](https://github.com/prettier/prettier).
-
-Please, consider installing eslint and prettier plugins for your IDE.
-
-### Build
-
-Build all project parts by using node scripts.
-
-## Built With
-
-- [react](https://reactjs.org/)
-- [LIGHTELLIGENCE CSS styleguide](https://github.com/lightelligence-io/styles) The CSS implementation of the lightelligence design-system
-
-## Contributing
-
-## Acknowledgments
+MIT
