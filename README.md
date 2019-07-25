@@ -5,6 +5,7 @@
 # React
 
 [![Build Status](https://img.shields.io/travis/com/lightelligence-io/react.svg)](https://travis-ci.com/lightelligence-io/react/branches)
+[![Code Coverage](https://img.shields.io/coveralls/github/lightelligence-io/react.svg)](https://coveralls.io/github/lightelligence-io/react)
 [![Dependencies](https://img.shields.io/david/lightelligence-io/react.svg)](https://david-dm.org/lightelligence-io/react)
 [![npm (scoped)](https://img.shields.io/npm/v/@lightelligence/react.svg)](https://www.npmjs.com/package/@lightelligence/react)
 
