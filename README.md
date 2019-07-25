@@ -19,7 +19,7 @@ npm install @lightelligence/react
 
 ## Features
 
-The Lightelligence React are a set of React components, styled according to our
+Lightelligence React is a set of React components, styled according to our
 design system. It is a representation of
 [Lightelligence Styles](https://github.com/lightelligence-io/styles).
 
