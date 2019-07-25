@@ -13,6 +13,7 @@
     "build:copy-styles": "cp -r src/index.css dist/ && mv dist/cjs/styles .",
     "build:docs": "styleguidist build && touch ./docs/.nojekyll",
     "pretest": "npm run lint",
+    "coveralls": "react-scripts test --coverage --coverageReporters=text-lcov | coveralls",
     "test": "react-scripts test",
     "lint": "eslint src/ --max-warnings 0 && prettier -c \"src/**/*.js\"",
     "lint:fix": "eslint --fix src/ --max-warnings 0 && prettier -c --write \"src/**/*.js\"",
@@ -40,6 +41,7 @@
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "audit-ci": "^2.2.0",
+    "coveralls": "^3.0.5",
     "css-loader": "^2.1.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
@@ -69,6 +71,15 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "coverageReporters": [
+      "html",
+      "text"
+    ]
   },
   "lint-staged": {
     "*.js": [
