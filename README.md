@@ -2,7 +2,7 @@
     <img src="/resources/logo.png" alt="logo" title="logo" align="right" />
 </a>
 
-# Styles
+# React
 
 [![Build Status](https://img.shields.io/travis/com/lightelligence-io/react.svg)](https://travis-ci.com/lightelligence-io/react/branches)
 [![Dependencies](https://img.shields.io/david/lightelligence-io/react.svg)](https://david-dm.org/lightelligence-io/react)
