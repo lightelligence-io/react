@@ -9,6 +9,7 @@ script:
   - npm run build
   - npm run test
   - npm run build:docs
+  - npm run coveralls
 deploy:
   - provider: npm
     email: 'support@lightelligence.io'
