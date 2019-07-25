@@ -6,6 +6,18 @@ module.exports = {
   pagePerSection: true,
   styleguideDir: 'docs',
   version: pkg.version,
+  logger: {
+    warn: (message) => {
+      const ignore =
+        message.indexOf(
+          `src/content/DataCards/DataCardsContent.js matches a pattern defined in “components” or “sections” options in your style guide`,
+        ) > -1;
+      if (!ignore) {
+        // eslint-disable-next-line no-console
+        console.warn(`${message}`);
+      }
+    },
+  },
   sections: [
     {
       name: 'Introduction',

@@ -15,6 +15,9 @@ export * from './components/Tag';
 export * from './components/Tooltip';
 
 // content
+export * from './content/BasicDataCards';
+export * from './content/DataCards';
+export * from './content/FloatingList';
 export * from './content/Table';
 export * from './content/Headline';
 export * from './content/List';
