@@ -33,7 +33,7 @@ component.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '@lightelligence/react/dist/index.css';
-import { Button, COLOR_PRIMARY } from '@lightelligence/react';
+import { Button, Frame, COLOR_PRIMARY } from '@lightelligence/react';
 
 const App = () => (
   <Frame>
