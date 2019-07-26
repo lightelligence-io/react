@@ -14,15 +14,14 @@ const Button = ({
   tag,
   icon,
   onClick,
-  onClickDisabled,
   ...props
 }) => {
   const Element = tag || 'button';
-  const onClickProp = disabled ? onClickDisabled : onClick;
 
   return (
     <Element
-      onClick={onClickProp}
+      onClick={onClick}
+      {...(Element === 'button' && disabled ? { disabled } : {})}
       {...props}
       className={classnames(
         olt.Button,
@@ -50,7 +49,6 @@ Button.propTypes = {
   children: node,
   color: string,
   onClick: func,
-  onClickDisabled: func,
 };
 
 Button.defaultProps = {
@@ -63,7 +61,6 @@ Button.defaultProps = {
   children: null,
   color: undefined,
   onClick: undefined,
-  onClickDisabled: undefined,
 };
 
 export { Button };
