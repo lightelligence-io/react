@@ -29,7 +29,6 @@ const Button = ({
         outline && olt.ButtonOutline,
         icon && olt.ButtonIcon,
         selectable && olt.ButtonSelectable,
-        disabled && olt.isDisabled,
         className,
       )}
       data-icon={icon || undefined}
