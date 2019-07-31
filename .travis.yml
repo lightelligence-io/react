@@ -12,7 +12,7 @@ script:
   - npm run coveralls
 
 before_deploy:
-  - ./scripts/tag-commit.sh
+  - source ./scripts/tag-commit.sh
 
 deploy:
   - provider: releases
