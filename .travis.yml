@@ -12,19 +12,16 @@ script:
   - npm run coveralls
 
 before_deploy:
-  - git config --local user.name "lightelligence-bot"
-  - git config --local user.email "support@lightelligence.io"
-  - export TRAVIS_TAG=$(node -p "require('./package.json').version")
-  - git tag $TRAVIS_TAG
+  - source ./scripts/tag-commit.sh
 
 deploy:
-
   - provider: releases
     api_key: $GITHUB_ACCESS_TOKEN
+    tag_name: $TRAVIS_TAG
     on:
       branch: master
       repo: lightelligence-io/react
-      condition: "$TRAVIS_COMMIT_MESSAGE =~ ^release*"
+      condition: '$TRAVIS_COMMIT_MESSAGE =~ ^release*'
 
   - provider: npm
     email: 'support@lightelligence.io'
@@ -33,7 +30,7 @@ deploy:
     on:
       branch: master
       repo: lightelligence-io/react
-      condition: "$TRAVIS_COMMIT_MESSAGE =~ ^release*"
+      condition: '$TRAVIS_COMMIT_MESSAGE =~ ^release*'
 
   - provider: pages
     local_dir: docs
