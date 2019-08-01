@@ -7,6 +7,9 @@
 /.prettierrc
 /babel.config.js
 /styleguide.config.js
+/.travis.yml
+/resources
+/scripts
 
 # Log files
 npm-debug.log*
