@@ -52,15 +52,3 @@ import { Button } from '@lightelligence/react';
   </Button>
 </>;
 ```
-
-### Selectable
-
-Highlight on focus events
-
-```js
-import { Button } from '@lightelligence/react';
-<>
-  <Button icon="chevron_left" selectable outline color="primary" />
-  <Button icon="chevron_right" selectable color="primary" />
-</>;
-```
