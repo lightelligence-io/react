@@ -9,7 +9,6 @@ const Button = ({
   color,
   outline,
   children,
-  selectable,
   disabled,
   tag,
   icon,
@@ -28,7 +27,6 @@ const Button = ({
         color && olt[`Button${pascalize(color)}`],
         outline && olt.ButtonOutline,
         icon && olt.ButtonIcon,
-        selectable && olt.ButtonSelectable,
         className,
       )}
       data-icon={icon || undefined}
@@ -41,7 +39,6 @@ const Button = ({
 Button.propTypes = {
   tag: string,
   className: string,
-  selectable: bool,
   outline: bool,
   icon: string,
   disabled: bool,
@@ -53,7 +50,6 @@ Button.propTypes = {
 Button.defaultProps = {
   tag: 'button',
   className: null,
-  selectable: false,
   disabled: false,
   icon: '',
   outline: false,
