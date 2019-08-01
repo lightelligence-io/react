@@ -24,6 +24,16 @@ describe('Button', () => {
     expect(onClick).toHaveBeenCalled();
   });
 
+  test('should forward disabled to underlying button', () => {
+    const { getByText } = renderButton({
+      disabled: true,
+      children: 'Button',
+    });
+
+    const button = getByText('Button');
+    expect(button.disabled).toBe(true);
+  });
+
   test("doesn't trigger onClick when disabled", () => {
     const onClick = jest.fn();
     const { getByText } = renderButton({
@@ -37,36 +47,6 @@ describe('Button', () => {
     fireEvent.click(button);
 
     expect(onClick).not.toHaveBeenCalled();
-  });
-
-  test('triggers onClickDisabled when disabled', () => {
-    const onClickDisabled = jest.fn();
-    const { getByText } = renderButton({
-      onClickDisabled,
-      disabled: true,
-      children: 'Button',
-    });
-
-    const button = getByText('Button');
-
-    fireEvent.click(button);
-
-    expect(onClickDisabled).toHaveBeenCalled();
-  });
-
-  test("doesn't trigger onClickDisabled when not disabled", () => {
-    const onClickDisabled = jest.fn();
-    const { getByText } = renderButton({
-      onClickDisabled,
-      disabled: false,
-      children: 'Button',
-    });
-
-    const button = getByText('Button');
-
-    fireEvent.click(button);
-
-    expect(onClickDisabled).not.toHaveBeenCalled();
   });
 
   test('forwards className', () => {
