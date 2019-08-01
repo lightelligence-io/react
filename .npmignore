@@ -1,6 +1,4 @@
-/Dockerfile
 /docs
-/docs-image.docker
 
 /.eslintignore
 /.eslintrc
