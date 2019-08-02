@@ -31,19 +31,17 @@ export class List extends PureComponent {
       ...props
     } = this.props;
 
-    const classes = [
-      olt.List,
-      ordered && olt.ListOrdered,
-      definition && olt.ListDefinition,
-      className,
-    ];
-
-    if (vertical) {
-      classes.push(olt[`List${pascalize(vertical)}Vertical`]);
-    }
-
     return (
-      <ul {...props} className={classnames(classes)}>
+      <ul
+        {...props}
+        className={classnames(
+          olt.List,
+          ordered && olt.ListOrdered,
+          definition && olt.ListDefinition,
+          vertical && olt[`List${pascalize(vertical)}Vertical`],
+          className,
+        )}
+      >
         {children}
       </ul>
     );
