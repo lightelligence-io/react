@@ -9,6 +9,7 @@ import {
   MODAL_TYPE_ERROR,
   MODAL_TYPE_SUCCESS,
   MODAL_TYPE_INFO,
+  MODAL_TYPE_WARNING,
   MODAL_TYPE_NONE,
 } from './types';
 
@@ -118,6 +119,7 @@ Modal.propTypes = {
     MODAL_TYPE_ERROR,
     MODAL_TYPE_SUCCESS,
     MODAL_TYPE_INFO,
+    MODAL_TYPE_WARNING,
     MODAL_TYPE_NONE,
   ]),
   open: bool.isRequired,
