@@ -22,7 +22,7 @@ const fields = [
   { key: 'primary', label: 'Primary' },
   { key: 'secondary', label: 'Secondary' },
   { key: 'tertiary', label: 'Tertiary' },
-  { key: 'tertiary_action', label: 'Tertiary' },
+  { key: 'tertiary_action', label: 'Tertiary Action' },
 ];
 
 const rows = [
@@ -173,8 +173,6 @@ const rows = [
     secondary:       <V2Button disabled type="destructive" emphasis="secondary">Label</V2Button>,
     tertiary:        <V2Button disabled type="destructive" emphasis="tertiary">Label</V2Button>,
   },
-  
-
 ];
 
 <DataCards
@@ -248,7 +246,7 @@ const rows = [
 </DataCards>;
 ```
 
-### Confirmative
+### Confirmative Buttons
 
 #### Light Theme
 
