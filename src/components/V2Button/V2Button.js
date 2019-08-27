@@ -42,15 +42,46 @@ const V2Button = ({
 };
 
 V2Button.propTypes = {
+  /**
+   * The html tag that should be rendered for this button.
+   * Should be `button`, `input` or `a`.
+   */
   tag: string,
+  /**
+   * Forward an additional className to the underlying component.
+   */
   className: string,
+  /**
+   * An icon that should be rendered to the left of the button label.
+   */
   iconLeft: string,
+  /**
+   * An icon that should be rendered to the right of the button label.
+   */
   iconRight: string,
+  /**
+   * The `disabled` state of this button.
+   */
   disabled: bool,
+  /**
+   * The label of this button.
+   */
   children: node,
+  /**
+   * This function is called when a the button is clicked.
+   */
   onClick: func,
+  /**
+   * The emphasis of this button, by default its rendered with `primary`-emphasis.
+   */
   emphasis: oneOf(['primary', 'secondary', 'tertiary']),
+  /**
+   * The type of this button, by default its rendered with type `default`.
+   */
   type: oneOf(['default', 'confirmative', 'destructive', 'action']),
+  /**
+   * The theme of this button, by default its rendered with theme `light`.
+   */
   theme: oneOf(['light', 'dark']),
 };
 

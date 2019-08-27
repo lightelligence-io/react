@@ -1,18 +1,22 @@
-```js
-import { V2Button } from '@lightelligence/react';
-<V2Button>Button</V2Button>;
-```
 
-### Disabled
+## Types
 
-```js
-import { V2Button } from '@lightelligence/react';
-<V2Button disabled>Disabled</V2Button>;
-```
+Buttons communicate actions that users can take. They are typically placed throughout the UI, in places like Dialogs, Modals, Forms, Cards, Toolbars...
 
-### Default Buttons
+Different types of buttons communicate different actions.
 
-#### Light Theme
+## Progressing Actions
+
+The standard set of buttons can be used whenever an action is part of a process or opens up a variety of options to the user.
+
+Contrasting levels of emphasis help the user to differentiate between important and less important actions. These levels can also be used to guide a user to a preferred outcome.
+
+- **Primary**: Actions with a clear intention (Filled)
+- **Secondary**: Other possible options (Outline)
+- **Tertiary**: Less important actions (Text, Gray 500)
+- **Tertiary / Action**: Recurring actions (Text, Primary)
+
+### Light Theme
 
 ```js
 import { DataCards, DataCardsItem, V2Button } from '@lightelligence/react';
@@ -73,7 +77,7 @@ const rows = [
 </DataCards>;
 ```
 
-#### Dark Theme
+### Dark Theme
 
 ```js
 import { Card, DataCards, DataCardsItem, V2Button } from '@lightelligence/react';
@@ -134,7 +138,20 @@ const rows = [
 </DataCards>;
 ```
 
-### Destructive Buttons
+## Completing Actions
+
+This set of buttons can be used to complete or terminate an action. The labels should give a clear indication of what the user can expect after clicking.
+
+### Destructive Actions
+
+Buttons for destructive actions are available with three levels of emphasis and two to three varations in style. Primary and Secondary Buttons are available with a leading decoration. Tertiary Buttons can also be used with trailing decoration, since they can be part of a Cell when used in Data Cards.
+
+#### Levels of emphasis
+
+- **Primary** (Filled): Critical actions without second warning (for example definitely deleting an item)
+- **Secondary** (Outline): Destructive action as a possibility but not the only option available. <br>A warning in form of a **Modal** is necessary to prevent an unexpected outcome.
+- **Tertiary** (Text, Error): Less important destructive actions. <br>A warning in form of a **Modal** is necessary to prevent an unexpected outcome.
+
 
 #### Light Theme
 
@@ -246,7 +263,15 @@ const rows = [
 </DataCards>;
 ```
 
-### Confirmative Buttons
+
+### Confirmative Actions
+
+Buttons for confirmative actions are available with three levels of emphasis and two varations in style. Primary and Secondary Buttons are available with a leading decoration.
+
+#### Levels of emphasis
+- **Primary** (Filled): A successful outcome of the action is guaranteed
+- **Secondary** (Outline): Preferred positive actions with medium emphasis
+- **Tertiary** (Text, Success): Less important actions
 
 #### Light Theme
 
@@ -360,74 +385,87 @@ const rows = [
 </DataCards>;
 ```
 
+## Properties
+
+### Disabled
 
 ```js
-import { DataCards, Headline, FloatingList, Card, V2Button } from '@lightelligence/react';
-<Card>
-  <Headline>Emphasis: primary</Headline>
-  <FloatingList>
-    <V2Button theme="light" type='default'>Type Default</V2Button>
-    <V2Button theme="light" type='confirmative'>Type Confirmative</V2Button>
-    <V2Button theme="light" type='destructive'>Type Destructive</V2Button>
-  </FloatingList>
-  <br />
-  <Headline size="6">with icon to the left</Headline>
-  <FloatingList>
-    <V2Button theme="light" iconLeft="add" type='default'>Type Default</V2Button>
-    <V2Button theme="light" iconLeft="add" type='confirmative'>Type Confirmative</V2Button>
-    <V2Button theme="light" iconLeft="add" type='destructive'>Type Destructive</V2Button>
-  </FloatingList>
-  <br />
-  <Headline size="6">with icon to the right</Headline>
-  <FloatingList>
-    <V2Button theme="light" iconRight="add" type='default'>Type Default</V2Button>
-    <V2Button theme="light" iconRight="add" type='confirmative'>Type Confirmative</V2Button>
-    <V2Button theme="light" iconRight="add" type='destructive'>Type Destructive</V2Button>
-  </FloatingList>
-  <br />
-  <Headline>Emphasis: secondary</Headline>
-  <FloatingList>
-    <V2Button theme="light" emphasis="secondary" type='default'>Type Default</V2Button>
-    <V2Button theme="light" emphasis="secondary" type='confirmative'>Type Confirmative</V2Button>
-    <V2Button theme="light" emphasis="secondary" type='destructive'>Type Destructive</V2Button>
-  </FloatingList>
-  <br />
-  <Headline>Emphasis: tertiary</Headline>
-  <FloatingList>
-    <V2Button theme="light" emphasis="tertiary" type='default'>Type Default</V2Button>
-    <V2Button theme="light" emphasis="tertiary" type='confirmative'>Type Confirmative</V2Button>
-    <V2Button theme="light" emphasis="tertiary" type='destructive'>Type Destructive</V2Button>
-    <V2Button theme="light" emphasis="tertiary" type='action'>Type Action</V2Button>
-  </FloatingList>
-</Card>
+import { V2Button } from '@lightelligence/react';
+<V2Button disabled>Disabled</V2Button>;
 ```
 
-#### Dark Theme
+### Emphasis
+
+The emphasis of this button. Valid values are:
+
+- `primary` (default)
+- `secondary`
+- `tertiary`
 
 ```js
-import { Headline, FloatingList, Card, V2Button } from '@lightelligence/react';
-<Card color="dark">
-  <Headline>Primary emphasis</Headline>
+import { V2Button, FloatingList } from '@lightelligence/react';
+<FloatingList>
+  <V2Button emphasis="primary">Secondary</V2Button>
+  <V2Button emphasis="secondary">Secondary</V2Button>
+  <V2Button emphasis="tertiary">Tertiary</V2Button>
+</FloatingList>
+```
+
+### Theme
+
+The theme of this button. Valid values are:
+
+- `light` (default)
+- `dark`
+
+```js
+import { V2Button, FloatingList, Card } from '@lightelligence/react';
+<>
+<Card color="light">
   <FloatingList>
-    <V2Button theme="dark" type='default'>Type Default</V2Button>
-    <V2Button theme="dark" type='confirmative'>Type Confirmative</V2Button>
-    <V2Button theme="dark" type='destructive'>Type Destructive</V2Button>
-  </FloatingList>
-  <br />
-  <Headline>Secondary emphasis</Headline>
-  <FloatingList>
-    <V2Button theme="dark" emphasis="secondary" type='default'>Type Default</V2Button>
-    <V2Button theme="dark" emphasis="secondary" type='confirmative'>Type Confirmative</V2Button>
-    <V2Button theme="dark" emphasis="secondary" type='destructive'>Type Destructive</V2Button>
-  </FloatingList>
-  <br />
-  <Headline>Emphasis: tertiary</Headline>
-  <FloatingList>
-    <V2Button theme="dark" emphasis="tertiary" type='default'>Type Default</V2Button>
-    <V2Button theme="dark" emphasis="tertiary" type='confirmative'>Type Confirmative</V2Button>
-    <V2Button theme="dark" emphasis="tertiary" type='destructive'>Type Destructive</V2Button>
-    <V2Button theme="dark" emphasis="tertiary" type='action'>Type Action</V2Button>
+    <V2Button emphasis="primary" theme="light">Disabled</V2Button>
+    <V2Button emphasis="secondary" theme="light">Disabled</V2Button>
+    <V2Button emphasis="tertiary" theme="light">Disabled</V2Button>
   </FloatingList>
 </Card>
+<Card color="dark">
+  <FloatingList>
+    <V2Button emphasis="primary" theme="dark">Disabled</V2Button>
+    <V2Button emphasis="secondary" theme="dark">Disabled</V2Button>
+    <V2Button emphasis="tertiary" theme="dark">Disabled</V2Button>
+  </FloatingList>
+</Card>
+</>
+```
+
+### Type
+
+The type of this button. Valid values are:
+
+- `default` (default)
+- `confirmative`
+- `destructive`
+- `action` (only in combination with emphasis tertiary)
+
+```js
+import { V2Button, FloatingList } from '@lightelligence/react';
+<FloatingList>
+  <V2Button type="default">Confirmative</V2Button>
+  <V2Button type="confirmative">Confirmative</V2Button>
+  <V2Button type="destructive">Destructive</V2Button>
+  <V2Button type="action" emphasis="tertiary">Action</V2Button>
+</FloatingList>
+```
+
+### Icon left / right
+
+With `iconLeft` and `iconRight` an icon can be placed next to the label.
+
+```js
+import { V2Button, FloatingList } from '@lightelligence/react';
+<FloatingList>
+  <V2Button iconLeft="add">Label</V2Button>
+  <V2Button iconRight="add">Label</V2Button>
+</FloatingList>
 ```
 
