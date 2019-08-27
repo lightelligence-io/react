@@ -49,9 +49,9 @@ export const DataCards = ({
   const childNodes = React.Children.toArray(children);
 
   const cards = rows.map((row, cardIndex) => (
-    // eslint-disable-next-line react/no-array-index-key
     <BasicDataCardsCard
       onClick={handleCardClick}
+      // eslint-disable-next-line react/no-array-index-key
       key={`card-${cardIndex}`}
       {...cardProps}
     >
