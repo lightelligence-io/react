@@ -1,0 +1,361 @@
+body {
+  height: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  min-height: calc(100vh);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  background: #f5f6f8;
+  font-family: 'PT Sans', serif;
+  font-size: 16px;
+  overflow-x: hidden;
+  min-height: calc(100vh);
+}
+
+.content {
+  padding-left: 20%;
+}
+
+.content--wrapper {
+  padding: 50px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 20%;
+  padding: 10px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #fff;
+}
+
+.sidebar > * {
+  padding: 0 20px;
+}
+
+.logo {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.logo--image {
+  border-radius: 100%;
+  vertical-align: bottom;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.logo--title {
+  margin-left: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo--title--title {
+  color: black;
+  font-family: 'PT Sans', serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.logo--title--version {
+  color: black;
+  font-family: var(--olt-fontFamilyMono);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.toc--search {
+  margin: 16px 0 8px 0;
+  position: relative;
+}
+
+.toc--search--input {
+  min-height: 2rem;
+  vertical-align: middle;
+  border: 0;
+  border-bottom: 1px solid #e3e4e5;
+  border-radius: 2px;
+  padding: 2px 0;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  font-family: inherit;
+  color: black;
+  background: none;
+  width: 100%;
+}
+
+.toc--search--input:focus {
+  border-bottom-color: #f60;
+  outline: none;
+}
+
+.toc--search--input::-webkit-input-placeholder {
+  color: #afafaf;
+}
+
+.toc--search--input::-moz-placeholder {
+  color: #afafaf;
+}
+
+.toc--search--input::placeholder {
+  color: #afafaf;
+}
+
+.components-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.components-list--link {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.components-list--link-header {
+  padding-top: 24px;
+  margin-bottom: 4px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.components-list--link-selected:visited {
+  color: #3f3f3f;
+}
+
+.components-list--link-selected {
+  color: #3f3f3f;
+}
+
+.footer {
+  padding: 24px 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #9f9f9f;
+  display: block;
+}
+
+.heading {
+  padding-bottom: 8px;
+  margin: 0;
+}
+
+.heading-1 {
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 61px;
+}
+
+.heading-2 {
+  padding-top: 30px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.heading--link,
+.heading--link:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.paragraph {
+  font-family: 'PT Sans', serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+}
+
+.pre--wrapper {
+  margin: 15px 0;
+}
+
+.pre {
+  font-family: var(--olt-fontFamilyMono);
+  font-size: 13px;
+  font-weight: 400;
+  background: #f7f7f7;
+  padding: 10px;
+}
+
+/*
+ * Prism Theme
+ */
+
+.pre .token.comment,
+.pre .token.prolog,
+.pre .token.doctype,
+.pre .token.cdata {
+  color: #6d6d6d;
+}
+.pre .token.punctuation {
+  color: #999;
+}
+.pre .namespace {
+  opacity: 0.7;
+}
+.pre .token.property,
+.pre .token.tag,
+.pre .token.boolean,
+.pre .token.number,
+.pre .token.constant,
+.pre .token.symbol {
+  color: #905;
+}
+.pre .token.deleted {
+  color: #905;
+}
+.pre .token.selector,
+.pre .token.attr-name,
+.pre .token.string,
+.pre .token.char,
+.pre .token.builtin {
+  color: #690;
+}
+.pre .token.inserted {
+  color: #690;
+}
+.pre .token.operator,
+.pre .token.entity,
+.pre .token.url,
+.pre .language-css .token.string,
+.pre .style .token.string {
+  color: #9a6e3a;
+}
+.pre .token.atrule,
+.pre .token.attr-value,
+.pre .token.keyword {
+  color: #1673b1;
+}
+.pre .token.function,
+.pre .token.class-name {
+  color: #dd4a68;
+}
+.pre .token.regex,
+.pre .token.important,
+.pre .token.variable {
+  color: #e90;
+}
+.pre .token.important,
+.pre .token.bold {
+  font-weight: bold;
+}
+.pre .token.italic {
+  font-style: italic;
+}
+.pre .token.entity {
+  cursor: help;
+}
+
+.pathline {
+  display: block;
+  font-size: 14px;
+  color: #888;
+  font-family: var(--olt-fontFamilyMono);
+}
+
+.react-component {
+  margin-bottom: 30px;
+}
+
+.react-component--header {
+  margin-bottom: 20px;
+}
+
+.react-components--tabs--buttons {
+}
+
+.react-components--tabs {
+  margin: 20px 0;
+}
+
+.react-components--tabs--body {
+  padding-bottom: 20px;
+}
+
+.react-components--tabs--body:empty {
+  padding-bottom: 0;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: 'PT Sans', serif;
+  font-size: 13px;
+  color: #888;
+  text-transform: uppercase;
+  vertical-align: middle;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  width: 100%;
+}
+
+.tab-button--icon {
+  margin-right: 5px;
+  font-weight: 500;
+}
+
+.tab-button-active {
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.preview {
+  padding: 20px;
+  border-bottom: 1px solid #dfdfdf;
+  margin-bottom: 18px;
+}
+
+.preview--content {
+  border: 1px solid #efefef;
+  padding: 20px;
+}
+
+.playground--card--content {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.playground--tabs--buttons .tab-button {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.playground--tabs--buttons .tab-button-active {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.playground--tabs--body {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.code {
+  background: white;
+  font-family: var(--olt-fontFamilyMono);
+  font-size: 13px;
+  font-weight: 300;
+  color: #bd4147;
+  padding: 3px 6px;
+}

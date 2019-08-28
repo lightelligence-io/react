@@ -4,7 +4,12 @@ if (typeof env === 'undefined') {
   // test runner or styleguidist
   module.exports = {
     presets: ['@babel/preset-env'],
-    plugins: ['@babel/plugin-transform-runtime'],
+    plugins: [
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-proposal-object-rest-spread',
+      '@babel/plugin-transform-react-jsx',
+      '@babel/plugin-transform-runtime',
+    ],
     sourceMaps: true,
   };
   return;

@@ -5,6 +5,7 @@ module.exports = {
   serverPort: 5050,
   pagePerSection: true,
   styleguideDir: 'docs',
+  title: 'Lightelligence React',
   version: pkg.version,
   logger: {
     warn: (message) => {
@@ -25,7 +26,8 @@ module.exports = {
     },
     {
       name: 'Components',
-      components: 'src/**/[A-Z]*.js', // exclude index.js files https://react-styleguidist.js.org/docs/components.html#finding-components
+      components: 'src/**/[A-Z]*.js', // exclude index.js files
+      // https://react-styleguidist.js.org/docs/components.html#finding-components
       sectionDepth: 2,
     },
   ],
@@ -117,6 +119,23 @@ module.exports = {
   },
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/layout/Frame/Frame'),
+    Logo: path.join(__dirname, 'styleguide/Logo'),
+    StyleGuideRenderer: path.join(__dirname, 'styleguide/StyleGuide'),
+    TableOfContentsRenderer: path.join(
+      __dirname,
+      'styleguide/TableOfContents.js',
+    ),
+    ComponentsListRenderer: path.join(__dirname, 'styleguide/ComponentsList'),
+    SectionHeadingRenderer: path.join(__dirname, 'styleguide/SectionHeading'),
+    HeadingRenderer: path.join(__dirname, 'styleguide/Heading'),
+    ParaRenderer: path.join(__dirname, 'styleguide/Para'),
+    'Markdown/Pre': path.join(__dirname, 'styleguide/Markdown/Pre'),
+    Table: path.join(__dirname, 'styleguide/Table'),
+    PathlineRenderer: path.join(__dirname, 'styleguide/Pathline'),
+    ReactComponentRenderer: path.join(__dirname, 'styleguide/ReactComponent'),
+    TabButtonRenderer: path.join(__dirname, 'styleguide/TabButton'),
+    PlaygroundRenderer: path.join(__dirname, 'styleguide/Playground'),
+    CodeRenderer: path.join(__dirname, 'styleguide/Code'),
   },
   require: [
     path.join(__dirname, 'node_modules/normalize.css'),
