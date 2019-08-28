@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { getHash } from 'react-styleguidist/lib/client/utils/handleHash'; // eslint-disable-line
+import * as oltStyles from '@lightelligence/styles';
 
 const ComponentsListRenderer = ({ items }, { config }) => {
   const { pagePerSection } = config;
@@ -29,7 +30,7 @@ const ComponentsListRenderer = ({ items }, { config }) => {
             <li key={href}>
               <a
                 className={classnames(
-                  'olt-Link',
+                  oltStyles.Link,
                   'components-list--link',
                   isItemSelected && 'components-list--link-selected',
                   (heading || sectionDepth === 0) &&
