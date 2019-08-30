@@ -21,9 +21,7 @@ const V2Button = ({
 
   return (
     <Element
-      disabled={
-        Element === 'button' || Element === 'input' ? disabled : undefined
-      }
+      disabled={disabled}
       onClick={onClick}
       {...props}
       className={classnames(
