@@ -7,7 +7,8 @@ import * as olt from '@lightelligence/styles';
 const V2Button = ({
   className,
   emphasis,
-  type,
+  // avoid name clash with type which can be passed to input elements
+  buttonType,
   theme,
   children,
   disabled,
@@ -27,7 +28,7 @@ const V2Button = ({
       className={classnames(
         olt.V2Button,
         emphasis && olt[`V2Button${pascalize(emphasis)}`],
-        type && olt[`V2Button${pascalize(type)}`],
+        buttonType && olt[`V2Button${pascalize(buttonType)}`],
         theme && olt[`V2Button${pascalize(theme)}`],
         className,
       )}
@@ -74,9 +75,9 @@ V2Button.propTypes = {
    */
   emphasis: oneOf(['primary', 'secondary', 'tertiary']),
   /**
-   * The type of this button, by default its rendered with type `default`.
+   * The type of this button, by default its rendered as `default`.
    */
-  type: oneOf(['default', 'confirmative', 'destructive', 'action']),
+  buttonType: oneOf(['default', 'confirmative', 'destructive', 'action']),
   /**
    * The theme of this button, by default its rendered with theme `light`.
    */
@@ -86,13 +87,13 @@ V2Button.propTypes = {
 V2Button.defaultProps = {
   tag: 'button',
   className: undefined,
-  disabled: false,
+  disabled: undefined,
   iconLeft: undefined,
   iconRight: undefined,
   children: null,
   onClick: undefined,
   emphasis: 'default',
-  type: 'default',
+  buttonType: 'default',
   theme: 'light',
 };
 

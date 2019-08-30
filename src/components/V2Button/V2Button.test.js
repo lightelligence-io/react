@@ -86,10 +86,10 @@ describe('V2Button', () => {
     expect(button.classList.contains(oltStyles.V2ButtonTertiary)).toBeTruthy();
   });
 
-  test('correctly sets the css-modifier for type confirmative', () => {
+  test('correctly sets the css-modifier for buttonType confirmative', () => {
     const { getByText } = renderButton({
       children: 'Button',
-      type: 'confirmative',
+      buttonType: 'confirmative',
     });
     const button = getByText('Button');
     expect(
@@ -97,10 +97,10 @@ describe('V2Button', () => {
     ).toBeTruthy();
   });
 
-  test('correctly sets the css-modifier for type destructive', () => {
+  test('correctly sets the css-modifier for buttonType destructive', () => {
     const { getByText } = renderButton({
       children: 'Button',
-      type: 'destructive',
+      buttonType: 'destructive',
     });
     const button = getByText('Button');
     expect(
