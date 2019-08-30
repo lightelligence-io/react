@@ -180,8 +180,8 @@ const rows = [
   },
   {
     id: 'Decoration Right',
-    primary:         null,
-    secondary:       null,
+    primary:         "-",
+    secondary:       "-",
     tertiary:        <V2Button iconRight="add" type="destructive" emphasis="tertiary">Label</V2Button>,
   },
   {
@@ -235,8 +235,8 @@ const rows = [
   },
   {
     id: 'Decoration Right',
-    primary:         null,
-    secondary:       null,
+    primary:         "-",
+    secondary:       "-",
     tertiary:        wrap(<V2Button theme="dark" iconRight="add" type="destructive" emphasis="tertiary">Label</V2Button>),
   },
   {
@@ -300,8 +300,8 @@ const rows = [
   },
   {
     id: 'Decoration Right',
-    primary:         null,
-    secondary:       null,
+    primary:         "-",
+    secondary:       "-",
     tertiary:        <V2Button iconRight="add" type="confirmative" emphasis="tertiary">Label</V2Button>,
   },
   {
@@ -357,8 +357,8 @@ const rows = [
   },
   {
     id: 'Decoration Right',
-    primary:         null,
-    secondary:       null,
+    primary:         "-",
+    secondary:       "-",
     tertiary:        wrap(<V2Button theme="dark" iconRight="add" type="confirmative" emphasis="tertiary">Label</V2Button>),
   },
   {

@@ -21,10 +21,10 @@ const V2Button = ({
 
   return (
     <Element
+      disabled={
+        Element === 'button' || Element === 'input' ? disabled : undefined
+      }
       onClick={onClick}
-      {...((Element === 'button' || Element === 'input') && disabled
-        ? { disabled }
-        : {})}
       {...props}
       className={classnames(
         olt.V2Button,
@@ -33,8 +33,8 @@ const V2Button = ({
         theme && olt[`V2Button${pascalize(theme)}`],
         className,
       )}
-      data-icon-left={iconLeft || undefined}
-      data-icon-right={iconRight || undefined}
+      data-icon-left={iconLeft}
+      data-icon-right={iconRight}
     >
       {children}
     </Element>
@@ -87,15 +87,15 @@ V2Button.propTypes = {
 
 V2Button.defaultProps = {
   tag: 'button',
-  className: null,
+  className: undefined,
   disabled: false,
   iconLeft: undefined,
   iconRight: undefined,
   children: null,
   onClick: undefined,
-  emphasis: undefined, // primary by default
-  type: undefined, // default by default
-  theme: undefined, // light by default
+  emphasis: 'default',
+  type: 'default',
+  theme: 'light',
 };
 
 export { V2Button };
