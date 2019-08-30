@@ -32,7 +32,7 @@ class V2GridItem extends PureComponent {
   render() {
     const { className, children, size, offset, ...props } = this.props;
 
-    const classes = [olt.GridItem];
+    const classes = [olt.V2GridItem];
 
     // NOTE: This is using new props-API:
     // TODO: Make it a single line!
