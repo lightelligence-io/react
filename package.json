@@ -58,7 +58,7 @@
     "react-router-dom": "^5.0.0",
     "react-router-prop-types": "^1.0.4",
     "react-scripts": "^3.0.0",
-    "react-styleguidist": "^9.0.4",
+    "react-styleguidist": "^9.1.16",
     "react-testing-library": "^6.0.1",
     "url-polyfill": "^1.1.3"
   },
