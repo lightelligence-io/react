@@ -92,7 +92,7 @@ V2Button.defaultProps = {
   iconRight: undefined,
   children: null,
   onClick: undefined,
-  emphasis: 'default',
+  emphasis: 'primary',
   buttonType: 'default',
   theme: 'light',
 };
