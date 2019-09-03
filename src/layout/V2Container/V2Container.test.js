@@ -31,6 +31,17 @@ describe('V2Container', () => {
     ).toBeTruthy();
   });
 
+  test('correctly sets the css-modifier for fluid', () => {
+    const { getByText } = renderComponent({
+      children: 'Component',
+      fluid: true,
+    });
+    const component = getByText('Component');
+    expect(
+      component.classList.contains(oltStyles.V2ContainerFluid),
+    ).toBeTruthy();
+  });
+
   test('has the corresponding Component class from styles', () => {
     const { getByText } = renderComponent({
       children: 'Component',
