@@ -34,6 +34,7 @@ export * from './controls/SelectField';
 export * from './controls/TextField';
 export * from './controls/V2Label';
 export * from './controls/V2Input';
+export * from './controls/V2Select';
 
 export * from './layout/Container';
 export * from './layout/Frame';
