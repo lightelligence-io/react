@@ -50,13 +50,37 @@ export const Toggle = ({
 };
 
 Toggle.propTypes = {
+  /**
+   * The label of this Toggle.
+   */
   children: node,
+  /**
+   * Forwards an additional className to the underlying component.
+   */
   className: string,
+  /**
+   * Renders the Toggle as `inline-flex` instead of `flex`.
+   */
   inline: bool,
+  /**
+   * Eventhandler which is called when this Toggle is clicked.
+   */
   onChange: func,
+  /**
+   * When reversed is true the label is rendered on the left of the button.
+   */
   reversed: bool,
+  /**
+   * The `checked` state of this input.
+   */
   checked: bool,
+  /**
+   * The `disabled` state of this input.
+   */
   disabled: bool,
+  /**
+   * `props` that will be forwarded to the underlying input component.
+   */
   inputProps: shape({}),
 };
 
