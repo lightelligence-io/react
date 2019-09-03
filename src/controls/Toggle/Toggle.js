@@ -9,6 +9,7 @@ export const Toggle = ({
   className,
   checked,
   disabled,
+  reversed,
   onChange,
   inline,
   inputProps,
@@ -24,7 +25,12 @@ export const Toggle = ({
 
   return (
     <label
-      className={classnames(olt.Toggle, inline && olt.ToggleInline, className)}
+      className={classnames(
+        olt.Toggle,
+        inline && olt.ToggleInline,
+        reversed && olt.ToggleReversed,
+        className,
+      )}
       {...other}
     >
       <input
@@ -35,10 +41,7 @@ export const Toggle = ({
         disabled={disabled}
         {...finalInputProps}
       />
-      <div className={olt.ToggleButton}>
-        <div className={olt.ToggleTrack} />
-        <div className={olt.ToggleKnob} />
-      </div>
+      <div className={olt.ToggleButton} />
       {children && (
         <div className={classnames(olt.ToggleLabel)}>{children}</div>
       )}
@@ -51,6 +54,7 @@ Toggle.propTypes = {
   className: string,
   inline: bool,
   onChange: func,
+  reversed: bool,
   checked: bool,
   disabled: bool,
   inputProps: shape({}),
@@ -61,6 +65,7 @@ Toggle.defaultProps = {
   inline: false,
   className: null,
   onChange: null,
+  reversed: false,
   checked: false,
   disabled: false,
   inputProps: {},

@@ -18,6 +18,19 @@ const onChange = (checked) => { setState({ checked }); }
 <Toggle disabled checked={state.checked} onChange={onChange}>Label</Toggle>
 ```
 
+Reversed
+
+```js
+import { Card, Toggle } from '@lightelligence/react';
+initialState = { checked: false };
+const onChange = (checked) => { setState({ checked }); }
+
+<Card>
+	<Toggle reversed checked={state.checked} onChange={onChange}>Label</Toggle>
+	<Toggle reversed disabled checked={state.checked} onChange={onChange}>Label</Toggle>
+</Card>
+```
+
 Theme dark
 
 ```js
