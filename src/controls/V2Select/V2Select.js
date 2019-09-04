@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  string,
-  func,
-  bool,
-  number,
-  oneOfType,
-  arrayOf,
-  node,
-} from 'prop-types';
+import { string, func, bool, number, oneOfType, node } from 'prop-types';
 import * as olt from '@lightelligence/styles';
 import { V2Label } from '../V2Label';
 
@@ -62,13 +54,13 @@ V2Select.propTypes = {
   id: string,
   defaultValue: oneOfType([string, number]),
   value: oneOfType([string, number]),
-  children: arrayOf(node).isRequired,
+  children: node.isRequired,
   placeholder: string,
   label: string.isRequired,
   error: string,
   hint: string,
   onBlur: func,
-  onChange: func,
+  onChange: func.isRequired,
   disabled: bool,
   readOnly: bool,
   required: bool,
@@ -83,7 +75,6 @@ V2Select.defaultProps = {
   error: null,
   hint: null,
   onBlur: null,
-  onChange: null,
   disabled: false,
   readOnly: false,
   required: false,

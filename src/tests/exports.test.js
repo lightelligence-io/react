@@ -36,6 +36,9 @@ import {
   TextField,
   Container,
   Frame,
+  V2Select,
+  V2Input,
+  V2Label,
   Grid,
   oltStyles,
   theme,
@@ -62,13 +65,13 @@ describe('Card', () => {
 });
 
 describe('Checkbox', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Checkbox />);
   });
 });
 
 describe('Container', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Container />);
   });
 });
@@ -86,13 +89,13 @@ describe('Dropdown', () => {
 });
 
 describe('Frame', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Frame />);
   });
 });
 
 describe('Grid', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Grid />);
   });
 });
@@ -116,7 +119,7 @@ describe('Image', () => {
 });
 
 describe('Label', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Label />);
   });
 });
@@ -162,13 +165,13 @@ describe('Paragraph', () => {
 });
 
 describe('Radio', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Radio value="foo" />);
   });
 });
 
 describe('RadioGroup', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(
       <RadioGroup name="radio-group" value="foo" onChange={jest.fn()}>
         <Radio value="foo">Foo</Radio>
@@ -179,13 +182,13 @@ describe('RadioGroup', () => {
 });
 
 describe('Select', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Select options={[]} />);
   });
 });
 
 describe('SelectField', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<SelectField label="" options={[]} />);
   });
 });
@@ -230,8 +233,34 @@ describe('Tag', () => {
 });
 
 describe('TextField', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<TextField />);
+  });
+});
+
+describe('V2Label', () => {
+  it('should render without failing', () => {
+    render(
+      <V2Label label="">
+        {(displayValue) => <input value={displayValue} onChange={jest.fn} />}
+      </V2Label>,
+    );
+  });
+});
+
+describe('V2Input', () => {
+  it('should render without failing', () => {
+    render(<V2Input label="" value="" onChange={jest.fn()} />);
+  });
+});
+
+describe('V2Select', () => {
+  it('should render without failing', () => {
+    render(
+      <V2Select label="" value="" onChange={jest.fn()}>
+        <option value="something">Something</option>
+      </V2Select>,
+    );
   });
 });
 
