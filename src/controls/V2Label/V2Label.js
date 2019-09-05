@@ -35,6 +35,7 @@ const V2Label = ({
     <label
       className={classnames(
         olt.V2Label,
+        olt.V2LabelFloating,
         error && olt.hasError,
         displayValue.length && olt.hasValue,
         className,
