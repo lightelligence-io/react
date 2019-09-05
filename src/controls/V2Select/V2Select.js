@@ -19,35 +19,33 @@ const V2Select = ({
   hint,
   children,
   ...others
-}) => {
-  return (
-    <V2Label
-      className={className}
-      defaultValue={defaultValue}
-      error={error}
-      label={label}
-      value={value}
-      hint={hint}
-    >
-      {(displayValue) => (
-        <select
-          className={olt.V2Select}
-          id={id}
-          placeholder={placeholder}
-          value={displayValue}
-          onBlur={onBlur}
-          onChange={onChange}
-          disabled={disabled}
-          readOnly={readOnly}
-          required={required}
-          {...others}
-        >
-          {children}
-        </select>
-      )}
-    </V2Label>
-  );
-};
+}) => (
+  <V2Label
+    className={className}
+    defaultValue={defaultValue}
+    error={error}
+    label={label}
+    value={value}
+    hint={hint}
+  >
+    {(displayValue) => (
+      <select
+        className={olt.V2Select}
+        id={id}
+        placeholder={placeholder}
+        value={displayValue}
+        onBlur={onBlur}
+        onChange={onChange}
+        disabled={disabled}
+        readOnly={readOnly}
+        required={required}
+        {...others}
+      >
+        {children}
+      </select>
+    )}
+  </V2Label>
+);
 
 V2Select.propTypes = {
   className: string,

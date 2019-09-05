@@ -20,35 +20,33 @@ const V2Input = ({
   maxLength,
   hint,
   ...others
-}) => {
-  return (
-    <V2Label
-      className={className}
-      defaultValue={defaultValue}
-      error={error}
-      icon={icon}
-      label={label}
-      value={value}
-      maxLength={maxLength}
-      hint={hint}
-    >
-      {(displayValue) => (
-        <input
-          className={olt.V2Input}
-          id={id}
-          placeholder={placeholder}
-          value={displayValue}
-          onBlur={onBlur}
-          onChange={onChange}
-          disabled={disabled}
-          readOnly={readOnly}
-          required={required}
-          {...others}
-        />
-      )}
-    </V2Label>
-  );
-};
+}) => (
+  <V2Label
+    className={className}
+    defaultValue={defaultValue}
+    error={error}
+    icon={icon}
+    label={label}
+    value={value}
+    maxLength={maxLength}
+    hint={hint}
+  >
+    {(displayValue) => (
+      <input
+        className={olt.V2Input}
+        id={id}
+        placeholder={placeholder}
+        value={displayValue}
+        onBlur={onBlur}
+        onChange={onChange}
+        disabled={disabled}
+        readOnly={readOnly}
+        required={required}
+        {...others}
+      />
+    )}
+  </V2Label>
+);
 
 V2Input.propTypes = {
   className: string,

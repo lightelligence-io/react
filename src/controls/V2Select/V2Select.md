@@ -11,7 +11,7 @@ const onChange = (event) => {
   value={state.value}
   onChange={onChange}
 >
-  <option value="" hidden/>
+  <option value="" hidden />
   <option value="LoremIpsum">Lorem Ipsum</option>
   <option value="DolorSitAmet">Dolor Sit Amet</option>
   <option value="EtVersus">Et Versus</option>
@@ -34,7 +34,7 @@ const onChange = (event) => {
   onChange={onChange}
   disabled
 >
-  <option value="" hidden/>
+  <option value="" hidden />
   <option value="LoremIpsum">Lorem Ipsum</option>
   <option value="DolorSitAmet">Dolor Sit Amet</option>
   <option value="EtVersus">Et Versus</option>
@@ -57,7 +57,7 @@ const onChange = (event) => {
   onChange={onChange}
   required
 >
-  <option value="" hidden/>
+  <option value="" hidden />
   <option value="LoremIpsum">Lorem Ipsum</option>
   <option value="DolorSitAmet">Dolor Sit Amet</option>
   <option value="EtVersus">Et Versus</option>
@@ -80,7 +80,7 @@ const onChange = (event) => {
   onChange={onChange}
   error="Not a valid input"
 >
-  <option value="" hidden/>
+  <option value="" hidden />
   <option value="LoremIpsum">Lorem Ipsum</option>
   <option value="DolorSitAmet">Dolor Sit Amet</option>
   <option value="EtVersus">Et Versus</option>
@@ -103,7 +103,7 @@ const onChange = (event) => {
   onChange={onChange}
   hint="This input is required"
 >
-  <option value="" hidden/>
+  <option value="" hidden />
   <option value="LoremIpsum">Lorem Ipsum</option>
   <option value="DolorSitAmet">Dolor Sit Amet</option>
   <option value="EtVersus">Et Versus</option>
