@@ -8,9 +8,9 @@ below:
 ```js
 import { V2Container, Card } from '@lightelligence/react';
 <V2Container>
-	<Card title="A title of a card">
-		Card description
-	</Card>
+  <Card title="A title of a card">
+    Card description
+  </Card>
 </V2Container>
 ```
 
@@ -22,9 +22,9 @@ this can be overridden by adding `fluid` property to the container. By default t
 ```js
 import { V2Container, Card } from '@lightelligence/react';
 <V2Container fluid>
-	<Card title="A title of a card">
-		Card description
-	</Card>
+  <Card title="A title of a card">
+    Card description
+  </Card>
 </V2Container>
 ```
 
@@ -36,8 +36,8 @@ making it useful in situations where additional spacing is not needed.
 ```js
 import { V2Container, Card } from '@lightelligence/react';
 <V2Container noPadding>
-	<Card title="A title of a card">
-		Card description
-	</Card>
+  <Card title="A title of a card">
+    Card description
+  </Card>
 </V2Container>
 ```

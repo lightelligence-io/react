@@ -11,38 +11,38 @@ grid layouts of your application.
 ```js
 import { V2Grid, V2GridItem, Card } from '@lightelligence/react';
 <div>
-    <V2Grid>
-        <V2GridItem size={{ xs: 12, sm: 6, lg: 4 }}>
-            <Card color="primary">
-                Responsive
-            </Card>
-        </V2GridItem>
-        <V2GridItem size={{ xs: 12, sm: 6, lg: 4 }}>
-            <Card>
-                Responsive
-            </Card>
-        </V2GridItem>
-        <V2GridItem size={{ xs: 12, sm: 6, lg: 4 }}>
-            <Card>
-                Offset
-            </Card>
-        </V2GridItem>
-        <V2GridItem size="auto">
-            <Card color="primary">
-                Auto Width
-            </Card>
-        </V2GridItem>
-        <V2GridItem size="auto">
-            <Card>
-                Auto width
-            </Card>
-        </V2GridItem>
-        <V2GridItem size="auto">
-            <Card>
-                Auto width
-            </Card>
-        </V2GridItem>
-    </V2Grid>
+  <V2Grid>
+    <V2GridItem size={{ xs: 12, sm: 6, lg: 4 }}>
+      <Card color="primary">
+        Responsive
+      </Card>
+    </V2GridItem>
+    <V2GridItem size={{ xs: 12, sm: 6, lg: 4 }}>
+      <Card>
+        Responsive
+      </Card>
+    </V2GridItem>
+    <V2GridItem size={{ xs: 12, sm: 6, lg: 4 }}>
+      <Card>
+        Offset
+      </Card>
+    </V2GridItem>
+    <V2GridItem size="auto">
+      <Card color="primary">
+        Auto Width
+      </Card>
+    </V2GridItem>
+    <V2GridItem size="auto">
+      <Card>
+        Auto width
+      </Card>
+    </V2GridItem>
+    <V2GridItem size="auto">
+      <Card>
+        Auto width
+      </Card>
+    </V2GridItem>
+  </V2Grid>
 </div>
 ```
 
@@ -65,18 +65,18 @@ column.
 ```js
 import { V2Grid, V2GridItem, Card } from '@lightelligence/react';
 <V2Grid>
-    <V2GridItem size={2}>
-        <Card><pre>item--1</pre></Card>
-    </V2GridItem>
-    <V2GridItem size={3}>
-        <Card><pre>item--2</pre></Card>
-    </V2GridItem>
-    <V2GridItem size={4}>
-        <Card><pre>item--3</pre></Card>
-    </V2GridItem>
-    <V2GridItem size={3}>
-        <Card><pre>item--4</pre></Card>
-    </V2GridItem>
+  <V2GridItem size={2}>
+    <Card><pre>item--1</pre></Card>
+  </V2GridItem>
+  <V2GridItem size={3}>
+    <Card><pre>item--2</pre></Card>
+  </V2GridItem>
+  <V2GridItem size={4}>
+    <Card><pre>item--3</pre></Card>
+  </V2GridItem>
+  <V2GridItem size={3}>
+    <Card><pre>item--4</pre></Card>
+  </V2GridItem>
 </V2Grid>
 ```
 
@@ -86,18 +86,18 @@ on their content.
 ```js
 import { V2Grid, V2GridItem, Card } from '@lightelligence/react';
 <V2Grid>
-    <V2GridItem size="auto">
-        <Card><pre>item--1</pre></Card>
-    </V2GridItem>
-    <V2GridItem size="auto">
-        <Card><pre>item--2</pre></Card>
-    </V2GridItem>
-    <V2GridItem size="auto">
-        <Card><pre>item--3</pre></Card>
-    </V2GridItem>
-    <V2GridItem size="auto">
-        <Card><pre>item--4</pre></Card>
-    </V2GridItem>
+  <V2GridItem size="auto">
+    <Card><pre>item--1</pre></Card>
+  </V2GridItem>
+  <V2GridItem size="auto">
+    <Card><pre>item--2</pre></Card>
+  </V2GridItem>
+  <V2GridItem size="auto">
+    <Card><pre>item--3</pre></Card>
+  </V2GridItem>
+  <V2GridItem size="auto">
+    <Card><pre>item--4</pre></Card>
+  </V2GridItem>
 </V2Grid>
 ```
 
@@ -106,18 +106,18 @@ The `size` of a column can be specified separately for each breakpoint by passin
 ```js
 import { V2Grid, V2GridItem, Card } from '@lightelligence/react';
 <V2Grid>
-    <V2GridItem size={{ sm: 12, md: 6, lg: 3}}>
-        <Card><pre>item--1</pre></Card>
-    </V2GridItem>
-    <V2GridItem size={{ sm: 12, md: 6, lg: 3}}>
-        <Card><pre>item--2</pre></Card>
-    </V2GridItem>
-    <V2GridItem size={{ sm: 12, md: 6, lg: 3}}>
-        <Card><pre>item--2</pre></Card>
-    </V2GridItem>
-    <V2GridItem size={{ sm: 12, md: 6, lg: 3}}>
-        <Card><pre>item--2</pre></Card>
-    </V2GridItem>
+  <V2GridItem size={{ sm: 12, md: 6, lg: 3}}>
+    <Card><pre>item--1</pre></Card>
+  </V2GridItem>
+  <V2GridItem size={{ sm: 12, md: 6, lg: 3}}>
+    <Card><pre>item--2</pre></Card>
+  </V2GridItem>
+  <V2GridItem size={{ sm: 12, md: 6, lg: 3}}>
+    <Card><pre>item--2</pre></Card>
+  </V2GridItem>
+  <V2GridItem size={{ sm: 12, md: 6, lg: 3}}>
+    <Card><pre>item--2</pre></Card>
+  </V2GridItem>
 </V2Grid>
 ```
 ## Offsets
@@ -128,12 +128,12 @@ pre-defined space before being rendered.
 ```js
 import { V2Grid, V2GridItem, Card } from '@lightelligence/react';
 <V2Grid>
-    <V2GridItem offset={4} size={4}>
-        <Card><pre>item--1</pre></Card>
-    </V2GridItem>
-    <V2GridItem offset={4} size={4}>
-        <Card><pre>item--2</pre></Card>
-    </V2GridItem>
+  <V2GridItem offset={4} size={4}>
+    <Card><pre>item--1</pre></Card>
+  </V2GridItem>
+  <V2GridItem offset={4} size={4}>
+    <Card><pre>item--2</pre></Card>
+  </V2GridItem>
 </V2Grid>
 ```
 
@@ -142,11 +142,11 @@ The `offset` of a column can be specified separately for each breakpoint by pass
 ```js
 import { V2Grid, V2GridItem, Card } from '@lightelligence/react';
 <V2Grid>
-    <V2GridItem offset={{ sm: 1, md: 2, lg: 4}} size={{ sm: 10, md: 8, lg: 4}}>
-        <Card><pre>item--1</pre></Card>
-    </V2GridItem>
-    <V2GridItem offset={{ sm: 1, md: 2, lg: 4}} size={{ sm: 10, md: 8, lg: 4}}>
-        <Card><pre>item--2</pre></Card>
-    </V2GridItem>
+  <V2GridItem offset={{ sm: 1, md: 2, lg: 4}} size={{ sm: 10, md: 8, lg: 4}}>
+    <Card><pre>item--1</pre></Card>
+  </V2GridItem>
+  <V2GridItem offset={{ sm: 1, md: 2, lg: 4}} size={{ sm: 10, md: 8, lg: 4}}>
+    <Card><pre>item--2</pre></Card>
+  </V2GridItem>
 </V2Grid>
 ```
