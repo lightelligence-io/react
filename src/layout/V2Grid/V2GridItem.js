@@ -53,16 +53,45 @@ V2GridItem.propTypes = {
    * Forward an additional className to the underlying component.
    */
   className: string,
-
+  /**
+   * The number of colums this grid item occupies for `xs` breakpoint.
+   */
   xs: sizeProp,
+  /**
+   * The number of colums this grid item occupies for `sm` breakpoint.
+   */
   sm: sizeProp,
+  /**
+   * The number of colums this grid item occupies for `md` breakpoint.
+   */
   md: sizeProp,
+  /**
+   * The number of colums this grid item occupies for `lg` breakpoint.
+   */
   lg: sizeProp,
+  /**
+   * The number of colums this grid item occupies for `xl` breakpoint.
+   */
   xl: sizeProp,
+  /**
+   * The offset of colums this grid item is moved to the right for `xs` breakpoint.
+   */
   offsetXs: offsetProp,
+  /**
+   * The offset of colums this grid item is moved to the right for `sm` breakpoint.
+   */
   offsetSm: offsetProp,
+  /**
+   * The offset of colums this grid item is moved to the right for `md` breakpoint.
+   */
   offsetMd: offsetProp,
+  /**
+   * The offset of colums this grid item is moved to the right for `lg` breakpoint.
+   */
   offsetLg: offsetProp,
+  /**
+   * The offset of colums this grid item is moved to the right for `xl` breakpoint.
+   */
   offsetXl: offsetProp,
 };
 
