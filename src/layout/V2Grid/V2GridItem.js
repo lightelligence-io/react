@@ -1,40 +1,48 @@
 import React from 'react';
-import { node, number, string, shape, oneOfType } from 'prop-types';
+import { node, string, oneOf } from 'prop-types';
 import classnames from 'classnames';
-import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 
-const isFirstBreakpoint = (breakpoint) => breakpoint === 'xs';
-
-export const V2GridItem = ({ className, children, size, offset, ...props }) => {
-  const classes = [olt.V2GridItem];
-
-  if (typeof size === 'object') {
-    for (const [breakpoint, value] of Object.entries(size)) {
-      const infix = isFirstBreakpoint(breakpoint) ? '' : `${breakpoint}-`;
-      classes.push(olt[`V2GridItem${pascalize(infix + value)}`]);
-    }
-  } else if (size) {
-    classes.push(olt[`V2GridItem${pascalize(String(size))}`]);
-  }
-
-  if (typeof offset === 'object') {
-    for (const [breakpoint, value] of Object.entries(offset)) {
-      const infix = isFirstBreakpoint(breakpoint) ? '' : `${breakpoint}-`;
-      classes.push(
-        olt[`V2GridItem${pascalize(infix)}Offset${pascalize(String(value))}`],
-      );
-    }
-  } else if (offset) {
-    classes.push(olt[`V2GridItemOffset${pascalize(String(offset))}`]);
-  }
-
+export const V2GridItem = ({
+  className,
+  children,
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  offsetXs,
+  offsetSm,
+  offsetMd,
+  offsetLg,
+  offsetXl,
+  ...props
+}) => {
   return (
-    <div className={classnames(...classes, className)} {...props}>
+    <div
+      className={classnames(
+        olt.V2GridItem,
+        xs && (xs === 'auto' ? olt.V2GridItemAuto : olt[`V2GridItem${xs}`]),
+        sm && (sm === 'auto' ? olt.V2GridItemSmAuto : olt[`V2GridItemSm${sm}`]),
+        md && (md === 'auto' ? olt.V2GridItemMdAuto : olt[`V2GridItemMd${md}`]),
+        lg && (lg === 'auto' ? olt.V2GridItemLgAuto : olt[`V2GridItemLg${lg}`]),
+        xl && (xl === 'auto' ? olt.V2GridItemXlAuto : olt[`V2GridItemXl${xl}`]),
+        offsetXs && olt[`V2GridItemOffset${offsetXs}`],
+        offsetSm && olt[`V2GridItemSmOffset${offsetSm}`],
+        offsetMd && olt[`V2GridItemMdOffset${offsetMd}`],
+        offsetLg && olt[`V2GridItemLgOffset${offsetLg}`],
+        offsetXl && olt[`V2GridItemXlOffset${offsetXl}`],
+        className,
+      )}
+      {...props}
+    >
       {children}
     </div>
   );
 };
+
+const offsetProp = oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+const sizeProp = oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'auto']);
 
 V2GridItem.propTypes = {
   /**
@@ -45,23 +53,30 @@ V2GridItem.propTypes = {
    * Forward an additional className to the underlying component.
    */
   className: string,
-  /**
-   * Specifies the column size for this item. A total of 12 columns are
-   * available for each row. Valid values are 1-12, "auto" or an object
-   * definining the size for each breakpoint individually like `{ xs: 12, sm: 6, md: 4, lg: 3 }`.
-   */
-  size: oneOfType([number, string, shape({})]),
-  /**
-   * Specifies the column offset for this item. A total of 12 columns are
-   * available for each row. Valid values are 1-12 or an object
-   * definining the column offset for each breakpoint individually like `{ xs: 1, sm: 2, md: 3, lg: 4 }`.
-   */
-  offset: oneOfType([number, shape({})]),
+
+  xs: sizeProp,
+  sm: sizeProp,
+  md: sizeProp,
+  lg: sizeProp,
+  xl: sizeProp,
+  offsetXs: offsetProp,
+  offsetSm: offsetProp,
+  offsetMd: offsetProp,
+  offsetLg: offsetProp,
+  offsetXl: offsetProp,
 };
 
 V2GridItem.defaultProps = {
   children: null,
   className: null,
-  size: 'auto',
-  offset: undefined,
+  xs: 'auto',
+  sm: undefined,
+  md: undefined,
+  lg: undefined,
+  xl: undefined,
+  offsetXs: undefined,
+  offsetSm: undefined,
+  offsetMd: undefined,
+  offsetLg: undefined,
+  offsetXl: undefined,
 };

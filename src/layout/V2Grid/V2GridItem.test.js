@@ -28,10 +28,14 @@ describe('V2GridItem', () => {
     expect(component.classList.contains(oltStyles.V2GridItem)).toBeTruthy();
   });
 
-  test('sets the corresponding size styles when passing an object', () => {
+  test('sets the corresponding size styles when passing values for all breakpoints', () => {
     const { getByText } = renderComponent({
       children: 'Component',
-      size: { xs: 12, sm: 8, md: 6, lg: 4, xl: 3 },
+      xs: 12,
+      sm: 8,
+      md: 6,
+      lg: 4,
+      xl: 3,
     });
     const component = getByText('Component');
     expect(component.classList.contains(oltStyles.V2GridItem12)).toBeTruthy();
@@ -39,6 +43,31 @@ describe('V2GridItem', () => {
     expect(component.classList.contains(oltStyles.V2GridItemMd6)).toBeTruthy();
     expect(component.classList.contains(oltStyles.V2GridItemLg4)).toBeTruthy();
     expect(component.classList.contains(oltStyles.V2GridItemXl3)).toBeTruthy();
+  });
+
+  test("sets the corresponding size styles when passing 'auto' for all breakpoints", () => {
+    const { getByText } = renderComponent({
+      children: 'Component',
+      xs: 'auto',
+      sm: 'auto',
+      md: 'auto',
+      lg: 'auto',
+      xl: 'auto',
+    });
+    const component = getByText('Component');
+    expect(component.classList.contains(oltStyles.V2GridItemAuto)).toBeTruthy();
+    expect(
+      component.classList.contains(oltStyles.V2GridItemSmAuto),
+    ).toBeTruthy();
+    expect(
+      component.classList.contains(oltStyles.V2GridItemMdAuto),
+    ).toBeTruthy();
+    expect(
+      component.classList.contains(oltStyles.V2GridItemLgAuto),
+    ).toBeTruthy();
+    expect(
+      component.classList.contains(oltStyles.V2GridItemXlAuto),
+    ).toBeTruthy();
   });
 
   test('sets auto css modifier as default size', () => {
@@ -49,19 +78,14 @@ describe('V2GridItem', () => {
     expect(component.classList.contains(oltStyles.V2GridItemAuto)).toBeTruthy();
   });
 
-  test('sets css-modifier when passing a single value for size', () => {
+  test('sets the corresponding offset styles passing values for all breakpoints', () => {
     const { getByText } = renderComponent({
       children: 'Component',
-      size: 10,
-    });
-    const component = getByText('Component');
-    expect(component.classList.contains(oltStyles.V2GridItem10)).toBeTruthy();
-  });
-
-  test('sets the corresponding offset styles when passing an object', () => {
-    const { getByText } = renderComponent({
-      children: 'Component',
-      offset: { xs: 1, sm: 2, md: 3, lg: 4, xl: 5 },
+      offsetXs: 1,
+      offsetSm: 2,
+      offsetMd: 3,
+      offsetLg: 4,
+      offsetXl: 5,
     });
     const component = getByText('Component');
 
@@ -79,17 +103,6 @@ describe('V2GridItem', () => {
     ).toBeTruthy();
     expect(
       component.classList.contains(oltStyles.V2GridItemXlOffset5),
-    ).toBeTruthy();
-  });
-
-  test('sets css-modifier when passing a single value for offset', () => {
-    const { getByText } = renderComponent({
-      children: 'Component',
-      offset: 2,
-    });
-    const component = getByText('Component');
-    expect(
-      component.classList.contains(oltStyles.V2GridItemOffset2),
     ).toBeTruthy();
   });
 });
