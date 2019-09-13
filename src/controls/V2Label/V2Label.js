@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, func, number, oneOfType } from 'prop-types';
+import { string, func, number, oneOfType, bool } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
@@ -20,23 +20,25 @@ const V2Label = ({
   className,
   children,
   defaultValue,
-  error,
+  errorMessage,
   icon,
   label,
   value,
   maxLength,
+  allwaysShowMaxLength,
   hint,
   ...others
 }) => {
   const displayValue = getValue(value, defaultValue);
-  const showFooter = !!error || !!maxLength || !!hint;
+  const showCount = allwaysShowMaxLength || (!!maxLength && displayValue.length > maxLength - 5);
+  const showFooter = showCount || !!errorMessage || !!hint;
 
   return (
     <label
       className={classnames(
         olt.V2Label,
         olt.V2LabelFloating,
-        error && olt.hasError,
+        errorMessage && olt.hasError,
         displayValue.length && olt.hasValue,
         className,
       )}
@@ -54,9 +56,9 @@ const V2Label = ({
 
       {showFooter && (
         <span className={olt.V2LabelFooter}>
-          {error && <span className={olt.V2LabelError}>{error}</span>}
-          {hint && !error && <span className={olt.V2LabelHint}>{hint}</span>}
-          {maxLength && (
+          {errorMessage && <span className={olt.V2LabelError}>{errorMessage}</span>}
+          {hint && !errorMessage && <span className={olt.V2LabelHint}>{hint}</span>}
+          {showCount && (
             <span className={olt.V2LabelCount}>
               <span>
                 {displayValue.length}/{maxLength}
@@ -76,8 +78,9 @@ V2Label.propTypes = {
   value: oneOfType([string, number]),
   label: string.isRequired,
   icon: string,
-  error: string,
+  errorMessage: string,
   maxLength: number,
+  allwaysShowMaxLength: bool,
   hint: string,
 };
 
@@ -86,8 +89,9 @@ V2Label.defaultProps = {
   defaultValue: null,
   value: null,
   icon: null,
-  error: null,
+  errorMessage: null,
   maxLength: null,
+  allwaysShowMaxLength: false,
   hint: null,
 };
 

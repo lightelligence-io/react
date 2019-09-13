@@ -8,7 +8,7 @@ const V2Select = ({
   id,
   defaultValue,
   disabled,
-  error,
+  errorMessage,
   label,
   onChange,
   onBlur,
@@ -23,7 +23,7 @@ const V2Select = ({
   <V2Label
     className={className}
     defaultValue={defaultValue}
-    error={error}
+    errorMessage={errorMessage}
     label={label}
     value={value}
     hint={hint}
@@ -55,7 +55,7 @@ V2Select.propTypes = {
   children: node.isRequired,
   placeholder: string,
   label: string.isRequired,
-  error: string,
+  errorMessage: string,
   hint: string,
   onBlur: func,
   onChange: func.isRequired,
@@ -70,7 +70,7 @@ V2Select.defaultProps = {
   defaultValue: null,
   value: null,
   placeholder: null,
-  error: null,
+  errorMessage: null,
   hint: null,
   onBlur: null,
   disabled: false,

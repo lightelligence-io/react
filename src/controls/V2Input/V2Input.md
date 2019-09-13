@@ -59,7 +59,24 @@ const onChange = (event) => {
 />;
 ```
 
-Count
+Maximum length (displayed when limit is almost reached)
+
+```js
+import { V2Input } from '@lightelligence/react';
+initialState = { value: 'Lorem ipsum' };
+const onChange = (event) => {
+  setState({ value: event.target.value });
+};
+
+<V2Input
+  label="Enter your data"
+  value={state.value}
+  onChange={onChange}
+  maxLength={15}
+/>;
+```
+
+Maximum length (always displayed)
 
 ```js
 import { V2Input } from '@lightelligence/react';
@@ -73,6 +90,7 @@ const onChange = (event) => {
   value={state.value}
   onChange={onChange}
   maxLength={150}
+  allwaysShowMaxLength
 />;
 ```
 
@@ -89,7 +107,7 @@ const onChange = (event) => {
   label="Enter your data"
   value={state.value}
   onChange={onChange}
-  error="Not a valid input"
+  errorMessage="Not a valid input"
 />;
 ```
 

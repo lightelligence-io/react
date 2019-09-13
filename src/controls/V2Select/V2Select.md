@@ -78,7 +78,7 @@ const onChange = (event) => {
   label="Select an option"
   value={state.value}
   onChange={onChange}
-  error="Not a valid input"
+  errorMessage="Not a valid input"
 >
   <option value="" hidden />
   <option value="LoremIpsum">Lorem Ipsum</option>
