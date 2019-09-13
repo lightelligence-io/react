@@ -36,9 +36,6 @@ import {
   TextField,
   Container,
   Frame,
-  V2Select,
-  V2Input,
-  V2Label,
   Grid,
   oltStyles,
   theme,
@@ -235,32 +232,6 @@ describe('Tag', () => {
 describe('TextField', () => {
   it('should render without failing', () => {
     render(<TextField />);
-  });
-});
-
-describe('V2Label', () => {
-  it('should render without failing', () => {
-    render(
-      <V2Label label="">
-        {(displayValue) => <input value={displayValue} onChange={jest.fn} />}
-      </V2Label>,
-    );
-  });
-});
-
-describe('V2Input', () => {
-  it('should render without failing', () => {
-    render(<V2Input label="" value="" onChange={jest.fn()} />);
-  });
-});
-
-describe('V2Select', () => {
-  it('should render without failing', () => {
-    render(
-      <V2Select label="" value="" onChange={jest.fn()}>
-        <option value="something">Something</option>
-      </V2Select>,
-    );
   });
 });
 

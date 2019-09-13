@@ -15,7 +15,8 @@ const V2Label = ({
   hint,
   ...others
 }) => {
-  const showCount = allwaysShowMaxLength || (!!maxLength && value.length > maxLength - 5);
+  const nearLengthLimit = !!maxLength && value.length > maxLength - 5;
+  const showCount = allwaysShowMaxLength || nearLengthLimit;
   const showFooter = showCount || !!errorMessage || !!hint;
 
   return (
@@ -41,8 +42,12 @@ const V2Label = ({
 
       {showFooter && (
         <span className={olt.V2LabelFooter}>
-          {errorMessage && <span className={olt.V2LabelError}>{errorMessage}</span>}
-          {hint && !errorMessage && <span className={olt.V2LabelHint}>{hint}</span>}
+          {errorMessage && (
+            <span className={olt.V2LabelError}>{errorMessage}</span>
+          )}
+          {hint && !errorMessage && (
+            <span className={olt.V2LabelHint}>{hint}</span>
+          )}
           {showCount && (
             <span className={olt.V2LabelCount}>
               <span>
