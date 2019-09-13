@@ -2,6 +2,7 @@ import React from 'react';
 import { string, func, bool, number, oneOfType } from 'prop-types';
 import * as olt from '@lightelligence/styles';
 import { V2Label } from '../V2Label';
+import { getStringValue } from '../../utils/getStringValue';
 
 const V2Input = ({
   className,
@@ -21,19 +22,19 @@ const V2Input = ({
   allwaysShowMaxLength,
   hint,
   ...others
-}) => (
-  <V2Label
-    className={className}
-    defaultValue={defaultValue}
-    errorMessage={errorMessage}
-    icon={icon}
-    label={label}
-    value={value}
-    maxLength={maxLength}
-    allwaysShowMaxLength={allwaysShowMaxLength}
-    hint={hint}
-  >
-    {(displayValue) => (
+}) => {
+  const displayValue = getStringValue(value, defaultValue);
+  return (
+    <V2Label
+      className={className}
+      errorMessage={errorMessage}
+      icon={icon}
+      label={label}
+      value={displayValue}
+      maxLength={maxLength}
+      allwaysShowMaxLength={allwaysShowMaxLength}
+      hint={hint}
+    >
       <input
         className={olt.V2Input}
         id={id}
@@ -46,9 +47,9 @@ const V2Input = ({
         required={required}
         {...others}
       />
-    )}
-  </V2Label>
-);
+    </V2Label>
+  );
+};
 
 V2Input.propTypes = {
   /**

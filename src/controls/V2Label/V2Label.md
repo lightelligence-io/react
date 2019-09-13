@@ -14,12 +14,10 @@ const onChange = (event) => {
   value={state.value}
   maxLength={150}
 >
-  {(displayValue) => (
-    <input
-      className={olt.V2Input}
-      value={displayValue}
-      onChange={onChange}
-    />
-  )}
+  <input
+    className={olt.V2Input}
+    value={state.value}
+    onChange={onChange}
+  />
 </V2Label>
 ```

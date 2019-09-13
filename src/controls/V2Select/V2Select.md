@@ -6,16 +6,19 @@ const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
+const options = [
+  { value: '', label: '', hidden: true },
+  { value: 'LoremIpsum', label: 'Lorem Ipsum' },
+  { value: 'DolorSitAmet', label: 'Dolor Sit Amet' },
+  { value: 'EtVersus', label: 'Et Versus' },
+];
+
 <V2Select
   label="Select an option"
   value={state.value}
   onChange={onChange}
->
-  <option value="" hidden />
-  <option value="LoremIpsum">Lorem Ipsum</option>
-  <option value="DolorSitAmet">Dolor Sit Amet</option>
-  <option value="EtVersus">Et Versus</option>
-</V2Select>;
+  options={options}
+/>;
 ```
 
 Disabled
@@ -28,17 +31,20 @@ const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
+const options = [
+  { value: '', label: '', hidden: true },
+  { value: 'LoremIpsum', label: 'Lorem Ipsum' },
+  { value: 'DolorSitAmet', label: 'Dolor Sit Amet' },
+  { value: 'EtVersus', label: 'Et Versus' },
+];
+
 <V2Select
   label="Select an option"
   value={state.value}
   onChange={onChange}
+  options={options}
   disabled
->
-  <option value="" hidden />
-  <option value="LoremIpsum">Lorem Ipsum</option>
-  <option value="DolorSitAmet">Dolor Sit Amet</option>
-  <option value="EtVersus">Et Versus</option>
-</V2Select>;
+/>;
 ```
 
 Required
@@ -51,17 +57,20 @@ const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
+const options = [
+  { value: '', label: '', hidden: true },
+  { value: 'LoremIpsum', label: 'Lorem Ipsum' },
+  { value: 'DolorSitAmet', label: 'Dolor Sit Amet' },
+  { value: 'EtVersus', label: 'Et Versus' },
+];
+
 <V2Select
   label="Select an option"
   value={state.value}
   onChange={onChange}
+  options={options}
   required
->
-  <option value="" hidden />
-  <option value="LoremIpsum">Lorem Ipsum</option>
-  <option value="DolorSitAmet">Dolor Sit Amet</option>
-  <option value="EtVersus">Et Versus</option>
-</V2Select>;
+/>;
 ```
 
 Error
@@ -74,17 +83,20 @@ const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
+const options = [
+  { value: '', label: '', hidden: true },
+  { value: 'LoremIpsum', label: 'Lorem Ipsum' },
+  { value: 'DolorSitAmet', label: 'Dolor Sit Amet' },
+  { value: 'EtVersus', label: 'Et Versus' },
+];
+
 <V2Select
   label="Select an option"
   value={state.value}
   onChange={onChange}
+  options={options}
   errorMessage="Not a valid input"
->
-  <option value="" hidden />
-  <option value="LoremIpsum">Lorem Ipsum</option>
-  <option value="DolorSitAmet">Dolor Sit Amet</option>
-  <option value="EtVersus">Et Versus</option>
-</V2Select>;
+/>;
 ```
 
 Hint
@@ -97,15 +109,18 @@ const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
+const options = [
+  { value: '', label: '', hidden: true },
+  { value: 'LoremIpsum', label: 'Lorem Ipsum' },
+  { value: 'DolorSitAmet', label: 'Dolor Sit Amet' },
+  { value: 'EtVersus', label: 'Et Versus' },
+];
+
 <V2Select
   label="Select an option"
   value={state.value}
   onChange={onChange}
+  options={options}
   hint="This input is required"
->
-  <option value="" hidden />
-  <option value="LoremIpsum">Lorem Ipsum</option>
-  <option value="DolorSitAmet">Dolor Sit Amet</option>
-  <option value="EtVersus">Et Versus</option>
-</V2Select>;
+/>;
 ```

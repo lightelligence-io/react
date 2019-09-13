@@ -5,13 +5,15 @@ import userEvent from '@testing-library/user-event';
 import { V2Select } from './V2Select';
 
 const renderComponent = (props) => {
+  const options = [
+    { value: '', label: '', hidden: true },
+    { value: 'LoremIpsum', label: 'Lorem Ipsum' },
+    { value: 'DolorSitAmet', label: 'Dolor Sit Amet' },
+    { value: 'EtVersus', label: 'Et Versus' },
+  ];
+
   const queries = render(
-    <V2Select label="Select an option" {...props}>
-      <option value="" hidden />
-      <option value="LoremIpsum">Lorem Ipsum</option>
-      <option value="DolorSitAmet">Dolor Sit Amet</option>
-      <option value="EtVersus">Et Versus</option>
-    </V2Select>,
+    <V2Select label="Select an option" options={options} {...props} />,
   );
 
   const selectOption = (value) => {

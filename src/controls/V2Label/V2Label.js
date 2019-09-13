@@ -1,25 +1,11 @@
 import React from 'react';
-import { string, func, number, oneOfType, bool } from 'prop-types';
+import { string, number, bool, node } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
-
-const getValue = (value, defaultValue) => {
-  if (value === undefined || value === null) {
-    return '';
-  }
-
-  const stringValue = `${value}`;
-  if (stringValue.length === 0 && defaultValue !== undefined) {
-    return getValue(defaultValue);
-  }
-
-  return stringValue;
-};
 
 const V2Label = ({
   className,
   children,
-  defaultValue,
   errorMessage,
   icon,
   label,
@@ -29,8 +15,7 @@ const V2Label = ({
   hint,
   ...others
 }) => {
-  const displayValue = getValue(value, defaultValue);
-  const showCount = allwaysShowMaxLength || (!!maxLength && displayValue.length > maxLength - 5);
+  const showCount = allwaysShowMaxLength || (!!maxLength && value.length > maxLength - 5);
   const showFooter = showCount || !!errorMessage || !!hint;
 
   return (
@@ -39,12 +24,12 @@ const V2Label = ({
         olt.V2Label,
         olt.V2LabelFloating,
         errorMessage && olt.hasError,
-        displayValue.length && olt.hasValue,
+        value.length && olt.hasValue,
         className,
       )}
       {...others}
     >
-      {children(displayValue)}
+      {children}
 
       <span className={olt.V2LabelText}>{label}</span>
 
@@ -61,7 +46,7 @@ const V2Label = ({
           {showCount && (
             <span className={olt.V2LabelCount}>
               <span>
-                {displayValue.length}/{maxLength}
+                {value.length}/{maxLength}
               </span>
             </span>
           )}
@@ -72,22 +57,47 @@ const V2Label = ({
 };
 
 V2Label.propTypes = {
+  /**
+   * Forward an additional className to the underlying component.
+   */
   className: string,
-  children: func.isRequired,
-  defaultValue: oneOfType([string, number]),
-  value: oneOfType([string, number]),
+  /**
+   * The input component to be rendered inside the label
+   */
+  children: node.isRequired,
+  /**
+   * The value is used to control the floating label and char count
+   */
+  value: string.isRequired,
+  /**
+   * The label
+   */
   label: string.isRequired,
+  /**
+   * An icon which is displayed on the right of the input
+   */
   icon: string,
+  /**
+   * An error message that is displayed below the input
+   */
   errorMessage: string,
+  /**
+   * The maximum length that the input value can have. A hint will be shown on the right
+   * below the input when approaching the limit.
+   */
   maxLength: number,
+  /**
+   * A flag to always show the maximum length of the input value (defaults to false)
+   */
   allwaysShowMaxLength: bool,
+  /**
+   * A hint for the user which is displayed below the input
+   */
   hint: string,
 };
 
 V2Label.defaultProps = {
   className: null,
-  defaultValue: null,
-  value: null,
   icon: null,
   errorMessage: null,
   maxLength: null,
