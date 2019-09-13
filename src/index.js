@@ -27,6 +27,7 @@ export * from './content/Image';
 export * from './content/Link';
 
 export * from './controls/Checkbox';
+export * from './controls/Toggle';
 export * from './controls/Label';
 export * from './controls/Radio';
 export * from './controls/RadioGroup';

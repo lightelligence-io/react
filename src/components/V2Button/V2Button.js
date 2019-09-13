@@ -45,7 +45,7 @@ V2Button.propTypes = {
    * The html tag that should be rendered for this button.
    * Should be `button`, `input` or `a`.
    */
-  tag: string,
+  tag: oneOf(['button', 'input', 'a']),
   /**
    * Forward an additional className to the underlying component.
    */
@@ -92,7 +92,7 @@ V2Button.defaultProps = {
   iconRight: undefined,
   children: null,
   onClick: undefined,
-  emphasis: 'default',
+  emphasis: 'primary',
   buttonType: 'default',
   theme: 'light',
 };
