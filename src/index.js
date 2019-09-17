@@ -4,6 +4,7 @@ export * from './components/Avatar';
 export * from './components/Button';
 export * from './components/V2Button';
 export * from './components/Card';
+export * from './components/Chip';
 export * from './components/Dropdown';
 export * from './components/Icon';
 export * from './components/Menu';
