@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import { bool, node, string, oneOf } from 'prop-types';
+// import React, { PureComponent, useEffect, useState } from 'react';
+import { bool, node, string, func, oneOf } from 'prop-types';
 import classnames from 'classnames';
 import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
@@ -16,6 +17,7 @@ class Notification extends PureComponent {
     type: oneOf(['info', 'success', 'warn', 'error']), // TODO: oneOf Rendering is broken in guide
     header: string,
     content: string,
+    onClose: func,
   };
 
   static defaultProps = {
@@ -26,6 +28,12 @@ class Notification extends PureComponent {
     type: NOTIFICATION_TYPE_ERROR,
     header: '',
     content: '',
+    onClose: () => {},
+  };
+
+  onClose = () => {
+    const { onClose } = this.props;
+    if (onClose) onClose();
   };
 
   render() {
@@ -40,13 +48,19 @@ class Notification extends PureComponent {
       ...rest
     } = this.props;
 
+    // const [closed, setClosed] = useState(0);
+    // useEffect(() => {
+    //   // Update the document title using the browser API
+    //   console.log('closed', closed)
+    // });
+
     return (
       <div className={classnames(olt.Notifications)}>
         <div
           className={classnames(
             olt.Notification,
             type && olt[`Notification${pascalize(type)}`],
-            open && olt.isOpen,
+            open && olt.isOpen, // && !closed
             className,
           )}
           {...rest}
@@ -57,7 +71,10 @@ class Notification extends PureComponent {
             </header>
             <div className={classnames(olt.NotificationContent)}>{content}</div>
           </div>
-          <label className={classnames(olt.NotificationClose)} />
+          <label
+            className={classnames(olt.NotificationClose)}
+            onClick={this.onClose}
+          />
         </div>
       </div>
     );

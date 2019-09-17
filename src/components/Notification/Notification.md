@@ -14,11 +14,15 @@ const setOpen = () => {
 
     timeout = window.setTimeout(
         () => setState({ open: false}),
-        800
+        5200
     );
 
     setState({open: true});
 };
+
+const onClose = () => {
+    setState({open: false});
+}
 
 <React.Fragment>
   <Headline size={4}>Success</Headline>
@@ -27,7 +31,9 @@ const setOpen = () => {
     open={state.open} 
     type="success" 
     header="Yeah!! Success!"
-    content="As usually, we succeeded in the end." />
+    content="As usually, we succeeded in the end." 
+    onClose={onClose}
+    />
 </React.Fragment>
 ```
 
