@@ -16,6 +16,7 @@ import {
   Modal,
   Navbar,
   Snackbar,
+  Notification,
   Stepper,
   Tabs,
   Tab,
@@ -194,6 +195,12 @@ describe('SelectField', () => {
 describe('Snackbar', () => {
   it('should render without failing', () => {
     render(<Snackbar />);
+  });
+});
+
+describe('Notification', () => {
+  it('should render without failing', () => {
+    render(<Notification />);
   });
 });
 

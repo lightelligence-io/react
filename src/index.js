@@ -10,6 +10,7 @@ export * from './components/Icon';
 export * from './components/Menu';
 export * from './components/Modal';
 export * from './components/Navbar';
+export * from './components/Notification';
 export * from './components/Snackbar';
 export * from './components/Stepper';
 export * from './components/Tabs';
