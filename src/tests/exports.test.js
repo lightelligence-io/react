@@ -17,6 +17,8 @@ import {
   Navbar,
   Snackbar,
   Notification,
+  NotificationContainer,
+  NOTIFICATION_TYPE_INFO,
   Stepper,
   Tabs,
   Tab,
@@ -198,9 +200,33 @@ describe('Snackbar', () => {
   });
 });
 
+describe('NotificationContainer', () => {
+  it('should render without failing', () => {
+    render(<NotificationContainer />);
+  });
+});
 describe('Notification', () => {
   it('should render without failing', () => {
-    render(<Notification />);
+    render(
+      <Notification
+        type={NOTIFICATION_TYPE_INFO}
+        title="INFO!"
+        content="Here is some information."
+      />,
+    );
+  });
+});
+describe('NotificationContainer', () => {
+  it('should render without failing', () => {
+    render(
+      <NotificationContainer>
+        <Notification
+          type={NOTIFICATION_TYPE_INFO}
+          title="INFO!"
+          content="Here is some information."
+        />
+      </NotificationContainer>,
+    );
   });
 });
 
