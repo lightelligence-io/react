@@ -15,6 +15,7 @@
     "pretest": "npm run lint",
     "coveralls": "react-scripts test --coverage --coverageReporters=text-lcov | coveralls",
     "test": "react-scripts test",
+    "test:nolint": "node ./node_modules/react-scripts/scripts/test.js",
     "lint": "eslint src/ --max-warnings 0 && prettier -c \"src/**/*.js\"",
     "lint:fix": "eslint --fix src/ --max-warnings 0 && prettier -c --write \"src/**/*.js\"",
     "license-report": "legally",

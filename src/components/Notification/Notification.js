@@ -98,7 +98,17 @@ class Notification extends PureComponent {
   };
 
   render() {
-    const { type, title, content } = this.props;
+    const {
+      type,
+      title,
+      content,
+      timeout,
+      onClick,
+      onClose,
+      onHide,
+      onRequestHide,
+      ...rest
+    } = this.props;
     const { open } = this.state;
 
     return (
@@ -112,6 +122,8 @@ class Notification extends PureComponent {
         onKeyDown={() => {}}
         role="button"
         tabIndex={0}
+        data-testid="Notification"
+        {...rest}
       >
         <div className={olt.NotificationDialog}>
           <header className={olt.NotificationHeader}>{title}</header>
@@ -122,6 +134,7 @@ class Notification extends PureComponent {
           className={olt.NotificationClose}
           onClick={this.onClose}
           tabIndex={0}
+          data-testid="Notification-Close"
         >
           <i className={olt.Icon} data-icon="close" />
         </button>

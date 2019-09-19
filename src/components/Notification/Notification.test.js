@@ -1,10 +1,140 @@
 import React from 'react';
-import { render } from 'react-testing-library';
-import { Notification } from './Notification';
+import { render, fireEvent, wait } from 'react-testing-library';
 
-describe('Notification', () => {
-  test('renders without failing', () => {
-    const { getByText } = render(<Notification>Test</Notification>);
-    getByText('Test');
+import {
+  Notification,
+  NOTIFICATION_TYPE_INFO,
+  NOTIFICATION_TYPE_SUCCESS,
+  NOTIFICATION_TYPE_WARNING,
+  NOTIFICATION_TYPE_ERROR,
+} from '.';
+import { oltStyles } from '../..';
+
+describe('Notifications Render Correctly', () => {
+  test('renders INFO', () => {
+    const { getByText, getByTestId } = render(
+      <Notification
+        type={NOTIFICATION_TYPE_INFO}
+        title="INFO!"
+        content="Here is some information."
+      />,
+    );
+    getByText('INFO!');
+    getByText('Here is some information.');
+    const notification = getByTestId('Notification');
+    expect(
+      notification.classList.contains(oltStyles.Notification),
+    ).toBeTruthy();
+    expect(
+      notification.classList.contains(oltStyles.NotificationInfo),
+    ).toBeTruthy();
+  });
+  test('renders SUCCESS', () => {
+    const { getByText, getByTestId } = render(
+      <Notification
+        type={NOTIFICATION_TYPE_SUCCESS}
+        title="SUCCESS!"
+        content="That was a success!"
+      />,
+    );
+    getByText('SUCCESS!');
+    getByText('That was a success!');
+    const notification = getByTestId('Notification');
+    expect(
+      notification.classList.contains(oltStyles.Notification),
+    ).toBeTruthy();
+    expect(
+      notification.classList.contains(oltStyles.NotificationSuccess),
+    ).toBeTruthy();
+  });
+  test('renders WARNING', () => {
+    const { getByText, getByTestId } = render(
+      <Notification
+        type={NOTIFICATION_TYPE_WARNING}
+        title="WARNING!"
+        content="This is only a warning!"
+      />,
+    );
+    getByText('WARNING!');
+    getByText('This is only a warning!');
+    const notification = getByTestId('Notification');
+    expect(
+      notification.classList.contains(oltStyles.Notification),
+    ).toBeTruthy();
+    expect(
+      notification.classList.contains(oltStyles.NotificationWarning),
+    ).toBeTruthy();
+  });
+  test('renders ERROR', () => {
+    const { getByText, getByTestId } = render(
+      <Notification
+        type={NOTIFICATION_TYPE_ERROR}
+        title="ERROR!"
+        content="An error has occured!"
+      />,
+    );
+    getByText('ERROR!');
+    getByText('An error has occured!');
+    const notification = getByTestId('Notification');
+    expect(
+      notification.classList.contains(oltStyles.Notification),
+    ).toBeTruthy();
+    expect(
+      notification.classList.contains(oltStyles.NotificationError),
+    ).toBeTruthy();
+  });
+});
+
+describe('Notification Callbacks', () => {
+  test('isOpen is set called', () => {
+    const { getByText } = render(
+      <Notification
+        type={NOTIFICATION_TYPE_INFO}
+        title="INFO!"
+        content="Here is some information."
+      />,
+    );
+    const notification = getByText('INFO!');
+    wait(() =>
+      expect(notification.classList.contains(oltStyles.isOpen)).toBeTruthy(),
+    );
+  });
+  test('click and hide callbacks are called', () => {
+    jest.useFakeTimers();
+    const onHide = jest.fn();
+    const onClick = jest.fn();
+    const { getByText } = render(
+      <Notification
+        type={NOTIFICATION_TYPE_INFO}
+        title="INFO!"
+        content="Here is some information."
+        onClick={onClick}
+        onHide={onHide}
+      />,
+    );
+    const notification = getByText('INFO!');
+    fireEvent.click(notification);
+    expect(onClick).toHaveBeenCalled();
+    jest.runAllTimers();
+    expect(onHide).toHaveBeenCalled();
+  });
+  test('close and hide callbacks are called', () => {
+    jest.useFakeTimers();
+    const onHide = jest.fn();
+    const onClose = jest.fn();
+    const { getByTestId } = render(
+      <Notification
+        type={NOTIFICATION_TYPE_INFO}
+        title="INFO!"
+        content="Here is some information."
+        onClose={onClose}
+        onHide={onHide}
+      />,
+    );
+    const button = getByTestId('Notification-Close');
+    fireEvent.click(button);
+    expect(onClose).toHaveBeenCalled();
+    jest.runAllTimers();
+    expect(onHide).toHaveBeenCalled();
   });
 });
