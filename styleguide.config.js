@@ -2,7 +2,7 @@ const path = require('path');
 const pkg = require('./package.json');
 
 module.exports = {
-  serverPort: 5050,
+  serverPort: 5051,
   pagePerSection: true,
   styleguideDir: 'docs',
   title: 'Lightelligence React',

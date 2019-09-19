@@ -2,6 +2,7 @@ import * as oltStyles from '@lightelligence/styles';
 
 export * from './components/Avatar';
 export * from './components/Button';
+export * from './components/V2Button';
 export * from './components/Card';
 export * from './components/Chip';
 export * from './components/Dropdown';
@@ -27,6 +28,7 @@ export * from './content/Image';
 export * from './content/Link';
 
 export * from './controls/Checkbox';
+export * from './controls/Toggle';
 export * from './controls/Label';
 export * from './controls/Radio';
 export * from './controls/RadioGroup';
@@ -39,8 +41,10 @@ export * from './controls/V2Input';
 export * from './controls/V2Select';
 
 export * from './layout/Container';
+export * from './layout/V2Container';
 export * from './layout/Frame';
 export * from './layout/Grid';
+export * from './layout/V2Grid';
 
 export * from './constants';
 

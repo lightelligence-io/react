@@ -9,8 +9,15 @@ import {
 } from '../BasicDataCards';
 import { BasicDataCardsHeadItem } from '../BasicDataCards/BasicDataCardsHeadItem';
 
-export const DataCards = ({ fields, rows, children, onClick, ...other }) => {
-  const cardProps = {
+export const DataCards = ({
+  fields,
+  rows,
+  children,
+  onClick,
+  cardProps,
+  ...other
+}) => {
+  const cardsProps = {
     selectable: !!onClick,
     ...other,
   };
@@ -42,8 +49,12 @@ export const DataCards = ({ fields, rows, children, onClick, ...other }) => {
   const childNodes = React.Children.toArray(children);
 
   const cards = rows.map((row, cardIndex) => (
-    // eslint-disable-next-line react/no-array-index-key
-    <BasicDataCardsCard onClick={handleCardClick} key={`card-${cardIndex}`}>
+    <BasicDataCardsCard
+      onClick={handleCardClick}
+      // eslint-disable-next-line react/no-array-index-key
+      key={`card-${cardIndex}`}
+      {...cardProps}
+    >
       {childNodes.map((item, itemIndex) => {
         if (!item) return item;
         const { field: fieldKey } = item.props;
@@ -66,7 +77,7 @@ export const DataCards = ({ fields, rows, children, onClick, ...other }) => {
   ));
 
   return (
-    <BasicDataCards {...cardProps}>
+    <BasicDataCards {...cardsProps}>
       <BasicDataCardsHead>{headItems}</BasicDataCardsHead>
       <BasicDataCardsBody>{cards}</BasicDataCardsBody>
     </BasicDataCards>
@@ -97,8 +108,13 @@ DataCards.propTypes = {
    * a every card.
    */
   children: node.isRequired,
+  /**
+   * Properties for the constructed cards.
+   */
+  cardProps: shape({}),
 };
 
 DataCards.defaultProps = {
   onClick: undefined,
+  cardProps: undefined,
 };
