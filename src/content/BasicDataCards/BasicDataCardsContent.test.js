@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 
 import { BasicDataCardsContent } from './index';
 import { oltStyles } from '../..';

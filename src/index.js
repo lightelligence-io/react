@@ -34,7 +34,11 @@ export * from './controls/Radio';
 export * from './controls/RadioGroup';
 export * from './controls/Select';
 export * from './controls/SelectField';
+export * from './controls/TextArea';
 export * from './controls/TextField';
+export * from './controls/V2Label';
+export * from './controls/V2Input';
+export * from './controls/V2Select';
 
 export * from './layout/Container';
 export * from './layout/V2Container';
