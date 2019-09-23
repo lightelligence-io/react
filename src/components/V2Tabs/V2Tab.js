@@ -1,40 +1,38 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { string, bool, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
-export class V2Tab extends PureComponent {
-  static propTypes = {
-    value: string.isRequired,
-    label: string,
-    active: bool,
-    onSelect: func,
-  };
-
-  static defaultProps = {
-    label: '',
-    active: false,
-    onSelect: null,
-  };
-
-  handleChange = () => {
-    const { onSelect, value } = this.props;
+export const V2Tab = (props) => {
+  const handleChange = () => {
+    const { onSelect, value } = props;
     if (onSelect) onSelect(value);
   };
 
-  render() {
-    const { active, label } = this.props;
+  const { active, label } = props;
 
-    return (
-      <React.Fragment>
-        <button
-          type="button"
-          onClick={this.handleChange}
-          className={classnames(olt.V2TabsLink, active && olt.isActive)}
-        >
-          {label}
-        </button>
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <React.Fragment>
+      <button
+        type="button"
+        onClick={handleChange}
+        className={classnames(olt.V2TabsLink, active && olt.isActive)}
+      >
+        {label}
+      </button>
+    </React.Fragment>
+  );
+};
+
+V2Tab.propTypes = {
+  value: string.isRequired,
+  label: string,
+  active: bool,
+  onSelect: func,
+};
+
+V2Tab.defaultProps = {
+  label: '',
+  active: false,
+  onSelect: null,
+};
