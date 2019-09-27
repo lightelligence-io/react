@@ -51,7 +51,7 @@ const notify = () => {
 
 <React.Fragment>
   <Headline size={4}>General Demo</Headline>
-  <Paragraph>Click the button below multiple times to see different notifications. The notificaitons have different timeouts and some stay until you click them away.</Paragraph>
+  <Paragraph>Click the button below multiple times to see different notifications. The notifications have different timeouts and some stay until you click them away.</Paragraph>
   <Button onClick={notify}>Click Me</Button>
   <NotificationContainer /> 
 </React.Fragment>

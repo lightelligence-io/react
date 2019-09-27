@@ -42,7 +42,7 @@ describe('Notifications Render Correctly', () => {
     const notification = getByTestId('Notification');
     expect(
       notification.classList.contains(oltStyles.Notification),
-    ).toBeTruthy();
+    ).toBe(true);
     expect(
       notification.classList.contains(oltStyles.NotificationSuccess),
     ).toBeTruthy();
@@ -114,7 +114,7 @@ describe('Notification Callbacks', () => {
     );
     const notification = getByText('INFO!');
     fireEvent.click(notification);
-    expect(onClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
     expect(onHide).toHaveBeenCalled();
   });
