@@ -1,5 +1,5 @@
-```js
-import { Copyable } from '@lightelligence/react';
+```jsx
+import { Headline, Copyable } from '@lightelligence/react';
 
 <Copyable
   onCopy={(text)=> console.log(text)}
@@ -8,7 +8,7 @@ import { Copyable } from '@lightelligence/react';
 </Copyable>
 ```
 
-```js
+```jsx
 import { Copyable } from '@lightelligence/react';
 <Copyable
   onCopy={(text)=> console.log(text)}
@@ -16,4 +16,21 @@ import { Copyable } from '@lightelligence/react';
 >
   This text will not be copied to the clipboard, because value is defined differently.
 </Copyable>
+```
+
+```jsx
+import { NotificationContainer, NotificationManager } from '@lightelligence/react';
+
+const onCopy = () => NotificationManager.success({
+    title: 'Copied to clipboard!',
+});
+
+<React.Fragment>
+  <Copyable
+    onCopy={onCopy}
+  >
+    This text will be copied to the clipboard and then you'll see a notification.
+  </Copyable>
+  <NotificationContainer />
+</React.Fragment>
 ```
