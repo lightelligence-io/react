@@ -10,7 +10,6 @@ import {
   NOTIFICATION_TYPE_WARNING,
   NOTIFICATION_TYPE_ERROR,
 } from './types';
-// import { NOTIFICATION_TYPE_ERROR } from './types';
 
 const animationDuration = 200;
 class Notification extends PureComponent {

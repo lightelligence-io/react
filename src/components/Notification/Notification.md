@@ -1,6 +1,6 @@
 
 ```jsx
-import { Headline, Paragraph, Button, NotificationContainer, NotificationManager, Icon } from '@lightelligence/react';
+import { Headline, Paragraph, Button, NotificationContainer, NotificationManager } from '@lightelligence/react';
 
 const notify = () => {
     const demos = [
@@ -53,13 +53,13 @@ const notify = () => {
   <Headline size={4}>General Demo</Headline>
   <Paragraph>Click the button below multiple times to see different notifications. The notifications have different timeouts and some stay until you click them away.</Paragraph>
   <Button onClick={notify}>Click Me</Button>
-  <NotificationContainer /> 
+  <NotificationContainer />
 </React.Fragment>
 ```
 
 
 ```jsx
-import { Headline, Paragraph, Button, NotificationContainer, NotificationManager, Icon } from '@lightelligence/react';
+import { Headline, Paragraph, Button, NotificationContainer, NotificationManager } from '@lightelligence/react';
 
 const notify = () => NotificationManager.error({
     title: 'Error!!',
@@ -71,7 +71,7 @@ const notify = () => NotificationManager.error({
   <Headline size={4}>Error Notification</Headline>
   <Paragraph>Notification example that indicates an error. The example uses timeout: 0 to stop the notifcation from closing automatically.</Paragraph>
   <Button onClick={notify}>Click to open</Button>
-  <NotificationContainer /> 
+  <NotificationContainer />
 </React.Fragment>
 ```
 
