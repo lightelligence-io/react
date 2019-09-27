@@ -12,7 +12,7 @@ describe('Notifications Render Correctly', () => {
     getByText('tab label');
     const tab = getByText('tab label');
     expect(tab.classList.contains(oltStyles.V2TabsLink)).toBeTruthy();
-    expect(tab.classList.contains(oltStyles.isActive)).toBeTruthy();
+    expect(tab.classList.contains(oltStyles.isActive)).toBe(true);
   });
   test('renders inactive Tab', () => {
     const { getByText } = render(
@@ -21,7 +21,7 @@ describe('Notifications Render Correctly', () => {
     getByText('tab label');
     const tab = getByText('tab label');
     expect(tab.classList.contains(oltStyles.V2TabsLink)).toBeTruthy();
-    expect(!tab.classList.contains(oltStyles.isActive)).toBeTruthy();
+    expect(tab.classList.contains(oltStyles.isActive)).toBe(false);
   });
   test('clicks active Tab', () => {
     const onSelect = jest.fn();
@@ -44,6 +44,6 @@ describe('Notifications Render Correctly', () => {
     );
     const tab = getByText('tab label');
     fireEvent.click(tab);
-    expect(onSelect).toHaveBeenCalled();
+    expect(onSelect).toHaveBeenCalledTimes(1);
   });
 });

@@ -2,7 +2,7 @@
 Simple Tabs example
 
 ```js
-import { TaV2bs, V2Tab } from '@lightelligence/react';
+import { V2Tabs, V2Tab } from '@lightelligence/react';
 initialState = { value: 'tab1' };
 const onSelect = (value) => { setState({ value }); };
 

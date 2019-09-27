@@ -27,10 +27,10 @@ describe('Tabs render correctly', () => {
     getByText('Tab F');
     const tabA = getByText('Tab A');
     expect(tabA.classList.contains(oltStyles.V2TabsLink)).toBeTruthy();
-    expect(tabA.classList.contains(oltStyles.isActive)).toBeTruthy();
+    expect(tabA.classList.contains(oltStyles.isActive)).toBe(true);
     const tabB = getByText('Tab B');
     expect(tabB.classList.contains(oltStyles.V2TabsLink)).toBeTruthy();
-    expect(!tabB.classList.contains(oltStyles.isActive)).toBeTruthy();
+    expect(tabB.classList.contains(oltStyles.isActive)).toBe(false);
   });
   test('renders inactive Tab', () => {
     const onSelect = jest.fn();
