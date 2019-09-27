@@ -29,7 +29,7 @@ export const Copyable = (props) => {
 
 Copyable.propTypes = {
   value: string,
-  onCopy: func.isRequired,
+  onCopy: func,
   children: node.isRequired,
   className: string,
 };
@@ -37,4 +37,5 @@ Copyable.propTypes = {
 Copyable.defaultProps = {
   className: null,
   value: null,
+  onCopy: () => {},
 };
