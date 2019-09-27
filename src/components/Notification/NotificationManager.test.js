@@ -15,12 +15,10 @@ describe('NotificationManager Adds Notifications', () => {
     getByText('INFO!');
     getByText('Here is some information.');
     const notification = getByTestId('Notification');
-    expect(
-      notification.classList.contains(oltStyles.Notification),
-    ).toBeTruthy();
-    expect(
-      notification.classList.contains(oltStyles.NotificationInfo),
-    ).toBeTruthy();
+    expect(notification.classList.contains(oltStyles.Notification)).toBe(true);
+    expect(notification.classList.contains(oltStyles.NotificationInfo)).toBe(
+      true,
+    );
   });
   test('renders SUCCESS', () => {
     const { getByText, getByTestId } = render(<NotificationContainer />);
@@ -32,12 +30,10 @@ describe('NotificationManager Adds Notifications', () => {
     getByText('SUCCESS!');
     getByText('That was a success!');
     const notification = getByTestId('Notification');
-    expect(
-      notification.classList.contains(oltStyles.Notification),
-    ).toBeTruthy();
-    expect(
-      notification.classList.contains(oltStyles.NotificationSuccess),
-    ).toBeTruthy();
+    expect(notification.classList.contains(oltStyles.Notification)).toBe(true);
+    expect(notification.classList.contains(oltStyles.NotificationSuccess)).toBe(
+      true,
+    );
   });
   test('renders WARNING', () => {
     const { getByText, getByTestId } = render(<NotificationContainer />);
@@ -49,12 +45,10 @@ describe('NotificationManager Adds Notifications', () => {
     getByText('WARNING!');
     getByText('This is only a warning!');
     const notification = getByTestId('Notification');
-    expect(
-      notification.classList.contains(oltStyles.Notification),
-    ).toBeTruthy();
-    expect(
-      notification.classList.contains(oltStyles.NotificationWarning),
-    ).toBeTruthy();
+    expect(notification.classList.contains(oltStyles.Notification)).toBe(true);
+    expect(notification.classList.contains(oltStyles.NotificationWarning)).toBe(
+      true,
+    );
   });
   test('renders ERROR', () => {
     const { getByText, getByTestId } = render(<NotificationContainer />);
@@ -66,12 +60,10 @@ describe('NotificationManager Adds Notifications', () => {
     getByText('ERROR!');
     getByText('An error has occured!');
     const notification = getByTestId('Notification');
-    expect(
-      notification.classList.contains(oltStyles.Notification),
-    ).toBeTruthy();
-    expect(
-      notification.classList.contains(oltStyles.NotificationError),
-    ).toBeTruthy();
+    expect(notification.classList.contains(oltStyles.Notification)).toBe(true);
+    expect(notification.classList.contains(oltStyles.NotificationError)).toBe(
+      true,
+    );
   });
 });
 
@@ -89,9 +81,9 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     });
     const notification = getByText('INFO!');
     fireEvent.click(notification);
-    expect(onClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
-    expect(onHide).toHaveBeenCalled();
+    expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders SUCCESS', () => {
     jest.useFakeTimers();
@@ -106,9 +98,9 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     });
     const notification = getByText('SUCCESS!');
     fireEvent.click(notification);
-    expect(onClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
-    expect(onHide).toHaveBeenCalled();
+    expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders WARNING', () => {
     jest.useFakeTimers();
@@ -123,9 +115,9 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     });
     const notification = getByText('WARNING!');
     fireEvent.click(notification);
-    expect(onClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
-    expect(onHide).toHaveBeenCalled();
+    expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders ERROR', () => {
     jest.useFakeTimers();
@@ -140,9 +132,9 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     });
     const notification = getByText('ERROR!');
     fireEvent.click(notification);
-    expect(onClick).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
-    expect(onHide).toHaveBeenCalled();
+    expect(onHide).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -160,9 +152,9 @@ describe('NotificationManager Close and Hide Callbacks are set properly', () => 
     });
     const notification = getByTestId('Notification-Close');
     fireEvent.click(notification);
-    expect(onClose).toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
-    expect(onHide).toHaveBeenCalled();
+    expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders SUCCESS', () => {
     jest.useFakeTimers();
@@ -177,9 +169,9 @@ describe('NotificationManager Close and Hide Callbacks are set properly', () => 
     });
     const notification = getByTestId('Notification-Close');
     fireEvent.click(notification);
-    expect(onClose).toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
-    expect(onHide).toHaveBeenCalled();
+    expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders WARNING', () => {
     jest.useFakeTimers();
@@ -194,9 +186,9 @@ describe('NotificationManager Close and Hide Callbacks are set properly', () => 
     });
     const notification = getByTestId('Notification-Close');
     fireEvent.click(notification);
-    expect(onClose).toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
-    expect(onHide).toHaveBeenCalled();
+    expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders ERROR', () => {
     jest.useFakeTimers();
@@ -211,8 +203,8 @@ describe('NotificationManager Close and Hide Callbacks are set properly', () => 
     });
     const notification = getByTestId('Notification-Close');
     fireEvent.click(notification);
-    expect(onClose).toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
-    expect(onHide).toHaveBeenCalled();
+    expect(onHide).toHaveBeenCalledTimes(1);
   });
 });

@@ -40,9 +40,7 @@ describe('Notifications Render Correctly', () => {
     getByText('SUCCESS!');
     getByText('That was a success!');
     const notification = getByTestId('Notification');
-    expect(
-      notification.classList.contains(oltStyles.Notification),
-    ).toBe(true);
+    expect(notification.classList.contains(oltStyles.Notification)).toBe(true);
     expect(
       notification.classList.contains(oltStyles.NotificationSuccess),
     ).toBeTruthy();
