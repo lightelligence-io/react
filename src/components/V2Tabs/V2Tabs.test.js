@@ -26,10 +26,10 @@ describe('Tabs render correctly', () => {
     getByText('Tab E');
     getByText('Tab F');
     const tabA = getByText('Tab A');
-    expect(tabA.classList.contains(oltStyles.V2TabsLink)).toBeTruthy();
+    expect(tabA.classList.contains(oltStyles.V2TabsLink)).toBe(true);
     expect(tabA.classList.contains(oltStyles.isActive)).toBe(true);
     const tabB = getByText('Tab B');
-    expect(tabB.classList.contains(oltStyles.V2TabsLink)).toBeTruthy();
+    expect(tabB.classList.contains(oltStyles.V2TabsLink)).toBe(true);
     expect(tabB.classList.contains(oltStyles.isActive)).toBe(false);
   });
   test('renders inactive Tab', () => {
@@ -45,16 +45,16 @@ describe('Tabs can be clicked', () => {
     const tab = getByText('Tab A');
     fireEvent.click(tab);
     expect(onSelect).toHaveBeenCalled();
-    expect(tab.classList.contains(oltStyles.isActive)).toBeTruthy();
+    expect(tab.classList.contains(oltStyles.isActive)).toBe(true);
   });
   test('clicks inactive Tab', () => {
     const onSelect = jest.fn();
     const { getByText } = renderTabs(onSelect);
     const tab = getByText('Tab B');
-    expect(!tab.classList.contains(oltStyles.isActive)).toBeTruthy();
+    expect(!tab.classList.contains(oltStyles.isActive)).toBe(true);
     fireEvent.click(tab);
     expect(onSelect).toHaveBeenCalled();
-    wait(() => expect(tab.classList.contains(oltStyles.isActive)).toBeTruthy());
+    wait(() => expect(tab.classList.contains(oltStyles.isActive)).toBe(true));
   });
 });
 
@@ -74,8 +74,8 @@ describe('Tabs render gradient when scrolled', () => {
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
     const tabs = getByTestId('Tabs');
-    expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBeTruthy();
-    expect(!tabs.classList.contains(oltStyles.hasGradientLeft)).toBeTruthy();
+    expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true);
+    expect(!tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true);
   });
 
   test('renders gradient left and right', () => {
@@ -86,8 +86,8 @@ describe('Tabs render gradient when scrolled', () => {
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
     const tabs = getByTestId('Tabs');
-    expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBeTruthy();
-    expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBeTruthy();
+    expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true);
+    expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true);
   });
 
   test('renders gradient left', () => {
@@ -98,7 +98,7 @@ describe('Tabs render gradient when scrolled', () => {
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
     const tabs = getByTestId('Tabs');
-    expect(!tabs.classList.contains(oltStyles.hasGradientRight)).toBeTruthy();
-    expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBeTruthy();
+    expect(!tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true);
+    expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true);
   });
 });

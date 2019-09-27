@@ -11,7 +11,7 @@ describe('Notifications Render Correctly', () => {
     );
     getByText('tab label');
     const tab = getByText('tab label');
-    expect(tab.classList.contains(oltStyles.V2TabsLink)).toBeTruthy();
+    expect(tab.classList.contains(oltStyles.V2TabsLink)).toBe(true);
     expect(tab.classList.contains(oltStyles.isActive)).toBe(true);
   });
   test('renders inactive Tab', () => {
@@ -20,7 +20,7 @@ describe('Notifications Render Correctly', () => {
     );
     getByText('tab label');
     const tab = getByText('tab label');
-    expect(tab.classList.contains(oltStyles.V2TabsLink)).toBeTruthy();
+    expect(tab.classList.contains(oltStyles.V2TabsLink)).toBe(true);
     expect(tab.classList.contains(oltStyles.isActive)).toBe(false);
   });
   test('clicks active Tab', () => {
