@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, wait } from 'react-testing-library';
+import { render, fireEvent, wait } from '@testing-library/react';
 
 import { V2Tabs, V2Tab } from '.';
 import { oltStyles } from '../..';
@@ -74,8 +74,12 @@ describe('Tabs render gradient when scrolled', () => {
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
     const tabs = getByTestId('Tabs').firstChild;
-    expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true);
-    expect(!tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true);
+    wait(() =>
+      expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true),
+    );
+    wait(() =>
+      expect(!tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true),
+    );
   });
 
   test('renders gradient left and right', () => {
@@ -86,8 +90,12 @@ describe('Tabs render gradient when scrolled', () => {
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
     const tabs = getByTestId('Tabs').firstChild;
-    expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true);
-    expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true);
+    wait(() =>
+      expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true),
+    );
+    wait(() =>
+      expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true),
+    );
   });
 
   test('renders gradient left', () => {
@@ -98,7 +106,11 @@ describe('Tabs render gradient when scrolled', () => {
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
     const tabs = getByTestId('Tabs').firstChild;
-    expect(!tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true);
-    expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true);
+    wait(() =>
+      expect(!tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true),
+    );
+    wait(() =>
+      expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true),
+    );
   });
 });
