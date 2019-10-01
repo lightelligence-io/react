@@ -6,7 +6,7 @@ import { oltStyles } from '../..';
 
 const renderTabs = (onSelect) =>
   render(
-    <V2Tabs value="tab1" onSelect={onSelect}>
+    <V2Tabs value="tab1" onSelect={onSelect} data-testid="Tabs">
       <V2Tab label="Tab A" value="tab1" />
       <V2Tab label="Tab B" value="tab2" />
       <V2Tab label="Tab C" value="tab3" />
@@ -73,7 +73,7 @@ describe('Tabs render gradient when scrolled', () => {
 
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
-    const tabs = getByTestId('Tabs');
+    const tabs = getByTestId('Tabs').firstChild;
     expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true);
     expect(!tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true);
   });
@@ -85,7 +85,7 @@ describe('Tabs render gradient when scrolled', () => {
 
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
-    const tabs = getByTestId('Tabs');
+    const tabs = getByTestId('Tabs').firstChild;
     expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true);
     expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true);
   });
@@ -97,7 +97,7 @@ describe('Tabs render gradient when scrolled', () => {
 
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
-    const tabs = getByTestId('Tabs');
+    const tabs = getByTestId('Tabs').firstChild;
     expect(!tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true);
     expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true);
   });

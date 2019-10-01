@@ -34,7 +34,6 @@ export const V2Tabs = (props) => {
           gradient.right && olt.hasGradientRight,
         )}
         ref={tabBar}
-        data-testid="Tabs"
       >
         {React.Children.map(children, (element) =>
           React.cloneElement(element, {
