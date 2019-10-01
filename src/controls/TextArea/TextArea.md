@@ -55,7 +55,7 @@ const onChange = (event) => {
   label="Enter your data"
   value={state.value}
   onChange={onChange}
-  icon="edit"
+  icon="action-edit"
 />;
 ```
 

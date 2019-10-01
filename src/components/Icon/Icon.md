@@ -20,6 +20,7 @@ For decorative and non-interactive icons (e.g. input fields) the default is gray
 ```jsx
 <>
   <Icon name="feedback-check-filled" color="primary" />
+  <Icon name="action-add-default" color="primary" />
   <Icon name="feedback-check-filled" color="secondary" />
   <Icon name="feedback-check-filled" color="gray500" />
   <Icon name="feedback-info-filled" color="info" />

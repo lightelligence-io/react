@@ -36,17 +36,17 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    default:    wrap(<Chip iconLeft="add" color="default">Chip</Chip>),
-    dark:      wrap(<Chip iconLeft="add" color="dark">Chip</Chip>),
-    light:        wrap(<Chip iconLeft="add" color="light">Chip</Chip>, true),
-    primary_active: wrap(<Chip iconLeft="add" color="primary">Chip</Chip>),
+    default:    wrap(<Chip iconLeft="action-add-default" color="default">Chip</Chip>),
+    dark:      wrap(<Chip iconLeft="action-add-default" color="dark">Chip</Chip>),
+    light:        wrap(<Chip iconLeft="action-add-default" color="light">Chip</Chip>, true),
+    primary_active: wrap(<Chip iconLeft="action-add-default" color="primary">Chip</Chip>),
   },
   {
     id: 'Decoration Right',
-    default:    wrap(<Chip iconRight="add" color="default">Chip</Chip>),
-    dark:      wrap(<Chip iconRight="add" color="dark">Chip</Chip>),
-    light:        wrap(<Chip iconRight="add" color="light">Chip</Chip>, true),
-    primary_active: wrap(<Chip iconRight="add" color="primary">Chip</Chip>),
+    default:    wrap(<Chip iconRight="action-add-default" color="default">Chip</Chip>),
+    dark:      wrap(<Chip iconRight="action-add-default" color="dark">Chip</Chip>),
+    light:        wrap(<Chip iconRight="action-add-default" color="light">Chip</Chip>, true),
+    primary_active: wrap(<Chip iconRight="action-add-default" color="primary">Chip</Chip>),
   },
   {
     id: 'Count',
@@ -57,10 +57,10 @@ const rows = [
   },
   {
     id: 'Count + Decoration Left',
-    default:    wrap(<Chip iconLeft="add" color="default" bubble={5}>Chip</Chip>),
-    dark:      wrap(<Chip iconLeft="add" color="dark" bubble={5}>Chip</Chip>),
-    light:        wrap(<Chip iconLeft="add" color="light" bubble={5}>Chip</Chip>, true),
-    primary_active: wrap(<Chip iconLeft="add" color="primary" bubble={5}>Chip</Chip>),
+    default:    wrap(<Chip iconLeft="action-add-default" color="default" bubble={5}>Chip</Chip>),
+    dark:      wrap(<Chip iconLeft="action-add-default" color="dark" bubble={5}>Chip</Chip>),
+    light:        wrap(<Chip iconLeft="action-add-default" color="light" bubble={5}>Chip</Chip>, true),
+    primary_active: wrap(<Chip iconLeft="action-add-default" color="primary" bubble={5}>Chip</Chip>),
   },
   {
     id: 'Shortened',
@@ -121,7 +121,7 @@ const fields = [
 
 const wrap = (chip) => (<div style={{ textAlign: 'center' }}>{chip}</div>);
 const rows = [
-  
+
   {
     id: 'Default',
     error:    wrap(<Chip color="error">Chip</Chip>),
@@ -130,9 +130,9 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    error:    wrap(<Chip iconLeft="add" color="error">Chip</Chip>),
-    success:      wrap(<Chip iconLeft="add" color="success">Chip</Chip>),
-    info:        wrap(<Chip iconLeft="add" color="info">Chip</Chip>),
+    error:    wrap(<Chip iconLeft="action-add-default" color="error">Chip</Chip>),
+    success:      wrap(<Chip iconLeft="action-add-default" color="success">Chip</Chip>),
+    info:        wrap(<Chip iconLeft="action-add-default" color="info">Chip</Chip>),
   },
   {
     id: 'Count',
@@ -142,9 +142,9 @@ const rows = [
   },
   {
     id: 'Count + Decoration Left',
-    error:    wrap(<Chip iconLeft="add" color="error" bubble={5}>Chip</Chip>),
-    success:      wrap(<Chip iconLeft="add" color="success" bubble={5}>Chip</Chip>),
-    info:        wrap(<Chip iconLeft="add" color="info" bubble={5}>Chip</Chip>),
+    error:    wrap(<Chip iconLeft="action-add-default" color="error" bubble={5}>Chip</Chip>),
+    success:      wrap(<Chip iconLeft="action-add-default" color="success" bubble={5}>Chip</Chip>),
+    info:        wrap(<Chip iconLeft="action-add-default" color="info" bubble={5}>Chip</Chip>),
   },
   {
     id: 'Shortened',
@@ -230,15 +230,15 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
 
 #### Icons
 
-Each Chip can have an icon rendered on the left or on the right side by adding `iconLeft` or `iconRight` properties to the component.
+Each Chip can have an icon rendered on the left or on the right side by action-add-defaulting `iconLeft` or `iconRight` properties to the component.
 
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <Chip onClick={() => alert('Chip closed!')} color="primary" selectable iconLeft="add">
+  <Chip onClick={() => alert('Chip closed!')} color="primary" selectable iconLeft="action-add-default">
     Primary
   </Chip>
-  <Chip onClick={() => alert('Chip closed!')} selectable iconRight="add">
+  <Chip onClick={() => alert('Chip closed!')} selectable iconRight="action-add-default">
     Primary
   </Chip>
 </FloatingList>;
@@ -247,7 +247,7 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
 
 #### Bubble
 
-Each Chip can have an additional bubble rendered on the top right side by setting the `bubble` property.
+Each Chip can have an action-add-defaultitional bubble rendered on the top right side by setting the `bubble` property.
 
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
@@ -278,22 +278,22 @@ The Chip's bubble can also be an icon by setting the `bubbleIcon` property.
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <Chip bubbleIcon="add">
+  <Chip bubbleIcon="action-add-default">
     Default
   </Chip>
-  <Chip color="primary" bubbleIcon="add">
+  <Chip color="primary" bubbleIcon="action-add-default">
     Primary
   </Chip>
-  <Chip color="dark" bubbleIcon="add">
+  <Chip color="dark" bubbleIcon="action-add-default">
     Dark
   </Chip>
-  <Chip color="error" bubbleIcon="add">
+  <Chip color="error" bubbleIcon="action-add-default">
     Error
   </Chip>
-  <Chip color="success" bubbleIcon="add">
+  <Chip color="success" bubbleIcon="action-add-default">
     Success
   </Chip>
-  <Chip color="info" bubbleIcon="add">
+  <Chip color="info" bubbleIcon="action-add-default">
     Info
   </Chip>
 </FloatingList>;
@@ -304,16 +304,16 @@ Bubble's colors can also be fixed by setting the `bubbleColor` property to `info
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <Chip bubbleColor="info" bubbleIcon="add">
+  <Chip bubbleColor="info" bubbleIcon="action-add-default">
     Info with icon
   </Chip>
   <Chip bubbleColor="success" bubble={42}>
     Success with Counter
   </Chip>
-  <Chip bubbleColor="warning" bubbleIcon="add">
+  <Chip bubbleColor="warning" bubbleIcon="action-add-default">
     Warning with icon
   </Chip>
-  <Chip bubbleColor="error" bubbleIcon="add">
+  <Chip bubbleColor="error" bubbleIcon="action-add-default">
     Error with icon
   </Chip>
 </FloatingList>;

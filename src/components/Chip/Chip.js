@@ -34,8 +34,6 @@ const Chip = ({
       {...props}
       {...(selectable ? { disabled } : {})}
       onClick={handleClick}
-      data-icon-left={iconLeft}
-      data-icon-right={iconRight}
       className={classnames(
         olt.Chip,
         (bubble || bubbleIcon) && olt.ChipWithBubble,
@@ -43,15 +41,20 @@ const Chip = ({
         onClick && olt.ChipSelectable,
         color && olt[`Chip${pascalize(color)}`],
         className,
+        iconLeft && olt[`Icon${pascalize(iconLeft)}`],
+        iconLeft && olt.ChipIconLeft,
+        iconRight && olt[`Icon${pascalize(iconRight)}`],
+        iconRight && olt.ChipIconRight,
       )}
     >
       {children}
       {(bubble || bubbleIcon) && (
         <span
-          data-icon={bubbleIcon}
           className={classnames(
             olt.ChipBubble,
             bubbleColor && olt[`ChipBubble${pascalize(bubbleColor)}`],
+            bubbleIcon && olt[`Icon${pascalize(bubbleIcon)}`],
+            bubbleIcon && olt.ChipBubbleIcon,
           )}
         >
           {bubble}

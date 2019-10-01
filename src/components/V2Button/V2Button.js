@@ -19,7 +19,6 @@ const V2Button = ({
   ...props
 }) => {
   const Element = tag || 'button';
-
   return (
     <Element
       disabled={disabled}
@@ -30,10 +29,12 @@ const V2Button = ({
         emphasis && olt[`V2Button${pascalize(emphasis)}`],
         buttonType && olt[`V2Button${pascalize(buttonType)}`],
         theme && olt[`V2Button${pascalize(theme)}`],
+        iconLeft && olt[`Icon${pascalize(iconLeft)}`],
+        iconLeft && olt.V2ButtonIconLeft,
+        iconRight && olt[`Icon${pascalize(iconRight)}`],
+        iconRight && olt.V2ButtonIconRight,
         className,
       )}
-      data-icon-left={iconLeft}
-      data-icon-right={iconRight}
     >
       {children}
     </Element>

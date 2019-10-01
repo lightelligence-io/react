@@ -8,7 +8,6 @@ const Icon = ({ name, size, color, children, className, ...props }) => {
   return (
     <i
       {...props}
-      data-icon={name}
       className={classnames(
         olt.Icon,
         color && olt[`Icon${pascalize(color)}`],
