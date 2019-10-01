@@ -17,6 +17,7 @@ describe('Notifications Render Correctly', () => {
         type={NOTIFICATION_TYPE_INFO}
         title="INFO!"
         content="Here is some information."
+        data-testid="Notification"
       />,
     );
     getByText('INFO!');
@@ -35,6 +36,7 @@ describe('Notifications Render Correctly', () => {
         type={NOTIFICATION_TYPE_SUCCESS}
         title="SUCCESS!"
         content="That was a success!"
+        data-testid="Notification"
       />,
     );
     getByText('SUCCESS!');
@@ -51,6 +53,7 @@ describe('Notifications Render Correctly', () => {
         type={NOTIFICATION_TYPE_WARNING}
         title="WARNING!"
         content="This is only a warning!"
+        data-testid="Notification"
       />,
     );
     getByText('WARNING!');
@@ -69,6 +72,7 @@ describe('Notifications Render Correctly', () => {
         type={NOTIFICATION_TYPE_ERROR}
         title="ERROR!"
         content="An error has occured!"
+        data-testid="Notification"
       />,
     );
     getByText('ERROR!');
@@ -90,6 +94,7 @@ describe('Notification Callbacks', () => {
         type={NOTIFICATION_TYPE_INFO}
         title="INFO!"
         content="Here is some information."
+        data-testid="Notification"
       />,
     );
     const notification = getByText('INFO!');
@@ -127,9 +132,13 @@ describe('Notification Callbacks', () => {
         content="Here is some information."
         onClose={onClose}
         onHide={onHide}
+        data-testid="Notification"
       />,
     );
-    const button = getByTestId('Notification-Close');
+    // const button = getByTestId('Notification-Close');
+    const button = getByTestId('Notification').getElementsByTagName(
+      'button',
+    )[0];
     fireEvent.click(button);
     expect(onClose).toHaveBeenCalled();
     jest.runAllTimers();

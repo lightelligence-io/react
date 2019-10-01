@@ -113,7 +113,6 @@ class Notification extends PureComponent {
         onKeyDown={() => {}}
         role="button"
         tabIndex={0}
-        data-testid="Notification"
         {...rest}
       >
         <div className={olt.NotificationDialog}>
@@ -125,7 +124,6 @@ class Notification extends PureComponent {
           className={olt.NotificationClose}
           onClick={this.onClose}
           tabIndex={0}
-          data-testid="Notification-Close"
         >
           <i className={olt.Icon} data-icon="close" />
         </button>
