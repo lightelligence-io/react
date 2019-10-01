@@ -10,7 +10,7 @@ export const Copyable = (props) => {
 
   const copy = () => {
     copyToClipboard();
-    if (onCopy) onCopy(value || children);
+    if (onCopy && typeof onCopy === 'function') onCopy(value || children);
   };
 
   return (
