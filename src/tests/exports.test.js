@@ -1,7 +1,6 @@
 import 'jest-dom/extend-expect';
-import 'react-testing-library/cleanup-after-each';
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
@@ -63,13 +62,13 @@ describe('Card', () => {
 });
 
 describe('Checkbox', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Checkbox />);
   });
 });
 
 describe('Container', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Container />);
   });
 });
@@ -87,13 +86,13 @@ describe('Dropdown', () => {
 });
 
 describe('Frame', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Frame />);
   });
 });
 
 describe('Grid', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Grid />);
   });
 });
@@ -117,7 +116,7 @@ describe('Image', () => {
 });
 
 describe('Label', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Label />);
   });
 });
@@ -163,13 +162,13 @@ describe('Paragraph', () => {
 });
 
 describe('Radio', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Radio value="foo" />);
   });
 });
 
 describe('RadioGroup', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(
       <RadioGroup name="radio-group" value="foo" onChange={jest.fn()}>
         <Radio value="foo">Foo</Radio>
@@ -180,13 +179,13 @@ describe('RadioGroup', () => {
 });
 
 describe('Select', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<Select options={[]} />);
   });
 });
 
 describe('SelectField', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<SelectField label="" options={[]} />);
   });
 });
@@ -231,7 +230,7 @@ describe('Tag', () => {
 });
 
 describe('TextField', () => {
-  it('should render withour failing', () => {
+  it('should render without failing', () => {
     render(<TextField />);
   });
 });

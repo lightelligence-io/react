@@ -1,4 +1,4 @@
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 import React from 'react';
 import { Avatar } from './Avatar';
 import { AVATAR_TYPE_TENANT, AVATAR_TYPE_USER } from '../../constants';
