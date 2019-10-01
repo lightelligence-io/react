@@ -1,10 +1,10 @@
 import React from 'react';
-import { render, fireEvent } from 'react-testing-library';
+import { render, fireEvent } from '@testing-library/react';
 
 import { NotificationContainer, NotificationManager } from '.';
 import { oltStyles } from '../..';
 
-describe('NotificationManager Adds Notifications', () => {
+describe.only('NotificationManager Adds Notifications', () => {
   test('renders INFO', () => {
     const { getByText, container } = render(<NotificationContainer />);
     NotificationManager.info({
@@ -74,12 +74,12 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     const onClick = jest.fn();
     const { getByText } = render(<NotificationContainer />);
     NotificationManager.info({
-      title: 'INFO!',
+      title: 'Click Me INFO!',
       content: 'Here is some information.',
       onClick,
       onHide,
     });
-    const notification = getByText('INFO!');
+    const notification = getByText('Click Me INFO!');
     fireEvent.click(notification);
     expect(onClick).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
@@ -91,12 +91,12 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     const onClick = jest.fn();
     const { getByText } = render(<NotificationContainer />);
     NotificationManager.success({
-      title: 'SUCCESS!',
+      title: 'Click Me SUCCESS!',
       content: 'That was a success!',
       onClick,
       onHide,
     });
-    const notification = getByText('SUCCESS!');
+    const notification = getByText('Click Me SUCCESS!');
     fireEvent.click(notification);
     expect(onClick).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
@@ -108,12 +108,12 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     const onClick = jest.fn();
     const { getByText } = render(<NotificationContainer />);
     NotificationManager.warning({
-      title: 'WARNING!',
+      title: 'Click Me WARNING!',
       content: 'This is only a warning!',
       onClick,
       onHide,
     });
-    const notification = getByText('WARNING!');
+    const notification = getByText('Click Me WARNING!');
     fireEvent.click(notification);
     expect(onClick).toHaveBeenCalledTimes(1);
     jest.runAllTimers();
@@ -125,12 +125,12 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     const onClick = jest.fn();
     const { getByText } = render(<NotificationContainer />);
     NotificationManager.error({
-      title: 'ERROR!',
+      title: 'Click Me ERROR!',
       content: 'An error has occured!',
       onClick,
       onHide,
     });
-    const notification = getByText('ERROR!');
+    const notification = getByText('Click Me ERROR!');
     fireEvent.click(notification);
     expect(onClick).toHaveBeenCalledTimes(1);
     jest.runAllTimers();

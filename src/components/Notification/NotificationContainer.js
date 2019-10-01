@@ -9,7 +9,7 @@ class NotificationContainer extends Component {
     notifications: [],
   };
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     NotificationManager.addChangeListener(this.handleStoreChange);
   };
 
