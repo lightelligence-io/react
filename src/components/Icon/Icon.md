@@ -22,7 +22,7 @@ For decorative and non-interactive icons (e.g. input fields) the default is gray
   <Icon name="feedback-check-filled" color="primary" />
   <Icon name="action-add-default" color="primary" />
   <Icon name="feedback-check-filled" color="secondary" />
-  <Icon name="feedback-check-filled" color="gray500" />
+  <Icon name="feedback-check-filled" />
   <Icon name="feedback-info-filled" color="info" />
   <Icon name="feedback-warning-critical-filled" color="error" />
   <Icon name="feedback-check-filled" color="success" />
@@ -37,19 +37,19 @@ To assign a color to the icon, use the `olt-Icon--*` classes as listed below.
 If the icon is placed on a matching background color it has to be white.
 
 ```jsx
-<Icon name="feedback-help-circle"  color="info" />
-<Icon name="feedback-info-circle"  color="info" />
-<Icon name="feedback-warning-low-circle"  color="warning" />
-<Icon name="feedback-warning-medium-circle"  color="warning" />
-<Icon name="feedback-warning-critical-circle"  color="error" />
-<Icon name="feedback-check-circle"  color="success" />
+<Icon name="feedback-help-circle" color="info" />
+<Icon name="feedback-info-circle" color="info" />
+<Icon name="feedback-warning-low-circle" color="warning" />
+<Icon name="feedback-warning-medium-circle" color="warning" />
+<Icon name="feedback-warning-critical-circle" color="error" />
+<Icon name="feedback-check-circle" color="success" />
 <br/><br/>
-<Icon name="feedback-help-filled"  color="info" />
-<Icon name="feedback-info-filled"  color="info" />
-<Icon name="feedback-warning-low-filled"  color="warning" />
-<Icon name="feedback-warning-medium-filled"  color="warning" />
-<Icon name="feedback-warning-critical-filled"  color="error" />
-<Icon name="feedback-check-filled"  color="success" />
+<Icon name="feedback-help-filled" color="info" />
+<Icon name="feedback-info-filled" color="info" />
+<Icon name="feedback-warning-low-filled" color="warning" />
+<Icon name="feedback-warning-medium-filled" color="warning" />
+<Icon name="feedback-warning-critical-filled" color="error" />
+<Icon name="feedback-check-filled" color="success" />
 ```
 
 Sizes

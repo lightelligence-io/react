@@ -250,59 +250,77 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
 Each Chip can have an action-add-defaultitional bubble rendered on the top right side by setting the `bubble` property.
 
 ```js
-import { Chip, Icon, FloatingList } from '@lightelligence/react';
-<FloatingList>
-  <Chip bubble={1}>
-    Default
-  </Chip>
-  <Chip bubble={42} color="primary" >
-    Primary
-  </Chip>
-  <Chip bubble={5} color="dark" >
-    Dark
-  </Chip>
+import { Card, Chip, Icon, FloatingList } from '@lightelligence/react';
+<>
+<Card>
+  <FloatingList>
+    <Chip bubble={1}>
+      Default
+    </Chip>
+    <Chip bubble={42} color="primary" >
+      Primary
+    </Chip>
+    <Chip bubble={5} color="dark" >
+      Dark
+    </Chip>
+    <Chip bubble={9} color="light" >
+      Light
+    </Chip>
+    <Chip bubble={11} color="error" >
+      Error
+    </Chip>
+    <Chip bubble={23} color="success" >
+      Success
+    </Chip>
+    <Chip bubble={3} color="info" >
+      Info
+    </Chip>
+  </FloatingList>
+</Card>
+<Card color="dark">
   <Chip bubble={9} color="light" >
     Light
   </Chip>
-  <Chip bubble={11} color="error" >
-    Error
-  </Chip>
-  <Chip bubble={23} color="success" >
-    Success
-  </Chip>
-  <Chip bubble={3} color="info" >
-    Info
-  </Chip>
-</FloatingList>;
+</Card>
+</>
 ```
 
 The Chip's bubble can also be an icon by setting the `bubbleIcon` property.
 
 ```js
-import { Chip, Icon, FloatingList } from '@lightelligence/react';
-<FloatingList>
-  <Chip bubbleIcon="action-add-default">
-    Default
-  </Chip>
-  <Chip color="primary" bubbleIcon="action-add-default">
-    Primary
-  </Chip>
-  <Chip color="dark" bubbleIcon="action-add-default">
-    Dark
-  </Chip>
-  <Chip color="light" bubbleIcon="action-add-default">
+import { Card, Chip, Icon, FloatingList } from '@lightelligence/react';
+<>
+<Card>
+  <FloatingList>
+    <Chip bubbleIcon="action-add-default">
+      Default
+    </Chip>
+    <Chip color="primary" bubbleIcon="action-add-default">
+      Primary
+    </Chip>
+    <Chip color="dark" bubbleIcon="action-add-default">
+      Dark
+    </Chip>
+    <Chip color="light" bubbleIcon="action-add-default">
+      Light
+    </Chip>
+    <Chip color="error" bubbleIcon="action-add-default">
+      Error
+    </Chip>
+    <Chip color="success" bubbleIcon="action-add-default">
+      Success
+    </Chip>
+    <Chip color="info" bubbleIcon="action-add-default">
+      Info
+    </Chip>
+  </FloatingList>
+</Card>
+<Card color="dark">
+  <Chip bubble={9} color="light" >
     Light
   </Chip>
-  <Chip color="error" bubbleIcon="action-add-default">
-    Error
-  </Chip>
-  <Chip color="success" bubbleIcon="action-add-default">
-    Success
-  </Chip>
-  <Chip color="info" bubbleIcon="action-add-default">
-    Info
-  </Chip>
-</FloatingList>;
+</Card>
+</>
 ```
 
 Bubble's colors can also be fixed by setting the `bubbleColor` property to `info`, `success`, `warning` or `error`. They only work with the default Chip.
