@@ -5,6 +5,9 @@ export const COLOR_ALERT = 'alert';
 export const COLOR_NOTIFY = 'notify';
 export const COLOR_SUCCESS = 'success';
 
+export const COLOR_LIGHT = 'light';
+export const COLOR_DARK = 'dark';
+
 export const COLOR_WHITE = 'white';
 export const COLOR_GRAY_100 = 'gray-100';
 export const COLOR_GRAY_200 = 'gray-200';

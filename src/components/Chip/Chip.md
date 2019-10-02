@@ -178,8 +178,8 @@ import { Chip, Card, FloatingList } from '@lightelligence/react';
 <FloatingList>
   <Chip>Default</Chip>
   <Chip color="primary">Primary</Chip>
-  <Chip color="active">Active</Chip>
   <Chip color="dark">Dark</Chip>
+  <Chip color="light">Light</Chip>
   <Chip color="info">Info</Chip>
   <Chip color="error">Error</Chip>
   <Chip color="success">Success</Chip>
@@ -203,7 +203,7 @@ import { Chip, FloatingList, Card } from '@lightelligence/react';
 <FloatingList>
   <Chip disabled>Default</Chip>
   <Chip disabled color="primary">Primary</Chip>
-  <Chip disabled color="active">Active</Chip>
+  <Chip disabled color="light">Light</Chip>
   <Chip disabled color="dark">Dark</Chip>
 </FloatingList>
 </Card>
@@ -261,6 +261,9 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
   <Chip bubble={5} color="dark" >
     Dark
   </Chip>
+  <Chip bubble={9} color="light" >
+    Light
+  </Chip>
   <Chip bubble={11} color="error" >
     Error
   </Chip>
@@ -286,6 +289,9 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
   </Chip>
   <Chip color="dark" bubbleIcon="action-add-default">
     Dark
+  </Chip>
+  <Chip color="light" bubbleIcon="action-add-default">
+    Light
   </Chip>
   <Chip color="error" bubbleIcon="action-add-default">
     Error
