@@ -14,6 +14,7 @@ export * from './components/Notification';
 export * from './components/Snackbar';
 export * from './components/Stepper';
 export * from './components/Tabs';
+export * from './components/V2Tabs';
 export * from './components/Tag';
 export * from './components/Tooltip';
 
