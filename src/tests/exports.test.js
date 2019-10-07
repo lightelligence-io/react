@@ -15,6 +15,9 @@ import {
   Modal,
   Navbar,
   Snackbar,
+  Notification,
+  NotificationContainer,
+  NOTIFICATION_TYPE_INFO,
   Stepper,
   Tabs,
   Tab,
@@ -193,6 +196,36 @@ describe('SelectField', () => {
 describe('Snackbar', () => {
   it('should render without failing', () => {
     render(<Snackbar />);
+  });
+});
+
+describe('NotificationContainer', () => {
+  it('should render without failing', () => {
+    render(<NotificationContainer />);
+  });
+});
+describe('Notification', () => {
+  it('should render without failing', () => {
+    render(
+      <Notification
+        type={NOTIFICATION_TYPE_INFO}
+        title="INFO!"
+        content="Here is some information."
+      />,
+    );
+  });
+});
+describe('NotificationContainer', () => {
+  it('should render without failing', () => {
+    render(
+      <NotificationContainer>
+        <Notification
+          type={NOTIFICATION_TYPE_INFO}
+          title="INFO!"
+          content="Here is some information."
+        />
+      </NotificationContainer>,
+    );
   });
 });
 
