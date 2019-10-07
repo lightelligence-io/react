@@ -230,7 +230,7 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
 
 #### Icons
 
-Each Chip can have an icon rendered on the left or on the right side by action-add-defaulting `iconLeft` or `iconRight` properties to the component.
+Each Chip can have an icon rendered on the left or on the right side by adding `iconLeft` or `iconRight` properties to the component.
 
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
@@ -247,7 +247,7 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
 
 #### Bubble
 
-Each Chip can have an action-add-defaultitional bubble rendered on the top right side by setting the `bubble` property.
+Each Chip can have an additional bubble rendered on the top right side by setting the `bubble` property.
 
 ```js
 import { Card, Chip, Icon, FloatingList } from '@lightelligence/react';
