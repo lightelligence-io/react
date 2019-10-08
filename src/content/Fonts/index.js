@@ -1,1 +1,1 @@
-export * from './Fonts';
+export * from './FontsImpl';
