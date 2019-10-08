@@ -25,7 +25,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@lightelligence/styles": "^0.12.1",
+    "@lightelligence/styles": "^1.0.0-alpha.1",
     "classnames": "^2.2.6",
     "humps": "^2.0.1",
     "prop-types": "^15.6.2",
