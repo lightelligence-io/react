@@ -6,8 +6,11 @@ initialState = {
     itemsPerPage: [10, 30, 100],
     selectedItemsPerPageIndex: 0,
 };
-const onChange = (event) => {
-    setState({ selectedItemsPerPageIndex: parseInt(event.target.value) });
+const setItemsPerPage = (selectedItemsPerPageIndex) => {
+    setState({ selectedItemsPerPageIndex });
+};
+const setPage = (currentPage) => {
+    setState({ currentPage });
 };
 
 <Pagination
@@ -15,6 +18,7 @@ const onChange = (event) => {
     itemsPerPage={state.itemsPerPage}
     selectedItemsPerPageIndex={state.selectedItemsPerPageIndex}
     currentPage={state.currentPage}
-    onChange={onChange}
+    setItemsPerPage={setItemsPerPage}
+    setPage={setPage}
 />
 ```
