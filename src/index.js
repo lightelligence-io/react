@@ -24,6 +24,7 @@ export * from './content/BasicDataCards';
 export * from './content/DataCards';
 export * from './content/FloatingList';
 export * from './content/Table';
+export * from './content/Fonts';
 export * from './content/Headline';
 export * from './content/List';
 export * from './content/Paragraph';
