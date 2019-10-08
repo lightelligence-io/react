@@ -11,10 +11,10 @@
 * Feature: New Buttons
 * Feature: Toggle
 * Feature: New Grid
-* Feature: v2 inputs, v2 label, v2 input, v2 select
+* Feature: v2 Inputs, v2 Label, v2 Select
 * Feature: Copy to Clipboard
 * Feature: Notifications
-* Feature: V2 Tabs
+* Feature: v2 Tabs
 * Feature: v2 Icons
 * Fix: Handlebars Vulnerability
 * Chore: update to styles 1.0.0-alpha.1
