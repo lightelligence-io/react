@@ -29,7 +29,6 @@ const Button = ({
         icon && olt.ButtonIcon,
         className,
       )}
-      data-icon={icon || undefined}
     >
       {children}
     </Element>

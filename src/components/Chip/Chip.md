@@ -36,17 +36,17 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    default:    wrap(<Chip iconLeft="add" color="default">Chip</Chip>),
-    dark:      wrap(<Chip iconLeft="add" color="dark">Chip</Chip>),
-    light:        wrap(<Chip iconLeft="add" color="light">Chip</Chip>, true),
-    primary_active: wrap(<Chip iconLeft="add" color="primary">Chip</Chip>),
+    default:    wrap(<Chip iconLeft="action-add-default" color="default">Chip</Chip>),
+    dark:      wrap(<Chip iconLeft="action-add-default" color="dark">Chip</Chip>),
+    light:        wrap(<Chip iconLeft="action-add-default" color="light">Chip</Chip>, true),
+    primary_active: wrap(<Chip iconLeft="action-add-default" color="primary">Chip</Chip>),
   },
   {
     id: 'Decoration Right',
-    default:    wrap(<Chip iconRight="add" color="default">Chip</Chip>),
-    dark:      wrap(<Chip iconRight="add" color="dark">Chip</Chip>),
-    light:        wrap(<Chip iconRight="add" color="light">Chip</Chip>, true),
-    primary_active: wrap(<Chip iconRight="add" color="primary">Chip</Chip>),
+    default:    wrap(<Chip iconRight="action-add-default" color="default">Chip</Chip>),
+    dark:      wrap(<Chip iconRight="action-add-default" color="dark">Chip</Chip>),
+    light:        wrap(<Chip iconRight="action-add-default" color="light">Chip</Chip>, true),
+    primary_active: wrap(<Chip iconRight="action-add-default" color="primary">Chip</Chip>),
   },
   {
     id: 'Count',
@@ -57,10 +57,10 @@ const rows = [
   },
   {
     id: 'Count + Decoration Left',
-    default:    wrap(<Chip iconLeft="add" color="default" bubble={5}>Chip</Chip>),
-    dark:      wrap(<Chip iconLeft="add" color="dark" bubble={5}>Chip</Chip>),
-    light:        wrap(<Chip iconLeft="add" color="light" bubble={5}>Chip</Chip>, true),
-    primary_active: wrap(<Chip iconLeft="add" color="primary" bubble={5}>Chip</Chip>),
+    default:    wrap(<Chip iconLeft="action-add-default" color="default" bubble={5}>Chip</Chip>),
+    dark:      wrap(<Chip iconLeft="action-add-default" color="dark" bubble={5}>Chip</Chip>),
+    light:        wrap(<Chip iconLeft="action-add-default" color="light" bubble={5}>Chip</Chip>, true),
+    primary_active: wrap(<Chip iconLeft="action-add-default" color="primary" bubble={5}>Chip</Chip>),
   },
   {
     id: 'Shortened',
@@ -121,7 +121,7 @@ const fields = [
 
 const wrap = (chip) => (<div style={{ textAlign: 'center' }}>{chip}</div>);
 const rows = [
-  
+
   {
     id: 'Default',
     error:    wrap(<Chip color="error">Chip</Chip>),
@@ -130,9 +130,9 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    error:    wrap(<Chip iconLeft="add" color="error">Chip</Chip>),
-    success:      wrap(<Chip iconLeft="add" color="success">Chip</Chip>),
-    info:        wrap(<Chip iconLeft="add" color="info">Chip</Chip>),
+    error:    wrap(<Chip iconLeft="action-add-default" color="error">Chip</Chip>),
+    success:      wrap(<Chip iconLeft="action-add-default" color="success">Chip</Chip>),
+    info:        wrap(<Chip iconLeft="action-add-default" color="info">Chip</Chip>),
   },
   {
     id: 'Count',
@@ -142,9 +142,9 @@ const rows = [
   },
   {
     id: 'Count + Decoration Left',
-    error:    wrap(<Chip iconLeft="add" color="error" bubble={5}>Chip</Chip>),
-    success:      wrap(<Chip iconLeft="add" color="success" bubble={5}>Chip</Chip>),
-    info:        wrap(<Chip iconLeft="add" color="info" bubble={5}>Chip</Chip>),
+    error:    wrap(<Chip iconLeft="action-add-default" color="error" bubble={5}>Chip</Chip>),
+    success:      wrap(<Chip iconLeft="action-add-default" color="success" bubble={5}>Chip</Chip>),
+    info:        wrap(<Chip iconLeft="action-add-default" color="info" bubble={5}>Chip</Chip>),
   },
   {
     id: 'Shortened',
@@ -178,8 +178,8 @@ import { Chip, Card, FloatingList } from '@lightelligence/react';
 <FloatingList>
   <Chip>Default</Chip>
   <Chip color="primary">Primary</Chip>
-  <Chip color="active">Active</Chip>
   <Chip color="dark">Dark</Chip>
+  <Chip color="light">Light</Chip>
   <Chip color="info">Info</Chip>
   <Chip color="error">Error</Chip>
   <Chip color="success">Success</Chip>
@@ -203,7 +203,7 @@ import { Chip, FloatingList, Card } from '@lightelligence/react';
 <FloatingList>
   <Chip disabled>Default</Chip>
   <Chip disabled color="primary">Primary</Chip>
-  <Chip disabled color="active">Active</Chip>
+  <Chip disabled color="light">Light</Chip>
   <Chip disabled color="dark">Dark</Chip>
 </FloatingList>
 </Card>
@@ -235,10 +235,10 @@ Each Chip can have an icon rendered on the left or on the right side by adding `
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <Chip onClick={() => alert('Chip closed!')} color="primary" selectable iconLeft="add">
+  <Chip onClick={() => alert('Chip closed!')} color="primary" selectable iconLeft="action-add-default">
     Primary
   </Chip>
-  <Chip onClick={() => alert('Chip closed!')} selectable iconRight="add">
+  <Chip onClick={() => alert('Chip closed!')} selectable iconRight="action-add-default">
     Primary
   </Chip>
 </FloatingList>;
@@ -250,53 +250,77 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
 Each Chip can have an additional bubble rendered on the top right side by setting the `bubble` property.
 
 ```js
-import { Chip, Icon, FloatingList } from '@lightelligence/react';
-<FloatingList>
-  <Chip bubble={1}>
-    Default
+import { Card, Chip, Icon, FloatingList } from '@lightelligence/react';
+<>
+<Card>
+  <FloatingList>
+    <Chip bubble={1}>
+      Default
+    </Chip>
+    <Chip bubble={42} color="primary" >
+      Primary
+    </Chip>
+    <Chip bubble={5} color="dark" >
+      Dark
+    </Chip>
+    <Chip bubble={9} color="light" >
+      Light
+    </Chip>
+    <Chip bubble={11} color="error" >
+      Error
+    </Chip>
+    <Chip bubble={23} color="success" >
+      Success
+    </Chip>
+    <Chip bubble={3} color="info" >
+      Info
+    </Chip>
+  </FloatingList>
+</Card>
+<Card color="dark">
+  <Chip bubble={9} color="light" >
+    Light
   </Chip>
-  <Chip bubble={42} color="primary" >
-    Primary
-  </Chip>
-  <Chip bubble={5} color="dark" >
-    Dark
-  </Chip>
-  <Chip bubble={11} color="error" >
-    Error
-  </Chip>
-  <Chip bubble={23} color="success" >
-    Success
-  </Chip>
-  <Chip bubble={3} color="info" >
-    Info
-  </Chip>
-</FloatingList>;
+</Card>
+</>
 ```
 
 The Chip's bubble can also be an icon by setting the `bubbleIcon` property.
 
 ```js
-import { Chip, Icon, FloatingList } from '@lightelligence/react';
-<FloatingList>
-  <Chip bubbleIcon="add">
-    Default
+import { Card, Chip, Icon, FloatingList } from '@lightelligence/react';
+<>
+<Card>
+  <FloatingList>
+    <Chip bubbleIcon="action-add-default">
+      Default
+    </Chip>
+    <Chip color="primary" bubbleIcon="action-add-default">
+      Primary
+    </Chip>
+    <Chip color="dark" bubbleIcon="action-add-default">
+      Dark
+    </Chip>
+    <Chip color="light" bubbleIcon="action-add-default">
+      Light
+    </Chip>
+    <Chip color="error" bubbleIcon="action-add-default">
+      Error
+    </Chip>
+    <Chip color="success" bubbleIcon="action-add-default">
+      Success
+    </Chip>
+    <Chip color="info" bubbleIcon="action-add-default">
+      Info
+    </Chip>
+  </FloatingList>
+</Card>
+<Card color="dark">
+  <Chip bubble={9} color="light" >
+    Light
   </Chip>
-  <Chip color="primary" bubbleIcon="add">
-    Primary
-  </Chip>
-  <Chip color="dark" bubbleIcon="add">
-    Dark
-  </Chip>
-  <Chip color="error" bubbleIcon="add">
-    Error
-  </Chip>
-  <Chip color="success" bubbleIcon="add">
-    Success
-  </Chip>
-  <Chip color="info" bubbleIcon="add">
-    Info
-  </Chip>
-</FloatingList>;
+</Card>
+</>
 ```
 
 Bubble's colors can also be fixed by setting the `bubbleColor` property to `info`, `success`, `warning` or `error`. They only work with the default Chip.
@@ -304,16 +328,16 @@ Bubble's colors can also be fixed by setting the `bubbleColor` property to `info
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <Chip bubbleColor="info" bubbleIcon="add">
+  <Chip bubbleColor="info" bubbleIcon="action-add-default">
     Info with icon
   </Chip>
   <Chip bubbleColor="success" bubble={42}>
     Success with Counter
   </Chip>
-  <Chip bubbleColor="warning" bubbleIcon="add">
+  <Chip bubbleColor="warning" bubbleIcon="action-add-default">
     Warning with icon
   </Chip>
-  <Chip bubbleColor="error" bubbleIcon="add">
+  <Chip bubbleColor="error" bubbleIcon="action-add-default">
     Error with icon
   </Chip>
 </FloatingList>;

@@ -69,7 +69,7 @@ export const Modal = ({
       >
         {closable && !fullscreen && (
           <Button
-            icon="close"
+            icon="navigation-close"
             className={olt.ModalClose}
             onClick={onClose}
             {...closeButtonProps}
@@ -102,7 +102,7 @@ export const Modal = ({
       </div>
       {fullscreen && closable && (
         <Button
-          icon="close"
+          icon="navigation-close"
           className={olt.ModalClose}
           onClick={onClose}
           {...closeButtonProps}
