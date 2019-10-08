@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 
 import { BasicDataCardsContent, BasicDataCardsCardItem } from './index';
 import { oltStyles } from '../..';

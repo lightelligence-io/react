@@ -4,7 +4,7 @@ import {
   fireEvent,
   queryAllByText,
   getByText as globalGetByText,
-} from 'react-testing-library';
+} from '@testing-library/react';
 import { Button } from '../../components/Button/Button';
 
 import { DataCards, DataCardsItem } from './index';
