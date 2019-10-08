@@ -1,4 +1,5 @@
 import React from 'react';
+import { pascalize } from 'humps';
 import { string, number, bool, node } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
@@ -18,7 +19,6 @@ const V2Label = ({
   const nearLengthLimit = !!maxLength && value.length > maxLength - 5;
   const showCount = allwaysShowMaxLength || nearLengthLimit;
   const showFooter = showCount || !!errorMessage || !!hint;
-
   return (
     <label
       className={classnames(
@@ -36,7 +36,7 @@ const V2Label = ({
 
       {icon && (
         <span className={olt.V2LabelIcon}>
-          <i className={olt.Icon} data-icon={icon} />
+          <i className={classnames(olt.Icon, olt[`Icon${pascalize(icon)}`])} />
         </span>
       )}
 

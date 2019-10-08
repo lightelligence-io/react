@@ -24,7 +24,7 @@ const setOpen = () => {
   <Headline size={4}>Success</Headline>
   <Button onClick={setOpen}>Click to open</Button>
   <Snackbar open={state.open} type="success">
-    <Icon name="done_outline"/>Something went terrifically awesome.
+    <Icon name="feedback-check-default" color='light' />Something went terrifically awesome.
   </Snackbar>
 </React.Fragment>
 ```
@@ -55,7 +55,7 @@ const setOpen = () => {
   <Headline size={4}>Error</Headline>
   <Button onClick={setOpen}>Click to open</Button>
   <Snackbar open={state.open} color="error">
-    <Icon name="done_outline"/>Something went horribly wrong.
+    <Icon name="feedback-warning-critical-circle" color='light' />Something went horribly wrong.
   </Snackbar>
 </React.Fragment>
 ```
@@ -72,7 +72,7 @@ Source code for a Snackbar component with an icon.
 
 ```jsx static
     <Snackbar>
-        <Icon name="error_outline"/>Error
+        <Icon name="feedback-warning-critical-circle"/>Error
     </Snackbar>
 ```
 

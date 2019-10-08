@@ -8,6 +8,8 @@ const childrenProp = oneOfType([arrayOf(node), node]);
 const colorProp = oneOf([
   constants.COLOR_PRIMARY,
   constants.COLOR_SECONDARY,
+  constants.COLOR_LIGHT,
+  constants.COLOR_DARK,
   constants.COLOR_ALERT,
   constants.COLOR_NOTIFY,
   constants.COLOR_SUCCESS,

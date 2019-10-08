@@ -39,17 +39,17 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    primary:         <V2Button iconLeft="add" buttonType="default" emphasis="primary">Label</V2Button>,
-    secondary:       <V2Button iconLeft="add" buttonType="default" emphasis="secondary">Label</V2Button>,
-    tertiary:        <V2Button iconLeft="add" buttonType="default" emphasis="tertiary">Label</V2Button>,
-    tertiary_action: <V2Button iconLeft="add" buttonType="action" emphasis="tertiary">Label</V2Button>,
+    primary:         <V2Button iconLeft="action-add-default" buttonType="default" emphasis="primary">Label</V2Button>,
+    secondary:       <V2Button iconLeft="action-add-default" buttonType="default" emphasis="secondary">Label</V2Button>,
+    tertiary:        <V2Button iconLeft="action-add-default" buttonType="default" emphasis="tertiary">Label</V2Button>,
+    tertiary_action: <V2Button iconLeft="action-add-default" buttonType="action" emphasis="tertiary">Label</V2Button>,
   },
   {
     id: 'Decoration Right',
-    primary:         <V2Button iconRight="add" buttonType="default" emphasis="primary">Label</V2Button>,
-    secondary:       <V2Button iconRight="add" buttonType="default" emphasis="secondary">Label</V2Button>,
-    tertiary:        <V2Button iconRight="add" buttonType="default" emphasis="tertiary">Label</V2Button>,
-    tertiary_action: <V2Button iconRight="add" buttonType="action" emphasis="tertiary">Label</V2Button>,
+    primary:         <V2Button iconRight="action-add-default" buttonType="default" emphasis="primary">Label</V2Button>,
+    secondary:       <V2Button iconRight="action-add-default" buttonType="default" emphasis="secondary">Label</V2Button>,
+    tertiary:        <V2Button iconRight="action-add-default" buttonType="default" emphasis="tertiary">Label</V2Button>,
+    tertiary_action: <V2Button iconRight="action-add-default" buttonType="action" emphasis="tertiary">Label</V2Button>,
   },
   {
     id: 'Disabled',
@@ -100,17 +100,17 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    primary:         wrap(<V2Button theme="dark" iconLeft="add" buttonType="default" emphasis="primary">Label</V2Button>),
-    secondary:       wrap(<V2Button theme="dark" iconLeft="add" buttonType="default" emphasis="secondary">Label</V2Button>),
-    tertiary:        wrap(<V2Button theme="dark" iconLeft="add" buttonType="default" emphasis="tertiary">Label</V2Button>),
-    tertiary_action: wrap(<V2Button theme="dark" iconLeft="add" buttonType="action" emphasis="tertiary">Label</V2Button>),
+    primary:         wrap(<V2Button theme="dark" iconLeft="action-add-default" buttonType="default" emphasis="primary">Label</V2Button>),
+    secondary:       wrap(<V2Button theme="dark" iconLeft="action-add-default" buttonType="default" emphasis="secondary">Label</V2Button>),
+    tertiary:        wrap(<V2Button theme="dark" iconLeft="action-add-default" buttonType="default" emphasis="tertiary">Label</V2Button>),
+    tertiary_action: wrap(<V2Button theme="dark" iconLeft="action-add-default" buttonType="action" emphasis="tertiary">Label</V2Button>),
   },
   {
     id: 'Decoration Right',
-    primary:         wrap(<V2Button theme="dark" iconRight="add" buttonType="default" emphasis="primary">Label</V2Button>),
-    secondary:       wrap(<V2Button theme="dark" iconRight="add" buttonType="default" emphasis="secondary">Label</V2Button>),
-    tertiary:        wrap(<V2Button theme="dark" iconRight="add" buttonType="default" emphasis="tertiary">Label</V2Button>),
-    tertiary_action: wrap(<V2Button theme="dark" iconRight="add" buttonType="action" emphasis="tertiary">Label</V2Button>),
+    primary:         wrap(<V2Button theme="dark" iconRight="action-add-default" buttonType="default" emphasis="primary">Label</V2Button>),
+    secondary:       wrap(<V2Button theme="dark" iconRight="action-add-default" buttonType="default" emphasis="secondary">Label</V2Button>),
+    tertiary:        wrap(<V2Button theme="dark" iconRight="action-add-default" buttonType="default" emphasis="tertiary">Label</V2Button>),
+    tertiary_action: wrap(<V2Button theme="dark" iconRight="action-add-default" buttonType="action" emphasis="tertiary">Label</V2Button>),
   },
   {
     id: 'Disabled',
@@ -174,15 +174,15 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    primary:         <V2Button iconLeft="add" buttonType="destructive" emphasis="primary">Label</V2Button>,
-    secondary:       <V2Button iconLeft="add" buttonType="destructive" emphasis="secondary">Label</V2Button>,
-    tertiary:        <V2Button iconLeft="add" buttonType="destructive" emphasis="tertiary">Label</V2Button>,
+    primary:         <V2Button iconLeft="action-add-default" buttonType="destructive" emphasis="primary">Label</V2Button>,
+    secondary:       <V2Button iconLeft="action-add-default" buttonType="destructive" emphasis="secondary">Label</V2Button>,
+    tertiary:        <V2Button iconLeft="action-add-default" buttonType="destructive" emphasis="tertiary">Label</V2Button>,
   },
   {
     id: 'Decoration Right',
     primary:         "-",
     secondary:       "-",
-    tertiary:        <V2Button iconRight="add" buttonType="destructive" emphasis="tertiary">Label</V2Button>,
+    tertiary:        <V2Button iconRight="action-add-default" buttonType="destructive" emphasis="tertiary">Label</V2Button>,
   },
   {
     id: 'Disabled',
@@ -229,15 +229,15 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    primary:         wrap(<V2Button theme="dark" iconLeft="add" buttonType="destructive" emphasis="primary">Label</V2Button>),
-    secondary:       wrap(<V2Button theme="dark" iconLeft="add" buttonType="destructive" emphasis="secondary">Label</V2Button>),
-    tertiary:        wrap(<V2Button theme="dark" iconLeft="add" buttonType="destructive" emphasis="tertiary">Label</V2Button>),
+    primary:         wrap(<V2Button theme="dark" iconLeft="action-add-default" buttonType="destructive" emphasis="primary">Label</V2Button>),
+    secondary:       wrap(<V2Button theme="dark" iconLeft="action-add-default" buttonType="destructive" emphasis="secondary">Label</V2Button>),
+    tertiary:        wrap(<V2Button theme="dark" iconLeft="action-add-default" buttonType="destructive" emphasis="tertiary">Label</V2Button>),
   },
   {
     id: 'Decoration Right',
     primary:         "-",
     secondary:       "-",
-    tertiary:        wrap(<V2Button theme="dark" iconRight="add" buttonType="destructive" emphasis="tertiary">Label</V2Button>),
+    tertiary:        wrap(<V2Button theme="dark" iconRight="action-add-default" buttonType="destructive" emphasis="tertiary">Label</V2Button>),
   },
   {
     id: 'Disabled',
@@ -294,15 +294,15 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    primary:         <V2Button iconLeft="add" buttonType="confirmative" emphasis="primary">Label</V2Button>,
-    secondary:       <V2Button iconLeft="add" buttonType="confirmative" emphasis="secondary">Label</V2Button>,
-    tertiary:        <V2Button iconLeft="add" buttonType="confirmative" emphasis="tertiary">Label</V2Button>,
+    primary:         <V2Button iconLeft="action-add-default" buttonType="confirmative" emphasis="primary">Label</V2Button>,
+    secondary:       <V2Button iconLeft="action-add-default" buttonType="confirmative" emphasis="secondary">Label</V2Button>,
+    tertiary:        <V2Button iconLeft="action-add-default" buttonType="confirmative" emphasis="tertiary">Label</V2Button>,
   },
   {
     id: 'Decoration Right',
     primary:         "-",
     secondary:       "-",
-    tertiary:        <V2Button iconRight="add" buttonType="confirmative" emphasis="tertiary">Label</V2Button>,
+    tertiary:        <V2Button iconRight="action-add-default" buttonType="confirmative" emphasis="tertiary">Label</V2Button>,
   },
   {
     id: 'Disabled',
@@ -310,7 +310,7 @@ const rows = [
     secondary:       <V2Button disabled buttonType="confirmative" emphasis="secondary">Label</V2Button>,
     tertiary:        <V2Button disabled buttonType="confirmative" emphasis="tertiary">Label</V2Button>,
   },
-  
+
 
 ];
 
@@ -351,15 +351,15 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    primary:         wrap(<V2Button theme="dark" iconLeft="add" buttonType="confirmative" emphasis="primary">Label</V2Button>),
-    secondary:       wrap(<V2Button theme="dark" iconLeft="add" buttonType="confirmative" emphasis="secondary">Label</V2Button>),
-    tertiary:        wrap(<V2Button theme="dark" iconLeft="add" buttonType="confirmative" emphasis="tertiary">Label</V2Button>),
+    primary:         wrap(<V2Button theme="dark" iconLeft="action-add-default" buttonType="confirmative" emphasis="primary">Label</V2Button>),
+    secondary:       wrap(<V2Button theme="dark" iconLeft="action-add-default" buttonType="confirmative" emphasis="secondary">Label</V2Button>),
+    tertiary:        wrap(<V2Button theme="dark" iconLeft="action-add-default" buttonType="confirmative" emphasis="tertiary">Label</V2Button>),
   },
   {
     id: 'Decoration Right',
     primary:         "-",
     secondary:       "-",
-    tertiary:        wrap(<V2Button theme="dark" iconRight="add" buttonType="confirmative" emphasis="tertiary">Label</V2Button>),
+    tertiary:        wrap(<V2Button theme="dark" iconRight="action-add-default" buttonType="confirmative" emphasis="tertiary">Label</V2Button>),
   },
   {
     id: 'Disabled',
@@ -464,8 +464,8 @@ With `iconLeft` and `iconRight` an icon can be placed next to the label.
 ```js
 import { V2Button, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <V2Button iconLeft="add">Label</V2Button>
-  <V2Button iconRight="add">Label</V2Button>
+  <V2Button iconLeft="action-add-default">Label</V2Button>
+  <V2Button iconRight="action-add-default">Label</V2Button>
 </FloatingList>
 ```
 

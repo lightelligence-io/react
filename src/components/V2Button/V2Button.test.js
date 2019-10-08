@@ -16,11 +16,8 @@ describe('V2Button', () => {
       onClick,
       children: 'Button',
     });
-
     const button = getByText('Button');
-
     fireEvent.click(button);
-
     expect(onClick).toHaveBeenCalled();
   });
 
@@ -29,7 +26,6 @@ describe('V2Button', () => {
       disabled: true,
       children: 'Button',
     });
-
     const button = getByText('Button');
     expect(button.disabled).toBe(true);
   });
@@ -41,11 +37,8 @@ describe('V2Button', () => {
       disabled: true,
       children: 'Button',
     });
-
     const button = getByText('Button');
-
     fireEvent.click(button);
-
     expect(onClick).not.toHaveBeenCalled();
   });
 
@@ -54,9 +47,8 @@ describe('V2Button', () => {
       className: 'myClass',
       children: 'Button',
     });
-
     const button = getByText('Button');
-    expect(button.classList.contains('myClass')).toBeTruthy();
+    expect(button.classList.contains('myClass')).toBe(true);
   });
 
   test('correctly sets the css-modifier for emphasis secondary', () => {
@@ -65,7 +57,7 @@ describe('V2Button', () => {
       emphasis: 'secondary',
     });
     const button = getByText('Button');
-    expect(button.classList.contains(oltStyles.V2ButtonSecondary)).toBeTruthy();
+    expect(button.classList.contains(oltStyles.V2ButtonSecondary)).toBe(true);
   });
 
   test('correctly sets the css-modifier for emphasis primary', () => {
@@ -74,7 +66,7 @@ describe('V2Button', () => {
       emphasis: 'primary',
     });
     const button = getByText('Button');
-    expect(button.classList.contains(oltStyles.V2ButtonPrimary)).toBeTruthy();
+    expect(button.classList.contains(oltStyles.V2ButtonPrimary)).toBe(true);
   });
 
   test('correctly sets the css-modifier for emphasis tertiary', () => {
@@ -83,7 +75,7 @@ describe('V2Button', () => {
       emphasis: 'tertiary',
     });
     const button = getByText('Button');
-    expect(button.classList.contains(oltStyles.V2ButtonTertiary)).toBeTruthy();
+    expect(button.classList.contains(oltStyles.V2ButtonTertiary)).toBe(true);
   });
 
   test('correctly sets the css-modifier for buttonType confirmative', () => {
@@ -92,9 +84,9 @@ describe('V2Button', () => {
       buttonType: 'confirmative',
     });
     const button = getByText('Button');
-    expect(
-      button.classList.contains(oltStyles.V2ButtonConfirmative),
-    ).toBeTruthy();
+    expect(button.classList.contains(oltStyles.V2ButtonConfirmative)).toBe(
+      true,
+    );
   });
 
   test('correctly sets the css-modifier for buttonType destructive', () => {
@@ -103,9 +95,7 @@ describe('V2Button', () => {
       buttonType: 'destructive',
     });
     const button = getByText('Button');
-    expect(
-      button.classList.contains(oltStyles.V2ButtonDestructive),
-    ).toBeTruthy();
+    expect(button.classList.contains(oltStyles.V2ButtonDestructive)).toBe(true);
   });
 
   test('correctly sets the css-modifier for theme dark', () => {
@@ -114,7 +104,7 @@ describe('V2Button', () => {
       theme: 'dark',
     });
     const button = getByText('Button');
-    expect(button.classList.contains(oltStyles.V2ButtonDark)).toBeTruthy();
+    expect(button.classList.contains(oltStyles.V2ButtonDark)).toBe(true);
   });
 
   test('correctly sets the css-modifier for theme light', () => {
@@ -123,25 +113,29 @@ describe('V2Button', () => {
       theme: 'light',
     });
     const button = getByText('Button');
-    expect(button.classList.contains(oltStyles.V2ButtonLight)).toBeTruthy();
+    expect(button.classList.contains(oltStyles.V2ButtonLight)).toBe(true);
   });
 
   test('correctly sets iconLeft', () => {
+    const iconLeft = 'action-add-default';
     const { getByText } = renderButton({
       children: 'Button',
-      iconLeft: 'testIcon',
+      iconLeft,
     });
     const button = getByText('Button');
-    expect(button.getAttribute('data-icon-left')).toBe('testIcon');
+    expect(button.classList.contains(oltStyles.V2ButtonIconLeft)).toBe(true);
+    expect(button.classList.contains(`olt-Icon-${iconLeft}`)).toBe(true);
   });
 
   test('correctly sets iconRight', () => {
+    const iconRight = 'action-add-default';
     const { getByText } = renderButton({
       children: 'Button',
-      iconRight: 'testIcon',
+      iconRight,
     });
     const button = getByText('Button');
-    expect(button.getAttribute('data-icon-right')).toBe('testIcon');
+    expect(button.classList.contains(oltStyles.V2ButtonIconRight)).toBe(true);
+    expect(button.classList.contains(`olt-Icon-${iconRight}`)).toBe(true);
   });
 
   test('has the corresponding Button class from styles', () => {
@@ -149,6 +143,6 @@ describe('V2Button', () => {
       children: 'Button',
     });
     const button = getByText('Button');
-    expect(button.classList.contains(oltStyles.V2Button)).toBeTruthy();
+    expect(button.classList.contains(oltStyles.V2Button)).toBe(true);
   });
 });
