@@ -68,3 +68,4 @@ deploy:
     target_branch: gh-pages
     on:
       branch: alpha
+
