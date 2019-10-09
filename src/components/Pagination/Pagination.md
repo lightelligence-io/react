@@ -6,7 +6,7 @@ initialState = {
     itemsPerPage: [10, 30, 100],
     selectedItemsPerPageIndex: 0,
 };
-const setItemsPerPage = (selectedItemsPerPageIndex) => {
+const setItemsPerPageIndex = (selectedItemsPerPageIndex) => {
     setState({ selectedItemsPerPageIndex });
 };
 const setPage = (currentPage) => {
@@ -18,7 +18,7 @@ const setPage = (currentPage) => {
     itemsPerPage={state.itemsPerPage}
     selectedItemsPerPageIndex={state.selectedItemsPerPageIndex}
     currentPage={state.currentPage}
-    setItemsPerPage={setItemsPerPage}
+    setItemsPerPageIndex={setItemsPerPageIndex}
     setPage={setPage}
 />
 ```
