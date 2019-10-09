@@ -26,8 +26,28 @@ module.exports = {
     },
     {
       name: 'Components',
-      components: 'src/**/[A-Z]*.js', // exclude index.js files
+      components: 'src/components/**/[A-Z]*.js', // exclude index.js files
       // https://react-styleguidist.js.org/docs/components.html#finding-components
+      sectionDepth: 2,
+    },
+    {
+      name: 'Content',
+      components: 'src/content/**/[A-Z]*.js', // exclude index.js files
+      sectionDepth: 2,
+    },
+    {
+      name: 'Controls',
+      components: 'src/controls/**/[A-Z]*.js', // exclude index.js files
+      sectionDepth: 2,
+    },
+    {
+      name: 'Layout',
+      components: 'src/layout/**/[A-Z]*.js', // exclude index.js files
+      sectionDepth: 2,
+    },
+    {
+      name: 'Hooks',
+      components: 'src/hooks/**/[A-Z]*.js', // exclude index.js files
       sectionDepth: 2,
     },
   ],
