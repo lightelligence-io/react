@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
-import { string, number, node, shape, arrayOf } from 'prop-types';
+import { string, number, node, shape, arrayOf, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
-import { Select } from '../../controls/Select';
+import { V2Select } from '../../controls/V2Select';
 import { Description } from '../../content/Fonts';
 import { V2Button } from '../V2Button';
+import { V2Grid, V2GridItem } from '../../layout/V2Grid';
 
 export class Pagination extends PureComponent {
   static propTypes = {
@@ -12,8 +13,8 @@ export class Pagination extends PureComponent {
     items: number.isRequired,
     itemsPerPage: arrayOf(number).isRequired,
     selectedItemsPerPageIndex: number.isRequired,
-    setItemsPerPage: Function,
-    setPage: Function,
+    setItemsPerPage: func,
+    setPage: func,
     className: string,
     children: node,
     style: shape({}),
@@ -40,52 +41,71 @@ export class Pagination extends PureComponent {
       style,
       ...props
     } = this.props;
-    const options = [];
-    for (let i = 0; i < itemsPerPage.length; i += 1) {
-      options.push({ label: `${itemsPerPage[i]}`, value: `${i}` });
-    }
+
+    const options = itemsPerPage.map((item, index) => ({
+      label: `${item}`,
+      value: `${index}`,
+    }));
     const noOfItemsPerPage = itemsPerPage[selectedItemsPerPageIndex];
     const noOfPages = Math.ceil(items / noOfItemsPerPage);
     const startItem = (currentPage - 1) * noOfItemsPerPage + 1;
     const endItem = Math.min(startItem + noOfItemsPerPage, items);
 
     return (
-      <div
-        style={{ ...style, display: 'block' }}
-        className={classnames(olt.Label, className)}
+      <V2Grid
+        className={classnames(
+          className,
+          olt.uAlignItemsCenter,
+          olt.uJustifyContentCenter,
+        )}
+        style={{ minWidth: '435px' }}
         {...props}
       >
-        <div>
-          <Description>Show</Description>
-          <Select
-            options={options}
-            value={`${selectedItemsPerPageIndex}`}
-            onChange={(e) => setItemsPerPage(parseInt(e.target.value, 10))}
-            label="Select Label"
-          />
-        </div>
-        <Description>
-          {startItem}-{endItem} of {items}
-        </Description>
-
-        <V2Button
-          buttonType="pagination"
-          emphasis="secondary"
-          onClick={() => setPage(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Prev
-        </V2Button>
-        <V2Button
-          buttonType="pagination"
-          emphasis="secondary"
-          onClick={() => setPage(currentPage + 1)}
-          disabled={currentPage >= noOfPages}
-        >
-          Next
-        </V2Button>
-        {children}
-      </div>
+        <V2GridItem xs={4}>
+          <V2Grid
+            className={classnames(
+              olt.uAlignItemsCenter,
+              olt.uJustifyContentCenter,
+            )}
+          >
+            <V2GridItem xs={4}>
+              <Description color="500">Show</Description>
+            </V2GridItem>
+            <V2GridItem xs={8}>
+              <V2Select
+                options={options}
+                value={`${selectedItemsPerPageIndex}`}
+                onChange={(e) => setItemsPerPage(parseInt(e.target.value, 10))}
+                label="Select Label"
+                pagination
+              />
+            </V2GridItem>
+          </V2Grid>
+        </V2GridItem>
+        <V2GridItem xs={4}>
+          <Description color="500">
+            {startItem}-{endItem} of {items}
+          </Description>
+        </V2GridItem>
+        <V2GridItem xs={2}>
+          <V2Button
+            buttonType="paginationPrev"
+            onClick={() => setPage(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            prev
+          </V2Button>
+        </V2GridItem>
+        <V2GridItem xs={2}>
+          <V2Button
+            buttonType="paginationNext"
+            onClick={() => setPage(currentPage + 1)}
+            disabled={currentPage >= noOfPages}
+          >
+            next
+          </V2Button>
+        </V2GridItem>
+      </V2Grid>
     );
   }
 }

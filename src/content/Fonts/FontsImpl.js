@@ -25,14 +25,15 @@ const H = (type, params) => {
   const { tag, children, className, color, style, ...rest } = params;
 
   const Element = getElement(tag, type);
-
   return (
     <Element
       {...rest}
       className={classnames(olt[`u${type}`], className)}
       style={{
         ...style,
-        color: color ? olt.theme.color[color] : undefined,
+        color: color
+          ? olt.theme.color[color] || olt.theme.gray[color]
+          : undefined,
       }}
     >
       {children}
