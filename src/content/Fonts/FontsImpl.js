@@ -25,6 +25,7 @@ const H = (type, params) => {
   const { tag, children, className, color, style, ...rest } = params;
 
   const Element = getElement(tag, type);
+
   return (
     <Element
       {...rest}
