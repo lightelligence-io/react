@@ -12,7 +12,7 @@ export const V2Tab = (props) => {
   const { active, label } = props;
 
   return (
-    <React.Fragment>
+    <>
       <button
         type="button"
         onClick={handleChange}
@@ -20,7 +20,7 @@ export const V2Tab = (props) => {
       >
         {label}
       </button>
-    </React.Fragment>
+    </>
   );
 };
 

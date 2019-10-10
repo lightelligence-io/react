@@ -20,13 +20,13 @@ const setOpen = () => {
     setState({open: true});
 };
 
-<React.Fragment>
+<>
   <Headline size={4}>Success</Headline>
   <Button onClick={setOpen}>Click to open</Button>
   <Snackbar open={state.open} type="success">
     <Icon name="feedback-check-default" color='light' />Something went terrifically awesome.
   </Snackbar>
-</React.Fragment>
+</>
 ```
 
 Snackbar example that indicates an error.
@@ -51,13 +51,13 @@ const setOpen = () => {
     setState({open: true});
 };
 
-<React.Fragment>
+<>
   <Headline size={4}>Error</Headline>
   <Button onClick={setOpen}>Click to open</Button>
   <Snackbar open={state.open} color="error">
     <Icon name="feedback-warning-critical-circle" color='light' />Something went horribly wrong.
   </Snackbar>
-</React.Fragment>
+</>
 ```
 
 Source code for a simple Snackbar component.

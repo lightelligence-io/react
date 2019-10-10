@@ -84,6 +84,7 @@ describe('DataCards', () => {
     // eslint-disable-next-line react/prop-types
     const fragmentRenderItem = ({ row }) => (
       <>
+        {/* eslint-disable-next-line react/prop-types */}
         <div>Name: {row.name}</div>
       </>
     );

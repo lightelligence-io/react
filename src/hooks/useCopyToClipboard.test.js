@@ -2,12 +2,10 @@ import { renderHook } from '@testing-library/react-hooks';
 import copy from 'clipboard-copy';
 import { useCopyToClipboard } from './useCopyToClipboard';
 
-describe('useCopyToClipboard', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
+jest.mock('clipboard-copy');
 
-  test('copies text if provided as hook parameter', () => {
+describe('useCopyToClipboard', () => {
+  test.only('copies text if provided as hook parameter', () => {
     const { result } = renderHook(() => useCopyToClipboard('text-to-copy'));
     result.current();
     expect(copy).toHaveBeenCalledWith('text-to-copy');
