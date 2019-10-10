@@ -29,7 +29,7 @@ export class Tab extends PureComponent {
     const { active, label, children } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <button
           type="button"
           onClick={this.handleChange}
@@ -42,7 +42,7 @@ export class Tab extends PureComponent {
             {children}
           </div>
         )}
-      </React.Fragment>
+      </>
     );
   }
 }
