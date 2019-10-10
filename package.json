@@ -47,6 +47,7 @@
     "@testing-library/react": "^9.3.0",
     "@testing-library/react-hooks": "^2.0.3",
     "@testing-library/user-event": "^7.1.2",
+    "acorn": "^6.3.0",
     "audit-ci": "^2.4.0",
     "coveralls": "^3.0.6",
     "css-loader": "^3.2.0",
