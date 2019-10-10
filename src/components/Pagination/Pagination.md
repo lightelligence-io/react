@@ -3,14 +3,14 @@ import { Pagination } from '@lightelligence/react';
 initialState = {
     currentPage: 1,
     items: 30,
-    itemsPerPage: [10, 30, 100],
-    selectedItemsPerPageIndex: 0,
+    itemsPerPage: [5, 10, 30, 100],
+    selectedItemsPerPageIndex: 1,
 };
-const setItemsPerPageIndex = (selectedItemsPerPageIndex) => {
-    setState({ selectedItemsPerPageIndex });
+const setItemsPerPageIndex = (selectedItemsPerPageIndex, page) => {
+    setState({ selectedItemsPerPageIndex, currentPage: page });
 };
-const setPage = (currentPage) => {
-    setState({ currentPage });
+const setPage = (page) => {
+    setState({ currentPage: page });
 };
 
 <Pagination
