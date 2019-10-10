@@ -43,24 +43,15 @@ const Pagination = ({
 
     let newCurrentPage = currentPage;
     const newNoOfItemsPerPage = itemsPerPage[index];
-    let newStartItem = (currentPage - 1) * newNoOfItemsPerPage + 1;
-    let newEndItem = Math.min(newStartItem + newNoOfItemsPerPage - 1, items);
+    const newStartItem = (currentPage - 1) * newNoOfItemsPerPage + 1;
 
-    // more items per page => adjust page to make sure the first item is still on there
-    if (newNoOfItemsPerPage > noOfItemsPerPage) {
-      while (newStartItem > startItem) {
-        newCurrentPage -= 1;
-        newStartItem = (newCurrentPage - 1) * newNoOfItemsPerPage + 1;
-      }
+    // different items per page => suggest page to make sure the first item is still visible
+    if (newNoOfItemsPerPage !== noOfItemsPerPage) {
+      newCurrentPage =
+        currentPage -
+        Math.ceil((newStartItem - startItem) / newNoOfItemsPerPage);
     }
-    // less items per page => adjust page to make sure the first item is still on there
-    if (newNoOfItemsPerPage < noOfItemsPerPage) {
-      while (newStartItem < startItem && startItem > newEndItem) {
-        newCurrentPage += 1;
-        newStartItem = (newCurrentPage - 1) * newNoOfItemsPerPage + 1;
-        newEndItem = Math.min(newStartItem + newNoOfItemsPerPage - 1, items);
-      }
-    }
+
     setItemsPerPageIndex(index, newCurrentPage);
   };
 

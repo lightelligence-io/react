@@ -3,7 +3,7 @@ import { Pagination } from '@lightelligence/react';
 initialState = {
     currentPage: 1,
     items: 30,
-    itemsPerPage: [5, 10, 30, 100],
+    itemsPerPage: [2, 5, 10, 30, 100],
     selectedItemsPerPageIndex: 1,
 };
 const setItemsPerPageIndex = (selectedItemsPerPageIndex, page) => {
