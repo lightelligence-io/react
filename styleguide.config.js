@@ -12,6 +12,8 @@ module.exports = {
       const ignore =
         message.indexOf(
           `src/content/DataCards/DataCardsContent.js matches a pattern defined in “components” or “sections” options in your style guide`,
+        ) > -1 ||
+        message.indexOf(
           `src/content/Fonts/Fonts.js matches a pattern defined in “components” or “sections” options in your style guide`,
         ) > -1;
       if (!ignore) {
