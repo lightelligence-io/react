@@ -8,13 +8,16 @@
 - chore: support warning modal …
 
 #v1.0.0-alpha.1
-* Feature: New Buttons
-* Feature: Toggle
-* Feature: New Grid
-* Feature: v2 Inputs, v2 Label, v2 Select
-* Feature: Copy to Clipboard
-* Feature: Notifications
-* Feature: v2 Tabs
-* Feature: v2 Icons
-* Fix: Handlebars Vulnerability
-* Chore: update to styles 1.0.0-alpha.1
+- Feature: New Buttons
+- Feature: Toggle
+- Feature: New Grid
+- Feature: v2 Inputs, v2 Label, v2 Select
+- Feature: Copy to Clipboard
+- Feature: Notifications
+- Feature: v2 Tabs
+- Feature: v2 Icons
+- Fix: Handlebars Vulnerability
+- Chore: update to styles 1.0.0-alpha.1
+
+#v1.0.0-alpha.2
+- Feature: Pagination
