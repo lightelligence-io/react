@@ -9,6 +9,7 @@ export * from './components/Dropdown';
 export * from './components/Icon';
 export * from './components/Menu';
 export * from './components/Modal';
+export * from './components/V2Modal';
 export * from './components/Navbar';
 export * from './components/Notification';
 export * from './components/Snackbar';
