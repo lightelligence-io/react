@@ -27,7 +27,7 @@ The *V2Modal* can be rendered with different variations based on the context.
 
 We support the following types:
 - `V2MODAL_TYPE_CRITICAL = 'critical'`<br/>
-  Use the critical *V2Modal* whenever you want to communicate an critical or error state to the user. Especially when proceeding will likely lead to an undesired outcome for the user that he is probably not aware of. E.g.: Deleting a role will lead to users being deleted from the tenant because they have no role afterward.
+  Use the critical *V2Modal* whenever you want to communicate a critical or error state to the user. Especially when proceeding will likely lead to an undesired outcome for the user that he is probably not aware of. e.g.: Deleting a role will lead to users being deleted from the tenant because they have no role afterward.
 
 - `V2MODAL_TYPE_WARNING = 'warning'`<br/>
   The warning *V2Modal* is used when needing to show information critical in preventing errors. e.g.: 15 of your devices have not responded, check your device management.
@@ -189,9 +189,9 @@ const onSubmit = (type) => {
 ## Custom Header Modals
 
 In rare occasions the icon can be individually changed. Use the `icon` property to provide an icon.
-You can also change the background color of the header using the header Props.
+You can also change the background color of the header using the `headerProps` property.
 
-All styles of the modal can be changed using  modalProps, dialogProps, headerProps, contentProps, and footerProps. *Use with care!*
+All styles of the modal can be changed using `modalProps`, `dialogProps`, `headerProps`, `contentProps`, and `footerProps`. *Use with care!*
 
 
 
