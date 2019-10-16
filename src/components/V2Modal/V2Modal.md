@@ -30,13 +30,13 @@ We support the following types:
   Use the critical *V2Modal* whenever you want to communicate a critical or error state to the user. Especially when proceeding will likely lead to an undesired outcome for the user that he is probably not aware of. e.g.: Deleting a role will lead to users being deleted from the tenant because they have no role afterward.
 
 - `V2MODAL_TYPE_WARNING = 'warning'`<br/>
-  The warning *V2Modal* is used when needing to show information critical in preventing errors. e.g.: 15 of your devices have not responded, check your device management.
+  The warning *V2Modal* is used when needing to show important information e.g. to prevent errors. e.g.: 15 of your devices have not responded, check your device management.
 
 - `V2MODAL_TYPE_INFO = 'info'`<br/>
   The info *V2Modal* can be used whenever an additional non-critical information should be provided to the user. The info will not have negative results no matter the users choice. e.g.: You have been invited to a tenant, accept or decline.
 
 - `V2MODAL_TYPE_SUCCESS = 'success'`<br/>
-  Use the success *V2Modal* to communicate a success message the user has to be made aware of.
+  Use the success *V2Modal* to communicate a success message the user has to be made aware of. e.g.: You successfully finished an action.
 
 - `V2MODAL_TYPE_ACTION = 'action'`<br/>
   Use the action *V2Modal* for changes that demand active user input. e.g.: Edit the description of a tenant.
@@ -52,12 +52,10 @@ initialState = { modalOpen: {
   action: false,
 }};
 const toggleModal = (type) => {
-  console.log(type)
   setState({ modalOpen: {
     ...state.modalOpen,
     [type]: !state.modalOpen[type]
   }});
-  console.log(state)
 };
 
 const onSubmit = (type) => {
