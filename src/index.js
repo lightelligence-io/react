@@ -10,6 +10,7 @@ export * from './components/Dropdown';
 export * from './components/Icon';
 export * from './components/Menu';
 export * from './components/Modal';
+export * from './components/V2Modal';
 export * from './components/Navbar';
 export * from './components/Notification';
 export * from './components/Snackbar';
@@ -18,6 +19,7 @@ export * from './components/Tabs';
 export * from './components/V2Tabs';
 export * from './components/Tag';
 export * from './components/Tooltip';
+export * from './components/Pagination';
 
 // content
 export * from './content/BasicDataCards';
