@@ -1,6 +1,3 @@
-
-
-
 The Action Button is used to trigger actions like editing, etc.
 It is responsive and on mobile devices only the icon is shown (unless you add the fixed property to always show the label)
 
@@ -19,45 +16,45 @@ const fields = [
 const rows = [
   {
     id: 'Default',
-    default:         <ActionButton buttonType="default" iconLeft="action-edit"></ActionButton>,
-    primary:       <ActionButton buttonType="primary"  iconLeft="action-add-circle"></ActionButton>,
-    destructive:        <ActionButton buttonType="destructive"  iconLeft="action-remove-circle"></ActionButton>,
-    confirmative: <ActionButton buttonType="confirmative"  iconLeft="action-refresh"></ActionButton>,
+    default:       <ActionButton buttonType="default" iconLeft="action-edit"></ActionButton>,
+    primary:       <ActionButton buttonType="primary" iconLeft="action-add-circle"></ActionButton>,
+    destructive:   <ActionButton buttonType="destructive" iconLeft="action-remove-circle"></ActionButton>,
+    confirmative:  <ActionButton buttonType="confirmative" iconLeft="action-refresh"></ActionButton>,
   },
   {
     id: 'Icon Left',
-    default:         <ActionButton iconLeft="action-edit" buttonType="default" label="Label"></ActionButton>,
+    default:       <ActionButton iconLeft="action-edit" buttonType="default" label="Label"></ActionButton>,
     primary:       <ActionButton iconLeft="action-add-circle" buttonType="primary" label="Label"></ActionButton>,
-    destructive:        <ActionButton iconLeft="action-remove-circle" buttonType="destructive" label="Label"></ActionButton>,
-    confirmative: <ActionButton iconLeft="action-refresh" buttonType="confirmative" label="Label"></ActionButton>,
+    destructive:   <ActionButton iconLeft="action-remove-circle" buttonType="destructive" label="Label"></ActionButton>,
+    confirmative:  <ActionButton iconLeft="action-refresh" buttonType="confirmative" label="Label"></ActionButton>,
   },
   {
     id: 'Fixed Label',
-    default:         <ActionButton iconLeft="action-edit" buttonType="default" fixed label="Label"></ActionButton>,
+    default:       <ActionButton iconLeft="action-edit" buttonType="default" fixed label="Label"></ActionButton>,
     primary:       <ActionButton iconLeft="action-add-circle" buttonType="primary" fixed label="Label"></ActionButton>,
-    destructive:        <ActionButton iconLeft="action-remove-circle" buttonType="destructive" fixed label="Label"></ActionButton>,
-    confirmative: <ActionButton iconLeft="action-refresh" buttonType="confirmative" fixed label="Label"></ActionButton>,
+    destructive:   <ActionButton iconLeft="action-remove-circle" buttonType="destructive" fixed label="Label"></ActionButton>,
+    confirmative:  <ActionButton iconLeft="action-refresh" buttonType="confirmative" fixed label="Label"></ActionButton>,
   },
   {
     id: 'Standalone',
-    default:         <ActionButton iconLeft="action-edit" buttonType="default" standalone label="Label"></ActionButton>,
+    default:       <ActionButton iconLeft="action-edit" buttonType="default" standalone label="Label"></ActionButton>,
     primary:       <ActionButton iconLeft="action-add-circle" buttonType="primary" standalone label="Label"></ActionButton>,
-    destructive:        <ActionButton iconLeft="action-remove-circle" buttonType="destructive" standalone label="Label"></ActionButton>,
-    confirmative: <ActionButton iconLeft="action-refresh" buttonType="confirmative" standalone label="Label"></ActionButton>,
+    destructive:   <ActionButton iconLeft="action-remove-circle" buttonType="destructive" standalone label="Label"></ActionButton>,
+    confirmative:  <ActionButton iconLeft="action-refresh" buttonType="confirmative" standalone label="Label"></ActionButton>,
   },
   {
     id: 'Standalone with Base',
-    default:         <ActionButton iconLeft="action-edit" buttonType="default" standalone base label="Label"></ActionButton>,
+    default:       <ActionButton iconLeft="action-edit" buttonType="default" standalone base label="Label"></ActionButton>,
     primary:       <ActionButton iconLeft="action-add-circle" buttonType="primary" standalone base label="Label"></ActionButton>,
-    destructive:        <ActionButton iconLeft="action-remove-circle" buttonType="destructive" standalone base label="Label"></ActionButton>,
-    confirmative: <ActionButton iconLeft="action-refresh" buttonType="confirmative" standalone base label="Label"></ActionButton>,
+    destructive:   <ActionButton iconLeft="action-remove-circle" buttonType="destructive" standalone base label="Label"></ActionButton>,
+    confirmative:  <ActionButton iconLeft="action-refresh" buttonType="confirmative" standalone base label="Label"></ActionButton>,
   },
   {
     id: 'Icon Right',
-    default:         <ActionButton iconRight="action-edit" buttonType="default" label="Label"></ActionButton>,
+    default:       <ActionButton iconRight="action-edit" buttonType="default" label="Label"></ActionButton>,
     primary:       <ActionButton iconRight="action-add-circle" buttonType="primary" label="Label"></ActionButton>,
-    destructive:        <ActionButton iconRight="action-remove-circle" buttonType="destructive" label="Label"></ActionButton>,
-    confirmative: <ActionButton iconRight="action-refresh" buttonType="confirmative" label="Label"></ActionButton>,
+    destructive:   <ActionButton iconRight="action-remove-circle" buttonType="destructive" label="Label"></ActionButton>,
+    confirmative:  <ActionButton iconRight="action-refresh" buttonType="confirmative" label="Label"></ActionButton>,
   },
 ];
 
@@ -92,10 +89,10 @@ Use buttonType to set the type (and color) of the button.
 ```js
 import { ActionButton, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <ActionButton buttonType="default"  iconLeft="action-edit" label="Default" />
-  <ActionButton buttonType="primary"  iconLeft="action-edit" label="Primary" />
-  <ActionButton buttonType="confirmative"  iconLeft="action-edit" label="Confirmative" />
-  <ActionButton buttonType="destructive"  iconLeft="action-edit" label="Destructive" />
+  <ActionButton buttonType="default" iconLeft="action-edit" label="Default" />
+  <ActionButton buttonType="primary" iconLeft="action-edit" label="Primary" />
+  <ActionButton buttonType="confirmative" iconLeft="action-edit" label="Confirmative" />
+  <ActionButton buttonType="destructive" iconLeft="action-edit" label="Destructive" />
 </FloatingList>
 ```
 
