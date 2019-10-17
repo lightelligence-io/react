@@ -20,4 +20,11 @@
 - Chore: update to styles 1.0.0-alpha.1
 
 #v1.0.0-alpha.2
+- Feature: Typography
 - Feature: Pagination
+- Feature: v2 Modals
+- Feature: Action Button
+- Feature: Edit Card
+- Chore: update to styles 1.0.0-alpha.2
+- Chore: Updated Dependencies
+- Chore: Sections in Documentation
