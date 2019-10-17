@@ -2,6 +2,7 @@ import * as oltStyles from '@lightelligence/styles';
 
 export * from './components/Avatar';
 export * from './components/Button';
+export * from './components/ActionButton';
 export * from './components/V2Button';
 export * from './components/Card';
 export * from './components/Chip';
@@ -9,6 +10,7 @@ export * from './components/Dropdown';
 export * from './components/Icon';
 export * from './components/Menu';
 export * from './components/Modal';
+export * from './components/V2Modal';
 export * from './components/Navbar';
 export * from './components/Notification';
 export * from './components/Snackbar';
