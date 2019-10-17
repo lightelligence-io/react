@@ -17,6 +17,7 @@ export * from './components/Tabs';
 export * from './components/V2Tabs';
 export * from './components/Tag';
 export * from './components/Tooltip';
+export * from './components/Pagination';
 
 // content
 export * from './content/BasicDataCards';

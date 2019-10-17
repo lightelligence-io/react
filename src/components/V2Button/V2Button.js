@@ -78,7 +78,14 @@ V2Button.propTypes = {
   /**
    * The type of this button, by default its rendered as `default`.
    */
-  buttonType: oneOf(['default', 'confirmative', 'destructive', 'action']),
+  buttonType: oneOf([
+    'default',
+    'confirmative',
+    'destructive',
+    'action',
+    'paginationPrev',
+    'paginationNext',
+  ]),
   /**
    * The theme of this button, by default its rendered with theme `light`.
    */
@@ -93,7 +100,7 @@ V2Button.defaultProps = {
   iconRight: undefined,
   children: null,
   onClick: undefined,
-  emphasis: 'primary',
+  emphasis: undefined,
   buttonType: 'default',
   theme: 'light',
 };
