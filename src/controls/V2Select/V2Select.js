@@ -8,6 +8,7 @@ import {
   shape,
   arrayOf,
 } from 'prop-types';
+import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 import { V2Label } from '../V2Label';
 import { getStringValue } from '../../utils/getStringValue';
@@ -27,9 +28,33 @@ const V2Select = ({
   required,
   hint,
   options,
+  pagination,
   ...others
 }) => {
   const displayValue = getStringValue(value, defaultValue);
+
+  if (pagination)
+    return (
+      <select
+        className={classnames(olt.V2Select, olt.V2SelectPagination)}
+        id={id}
+        placeholder={placeholder}
+        value={displayValue}
+        onBlur={onBlur}
+        onChange={onChange}
+        disabled={disabled}
+        readOnly={readOnly}
+        required={required}
+        {...others}
+      >
+        {options.map(({ label: optionLabel, ...optionProps }) => (
+          <option key={optionProps.value} {...optionProps}>
+            {optionLabel}
+          </option>
+        ))}
+      </select>
+    );
+
   return (
     <V2Label
       className={className}
@@ -117,6 +142,10 @@ V2Select.propTypes = {
    * sets select as required and appends * to the label (defaults to false)
    */
   required: bool,
+  /**
+   * use pagination rendering (adds a border)
+   */
+  pagination: bool,
 };
 
 V2Select.defaultProps = {
@@ -131,6 +160,7 @@ V2Select.defaultProps = {
   disabled: false,
   readOnly: false,
   required: false,
+  pagination: false,
 };
 
 export { V2Select };
