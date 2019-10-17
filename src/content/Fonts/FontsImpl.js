@@ -31,8 +31,11 @@ const H = (type, params) => {
       {...rest}
       className={classnames(olt[`u${type}`], className)}
       style={{
+        margin: 0,
         ...style,
-        color: color ? olt.theme.color[color] : undefined,
+        color: color
+          ? olt.theme.color[color] || olt.theme.gray[color]
+          : undefined,
       }}
     >
       {children}
