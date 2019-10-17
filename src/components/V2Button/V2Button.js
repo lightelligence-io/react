@@ -13,6 +13,7 @@ const V2Button = ({
   children,
   disabled,
   tag,
+  icon,
   iconLeft,
   iconRight,
   onClick,
@@ -29,6 +30,8 @@ const V2Button = ({
         emphasis && olt[`V2Button${pascalize(emphasis)}`],
         buttonType && olt[`V2Button${pascalize(buttonType)}`],
         theme && olt[`V2Button${pascalize(theme)}`],
+        icon && olt.V2ButtonIcon,
+        icon && olt[`Icon${pascalize(icon)}`],
         iconLeft && olt[`Icon${pascalize(iconLeft)}`],
         iconLeft && olt.V2ButtonIconLeft,
         iconRight && olt[`Icon${pascalize(iconRight)}`],
@@ -51,6 +54,10 @@ V2Button.propTypes = {
    * Forward an additional className to the underlying component.
    */
   className: string,
+  /**
+   * Should the button be rendered as icon only.
+   */
+  icon: string,
   /**
    * An icon that should be rendered to the left of the button label.
    */
@@ -96,6 +103,7 @@ V2Button.defaultProps = {
   tag: 'button',
   className: undefined,
   disabled: undefined,
+  icon: undefined,
   iconLeft: undefined,
   iconRight: undefined,
   children: null,

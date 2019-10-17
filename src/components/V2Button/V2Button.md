@@ -469,3 +469,17 @@ import { V2Button, FloatingList } from '@lightelligence/react';
 </FloatingList>
 ```
 
+### Icon only
+
+With `icon` the button can be rendered as icon.
+
+```js
+import { V2Button, FloatingList } from '@lightelligence/react';
+<FloatingList>
+  <V2Button icon="action-add-default" />
+  <V2Button emphasis="primary" icon="action-add-default" />
+  <V2Button emphasis="secondary" icon="action-add-default"/>
+  <V2Button buttonType="tertiary" icon="action-add-default" />
+</FloatingList>
+```
+
