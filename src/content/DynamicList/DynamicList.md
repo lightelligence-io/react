@@ -22,6 +22,7 @@ const onSubmit = () => {
 }
 
 const onChange = (values) => {
+    console.log('change!!')
     setState({ values });
 }
 

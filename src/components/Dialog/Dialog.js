@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-// import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { bool, node, string, arrayOf, shape, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
@@ -51,60 +50,28 @@ export const Dialog = ({
   const handleClose = () => {
     if (typeof onClose === 'function') onClose();
   };
-  // const [contentHeight, setContentHeight] = useState(null);
-  // useEffect(() => {
-  //   const dialogWindow = document.querySelector(`.${olt.DialogWindow}`);
-  //   const contentWrapper = document.querySelector(`.${olt.DialogContent}`);
-  //   const sizeWrapper = document.querySelector('.sizeMeasuringWrapper');
 
-  //   if (!contentHeight) {
-  //     setContentHeight({
-  //       height: contentWrapper.clientHeight,
-  //       diff:  sizeWrapper.clientHeight - contentWrapper.clientHeight,
-  //     });
-  //     return
-  //   }
+  const [contentHeight, setContentHeight] = useState(null);
+  useEffect(() => {
+    const dialogWrapper = document.querySelector(`.${olt.DialogWindow}`);
+    const contentWrapper = document.querySelector(`.${olt.DialogContent}`);
+    const sizeWrapper = document.querySelector('.sizeMeasuringWrapper');
 
-  // console.log('contentHeight', contentHeight)
-  // console.log('content clientHeight', contentWrapper.clientHeight)
-  // console.log('size clientHeight', sizeWrapper.clientHeight)
-  // console.log('dialogWindow.style.height', dialogWindow.style.height)
+    if (!contentHeight) {
+      setContentHeight(contentWrapper.clientHeight);
+      dialogWrapper.style.height = `${sizeWrapper.clientHeight}px`;
+      return;
+    }
 
-  // if (contentHeight.height < contentWrapper.clientHeight) {
-  //   setContentHeight({height: contentWrapper.clientHeight, diff: contentHeight.diff});
-  //   const growTo = contentWrapper.clientHeight + contentHeight.diff
-  //   // console.log('growing to', growTo)
-  //   dialogWindow.style.height = `${growTo}px`;
-  // }
-  // if (contentHeight.height > contentWrapper.clientHeight) {
-  //   setContentHeight({height: contentWrapper.clientHeight, diff: contentHeight.diff});
-  //   const shrinkTo = contentWrapper.clientHeight + contentHeight.diff
-  //   // console.log('shrinking to', shrinkTo)
-  //   dialogWindow.style.height = `${shrinkTo}px`;
-  // }
-
-  // console.log('contentHeight', contentHeight)
-  // console.log('clientHeight', dialogWindow.clientHeight)
-  // console.log('scrollHeight', dialogWindow.scrollHeight)
-  // console.log('height', dialogWindow.style.height)
-  // const wrapper = document.querySelector('.contentMeasuringWrapper');
-  // const wrapper2 = document.querySelector('.sizeMeasuringWrapper');
-  // console.log('content clientHeight', wrapper.clientHeight)
-  // console.log('content scrollHeight', wrapper.scrollHeight)
-  // console.log('content height', wrapper.style.height)
-  // console.log('size clientHeight', wrapper2.clientHeight)
-  // console.log('size scrollHeight', wrapper2.scrollHeight)
-  // console.log('size height', wrapper2.style.height)
-
-  // if (contentHeight <= dialogWindow.scrollHeight) {
-  //   setContentHeight(dialogWindow.scrollHeight);
-  //   console.log('growing', dialogWindow.scrollHeight)
-  //   dialogWindow.style.height = `${dialogWindow.scrollHeight}px`;
-  // } else if (wrapper.clientHeight < dialogWindow.clientHeight) {
-  //   dialogWindow.style.height = `${wrapper.clientHeight}px`;
-  //   console.log('shrinking', wrapper.clientHeight)
-  // }
-  // }, [content, contentHeight]);
+    let targetSize = contentWrapper.scrollHeight + sizeWrapper.clientHeight;
+    if (contentHeight < contentWrapper.scrollHeight)
+      targetSize -= contentWrapper.clientHeight;
+    else if (contentHeight > contentWrapper.scrollHeight)
+      targetSize -= contentHeight;
+    else return;
+    setContentHeight(contentWrapper.scrollHeight);
+    dialogWrapper.style.height = `${targetSize}px`;
+  }, [content, contentHeight]);
 
   const { className: dialogClassName, ...otherDialogProps } = dialogProps;
   const { className: windowClassName, ...otherWindowProps } = windowProps;

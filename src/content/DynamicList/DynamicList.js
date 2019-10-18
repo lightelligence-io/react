@@ -45,16 +45,26 @@ export const DynamicList = ({
 
   const addElement = () => {
     setElements([...elements, element]);
-    setInternalValues([...internalValues, '']); // TODO: any initial value to provide?
+    const newValues = [...internalValues, ''];
+    setInternalValues(newValues); // TODO: any initial value to provide?
+    onChange(newValues);
+    const index = newValues.length - 1;
+    if (elements[index] && typeof elements[index].onChange === 'function') {
+      elements[index].onChange('');
+    }
   };
 
   const removeElement = (index) => {
     const newElements = [...elements];
-    const newValues = [...internalValues];
     newElements.splice(index, 1);
+    setElements(newElements);
+    const newValues = [...internalValues];
     newValues.splice(index, 1);
     setInternalValues(newValues);
-    setElements(newElements);
+    onChange(newValues);
+    if (elements[index] && typeof elements[index].onChange === 'function') {
+      elements[index].onChange(null);
+    }
   };
 
   const { className: inputClassName, ...otherInputProps } = inputProps;
