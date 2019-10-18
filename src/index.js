@@ -30,6 +30,7 @@ export * from './content/Table';
 export * from './content/Fonts';
 export * from './content/Headline';
 export * from './content/List';
+export * from './content/DynamicList';
 export * from './content/Paragraph';
 export * from './content/Image';
 export * from './content/Link';
