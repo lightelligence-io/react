@@ -54,7 +54,6 @@ export const Dialog = ({
         {...{ ...props, ...otherWindowProps }}
       >
         <V2Button
-          buttonType="action"
           onClick={() => typeof onClose === 'function' && onClose()}
           className={classnames(olt.DialogClose, closeClassName)}
           {...otherCloseProps}

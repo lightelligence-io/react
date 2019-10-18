@@ -20,6 +20,7 @@ const V2Button = ({
   ...props
 }) => {
   const Element = tag || 'button';
+  const isIconDefault = icon && !emphasis && !buttonType;
   return (
     <Element
       disabled={disabled}
@@ -30,6 +31,7 @@ const V2Button = ({
         emphasis && olt[`V2Button${pascalize(emphasis)}`],
         buttonType && olt[`V2Button${pascalize(buttonType)}`],
         theme && olt[`V2Button${pascalize(theme)}`],
+        isIconDefault && olt.V2ButtonIconDefault,
         icon && olt.V2ButtonIcon,
         icon && olt[`Icon${pascalize(icon)}`],
         iconLeft && olt[`Icon${pascalize(iconLeft)}`],
@@ -109,7 +111,7 @@ V2Button.defaultProps = {
   children: null,
   onClick: undefined,
   emphasis: undefined,
-  buttonType: 'default',
+  buttonType: undefined,
   theme: 'light',
 };
 

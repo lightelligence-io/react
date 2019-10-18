@@ -43,7 +43,7 @@ We support the following types:
 
 
 ```js
-import { V2Modal, V2MODAL_TYPE_CRITICAL, V2MODAL_TYPE_SUCCESS, V2MODAL_TYPE_INFO, V2MODAL_TYPE_WARNING, V2MODAL_TYPE_ACTION, V2Button } from '@lightelligence/react';
+import { V2Modal, V2MODAL_TYPE_CRITICAL, V2MODAL_TYPE_SUCCESS, V2MODAL_TYPE_INFO, V2MODAL_TYPE_WARNING, V2MODAL_TYPE_ACTION, V2Button, FloatingList } from '@lightelligence/react';
 initialState = { modalOpen: {
   error: false,
   warning: false,
@@ -66,11 +66,13 @@ const onSubmit = (type) => {
   }});
 };
 <div>
-  <V2Button buttonType="destructive" onClick={() => toggleModal('error')}>Open Error Modal</V2Button>
-  <V2Button buttonType="default" onClick={() => toggleModal('warning')}>Open Warning Modal</V2Button>
-  <V2Button buttonType="default" onClick={() => toggleModal('info')}>Open Info Modal</V2Button>
-  <V2Button buttonType="confirmative" onClick={() => toggleModal('success')}>Open Success Modal</V2Button>
-  <V2Button buttonType="action" onClick={() => toggleModal('action')}>Open Action Modal</V2Button>
+  <FloatingList>
+    <V2Button buttonType="destructive" onClick={() => toggleModal('error')}>Open Error Modal</V2Button>
+    <V2Button buttonType="default" onClick={() => toggleModal('warning')}>Open Warning Modal</V2Button>
+    <V2Button buttonType="default" onClick={() => toggleModal('info')}>Open Info Modal</V2Button>
+    <V2Button buttonType="confirmative" onClick={() => toggleModal('success')}>Open Success Modal</V2Button>
+    <V2Button buttonType="action" onClick={() => toggleModal('action')}>Open Action Modal</V2Button>
+  </FloatingList>
   <V2Modal
     type={V2MODAL_TYPE_CRITICAL}
     title="Error!!!!!"
