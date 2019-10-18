@@ -55,7 +55,8 @@ export const V2Modal = ({
     >
       <div
         className={classnames(olt.V2ModalDialog, dialogClassName)}
-        {...{ ...props, ...otherDialogProps }}
+        {...props}
+        {...otherDialogProps}
       >
         {
           <div
