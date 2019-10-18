@@ -10,27 +10,28 @@ import {
 
 initialState = {
   dialogOpen: false,
-  value: {0: 'hello'},
+  values: [],
 };
 const toggleDialog = () => {
   setState({ dialogOpen: !state.dialogOpen });
 };
 
-const onChange = (id, e) => {
-  setState({ value: {
-    ...state.value,
-    [id]: e.target.value,
-  }});
+const onSubmit = () => {
+  alert(`The user entered ${state.values.length} values: ${state.values}`)
+  toggleDialog();
+}
+
+const onChange = (values) => {
+    setState({ values });
 }
 
 const dynamicList = (
   <DynamicList
+    onChange={onChange}
     inputProps={{
-      onChange,
-      value: state.value[0],
       label: "Enter your data",
     }}
-    inputElement={V2Input}
+    values={state.values}
   />
 );
 
@@ -41,7 +42,7 @@ const dynamicList = (
     description="All will be fine"
     content={dynamicList}
     actions={[
-      <V2Button key="ok" buttonType="action" onClick={toggleDialog}>Ok</V2Button>
+      <V2Button key="ok" buttonType="action" onClick={onSubmit} disabled={state.values.length===0 || (state.values.length===1 && state.values[0].trim()==='')}>Ok</V2Button>
     ]}
     open={state.dialogOpen}
     onClose={toggleDialog}

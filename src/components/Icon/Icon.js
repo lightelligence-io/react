@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, node, oneOf } from 'prop-types';
+import { string, node } from 'prop-types';
 import classnames from 'classnames';
 import { pascalize, camelize } from 'humps';
 import * as olt from '@lightelligence/styles';
@@ -22,16 +22,7 @@ const Icon = ({ name, size, color, children, className, ...props }) => (
 
 Icon.propTypes = {
   name: string.isRequired,
-  color: oneOf([
-    'default',
-    'light',
-    'dark',
-    'primary',
-    'secondary',
-    'error',
-    'success',
-    'info',
-  ]),
+  color: string,
   size: string,
   className: string,
   children: node,
