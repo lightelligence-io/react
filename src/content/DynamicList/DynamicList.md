@@ -1,38 +1,56 @@
 
+The **DynamicList** is used allow a number of similar entries. Use `onChange`callback to keep track of the user input. `onSubmit` is called when the user clicks the submit button.
+
+The default element use is `V2Input`. You need to specify a label for the element using the `inputProps` attribute. The label will be used for each input element shown to the user.
+
+```js
+import {
+  DynamicList,
+} from '@lightelligence/react';
+
+
+const onSubmit = (values) => {
+  alert(`You entered ${values.length} values: ${JSON.stringify(values)}`)
+}
+
+<div style={{display: 'flex', flexDirection: 'column'}}>
+  <DynamicList
+    onSubmit={onSubmit}
+    inputProps={{
+      label: "Enter your data",
+    }}
+  />
+</div>
+```
+
+You can wrap the **DynamicList** in a **Dialog** component to show it as a modal.
+
 ```js
 import {
   Dialog,
   DynamicList,
-  ListItem,
   V2Button,
-  V2Input
 } from '@lightelligence/react';
 
 initialState = {
   dialogOpen: false,
-  values: [],
 };
 const toggleDialog = () => {
   setState({ dialogOpen: !state.dialogOpen });
 };
 
 const onSubmit = () => {
-  alert(`The user entered ${state.values.length} values: ${state.values}`)
+  alert(`You entered ${state.values.length} values: ${JSON.stringify(state.values)}`)
   toggleDialog();
-}
-
-const onChange = (values) => {
-    console.log('change!!')
-    setState({ values });
 }
 
 const dynamicList = (
   <DynamicList
-    onChange={onChange}
+    onSubmit={onSubmit}
+    submitLabel="Submit"
     inputProps={{
       label: "Enter your data",
     }}
-    values={state.values}
   />
 );
 
@@ -42,11 +60,90 @@ const dynamicList = (
     title="All will be fine"
     description="All will be fine"
     content={dynamicList}
-    actions={[
-      <V2Button key="ok" buttonType="action" onClick={onSubmit} disabled={state.values.length===0 || (state.values.length===1 && state.values[0].trim()==='')}>Ok</V2Button>
-    ]}
     open={state.dialogOpen}
     onClose={toggleDialog}
+  />
+</div>
+```
+
+You can use `values` to pass predefined initial values to the **DynamicList**.
+- `maxItems` allows to define the maximum number of items the user has to add.
+- `minItems` allows to define the minimum number of items the user has to add.
+
+These attributes affect the appearance of the `add` and `remove` buttons and may disable the submit button.
+
+```js
+import {
+  Dialog,
+  DynamicList,
+  V2Button,
+} from '@lightelligence/react';
+
+initialState = {
+  dialogOpen: false,
+  values: ['value1', 'value2', 'value3'],
+};
+const onSubmit = (values) => {
+  alert(`You entered ${values.length} values: ${JSON.stringify(values)}`)
+}
+
+<div>
+  <DynamicList
+    onSubmit={onSubmit}
+    submitLabel="Submit"
+    maxItems={3}
+    minItems={2}
+    inputProps={{
+      label: "Enter your data",
+    }}
+    values={state.values}
+  />
+</div>
+```
+
+You can use `onChange` to receive updates on user input.
+
+Use `inputElement` to specify an input element different from `V2Input`and ensure you are passing all props needed by it using `inputProps`.
+
+```js
+import {
+  DynamicList,
+  V2Button,
+  V2Input,
+  V2Select
+} from '@lightelligence/react';
+
+initialState = {
+  values: ['LoremIpsum'],
+};
+
+const onSubmit = () => {
+  alert(`You entered ${state.values.length} values: ${JSON.stringify(state.values)}`)
+  setState({ values: [] });
+}
+
+const onChange = (values) => {
+    setState({ values });
+}
+
+const options = [
+  { value: '', label: '', hidden: true },
+  { value: 'LoremIpsum', label: 'Lorem Ipsum' },
+  { value: 'DolorSitAmet', label: 'Dolor Sit Amet' },
+  { value: 'EtVersus', label: 'Et Versus' }
+];
+
+<div style={{display: 'flex', flexDirection: 'column'}}>
+  <DynamicList
+    onChange={onChange}
+    onSubmit={onSubmit}
+    maxItems={2}
+    inputProps={{
+      label: "Please Select your data",
+      options,
+    }}
+    inputElement={V2Select}
+    values={state.values}
   />
 </div>
 ```

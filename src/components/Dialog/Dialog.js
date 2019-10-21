@@ -1,9 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { bool, node, string, arrayOf, shape, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 import { isServerSideRendering } from '../../utils/isServerSideRendering';
-import { V2Button } from '../V2Button';
+import { ActionButton } from '../ActionButton';
 
 export const Dialog = ({
   title,
@@ -22,7 +22,8 @@ export const Dialog = ({
   footerProps,
   ...props
 }) => {
-  const dialogWindow = useRef();
+  const dialogElement = useRef();
+  const contentElement = useRef();
 
   useEffect(() => {
     if (!isServerSideRendering) {
@@ -33,8 +34,8 @@ export const Dialog = ({
   const handleClickOutside = (event) => {
     if (
       open &&
-      dialogWindow.current &&
-      !dialogWindow.current.contains(event.target)
+      dialogElement.current &&
+      !dialogElement.current.contains(event.target)
     ) {
       handleClose();
     }
@@ -50,28 +51,6 @@ export const Dialog = ({
   const handleClose = () => {
     if (typeof onClose === 'function') onClose();
   };
-
-  const [contentHeight, setContentHeight] = useState(null);
-  useEffect(() => {
-    const dialogWrapper = document.querySelector(`.${olt.DialogWindow}`);
-    const contentWrapper = document.querySelector(`.${olt.DialogContent}`);
-    const sizeWrapper = document.querySelector('.sizeMeasuringWrapper');
-
-    if (!contentHeight) {
-      setContentHeight(contentWrapper.clientHeight);
-      dialogWrapper.style.height = `${sizeWrapper.clientHeight}px`;
-      return;
-    }
-
-    let targetSize = contentWrapper.scrollHeight + sizeWrapper.clientHeight;
-    if (contentHeight < contentWrapper.scrollHeight)
-      targetSize -= contentWrapper.clientHeight;
-    else if (contentHeight > contentWrapper.scrollHeight)
-      targetSize -= contentHeight;
-    else return;
-    setContentHeight(contentWrapper.scrollHeight);
-    dialogWrapper.style.height = `${targetSize}px`;
-  }, [content, contentHeight]);
 
   const { className: dialogClassName, ...otherDialogProps } = dialogProps;
   const { className: windowClassName, ...otherWindowProps } = windowProps;
@@ -94,49 +73,49 @@ export const Dialog = ({
       )}
       {...otherDialogProps}
     >
-      <div className="sizeMeasuringWrapper">
+      <div
+        className={classnames(olt.DialogWindow, windowClassName)}
+        {...props}
+        {...otherWindowProps}
+        ref={dialogElement}
+      >
+        <ActionButton
+          onClick={handleClose}
+          className={classnames(olt.DialogClose, closeClassName)}
+          {...otherCloseProps}
+        />
+        {title && (
+          <div
+            className={classnames(olt.DialogTitle, titleClassName)}
+            {...otherTitleProps}
+          >
+            {title}
+          </div>
+        )}
+        {description && (
+          <div
+            className={classnames(olt.DialogDescription, descriptionClassName)}
+            {...otherDescriptionProps}
+          >
+            {description}
+          </div>
+        )}
         <div
-          className={classnames(olt.DialogWindow, windowClassName)}
-          {...props}
-          {...otherWindowProps}
-          ref={dialogWindow}
+          className={classnames(olt.DialogContent, contentClassName)}
+          {...otherContentProps}
+          ref={contentElement}
         >
-          <V2Button
-            onClick={handleClose}
-            className={classnames(olt.DialogClose, closeClassName)}
-            {...otherCloseProps}
-          />
-          {title && (
-            <div
-              className={classnames(olt.DialogTitle, titleClassName)}
-              {...otherTitleProps}
-            >
-              {title}
-            </div>
+          {content}
+        </div>
+        <div
+          className={classnames(
+            olt.DialogFooter,
+            footerClassName,
+            actions.length <= 0 && olt.uPaddingTop0,
           )}
-          {description && (
-            <div
-              className={classnames(
-                olt.DialogDescription,
-                descriptionClassName,
-              )}
-              {...otherDescriptionProps}
-            >
-              {description}
-            </div>
-          )}
-          <div
-            className={classnames(olt.DialogContent, contentClassName)}
-            {...otherContentProps}
-          >
-            {content}
-          </div>
-          <div
-            className={classnames(olt.DialogFooter, footerClassName)}
-            {...otherFooterProps}
-          >
-            {actions.map((action) => action)}
-          </div>
+          {...otherFooterProps}
+        >
+          {actions.map((action) => action)}
         </div>
       </div>
     </section>

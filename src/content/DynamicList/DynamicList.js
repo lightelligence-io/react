@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import * as olt from '@lightelligence/styles';
-import { shape, func, string, arrayOf, any } from 'prop-types';
+import { shape, func, string, number, arrayOf, any } from 'prop-types';
 import classnames from 'classnames';
 
 import { V2Input } from '../../controls/V2Input';
-import { Icon } from '../../components/Icon';
+import { V2Button } from '../../components/V2Button';
+import { ActionButton } from '../../components/ActionButton';
 
 export const DynamicList = ({
+  maxItems,
+  minItems,
   inputElement,
   inputProps,
   onChange,
+  onSubmit,
+  submitLabel,
   values,
   className,
   ...other
@@ -19,16 +24,21 @@ export const DynamicList = ({
   const [elements, setElements] = useState([]);
   const [internalValues, setInternalValues] = useState([]);
 
-  // create elements if initial values have been provided
-  useEffect(() => {
-    const elementsWithInitialValues = values.map((value, index) => {
+  const resetFields = useCallback(() => {
+    const elementsWithInitialValues = (values || []).map((value, index) => {
       element.value = value;
       return element;
     });
-    if (elementsWithInitialValues.length === 0)
+    while (elementsWithInitialValues.length <= (minItems || 0)) {
       elementsWithInitialValues.push(element);
+    }
     setElements(elementsWithInitialValues);
-  }, [element, values]);
+  }, [values, element, minItems]);
+
+  // create elements if initial values have been provided
+  useEffect(() => {
+    resetFields();
+  }, [resetFields, element, values]);
   useEffect(() => setInternalValues(values), [values]);
 
   // on change : remember the new value, call onChange prop and call elements on change
@@ -37,17 +47,23 @@ export const DynamicList = ({
     const newValues = [...internalValues];
     newValues[index] = value;
     setInternalValues(newValues);
-    onChange(newValues);
+    if (typeof onChange === 'function') onChange(newValues);
     if (elements[index] && typeof elements[index].onChange === 'function') {
       elements[index].onChange(value);
     }
+  };
+
+  const handleSubmit = () => {
+    if (typeof onSubmit === 'function') onSubmit(internalValues);
+    setInternalValues(values);
+    resetFields();
   };
 
   const addElement = () => {
     setElements([...elements, element]);
     const newValues = [...internalValues, ''];
     setInternalValues(newValues); // TODO: any initial value to provide?
-    onChange(newValues);
+    if (typeof onChange === 'function') onChange(newValues);
     const index = newValues.length - 1;
     if (elements[index] && typeof elements[index].onChange === 'function') {
       elements[index].onChange('');
@@ -70,7 +86,10 @@ export const DynamicList = ({
   const { className: inputClassName, ...otherInputProps } = inputProps;
 
   return (
-    <div className={classnames(olt.DynamicList, className)} {...other}>
+    <div
+      className={classnames(olt.uDisplayFlex, olt.uFlexColumn, className)}
+      {...other}
+    >
       {elements.map((Element, index, allElements) => (
         <div
           className={classnames(
@@ -82,10 +101,17 @@ export const DynamicList = ({
           key={index}
         >
           {index === allElements.length - 1 ? (
-            <Icon
-              name="action-add-circle"
-              color={internalValues[index] ? 'primary' : 'gray500'}
-              className={classnames(olt.uPaddingTop3, olt.uPaddingRight3)}
+            <ActionButton
+              iconLeft="action-add-circle"
+              standalone
+              buttonType={internalValues[index] ? 'primary' : 'default'}
+              disabled={
+                !internalValues[index] ||
+                (maxItems !== null &&
+                  maxItems !== undefined &&
+                  index + 1 >= maxItems)
+              }
+              className={classnames(olt.uMarginTop2, olt.uMarginRight2)}
               onClick={() => internalValues[index] && addElement()}
             />
           ) : (
@@ -98,31 +124,63 @@ export const DynamicList = ({
             onChange={handleTextInput(index)}
           />
           {index !== allElements.length - 1 ? (
-            <Icon
-              name="action-delete"
-              color="primary"
-              className={classnames(olt.uPaddingTop3, olt.uPaddingLeft3)}
+            <ActionButton
+              iconLeft="action-delete"
+              standalone
+              buttonType="primary"
+              disabled={
+                !internalValues[index] ||
+                (minItems !== null &&
+                  minItems !== undefined &&
+                  internalValues.length <= minItems)
+              }
+              className={classnames(olt.uMarginTop2, olt.uMarginLeft2)}
               onClick={() => removeElement(index)}
             />
           ) : null}
         </div>
       ))}
+      <V2Button
+        className={classnames(olt.uMarginTop3)}
+        buttonType="action"
+        onClick={handleSubmit}
+        disabled={
+          internalValues.length === 0 ||
+          (internalValues.length === 1 && internalValues[0].trim() === '') ||
+          internalValues.reduce(
+            (allSet, v, index) =>
+              allSet || (v.trim() === '' && index < (minItems || 0)),
+            false,
+          )
+        }
+        style={{ alignSelf: 'flex-end' }}
+      >
+        {submitLabel || 'Ok'}
+      </V2Button>
     </div>
   );
 };
 
 DynamicList.propTypes = {
+  maxItems: number,
+  minItems: number,
   inputElement: func,
   inputProps: shape({ className: string }),
   onChange: func,
+  onSubmit: func,
+  submitLabel: string,
   values: arrayOf(any),
   className: string,
 };
 
 DynamicList.defaultProps = {
+  maxItems: undefined,
+  minItems: undefined,
   inputElement: undefined,
   inputProps: {},
   onChange: () => {},
+  onSubmit: () => {},
+  submitLabel: undefined,
   values: [],
   className: undefined,
 };

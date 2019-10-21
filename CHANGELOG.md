@@ -31,5 +31,5 @@
 
 #v1.0.0-alpha.2
 - Feature: Dialog
-- Feature: Icon Button
+- Feature: Disabled Action Button
 - Feature: Dynamic List
