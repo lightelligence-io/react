@@ -11,7 +11,11 @@ export const DynamicList = ({
   maxItems,
   minItems,
   inputElement,
+  listEntryProps,
+  addButtonProps,
   inputProps,
+  deleteButtonProps,
+  submitButtonProps,
   onChange,
   onSubmit,
   submitLabel,
@@ -83,7 +87,23 @@ export const DynamicList = ({
     }
   };
 
+  const {
+    className: listEntryClassName,
+    ...otherListEntryProps
+  } = listEntryProps;
+  const {
+    className: addButtonClassName,
+    ...otherAddButtonProps
+  } = addButtonProps;
   const { className: inputClassName, ...otherInputProps } = inputProps;
+  const {
+    className: deleteButtonClassName,
+    ...otherDeleteButtonProps
+  } = deleteButtonProps;
+  const {
+    className: submitButtonClassName,
+    ...otherSubmitButtonProps
+  } = submitButtonProps;
 
   return (
     <div
@@ -96,54 +116,68 @@ export const DynamicList = ({
             olt.uDisplayFlex,
             olt.uFlexRow,
             olt.uFlexNowrap,
+            listEntryClassName,
           )}
           // eslint-disable-next-line react/no-array-index-key
           key={index}
+          {...otherListEntryProps}
         >
           {index === allElements.length - 1 ? (
             <ActionButton
+              className={classnames(
+                olt.uMarginTop2,
+                olt.uMarginRight2,
+                addButtonClassName,
+              )}
               iconLeft="action-add-circle"
               standalone
               buttonType={internalValues[index] ? 'primary' : 'default'}
+              {...otherAddButtonProps}
               disabled={
                 !internalValues[index] ||
                 (maxItems !== null &&
                   maxItems !== undefined &&
                   index + 1 >= maxItems)
               }
-              className={classnames(olt.uMarginTop2, olt.uMarginRight2)}
               onClick={() => internalValues[index] && addElement()}
             />
           ) : (
             <div className={classnames(olt.uPaddingRight5)} />
           )}
           <Element
-            className={inputClassName} // TODO: remove if we don't need other classnames
+            className={inputClassName}
             value={internalValues[index]}
             {...otherInputProps}
             onChange={handleTextInput(index)}
           />
           {index !== allElements.length - 1 ? (
             <ActionButton
+              className={classnames(
+                olt.uMarginTop2,
+                olt.uMarginLeft2,
+                deleteButtonClassName,
+              )}
               iconLeft="action-delete"
               standalone
               buttonType="primary"
+              {...otherDeleteButtonProps}
               disabled={
                 !internalValues[index] ||
                 (minItems !== null &&
                   minItems !== undefined &&
                   internalValues.length <= minItems)
               }
-              className={classnames(olt.uMarginTop2, olt.uMarginLeft2)}
               onClick={() => removeElement(index)}
             />
           ) : null}
         </div>
       ))}
       <V2Button
-        className={classnames(olt.uMarginTop3)}
+        className={classnames(olt.uMarginTop3, submitButtonClassName)}
+        style={{ alignSelf: 'flex-end' }}
         buttonType="action"
         onClick={handleSubmit}
+        {...otherSubmitButtonProps}
         disabled={
           internalValues.length === 0 ||
           (internalValues.length === 1 && internalValues[0].trim() === '') ||
@@ -153,7 +187,6 @@ export const DynamicList = ({
             false,
           )
         }
-        style={{ alignSelf: 'flex-end' }}
       >
         {submitLabel || 'Ok'}
       </V2Button>
@@ -165,7 +198,11 @@ DynamicList.propTypes = {
   maxItems: number,
   minItems: number,
   inputElement: func,
+  listEntryProps: shape({ className: string }),
+  addButtonProps: shape({ className: string }),
   inputProps: shape({ className: string }),
+  deleteButtonProps: shape({ className: string }),
+  submitButtonProps: shape({ className: string }),
   onChange: func,
   onSubmit: func,
   submitLabel: string,
@@ -177,7 +214,11 @@ DynamicList.defaultProps = {
   maxItems: undefined,
   minItems: undefined,
   inputElement: undefined,
+  listEntryProps: {},
+  addButtonProps: {},
   inputProps: {},
+  deleteButtonProps: {},
+  submitButtonProps: {},
   onChange: () => {},
   onSubmit: () => {},
   submitLabel: undefined,

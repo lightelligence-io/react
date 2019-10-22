@@ -25,6 +25,7 @@ const ActionButton = ({
       onClick={(e) => {
         if (!disabled && typeof onClick === 'function') onClick(e);
       }}
+      disabled={disabled}
       {...props}
       className={classnames(
         olt.ActionButton,
