@@ -38,13 +38,23 @@ export const Dialog = ({
       !dialogElement.current.contains(event.target)
     ) {
       handleClose();
+      event.preventDefault();
+    }
+  };
+
+  const handleEscKey = (event) => {
+    if (event.key === 'Escape' && open) {
+      handleClose();
+      event.preventDefault();
     }
   };
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true);
+    document.addEventListener('keydown', handleEscKey, false);
     return () => {
       document.removeEventListener('click', handleClickOutside, true);
+      document.removeEventListener('keydown', handleEscKey, false);
     };
   });
 
@@ -123,19 +133,61 @@ export const Dialog = ({
 };
 
 Dialog.propTypes = {
+  /**
+   * Title of the dialog
+   */
   title: string,
+  /**
+   * Description paragraph of the dialog
+   */
   description: string,
+  /**
+   * Content to be rendered
+   */
   content: node,
+  /**
+   * Flag to show or hide the dialog
+   */
   open: bool.isRequired,
+  /**
+   * Callback, when the dialog is closed ('Esc' key, outside click, close icon)
+   */
   onClose: func,
+  /**
+   * Array of buttons to show in the footer of the dialog
+   */
   actions: arrayOf(node),
+  /**
+   * Forward an additional className to the underlying component.
+   */
   className: string,
+  /**
+   * Props for the overall dialog (including the dark background)
+   */
   dialogProps: shape({ className: string }),
+  /**
+   * Props for the dialog window
+   */
   windowProps: shape({ className: string }),
+  /**
+   * Props for the close button
+   */
   closeProps: shape({ className: string }),
+  /**
+   * Props for the title string
+   */
   titleProps: shape({ className: string }),
+  /**
+   * Props for the description paragraph
+   */
   descriptionProps: shape({ className: string }),
+  /**
+   * Props for the content container
+   */
   contentProps: shape({ className: string }),
+  /**
+   * Props for the footer (containing the buttons)
+   */
   footerProps: shape({ className: string }),
 };
 

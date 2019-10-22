@@ -28,7 +28,8 @@ export const DynamicList = ({
   const [elements, setElements] = useState([]);
   const [internalValues, setInternalValues] = useState([]);
 
-  const resetFields = useCallback(() => {
+  // create the child elements with initial values (if passed)
+  const createInputFields = useCallback(() => {
     const elementsWithInitialValues = (values || []).map((value, index) => {
       element.value = value;
       return element;
@@ -39,10 +40,9 @@ export const DynamicList = ({
     setElements(elementsWithInitialValues);
   }, [values, element, minItems]);
 
-  // create elements if initial values have been provided
   useEffect(() => {
-    resetFields();
-  }, [resetFields, element, values]);
+    createInputFields();
+  }, [createInputFields, element, values]);
   useEffect(() => setInternalValues(values), [values]);
 
   // on change : remember the new value, call onChange prop and call elements on change
@@ -57,10 +57,11 @@ export const DynamicList = ({
     }
   };
 
+  // on submit : call the callback and reset the input fields
   const handleSubmit = () => {
     if (typeof onSubmit === 'function') onSubmit(internalValues);
     setInternalValues(values);
-    resetFields();
+    createInputFields();
   };
 
   const addElement = () => {
@@ -195,18 +196,59 @@ export const DynamicList = ({
 };
 
 DynamicList.propTypes = {
-  maxItems: number,
-  minItems: number,
-  inputElement: func,
+  /**
+   * Props for the input row (with add / remove button and input element as childs)
+   */
   listEntryProps: shape({ className: string }),
+  /**
+   * Props for the add button
+   */
   addButtonProps: shape({ className: string }),
+  /**
+   * Props for the input element. Pass the label for youinput here. Each input will have the same label.
+   */
   inputProps: shape({ className: string }),
+  /**
+   * Props for the delete button
+   */
   deleteButtonProps: shape({ className: string }),
-  submitButtonProps: shape({ className: string }),
+  /**
+   * Callback on user input. it is alos called when adding / deleting input elements
+   * @param array of input values
+   */
   onChange: func,
-  onSubmit: func,
+  /**
+   * Props for the submit button
+   */
+  submitButtonProps: shape({ className: string }),
+  /**
+   * Label for the submit button
+   */
   submitLabel: string,
+  /**
+   * Callback when the user submits the list
+   * @param array of input values
+   */
+  onSubmit: func,
+  /**
+   * Initial values to set. The number also determines the number of the initially available input fields.
+   */
   values: arrayOf(any),
+  /**
+   * Set the maximal number of items the user can enter
+   */
+  maxItems: number,
+  /**
+   * Set the minimal number of items the user has to enter
+   */
+  minItems: number,
+  /**
+   * Pass the element class you want to use for your input elements
+   */
+  inputElement: func,
+  /**
+   * Forward an additional className to the underlying component.
+   */
   className: string,
 };
 
