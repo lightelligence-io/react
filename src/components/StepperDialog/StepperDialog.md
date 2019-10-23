@@ -14,31 +14,52 @@ const toggleDialog = () => {
       stepperHeader="Create Device Type Category"
       steps={[
         {
-          title:"Select Type",
-          done: true,
+          title: "Select Type",
+          dialog: {
+            title: "All will be fine",
+            description: "All will be fine",
+            content:'Lorem ipsum dolor sit amet 1111111',
+          }
         },
         {
-          title:"Create Device",
-          current: true,
+          title: "Create Device",
+          dialog: {
+            title: "All will be fine",
+            description: "All will be fine",
+            content: 'Lorem ipsum dolor sit amet 2222222',
+          },
         },
         {
-          title:"Add Info",
+          title: "Add Info",
+          dialog: {
+            title: "All will be fine",
+            description: "All will be fine",
+            content: 'Lorem ipsum dolor sit amet 3333333',
+          },
         },
         {
-          title:"Define Parameters",
+          title: "Define Parameters",
+          dialog: {
+            title: "All will be fine",
+            description: "All will be fine",
+            content: 'Lorem ipsum dolor sit amet 4444444',
+          },
         },
         {
-          title:"Set up monitoring",
+          title: "Set up monitoring",
+          dialog: {
+            title: "All will be fine",
+            description: "All will be fine",
+            content: 'Lorem ipsum dolor sit amet 5555555',
+          },
         }
       ]}
-      title="All will be fine"
-      description="All will be fine"
-      content='Lorem ipsum dolor sit amet'
       actions={[
         <V2Button key="ok" buttonType="action" onClick={toggleDialog}>Ok</V2Button>
       ]}
       open={state.dialogOpen}
       onClose={toggleDialog}
+      onFinish={toggleDialog}
     />
 </div>
 ```

@@ -1,18 +1,21 @@
-import React, { useRef, useEffect } from 'react';
-import { bool, node, string, arrayOf, shape, func } from 'prop-types';
+import React, { useRef, useState, useEffect } from 'react';
+import { bool, string, shape, node, func, arrayOf } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
 import { isServerSideRendering } from '../../utils/isServerSideRendering';
 import { ActionButton } from '../ActionButton';
+import { V2Button } from '../V2Button';
 
 export const StepperDialog = ({
   stepperHeader,
   steps,
-  title,
-  description,
-  content,
   onClose,
-  actions,
+  onProceed,
+  onFinish,
+  onBack,
   open,
   className,
   dialogProps,
@@ -31,6 +34,8 @@ export const StepperDialog = ({
 }) => {
   const dialogElement = useRef();
   const contentElement = useRef();
+
+  const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
     if (!isServerSideRendering) {
@@ -69,6 +74,19 @@ export const StepperDialog = ({
     if (typeof onClose === 'function') onClose();
   };
 
+  const handleProceed = () => {
+    if (typeof onProceed === 'function') onProceed(currentStep);
+    if (currentStep === steps.length - 1) {
+      if (typeof onFinish === 'function') onFinish();
+      return;
+    }
+    setCurrentStep(currentStep + 1);
+  };
+  const handleBack = () => {
+    if (typeof onBack === 'function') onBack(currentStep);
+    setCurrentStep(currentStep - 1);
+  };
+
   const { className: dialogClassName, ...otherDialogProps } = dialogProps;
   const { className: windowClassName, ...otherWindowProps } = windowProps;
   const { className: stepperClassName, ...otherStepperProps } = stepperProps;
@@ -97,6 +115,121 @@ export const StepperDialog = ({
   const { className: contentClassName, ...otherContentProps } = contentProps;
   const { className: footerClassName, ...otherFooterProps } = footerProps;
 
+  // TODO: define reusable colors
+  const renderStepper = () => (
+    <div
+      className={classnames(olt.StepperDialogStepper, stepperClassName)}
+      {...otherStepperProps}
+    >
+      <div
+        className={classnames(
+          olt.StepperDialogStepperHeader,
+          stepperHeaderClassName,
+        )}
+        {...otherStepperHeaderProps}
+      >
+        {stepperHeader}
+      </div>
+      <div
+        className={classnames(
+          olt.StepperDialogStepperCounter,
+          stepperCounterClassName,
+        )}
+        {...otherStepperCounterProps}
+      >
+        <div style={{ height: '42px', width: '42px' }}>
+          <CircularProgressbar
+            value={currentStep + 1 / steps.length}
+            maxValue={steps.length}
+            text={`${currentStep + 1} / ${steps.length}`}
+            styles={buildStyles({
+              pathColor: '#02BF1B',
+              trailColor: '#E3E4E5',
+              textColor: '#212529',
+              textSize: '24px',
+            })}
+          />
+        </div>
+      </div>
+      {steps.map((step, index) => renderStepperStep(step, index))}
+    </div>
+  );
+
+  const renderStepperStep = (step, index) => (
+    <div
+      className={classnames(
+        olt.StepperDialogStepperStep,
+        index < currentStep && olt.StepperDialogStepperStepDone,
+        index === currentStep && olt.StepperDialogStepperStepCurrent,
+        index === steps.length - 1 && olt.StepperDialogStepperStepLast,
+        stepperStepClassName,
+      )}
+      {...otherStepperStepProps}
+    >
+      {step.title}
+    </div>
+  );
+
+  const renderContentContainer = () => (
+    <div
+      className={classnames(olt.StepperDialogContent, stepperContentClassName)}
+      {...otherStepperContentProps}
+    >
+      <ActionButton
+        onClick={handleClose}
+        className={classnames(olt.DialogClose, closeClassName)}
+        {...otherCloseProps}
+      />
+      {renderContent()}
+      <div
+        className={classnames(olt.DialogFooter, footerClassName)}
+        {...otherFooterProps}
+      >
+        {currentStep > 0 && (
+          <V2Button buttonType="tertiary" onClick={handleBack}>
+            Back
+          </V2Button>
+        )}
+        {currentStep <= steps.length - 1 && (
+          <V2Button buttonType="action" onClick={handleProceed}>
+            Proceed
+          </V2Button>
+        )}
+      </div>
+    </div>
+  );
+
+  const renderContent = () => {
+    const current = steps[currentStep].dialog;
+    return (
+      <>
+        {current.title && (
+          <div
+            className={classnames(olt.DialogTitle, titleClassName)}
+            {...otherTitleProps}
+          >
+            {current.title}
+          </div>
+        )}
+        {current.description && (
+          <div
+            className={classnames(olt.DialogDescription, descriptionClassName)}
+            {...otherDescriptionProps}
+          >
+            {current.description}
+          </div>
+        )}
+        <div
+          className={classnames(olt.DialogContent, contentClassName)}
+          {...otherContentProps}
+          ref={contentElement}
+        >
+          {current.content}
+        </div>
+      </>
+    );
+  };
+
   return (
     <section
       className={classnames(
@@ -113,94 +246,8 @@ export const StepperDialog = ({
         {...otherWindowProps}
         ref={dialogElement}
       >
-        <div
-          className={classnames(olt.StepperDialogStepper, stepperClassName)}
-          {...otherStepperProps}
-        >
-          <div
-            className={classnames(
-              olt.StepperDialogStepperHeader,
-              stepperHeaderClassName,
-            )}
-            {...otherStepperHeaderProps}
-          >
-            {stepperHeader}
-          </div>
-          <div
-            className={classnames(
-              olt.StepperDialogStepperCounter,
-              stepperCounterClassName,
-            )}
-            {...otherStepperCounterProps}
-          >
-            2/5
-          </div>
-          {steps.map((step, index) => (
-            <div
-              className={classnames(
-                olt.StepperDialogStepperStep,
-                step.done && olt.StepperDialogStepperStepDone,
-                step.current && olt.StepperDialogStepperStepCurrent,
-                step.last ||
-                  (index === steps.length - 1 &&
-                    olt.StepperDialogStepperStepLast),
-                stepperStepClassName,
-              )}
-              {...otherStepperStepProps}
-            >
-              {step.title}
-            </div>
-          ))}
-        </div>
-        <div
-          className={classnames(
-            olt.StepperDialogContent,
-            stepperContentClassName,
-          )}
-          {...otherStepperContentProps}
-        >
-          <ActionButton
-            onClick={handleClose}
-            className={classnames(olt.DialogClose, closeClassName)}
-            {...otherCloseProps}
-          />
-          {title && (
-            <div
-              className={classnames(olt.DialogTitle, titleClassName)}
-              {...otherTitleProps}
-            >
-              {title}
-            </div>
-          )}
-          {description && (
-            <div
-              className={classnames(
-                olt.DialogDescription,
-                descriptionClassName,
-              )}
-              {...otherDescriptionProps}
-            >
-              {description}
-            </div>
-          )}
-          <div
-            className={classnames(olt.DialogContent, contentClassName)}
-            {...otherContentProps}
-            ref={contentElement}
-          >
-            {content}
-          </div>
-          <div
-            className={classnames(
-              olt.DialogFooter,
-              footerClassName,
-              actions.length <= 0 && olt.uPaddingTop0,
-            )}
-            {...otherFooterProps}
-          >
-            {actions.map((action) => action)}
-          </div>
-        </div>
+        {renderStepper()}
+        {renderContentContainer()}
       </div>
     </section>
   );
@@ -214,19 +261,7 @@ StepperDialog.propTypes = {
   /**
    * Steps of the stepper sidebar
    */
-  steps: string,
-  /**
-   * Title of the dialog
-   */
-  title: string,
-  /**
-   * Description paragraph of the dialog
-   */
-  description: string,
-  /**
-   * Content to be rendered
-   */
-  content: node,
+  steps: arrayOf(node),
   /**
    * Flag to show or hide the dialog
    */
@@ -236,9 +271,19 @@ StepperDialog.propTypes = {
    */
   onClose: func,
   /**
-   * Array of buttons to show in the footer of the dialog
+   * Callback, when the user proceeds to the next step
+   * @param The index of the next step.
    */
-  actions: arrayOf(node),
+  onProceed: func,
+  /**
+   * Callback, when all steps are done
+   */
+  onFinish: func,
+  /**
+   * Callback, when the user goes back
+   * @param The index of the step the user returns to.
+   */
+  onBack: func,
   /**
    * Forward an additional className to the underlying component.
    */
@@ -296,11 +341,10 @@ StepperDialog.propTypes = {
 StepperDialog.defaultProps = {
   stepperHeader: null,
   steps: [],
-  title: null,
-  description: null,
-  content: '',
   onClose: () => {},
-  actions: [],
+  onProceed: () => {},
+  onFinish: () => {},
+  onBack: () => {},
   className: null,
   dialogProps: {},
   windowProps: {},
