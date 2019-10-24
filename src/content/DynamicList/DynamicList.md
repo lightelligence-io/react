@@ -39,8 +39,8 @@ const toggleDialog = () => {
   setState({ dialogOpen: !state.dialogOpen });
 };
 
-const onSubmit = () => {
-  alert(`You entered ${state.values.length} values: ${JSON.stringify(state.values)}`)
+const onSubmit = (values) => {
+  alert(`You entered ${values.length} values: ${JSON.stringify(values)}`)
   toggleDialog();
 }
 
