@@ -47,6 +47,11 @@ export const StepperDialog = ({
     }
   }, [open]);
 
+  // if the current step is handled from the outside, then (re-)set it on opening the dialog
+  useEffect(() => {
+    setCurrentStep(activeStep);
+  }, [activeStep, open]);
+
   const handleClickOutside = (event) => {
     if (
       open &&
@@ -76,13 +81,16 @@ export const StepperDialog = ({
 
   const handleClose = () => {
     if (typeof onClose === 'function') onClose();
-    setCurrentStep(0);
+    if (!activeStep) setCurrentStep(0); // reset only if it is not handled from the outside
   };
 
   const handleProceed = () => {
     if (typeof onProceed === 'function') onProceed(currentStep + 1);
     if (currentStep === steps.length - 1) {
-      if (typeof onFinish === 'function') onFinish();
+      if (typeof onFinish === 'function') {
+        if (!activeStep) setCurrentStep(0); // reset only if it is not handled from the outside
+        onFinish();
+      }
       return;
     }
     setCurrentStep(currentStep + 1);

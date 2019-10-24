@@ -15,56 +15,56 @@ const toggleDialog = () => {
   setState({ dialogOpen: !state.dialogOpen });
 };
 <div>
-    <V2Button color="primary" onClick={toggleDialog}>See the Example</V2Button>
-    <StepperDialog
-      stepperHeader="Create Device Type Category"
-      steps={[
-        {
-          title: "Select Type",
-          dialog: {
-            title: "This is the Dialog Title of Step 1",
-            description: "This is the Dialog Description of Step 1",
-            content:'This is the Dialog Content for Step 1',
-          }
-        },
-        {
-          title: "Create Device",
-          dialog: {
-            title: "This is the Dialog Title of Step 2",
-            description: "This is the Dialog Description of Step 2",
-            content:'This is the Dialog Content for Step 2',
-          },
-        },
-        {
-          title: "Add Info",
-          dialog: {
-            title: "This is the Dialog Title of Step 3",
-            description: "This is the Dialog Description of Step 3",
-            content:'This is the Dialog Content for Step 3',
-          },
-        },
-        {
-          title: "Define Parameters",
-          dialog: {
-            title: "This is the Dialog Title of Step 4",
-            description: "This is the Dialog Description of Step 4",
-            content:'This is the Dialog Content for Step 4',
-          },
-        },
-        {
-          title: "Set up monitoring",
-          dialog: {
-            title: "This is the Dialog Title of Step 5",
-            description: "This is the Dialog Description of Step 5",
-            content:'This is the Dialog Content for Step 5',
-          },
+  <V2Button color="primary" onClick={toggleDialog}>See the Example</V2Button>
+  <StepperDialog
+    stepperHeader="Create Device Type Category"
+    steps={[
+      {
+        title: "Select Type",
+        dialog: {
+          title: "This is the Dialog Title of Step 1",
+          description: "This is the Dialog Description of Step 1",
+          content:'This is the Dialog Content for Step 1',
         }
-      ]}
-      open={state.dialogOpen}
-      onClose={toggleDialog}
-      onFinish={toggleDialog}
-      style={{height:'50vh', width:'800px'}}
-    />
+      },
+      {
+        title: "Create Device",
+        dialog: {
+          title: "This is the Dialog Title of Step 2",
+          description: "This is the Dialog Description of Step 2",
+          content:'This is the Dialog Content for Step 2',
+        },
+      },
+      {
+        title: "Add Info",
+        dialog: {
+          title: "This is the Dialog Title of Step 3",
+          description: "This is the Dialog Description of Step 3",
+          content:'This is the Dialog Content for Step 3',
+        },
+      },
+      {
+        title: "Define Parameters",
+        dialog: {
+          title: "This is the Dialog Title of Step 4",
+          description: "This is the Dialog Description of Step 4",
+          content:'This is the Dialog Content for Step 4',
+        },
+      },
+      {
+        title: "Set up monitoring",
+        dialog: {
+          title: "This is the Dialog Title of Step 5",
+          description: "This is the Dialog Description of Step 5",
+          content:'This is the Dialog Content for Step 5',
+        },
+      }
+    ]}
+    open={state.dialogOpen}
+    onClose={toggleDialog}
+    onFinish={toggleDialog}
+    style={{height:'50vh', width:'800px'}}
+  />
 </div>
 ```
 
@@ -94,58 +94,58 @@ const onFinish = () => {
 };
 
 <div>
-    <V2Button color="primary" onClick={toggleDialog}>See the Example</V2Button>
-    <StepperDialog
-      stepperHeader="The Step Stepper of Steps"
-      steps={[
-        {
-          title: "Step 1",
-          dialog: {
-            title: "This is the first Step",
-            description: "Please enter your personal data.",
-            content: (
-              <V2Input
-                label="Enter your name"
-                value={state.name}
-                onChange={onChange('name')}
-              />
-            ),
-          }
-        },
-        {
-          title: "Step 2",
-          dialog: {
-            title: "This is the second Step",
-            description: "Please enter your personal data.",
-            content: (
-              <V2Input
-                label="Enter your company name"
-                value={state.company}
-                onChange={onChange('company')}
-              />
-            ),
-          }
-        },
-        {
-          title: "Step 3",
-          dialog: {
-            title: "This is the third Step",
-            description: "Please enter your personal data.",
-            content: (
-              <V2Input
-                label="Enter your email"
-                value={state.company}
-                onChange={onChange('email')}
-              />
-            ),
-          }
-        },
-      ]}
-      open={state.dialogOpen}
-      onClose={toggleDialog}
-      onFinish={onFinish}
-      activeStep={1}
-    />
+  <V2Button color="primary" onClick={toggleDialog}>See the Example</V2Button>
+  <StepperDialog
+    stepperHeader="The Step Stepper of Steps"
+    steps={[
+      {
+        title: "Step 1",
+        dialog: {
+          title: "This is the first Step",
+          description: "Please enter your personal data.",
+          content: (
+            <V2Input
+              label="Enter your name"
+              value={state.name}
+              onChange={onChange('name')}
+            />
+          ),
+        }
+      },
+      {
+        title: "Step 2",
+        dialog: {
+          title: "This is the second Step",
+          description: "Please enter your personal data.",
+          content: (
+            <V2Input
+              label="Enter your company name"
+              value={state.company}
+              onChange={onChange('company')}
+            />
+          ),
+        }
+      },
+      {
+        title: "Step 3",
+        dialog: {
+          title: "This is the third Step",
+          description: "Please enter your personal data.",
+          content: (
+            <V2Input
+              label="Enter your email"
+              value={state.email}
+              onChange={onChange('email')}
+            />
+          ),
+        }
+      },
+    ]}
+    open={state.dialogOpen}
+    onClose={toggleDialog}
+    onFinish={onFinish}
+    activeStep={1}
+  />
 </div>
 ```
 
@@ -177,6 +177,7 @@ const onChange = (field) => (event) => {
 const onFinish = () => {
   const {name, company} = state;
   alert(`${name} works at ${company}`);
+  setState({activeStep: 0})
   toggleDialog()
 };
 
@@ -191,61 +192,62 @@ const onBack = (to) => {
 }
 
 <div>
-    <V2Button color="primary" onClick={toggleDialog}>See the Example with Callbacks</V2Button>
-    <StepperDialog
-      stepperHeader="The Step Stepper of Steps"
-      steps={[
-        {
-          title: "Step 1",
-          dialog: {
-            title: "This is the first Step",
-            description: "Please enter your personal data.",
-            content: (
-              <V2Input
-                label="Enter your name"
-                value={state.name}
-                onChange={onChange('name')}
-              />
-            ),
-          }
-        },
-        {
-          title: "Step 2",
-          dialog: {
-            title: "This is the second Step",
-            description: "Please enter your personal data.",
-            content: (
-              <V2Input
-                label="Enter your company name"
-                hint="Optional"
-                value={state.company}
-                onChange={onChange('company')}
-              />
-            ),
-          }
-        },
-        {
-          title: "Step 3",
-          dialog: {
-            title: "Great! You are done.",
-            description: "Thanks for your input. All has been recorded.",
-          }
-        },
-      ]}
-      open={state.dialogOpen}
-      style={{height:'50vh', width:'800px'}}
-      onClose={toggleDialog}
-      onProceed={onProceed}
-      onBack={onBack}
-      onFinish={onFinish}
-      proceedButton={{
-        disabled: (state.activeStep === 0 && state.name === ''),
-        label: ((state.activeStep < 2) ? 'Weiter' : 'Fertig'),
-      }}
-      backButton={{
-        disabled: (state.activeStep >= 2),
-        label:  'Zurück',
-      }}
-    />
+  <V2Button color="primary" onClick={toggleDialog}>See the Example with Callbacks</V2Button>
+  <StepperDialog
+    stepperHeader="The Step Stepper of Steps"
+    steps={[
+      {
+        title: "Step 1",
+        dialog: {
+          title: "This is the first Step",
+          description: "Please enter your personal data.",
+          content: (
+            <V2Input
+              label="Enter your name"
+              value={state.name}
+              onChange={onChange('name')}
+            />
+          ),
+        }
+      },
+      {
+        title: "Step 2",
+        dialog: {
+          title: "This is the second Step",
+          description: "Please enter your personal data.",
+          content: (
+            <V2Input
+              label="Enter your company name"
+              hint="Optional"
+              value={state.company}
+              onChange={onChange('company')}
+            />
+          ),
+        }
+      },
+      {
+        title: "Step 3",
+        dialog: {
+          title: "Great! You are done.",
+          description: "Thanks for your input. All has been recorded.",
+        }
+      },
+    ]}
+    open={state.dialogOpen}
+    style={{height:'50vh', width:'800px'}}
+    onClose={toggleDialog}
+    onProceed={onProceed}
+    onBack={onBack}
+    onFinish={onFinish}
+    proceedButton={{
+      disabled: (state.activeStep === 0 && state.name === ''),
+      label: ((state.activeStep < 2) ? 'Weiter' : 'Fertig'),
+    }}
+    backButton={{
+      disabled: (state.activeStep >= 2),
+      label:  'Zurück',
+    }}
+    activeStep={state.activeStep}
+  />
 </div>
 ```
