@@ -5,7 +5,7 @@ import { useCopyToClipboard } from './useCopyToClipboard';
 jest.mock('clipboard-copy');
 
 describe('useCopyToClipboard', () => {
-  test.only('copies text if provided as hook parameter', () => {
+  test('copies text if provided as hook parameter', () => {
     const { result } = renderHook(() => useCopyToClipboard('text-to-copy'));
     result.current();
     expect(copy).toHaveBeenCalledWith('text-to-copy');

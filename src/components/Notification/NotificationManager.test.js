@@ -4,7 +4,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { NotificationContainer, NotificationManager } from '.';
 import { oltStyles } from '../..';
 
-describe.only('NotificationManager Adds Notifications', () => {
+describe('NotificationManager Adds Notifications', () => {
   test('renders INFO', () => {
     const { getByText, container } = render(<NotificationContainer />);
     NotificationManager.info({
