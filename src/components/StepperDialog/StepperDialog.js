@@ -86,14 +86,13 @@ export const StepperDialog = ({
       return;
     }
     setCurrentStep(currentStep + 1);
-    // console.log(proceedButtonRef)
-    // console.log(proceedButtonRef.current.props.active)
+    if (proceedButtonRef && proceedButtonRef.current)
+      proceedButtonRef.current.blur();
   };
   const handleBack = () => {
     if (typeof onBack === 'function') onBack(currentStep - 1);
     setCurrentStep(currentStep - 1);
-    // console.log(backButtonRef)
-    // console.log(backButtonRef.current.props.active)
+    if (backButtonRef && backButtonRef.current) backButtonRef.current.blur();
   };
 
   const { className: dialogClassName, ...otherDialogProps } = dialogProps;
@@ -200,7 +199,7 @@ export const StepperDialog = ({
             emphasis="tertiary"
             onClick={handleBack}
             {...backButton.props}
-            forwardef={backButtonRef}
+            ref={backButtonRef}
           >
             {backButton.label || 'Back'}
           </V2Button>
@@ -211,7 +210,7 @@ export const StepperDialog = ({
             onClick={handleProceed}
             disabled={proceedButton.disabled}
             {...proceedButton.props}
-            forwardef={proceedButtonRef}
+            ref={proceedButtonRef}
           >
             {proceedButton.label || 'Proceed'}
           </V2Button>
