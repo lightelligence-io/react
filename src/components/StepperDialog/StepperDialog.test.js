@@ -2,23 +2,72 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
 import { oltStyles } from '../..';
-
-import { V2Button } from '../V2Button';
 import { StepperDialog } from './StepperDialog';
 
-const renderDialog = (props) => {
+const singleStep = [
+  {
+    title: 'stepTitel1',
+    dialog: {
+      title: 'title1',
+      description: 'description1',
+      content: 'content1',
+    },
+  },
+];
+
+const multiStep = [
+  {
+    title: 'stepTitel',
+    dialog: {
+      title: 'title1',
+      description: 'description1',
+      content: 'content1',
+    },
+  },
+  {
+    title: 'stepTitel',
+    dialog: {
+      title: 'title2',
+      description: 'description2',
+      content: 'content2',
+    },
+  },
+  {
+    title: 'stepTitel',
+    dialog: {
+      title: 'title3',
+      description: 'description3',
+      content: 'content3',
+    },
+  },
+];
+
+const renderDialog = ({ proceedButton, backButton, ...props } = {}) => {
   return render(
     <StepperDialog
-      title="Titel!"
-      description="Description..."
+      stepperHeader="The Step Stepper of Steps"
+      steps={singleStep}
       open={false}
-      content="Lorem ipsum dolor sit amet"
-      actions={[]}
       dialogProps={{
         'data-testid': 'dialog',
       }}
       windowProps={{
         'data-testid': 'window',
+      }}
+      stepperProps={{
+        'data-testid': 'stepper',
+      }}
+      stepperHeaderProps={{
+        'data-testid': 'stepperHeader',
+      }}
+      stepperCounterProps={{
+        'data-testid': 'stepperCounter',
+      }}
+      stepperStepProps={{
+        'data-testid': 'stepperStep',
+      }}
+      stepperContentProps={{
+        'data-testid': 'stepperContent',
       }}
       closeProps={{
         'data-testid': 'close',
@@ -35,49 +84,132 @@ const renderDialog = (props) => {
       footerProps={{
         'data-testid': 'footer',
       }}
+      proceedButton={{
+        props: {
+          'data-testid': 'proceedButton',
+        },
+        ...proceedButton,
+      }}
+      backButton={{
+        props: {
+          'data-testid': 'backButton',
+        },
+        ...backButton,
+      }}
       {...props}
     />,
   );
 };
 
-describe('StepperDialog', () => {
-  test('has the dialog uses the right classes from styles', () => {
+describe('StepperDialog - Styles', () => {
+  test('dialog uses the right classes from styles', () => {
     const { getByTestId } = renderDialog();
     const modal = getByTestId('dialog');
     expect(modal.classList.contains(oltStyles.StepperDialog)).toBe(true);
   });
-  test('has the dialog window uses the right classes from styles', () => {
+  test('window uses the right classes from styles', () => {
     const { getByTestId } = renderDialog();
     const window = getByTestId('window');
-    expect(window.classList.contains(oltStyles.DialogWindow)).toBe(true);
+    expect(window.classList.contains(oltStyles.StepperDialogWindow)).toBe(true);
   });
-  test('has the dialog close uses the right classes from styles', () => {
+  test('stepper uses the right classes from styles', () => {
+    const { getByTestId } = renderDialog();
+    const stepper = getByTestId('stepper');
+    expect(stepper.classList.contains(oltStyles.StepperDialogStepper)).toBe(
+      true,
+    );
+  });
+  test('stepperHeader uses the right classes from styles', () => {
+    const { getByTestId } = renderDialog();
+    const stepperHeader = getByTestId('stepperHeader');
+    expect(
+      stepperHeader.classList.contains(oltStyles.StepperDialogStepperHeader),
+    ).toBe(true);
+  });
+  test('stepperCounter uses the right classes from styles', () => {
+    const { getByTestId } = renderDialog();
+    const stepperCounter = getByTestId('stepperCounter');
+    expect(
+      stepperCounter.classList.contains(oltStyles.StepperDialogStepperCounter),
+    ).toBe(true);
+  });
+  test('stepperStep uses the right classes from styles', () => {
+    const { getByTestId } = renderDialog();
+    const stepperStep = getByTestId('stepperStep');
+    expect(
+      stepperStep.classList.contains(oltStyles.StepperDialogStepperStep),
+    ).toBe(true);
+  });
+  test('first stepperStep uses the right classes from styles', () => {
+    const { queryAllByText } = renderDialog({
+      steps: multiStep,
+    });
+    const steps = queryAllByText('stepTitel');
+    expect(
+      steps[0].classList.contains(oltStyles.StepperDialogStepperStepCurrent),
+    ).toBe(true);
+  });
+  test('last stepperStep uses the right classes from styles', () => {
+    const { queryAllByText } = renderDialog({
+      steps: multiStep,
+    });
+    const steps = queryAllByText('stepTitel');
+    expect(
+      steps[multiStep.length - 1].classList.contains(
+        oltStyles.StepperDialogStepperStepLast,
+      ),
+    ).toBe(true);
+  });
+  test('stepperContent uses the right classes from styles', () => {
+    const { getByTestId } = renderDialog();
+    const stepperContent = getByTestId('stepperContent');
+    expect(
+      stepperContent.classList.contains(oltStyles.StepperDialogContent),
+    ).toBe(true);
+  });
+  test('dialog close uses the right classes from styles', () => {
     const { getByTestId } = renderDialog();
     const close = getByTestId('close');
     expect(close.classList.contains(oltStyles.DialogClose)).toBe(true);
   });
-  test('has the dialog title uses the right classes from styles', () => {
+  test('dialog title uses the right classes from styles', () => {
     const { getByTestId } = renderDialog();
     const title = getByTestId('title');
     expect(title.classList.contains(oltStyles.DialogTitle)).toBe(true);
   });
-  test('has the dialog description uses the right classes from styles', () => {
+  test('dialog description uses the right classes from styles', () => {
     const { getByTestId } = renderDialog();
     const description = getByTestId('description');
     expect(description.classList.contains(oltStyles.DialogDescription)).toBe(
       true,
     );
   });
-  test('has the dialog content uses the right classes from styles', () => {
+  test('dialog content uses the right classes from styles', () => {
     const { getByTestId } = renderDialog();
     const content = getByTestId('content');
     expect(content.classList.contains(oltStyles.DialogContent)).toBe(true);
   });
-  test('has the dialog footer uses the right classes from styles', () => {
+  test('proceed button uses the right classes from styles', () => {
     const { getByTestId } = renderDialog();
-    const footer = getByTestId('footer');
-    expect(footer.classList.contains(oltStyles.DialogFooter)).toBe(true);
+    const proceedButton = getByTestId('proceedButton');
+    expect(proceedButton.classList.contains(oltStyles.V2Button)).toBe(true);
+    expect(proceedButton.classList.contains(oltStyles.V2ButtonAction)).toBe(
+      true,
+    );
   });
+  test('back button uses the right classes from styles', () => {
+    const { getByTestId } = renderDialog({
+      steps: multiStep,
+      activeStep: 1,
+    });
+    const backButton = getByTestId('backButton');
+    expect(backButton.classList.contains(oltStyles.V2ButtonTertiary)).toBe(
+      true,
+    );
+  });
+});
+
+describe('StepperDialog - Props', () => {
   test('sets isOpen', () => {
     const { getByTestId } = renderDialog({
       open: true,
@@ -85,22 +217,119 @@ describe('StepperDialog', () => {
     const dialog = getByTestId('dialog');
     expect(dialog.classList.contains(oltStyles.isOpen)).toBe(true);
   });
-
-  test('triggers onClick', () => {
-    const onClick = jest.fn();
-    const { getByTestId } = renderDialog({
-      actions: [
-        <V2Button key="ok" buttonType="action" onClick={onClick}>
-          Ok
-        </V2Button>,
-      ],
+  test('stepper header is set', () => {
+    const { getByText } = renderDialog({
+      stepperHeader: 'new Header',
     });
-    const footer = getByTestId('footer');
-    const button = footer.getElementsByTagName('button')[0];
-    fireEvent.click(button);
-    expect(onClick).toHaveBeenCalled();
+    const stepperHeader = getByText('new Header');
+    expect(
+      stepperHeader.classList.contains(oltStyles.StepperDialogStepperHeader),
+    ).toBe(true);
+  });
+  test('steps are set', () => {
+    const { queryAllByText } = renderDialog({
+      steps: multiStep,
+    });
+    const steps = queryAllByText('stepTitel');
+    expect(steps.length).toBe(multiStep.length);
+  });
+  test('active step is set', () => {
+    const activeStep = 1;
+    const { queryAllByText } = renderDialog({
+      activeStep,
+      steps: multiStep,
+    });
+    const steps = queryAllByText('stepTitel');
+    expect(
+      steps[activeStep - 1].classList.contains(
+        oltStyles.StepperDialogStepperStepDone,
+      ),
+    ).toBe(true);
+    expect(
+      steps[activeStep].classList.contains(
+        oltStyles.StepperDialogStepperStepCurrent,
+      ),
+    ).toBe(true);
+  });
+  test('sets proceedButton label', () => {
+    const { getByText } = renderDialog({
+      proceedButton: { label: 'new proceed label' },
+    });
+    const proceedButton = getByText('new proceed label');
+    expect(proceedButton.classList.contains(oltStyles.V2ButtonAction)).toBe(
+      true,
+    );
+  });
+  test('disables proceedButton', () => {
+    const { getByTestId } = renderDialog({
+      proceedButton: { disabled: true },
+    });
+    const proceedButton = getByTestId('proceedButton');
+    expect(proceedButton.disabled).toBe(true);
+  });
+  test('sets backButton label', () => {
+    const { getByText } = renderDialog({
+      steps: multiStep,
+      activeStep: 1,
+      backButton: { label: 'new back label' },
+    });
+    const backButton = getByText('new back label');
+    expect(backButton.classList.contains(oltStyles.V2ButtonTertiary)).toBe(
+      true,
+    );
+  });
+  test('disables backButton', () => {
+    const { queryByTestId } = renderDialog({
+      steps: multiStep,
+      activeStep: 1,
+      backButton: { disabled: true },
+    });
+    expect(queryByTestId('backButton')).toBeNull();
+  });
+  test('no backButton on first step', () => {
+    const { queryByTestId } = renderDialog({
+      steps: multiStep,
+      activeStep: 0,
+    });
+    expect(queryByTestId('backButton')).toBeNull();
+  });
+});
+
+describe('StepperDialog - Callbacks', () => {
+  test('triggers onProceed', () => {
+    const onProceed = jest.fn();
+    const { getByTestId } = renderDialog({
+      onProceed,
+    });
+    const proceedButton = getByTestId('proceedButton');
+    fireEvent.click(proceedButton);
+    expect(onProceed).toHaveBeenCalledTimes(1);
+    expect(onProceed).toHaveBeenCalledWith(1);
   });
 
+  test('triggers onBack', () => {
+    const onBack = jest.fn();
+    const { getByTestId } = renderDialog({
+      steps: multiStep,
+      activeStep: 1,
+      onBack,
+    });
+    const backButton = getByTestId('backButton');
+    fireEvent.click(backButton);
+    expect(onBack).toHaveBeenCalledTimes(1);
+    expect(onBack).toHaveBeenCalledWith(0);
+  });
+
+  test('triggers onFinish', () => {
+    const onFinish = jest.fn();
+    const { getByTestId } = renderDialog({
+      onFinish,
+    });
+    const proceedButton = getByTestId('proceedButton');
+    fireEvent.click(proceedButton);
+    expect(onFinish).toHaveBeenCalledTimes(1);
+    expect(onFinish).toHaveBeenCalledWith();
+  });
   test('triggers onClose', () => {
     const onClose = jest.fn();
     const { getByTestId } = renderDialog({
