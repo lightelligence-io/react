@@ -390,7 +390,7 @@ describe('StepperDialog - Callbacks', () => {
     expect(onFinish).toHaveBeenCalledTimes(1);
   });
 
-  test.only('onFinish does not reset the step counter for controlled steppers', () => {
+  test('onFinish does not reset the step counter for controlled steppers', () => {
     const onProceed = jest.fn();
     const onFinish = jest.fn();
     const { getByTestId, rerender } = render(
