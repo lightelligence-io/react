@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { bool, string, shape, node, func, arrayOf } from 'prop-types';
+import { bool, string, number, shape, node, func, arrayOf } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -12,10 +12,13 @@ import { V2Button } from '../V2Button';
 export const StepperDialog = ({
   stepperHeader,
   steps,
+  activeStep,
   onClose,
   onProceed,
   onFinish,
   onBack,
+  proceedButton,
+  backButton,
   open,
   className,
   dialogProps,
@@ -33,9 +36,10 @@ export const StepperDialog = ({
   ...props
 }) => {
   const dialogElement = useRef();
-  const contentElement = useRef();
+  const proceedButtonRef = useRef();
+  const backButtonRef = useRef();
 
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(activeStep);
 
   useEffect(() => {
     if (!isServerSideRendering) {
@@ -72,19 +76,24 @@ export const StepperDialog = ({
 
   const handleClose = () => {
     if (typeof onClose === 'function') onClose();
+    setCurrentStep(0);
   };
 
   const handleProceed = () => {
-    if (typeof onProceed === 'function') onProceed(currentStep);
+    if (typeof onProceed === 'function') onProceed(currentStep + 1);
     if (currentStep === steps.length - 1) {
       if (typeof onFinish === 'function') onFinish();
       return;
     }
     setCurrentStep(currentStep + 1);
+    // console.log(proceedButtonRef)
+    // console.log(proceedButtonRef.current.props.active)
   };
   const handleBack = () => {
-    if (typeof onBack === 'function') onBack(currentStep);
+    if (typeof onBack === 'function') onBack(currentStep - 1);
     setCurrentStep(currentStep - 1);
+    // console.log(backButtonRef)
+    // console.log(backButtonRef.current.props.active)
   };
 
   const { className: dialogClassName, ...otherDialogProps } = dialogProps;
@@ -140,7 +149,7 @@ export const StepperDialog = ({
         <div style={{ height: '42px', width: '42px' }}>
           <CircularProgressbar
             value={currentStep + 1 / steps.length}
-            maxValue={steps.length}
+            maxValue={steps.length - 1}
             text={`${currentStep + 1} / ${steps.length}`}
             styles={buildStyles({
               pathColor: '#02BF1B',
@@ -157,6 +166,7 @@ export const StepperDialog = ({
 
   const renderStepperStep = (step, index) => (
     <div
+      key={index}
       className={classnames(
         olt.StepperDialogStepperStep,
         index < currentStep && olt.StepperDialogStepperStepDone,
@@ -185,14 +195,25 @@ export const StepperDialog = ({
         className={classnames(olt.DialogFooter, footerClassName)}
         {...otherFooterProps}
       >
-        {currentStep > 0 && (
-          <V2Button buttonType="tertiary" onClick={handleBack}>
-            Back
+        {!backButton.disabled && currentStep > 0 && (
+          <V2Button
+            emphasis="tertiary"
+            onClick={handleBack}
+            {...backButton.props}
+            forwardef={backButtonRef}
+          >
+            {backButton.label || 'Back'}
           </V2Button>
         )}
         {currentStep <= steps.length - 1 && (
-          <V2Button buttonType="action" onClick={handleProceed}>
-            Proceed
+          <V2Button
+            buttonType="action"
+            onClick={handleProceed}
+            disabled={proceedButton.disabled}
+            {...proceedButton.props}
+            forwardef={proceedButtonRef}
+          >
+            {proceedButton.label || 'Proceed'}
           </V2Button>
         )}
       </div>
@@ -222,7 +243,6 @@ export const StepperDialog = ({
         <div
           className={classnames(olt.DialogContent, contentClassName)}
           {...otherContentProps}
-          ref={contentElement}
         >
           {current.content}
         </div>
@@ -259,9 +279,18 @@ StepperDialog.propTypes = {
    */
   stepperHeader: string,
   /**
+   * Set the active step.
+   */
+  activeStep: number,
+  /**
    * Steps of the stepper sidebar
    */
-  steps: arrayOf(node),
+  steps: arrayOf(
+    shape({
+      title: string,
+      content: shape({ title: string, description: string, content: node }),
+    }),
+  ),
   /**
    * Flag to show or hide the dialog
    */
@@ -284,6 +313,22 @@ StepperDialog.propTypes = {
    * @param The index of the step the user returns to.
    */
   onBack: func,
+  /**
+   * Disable the proceed button.
+   */
+  proceedButton: shape({
+    disabled: bool,
+    label: string,
+    props: shape({ className: string }),
+  }),
+  /**
+   * disable the back button (it will not be rendered).
+   */
+  backButton: shape({
+    disabled: bool,
+    label: string,
+    props: shape({ className: string }),
+  }),
   /**
    * Forward an additional className to the underlying component.
    */
@@ -340,11 +385,14 @@ StepperDialog.propTypes = {
 
 StepperDialog.defaultProps = {
   stepperHeader: null,
+  activeStep: 0,
   steps: [],
   onClose: () => {},
   onProceed: () => {},
   onFinish: () => {},
   onBack: () => {},
+  proceedButton: {},
+  backButton: {},
   className: null,
   dialogProps: {},
   windowProps: {},
