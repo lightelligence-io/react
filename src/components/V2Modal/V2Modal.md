@@ -109,7 +109,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('warning')}
       >
         Ok
@@ -131,7 +131,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('info')}
       >
         Ok
@@ -153,7 +153,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('success')}
       >
         Ok
@@ -175,7 +175,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('action')}
       >
         Ok
