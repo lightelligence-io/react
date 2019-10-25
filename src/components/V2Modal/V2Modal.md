@@ -139,7 +139,7 @@ const onSubmit = (type) => {
     ]}/>
   <V2Modal
     type={V2MODAL_TYPE_SUCCESS}
-    title="SUCCESS!!"
+    title="Success!!"
     content="Lorem ipsum dolor sit amet."
     open={state.modalOpen.success}
     actions={[
