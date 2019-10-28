@@ -5,6 +5,7 @@ Interface for [olt icons](https://lightelligence-io.github.io/styles/#icon).
   <Icon name="security-locked" size="small" />
   <Icon name="security-locked" />
   <Icon name="time-calendar" color="info" />
+  <Icon name="time-calendar" color="gray300" />
   <Icon name="user-add" size="large" color="primary" />
   <Icon name="zoom-in" size="large"  />
 </>
