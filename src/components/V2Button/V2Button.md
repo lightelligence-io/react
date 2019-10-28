@@ -450,7 +450,7 @@ The `buttonType` of this button. Valid values are:
 ```js
 import { V2Button, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <V2Button buttonType="default">Confirmative</V2Button>
+  <V2Button buttonType="default">Default</V2Button>
   <V2Button buttonType="confirmative">Confirmative</V2Button>
   <V2Button buttonType="destructive">Destructive</V2Button>
   <V2Button buttonType="action" emphasis="tertiary">Action</V2Button>
@@ -466,6 +466,24 @@ import { V2Button, FloatingList } from '@lightelligence/react';
 <FloatingList>
   <V2Button iconLeft="action-add-default">Label</V2Button>
   <V2Button iconRight="action-add-default">Label</V2Button>
+</FloatingList>
+```
+
+### Icon only
+
+With `icon` the button can be rendered as icon.
+
+```js
+import { V2Button, FloatingList } from '@lightelligence/react';
+<FloatingList>
+  <V2Button icon="action-add-default" />
+  <V2Button emphasis="primary" icon="action-add-default" />
+  <V2Button emphasis="secondary" icon="action-add-default"/>
+  <V2Button emphasis="tertiary" icon="action-add-default" />
+  <V2Button buttonType="default" icon="action-add-default" />
+  <V2Button buttonType="confirmative" icon="action-add-default" />
+  <V2Button buttonType="destructive" icon="action-add-default" />
+  <V2Button buttonType="action" emphasis="tertiary" icon="action-add-default" />
 </FloatingList>
 ```
 

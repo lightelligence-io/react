@@ -6,6 +6,7 @@ export * from './components/ActionButton';
 export * from './components/V2Button';
 export * from './components/Card';
 export * from './components/Chip';
+export * from './components/Dialog';
 export * from './components/Dropdown';
 export * from './components/Icon';
 export * from './components/Menu';
