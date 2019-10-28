@@ -117,7 +117,7 @@ export const DynamicList = ({
             listEntryClassName,
           )}
           // eslint-disable-next-line react/no-array-index-key
-          key={index}
+          key={`${internalValues[index]}-${index}`}
           {...otherListEntryProps}
         >
           {index === allElements.length - 1 ? (
