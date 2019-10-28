@@ -34,7 +34,8 @@ export const DynamicList = ({
       element.value = value;
       return element;
     });
-    while (elementsWithInitialValues.length <= (minItems || 0)) {
+    const numberOfItemsToCreate = minItems > 0 ? minItems - 1 : 0;
+    while (elementsWithInitialValues.length <= numberOfItemsToCreate) {
       elementsWithInitialValues.push(element);
     }
     setElements(elementsWithInitialValues);
