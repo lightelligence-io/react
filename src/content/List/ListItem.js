@@ -22,7 +22,7 @@ export class ListItem extends PureComponent {
     const base = `${OLT_NAMESPACE}List`;
 
     return (
-      <React.Fragment>
+      <>
         {term && (
           <li {...props} className={classnames(`${base}-term`, className)}>
             {term}
@@ -31,7 +31,7 @@ export class ListItem extends PureComponent {
         <li {...props} className={classnames(`${base}-item`, className)}>
           {children}
         </li>
-      </React.Fragment>
+      </>
     );
   }
 }

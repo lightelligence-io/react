@@ -41,7 +41,7 @@ class Select extends PureComponent {
     } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <select
           value={value}
           className={classnames(
@@ -56,7 +56,7 @@ class Select extends PureComponent {
         >
           {Select.renderOptions(options, value)}
         </select>
-      </React.Fragment>
+      </>
     );
   }
 }

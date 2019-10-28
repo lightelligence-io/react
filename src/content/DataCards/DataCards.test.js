@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
   render,
   fireEvent,
   queryAllByText,
   getByText as globalGetByText,
-} from 'react-testing-library';
+} from '@testing-library/react';
 import { Button } from '../../components/Button/Button';
 
 import { DataCards, DataCardsItem } from './index';
@@ -83,9 +83,10 @@ describe('DataCards', () => {
   test('can render fragments', async () => {
     // eslint-disable-next-line react/prop-types
     const fragmentRenderItem = ({ row }) => (
-      <Fragment>
+      <>
+        {/* eslint-disable-next-line react/prop-types */}
         <div>Name: {row.name}</div>
-      </Fragment>
+      </>
     );
     const { getByText, findByText } = renderDataCards({
       children: getChildren({ renderItem: fragmentRenderItem }),

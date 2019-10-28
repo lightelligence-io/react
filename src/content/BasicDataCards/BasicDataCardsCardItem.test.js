@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { render } from 'react-testing-library';
+import React from 'react';
+import { render } from '@testing-library/react';
 
 import { BasicDataCardsContent, BasicDataCardsCardItem } from './index';
 import { oltStyles } from '../..';
@@ -69,10 +69,10 @@ describe('BasicDataCardsItem', () => {
   test('renders fragments with content children', async () => {
     const { container } = renderCardItem({
       children: (
-        <Fragment>
+        <>
           <BasicDataCardsContent>A</BasicDataCardsContent>
           <BasicDataCardsContent>B</BasicDataCardsContent>
-        </Fragment>
+        </>
       ),
     });
 
