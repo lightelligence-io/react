@@ -107,7 +107,9 @@ describe('ActionButton', () => {
     expect(button.classList.contains(oltStyles.ActionButtonBase)).toBe(true);
   });
   test('correctly sets disabled', () => {
+    const onClick = jest.fn();
     const { getByTestId } = renderButton({
+      onClick,
       disabled: true,
     });
     const button = getByTestId('Button');
@@ -115,5 +117,7 @@ describe('ActionButton', () => {
       true,
     );
     expect(button.disabled).toBe(true);
+    fireEvent.click(button);
+    expect(onClick).not.toHaveBeenCalled();
   });
 });

@@ -147,7 +147,7 @@ import { ActionButton, FloatingList } from '@lightelligence/react';
 
 ### Disabled
 
-The button can be disabled using the `--disabled` modifier. This overrides any colors being set through other modifiers.
+The button can be disabled using the `disabled` prop. This overrides any colors being set through other modifiers.
 
 ```js
 import { ActionButton, FloatingList } from '@lightelligence/react';
