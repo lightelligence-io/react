@@ -213,7 +213,7 @@ DynamicList.propTypes = {
    */
   deleteButtonProps: shape({ className: string }),
   /**
-   * Callback on user input. it is alos called when adding / deleting input elements
+   * Callback on user input. it is also called when adding / deleting input elements
    * @param array of input values
    */
   onChange: func,
