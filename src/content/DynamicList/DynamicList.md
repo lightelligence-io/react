@@ -1,7 +1,7 @@
 
 The **DynamicList** is used allow a number of similar entries. Use `onChange`callback to keep track of the user input. `onSubmit` is called when the user clicks the submit button.
 
-The default element use is `V2Input`. You need to specify a label for the element using the `inputProps` attribute. The label will be used for each input element shown to the user.
+The default element is `V2Input`. You need to specify a label for the element using the `inputProps` attribute. The label will be used for each input element shown to the user.
 
 ```js
 import {
@@ -39,8 +39,8 @@ const toggleDialog = () => {
   setState({ dialogOpen: !state.dialogOpen });
 };
 
-const onSubmit = () => {
-  alert(`You entered ${state.values.length} values: ${JSON.stringify(state.values)}`)
+const onSubmit = (values) => {
+  alert(`You entered ${values.length} values: ${JSON.stringify(values)}`)
   toggleDialog();
 }
 

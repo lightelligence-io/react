@@ -28,22 +28,26 @@ export const DynamicList = ({
   const [elements, setElements] = useState([]);
   const [internalValues, setInternalValues] = useState([]);
 
-  // create the child elements with initial values (if passed)
-  const createInputFields = useCallback(() => {
-    const elementsWithInitialValues = (values || []).map((value, index) => {
-      element.value = value;
-      return element;
-    });
-    while (elementsWithInitialValues.length <= (minItems || 0)) {
-      elementsWithInitialValues.push(element);
-    }
-    setElements(elementsWithInitialValues);
-  }, [values, element, minItems]);
+  const resetFields = useCallback(() => {
+    const numberOfItemsToCreate = Math.max(minItems || 1, values.length || 1);
+    const elementsForInitialValues = Array.from(
+      { length: numberOfItemsToCreate },
+      () => element,
+    );
+    setElements(elementsForInitialValues);
+    setInternalValues(values);
+  }, [element, values, minItems]);
 
+  // create the child elements
   useEffect(() => {
-    createInputFields();
-  }, [createInputFields, element, values]);
-  useEffect(() => setInternalValues(values), [values]);
+    resetFields();
+  }, [resetFields, element, values, minItems]);
+
+  const callOnChange = (el, param) => {
+    if (el && typeof el.onChange === 'function') {
+      el.onChange(null);
+    }
+  };
 
   // on change : remember the new value, call onChange prop and call elements on change
   const handleTextInput = (index) => (e) => {
@@ -52,16 +56,13 @@ export const DynamicList = ({
     newValues[index] = value;
     setInternalValues(newValues);
     if (typeof onChange === 'function') onChange(newValues);
-    if (elements[index] && typeof elements[index].onChange === 'function') {
-      elements[index].onChange(value);
-    }
+    callOnChange(elements[index], value);
   };
 
   // on submit : call the callback and reset the input fields
   const handleSubmit = () => {
     if (typeof onSubmit === 'function') onSubmit(internalValues);
-    setInternalValues(values);
-    createInputFields();
+    resetFields();
   };
 
   const addElement = () => {
@@ -70,9 +71,7 @@ export const DynamicList = ({
     setInternalValues(newValues); // TODO: any initial value to provide?
     if (typeof onChange === 'function') onChange(newValues);
     const index = newValues.length - 1;
-    if (elements[index] && typeof elements[index].onChange === 'function') {
-      elements[index].onChange('');
-    }
+    callOnChange(elements[index], '');
   };
 
   const removeElement = (index) => {
@@ -83,9 +82,7 @@ export const DynamicList = ({
     newValues.splice(index, 1);
     setInternalValues(newValues);
     onChange(newValues);
-    if (elements[index] && typeof elements[index].onChange === 'function') {
-      elements[index].onChange(null);
-    }
+    callOnChange(elements[index], null);
   };
 
   const {
@@ -120,7 +117,7 @@ export const DynamicList = ({
             listEntryClassName,
           )}
           // eslint-disable-next-line react/no-array-index-key
-          key={index}
+          key={`${internalValues[index]}-${index}`}
           {...otherListEntryProps}
         >
           {index === allElements.length - 1 ? (
@@ -213,7 +210,7 @@ DynamicList.propTypes = {
    */
   deleteButtonProps: shape({ className: string }),
   /**
-   * Callback on user input. it is alos called when adding / deleting input elements
+   * Callback on user input. it is also called when adding / deleting input elements
    * @param array of input values
    */
   onChange: func,
