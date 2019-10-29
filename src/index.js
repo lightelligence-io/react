@@ -20,6 +20,7 @@ export * from './components/V2Tabs';
 export * from './components/Tag';
 export * from './components/Tooltip';
 export * from './components/Pagination';
+export * from './components/Filter';
 
 // content
 export * from './content/BasicDataCards';
