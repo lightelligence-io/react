@@ -132,7 +132,6 @@ export const Dialog = ({
   );
 };
 
-Dialog.propTypes = {
   /**
    * Title of the dialog
    */

@@ -116,6 +116,17 @@ describe('V2Button', () => {
     expect(button.classList.contains(oltStyles.V2ButtonLight)).toBe(true);
   });
 
+  test('correctly sets icon', () => {
+    const icon = 'action-add-default';
+    const { getByText } = renderButton({
+      children: 'Button',
+      icon,
+    });
+    const button = getByText('Button');
+    expect(button.classList.contains(oltStyles.V2ButtonIcon)).toBe(true);
+    expect(button.classList.contains(`olt-Icon-${icon}`)).toBe(true);
+  });
+
   test('correctly sets iconLeft', () => {
     const iconLeft = 'action-add-default';
     const { getByText } = renderButton({
