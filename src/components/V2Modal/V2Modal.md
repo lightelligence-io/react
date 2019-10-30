@@ -111,7 +111,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('warning')}
       >
         Ok
@@ -133,7 +133,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('info')}
       >
         Ok
@@ -141,7 +141,7 @@ const onSubmit = (type) => {
     ]}/>
   <V2Modal
     type={V2MODAL_TYPE_SUCCESS}
-    title="SUCCESS!!"
+    title="Success!!"
     content="Lorem ipsum dolor sit amet."
     open={state.modalOpen.success}
     actions={[
@@ -155,7 +155,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('success')}
       >
         Ok
@@ -177,7 +177,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('action')}
       >
         Ok
