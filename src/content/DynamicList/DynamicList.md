@@ -1,5 +1,5 @@
 
-The **DynamicList** is used allow a number of similar entries. Use `onChange` callback to keep track of the user input. `onSubmit` is called when the user clicks the submit button.
+The **DynamicList** allows a number of similar entries. Use `onChange` callback to keep track of the user input. `onSubmit` is called when the user clicks the submit button.
 
 The default element is `V2Input`. You need to specify a label for the element using the `inputProps` attribute. The label will be used for each input element shown to the user.
 

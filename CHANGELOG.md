@@ -33,3 +33,4 @@
 - Feature: Dialog
 - Feature: Disabled Action Button
 - Feature: Dynamic List
+- Feature: Stepper Dialog

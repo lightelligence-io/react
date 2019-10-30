@@ -32,6 +32,7 @@
     "clipboard-copy": "^3.1.0",
     "humps": "^2.0.1",
     "prop-types": "^15.6.2",
+    "react-circular-progressbar": "^2.0.2",
     "react-uid": "^2.2.0",
     "svg-url-loader": "^3.0.2"
   },

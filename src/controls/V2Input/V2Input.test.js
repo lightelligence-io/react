@@ -19,7 +19,7 @@ const renderComponent = (props) => {
 };
 
 describe('V2Select', () => {
-  test.only('triggers onChange when not disabled', async () => {
+  test('triggers onChange when not disabled', async () => {
     const onChange = jest.fn();
     const { enterValue } = renderComponent({
       onChange,
@@ -29,7 +29,7 @@ describe('V2Select', () => {
     expect(onChange).toHaveBeenCalled();
   });
 
-  test.only("doesn't trigger onChange when disabled", () => {
+  test("doesn't trigger onChange when disabled", () => {
     const onChange = jest.fn();
     const { enterValue } = renderComponent({
       onChange,

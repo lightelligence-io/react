@@ -110,6 +110,7 @@ describe('Dialog', () => {
     fireEvent.click(close);
     expect(onClose).toHaveBeenCalled();
   });
+
   test('ESC triggers onClose', () => {
     const onClose = jest.fn();
     const { getByTestId } = renderDialog({
