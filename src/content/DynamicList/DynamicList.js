@@ -186,7 +186,7 @@ export const DynamicList = ({
           )
         }
       >
-        {submitLabel || 'Ok'}
+        {submitLabel}
       </V2Button>
     </div>
   );
@@ -260,7 +260,7 @@ DynamicList.defaultProps = {
   submitButtonProps: {},
   onChange: () => {},
   onSubmit: () => {},
-  submitLabel: undefined,
+  submitLabel: 'Ok',
   values: [],
   className: undefined,
 };
