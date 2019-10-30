@@ -45,7 +45,7 @@ export const DynamicList = ({
 
   const callOnChange = (el, param) => {
     if (el && typeof el.onChange === 'function') {
-      el.onChange(null);
+      el.onChange(param);
     }
   };
 
@@ -68,7 +68,7 @@ export const DynamicList = ({
   const addElement = () => {
     setElements([...elements, element]);
     const newValues = [...internalValues, ''];
-    setInternalValues(newValues); // TODO: any initial value to provide?
+    setInternalValues(newValues);
     if (typeof onChange === 'function') onChange(newValues);
     const index = newValues.length - 1;
     callOnChange(elements[index], '');
@@ -117,7 +117,7 @@ export const DynamicList = ({
             listEntryClassName,
           )}
           // eslint-disable-next-line react/no-array-index-key
-          key={`${internalValues[index]}-${index}`}
+          key={`${values[index]}-${index}`}
           {...otherListEntryProps}
         >
           {index === allElements.length - 1 ? (
