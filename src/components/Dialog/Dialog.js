@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { bool, node, string, arrayOf, shape, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 import { isServerSideRendering } from '../../utils/isServerSideRendering';
-import { V2Button } from '../V2Button';
+import { ActionButton } from '../ActionButton';
 
 export const Dialog = ({
   title,
@@ -22,11 +22,45 @@ export const Dialog = ({
   footerProps,
   ...props
 }) => {
+  const dialogElement = useRef();
+  const contentElement = useRef();
+
   useEffect(() => {
     if (!isServerSideRendering) {
       document.documentElement.style.overflow = open ? 'hidden' : '';
     }
   }, [open]);
+
+  const handleClickOutside = (event) => {
+    if (
+      open &&
+      dialogElement.current &&
+      !dialogElement.current.contains(event.target)
+    ) {
+      handleClose();
+      event.preventDefault();
+    }
+  };
+
+  const handleEscKey = (event) => {
+    if (event.key === 'Escape' && open) {
+      handleClose();
+      event.preventDefault();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+    document.addEventListener('keydown', handleEscKey, false);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+      document.removeEventListener('keydown', handleEscKey, false);
+    };
+  });
+
+  const handleClose = () => {
+    if (typeof onClose === 'function') onClose();
+  };
 
   const { className: dialogClassName, ...otherDialogProps } = dialogProps;
   const { className: windowClassName, ...otherWindowProps } = windowProps;
@@ -53,9 +87,10 @@ export const Dialog = ({
         className={classnames(olt.DialogWindow, windowClassName)}
         {...props}
         {...otherWindowProps}
+        ref={dialogElement}
       >
-        <V2Button
-          onClick={() => typeof onClose === 'function' && onClose()}
+        <ActionButton
+          onClick={handleClose}
           className={classnames(olt.DialogClose, closeClassName)}
           {...otherCloseProps}
         />
@@ -78,11 +113,16 @@ export const Dialog = ({
         <div
           className={classnames(olt.DialogContent, contentClassName)}
           {...otherContentProps}
+          ref={contentElement}
         >
           {content}
         </div>
         <div
-          className={classnames(olt.DialogFooter, footerClassName)}
+          className={classnames(
+            olt.DialogFooter,
+            footerClassName,
+            actions.length <= 0 && olt.uPaddingTop0,
+          )}
           {...otherFooterProps}
         >
           {actions.map((action) => action)}
@@ -92,20 +132,61 @@ export const Dialog = ({
   );
 };
 
-Dialog.propTypes = {
+  /**
+   * Title of the dialog
+   */
   title: string,
+  /**
+   * Description paragraph of the dialog
+   */
   description: string,
+  /**
+   * Content to be rendered
+   */
   content: node,
+  /**
+   * Flag to show or hide the dialog
+   */
   open: bool.isRequired,
+  /**
+   * Callback, when the dialog is closed ('Esc' key, outside click, close icon)
+   */
   onClose: func,
+  /**
+   * Array of buttons to show in the footer of the dialog
+   */
   actions: arrayOf(node),
+  /**
+   * Forward an additional className to the underlying component.
+   */
   className: string,
+  /**
+   * Props for the overall dialog (including the dark background)
+   */
   dialogProps: shape({ className: string }),
+  /**
+   * Props for the dialog window
+   */
   windowProps: shape({ className: string }),
+  /**
+   * Props for the close button
+   */
   closeProps: shape({ className: string }),
+  /**
+   * Props for the title string
+   */
   titleProps: shape({ className: string }),
+  /**
+   * Props for the description paragraph
+   */
   descriptionProps: shape({ className: string }),
+  /**
+   * Props for the content container
+   */
   contentProps: shape({ className: string }),
+  /**
+   * Props for the footer (containing the buttons)
+   */
   footerProps: shape({ className: string }),
 };
 

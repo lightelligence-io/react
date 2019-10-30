@@ -110,4 +110,25 @@ describe('Dialog', () => {
     fireEvent.click(close);
     expect(onClose).toHaveBeenCalled();
   });
+  test('ESC triggers onClose', () => {
+    const onClose = jest.fn();
+    const { getByTestId } = renderDialog({
+      onClose,
+      open: true,
+    });
+    const dialog = getByTestId('dialog');
+    fireEvent.keyDown(dialog, { key: 'Escape', code: 27 });
+    expect(onClose).toHaveBeenCalled();
+  });
+
+  test('outside click triggers onClose', () => {
+    const onClose = jest.fn();
+    const { getByTestId } = renderDialog({
+      onClose,
+      open: true,
+    });
+    const dialog = getByTestId('dialog');
+    fireEvent.click(dialog);
+    expect(onClose).toHaveBeenCalled();
+  });
 });

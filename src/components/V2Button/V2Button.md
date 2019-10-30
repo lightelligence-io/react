@@ -471,7 +471,7 @@ import { V2Button, FloatingList } from '@lightelligence/react';
 
 ### Icon only
 
-With `icon` the button can be rendered as icon.
+With `icon` the button can be rendered as an icon.
 
 ```js
 import { V2Button, FloatingList } from '@lightelligence/react';

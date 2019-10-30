@@ -145,12 +145,38 @@ import { ActionButton } from '@lightelligence/react';
 </>
 ```
 
+### Disabled
+
+The button can be disabled using the `disabled` prop. This overrides any colors being set through other modifiers.
+
+```js
+import { ActionButton, FloatingList } from '@lightelligence/react';
+
+<>
+<p>
+  Disabled:
+  <ActionButton iconLeft="action-add-default" label="Disabled" disabled />
+</p>
+<p>
+  Standalone Disabled:
+  <ActionButton iconLeft="action-add-default" label="Standalone disabled" standalone disabled />
+</p>
+<p>
+  Base Disabled:
+  <ActionButton iconLeft="action-add-default" label="Base disabled" base disabled />
+</p>
+<p>
+  Standalone Base Disabled:
+  <ActionButton iconLeft="action-add-default" label="Standalone Base Disabled" standalone base disabled />
+</p>
+</>
+```
+
 ### Proximity
 
 The button can be used within an element using the proximity class to highlight contained Action Elements.
 
 ```js
-
 import { ActionButton } from '@lightelligence/react';
 import * as olt from '@lightelligence/styles';
 
@@ -159,5 +185,4 @@ import * as olt from '@lightelligence/styles';
   <ActionButton iconLeft="action-add-default" buttonType="primary" label="With Proximity" />
 </div>
 </>
-
 ```
