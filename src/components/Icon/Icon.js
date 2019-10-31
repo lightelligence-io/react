@@ -10,7 +10,7 @@ const Icon = ({ name, size, color, children, className, ...props }) => (
     className={classnames(
       olt.Icon,
       color &&
-        (olt[`Icon${pascalize(color)}`] || olt[`uColor${pascalize(color)}`]),
+        (olt[`uColor${pascalize(color)}`] || olt[`Icon${pascalize(color)}`]),
       className,
       name && olt[`Icon${pascalize(name)}`],
     )}

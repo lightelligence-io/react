@@ -126,7 +126,7 @@ describe('V2Modal', () => {
   });
   test('renders custom icons ', () => {
     const { getByTestId } = renderModal({
-      icon: <Icon name="action-add-default" color="primary" />,
+      icon: <Icon name="add-default" color="primary" />,
     });
     const header = getByTestId('header');
     const icon = header.getElementsByTagName('i')[0];

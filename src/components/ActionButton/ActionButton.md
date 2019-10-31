@@ -16,45 +16,45 @@ const fields = [
 const rows = [
   {
     id: 'Default',
-    default:       <ActionButton buttonType="default" iconLeft="action-edit" />,
-    primary:       <ActionButton buttonType="primary"  iconLeft="action-add-circle" />,
-    destructive:   <ActionButton buttonType="destructive"  iconLeft="action-remove-circle" />,
-    confirmative:  <ActionButton buttonType="confirmative"  iconLeft="action-refresh" />,
+    default:       <ActionButton buttonType="default" iconLeft="edit" />,
+    primary:       <ActionButton buttonType="primary"  iconLeft="add-outline" />,
+    destructive:   <ActionButton buttonType="destructive"  iconLeft="remove-outline" />,
+    confirmative:  <ActionButton buttonType="confirmative"  iconLeft="refresh" />,
   },
   {
     id: 'Icon Left',
-    default:       <ActionButton iconLeft="action-edit" buttonType="default" label="Label" />,
-    primary:       <ActionButton iconLeft="action-add-circle" buttonType="primary" label="Label" />,
-    destructive:   <ActionButton iconLeft="action-remove-circle" buttonType="destructive" label="Label" />,
-    confirmative:  <ActionButton iconLeft="action-refresh" buttonType="confirmative" label="Label" />,
+    default:       <ActionButton iconLeft="edit" buttonType="default" label="Label" />,
+    primary:       <ActionButton iconLeft="add-outline" buttonType="primary" label="Label" />,
+    destructive:   <ActionButton iconLeft="remove-outline" buttonType="destructive" label="Label" />,
+    confirmative:  <ActionButton iconLeft="refresh" buttonType="confirmative" label="Label" />,
   },
   {
     id: 'Fixed Label',
-    default:       <ActionButton iconLeft="action-edit" buttonType="default" fixed label="Label" />,
-    primary:       <ActionButton iconLeft="action-add-circle" buttonType="primary" fixed label="Label" />,
-    destructive:   <ActionButton iconLeft="action-remove-circle" buttonType="destructive" fixed label="Label" />,
-    confirmative:  <ActionButton iconLeft="action-refresh" buttonType="confirmative" fixed label="Label" />,
+    default:       <ActionButton iconLeft="edit" buttonType="default" fixed label="Label" />,
+    primary:       <ActionButton iconLeft="add-outline" buttonType="primary" fixed label="Label" />,
+    destructive:   <ActionButton iconLeft="remove-outline" buttonType="destructive" fixed label="Label" />,
+    confirmative:  <ActionButton iconLeft="refresh" buttonType="confirmative" fixed label="Label" />,
   },
   {
     id: 'Standalone',
-    default:       <ActionButton iconLeft="action-edit" buttonType="default" standalone label="Label" />,
-    primary:       <ActionButton iconLeft="action-add-circle" buttonType="primary" standalone label="Label" />,
-    destructive:   <ActionButton iconLeft="action-remove-circle" buttonType="destructive" standalone label="Label" />,
-    confirmative:  <ActionButton iconLeft="action-refresh" buttonType="confirmative" standalone label="Label" />,
+    default:       <ActionButton iconLeft="edit" buttonType="default" standalone label="Label" />,
+    primary:       <ActionButton iconLeft="add-outline" buttonType="primary" standalone label="Label" />,
+    destructive:   <ActionButton iconLeft="remove-outline" buttonType="destructive" standalone label="Label" />,
+    confirmative:  <ActionButton iconLeft="refresh" buttonType="confirmative" standalone label="Label" />,
   },
   {
     id: 'Standalone with Base',
-    default:       <ActionButton iconLeft="action-edit" buttonType="default" standalone base label="Label" />,
-    primary:       <ActionButton iconLeft="action-add-circle" buttonType="primary" standalone base label="Label" />,
-    destructive:   <ActionButton iconLeft="action-remove-circle" buttonType="destructive" standalone base label="Label" />,
-    confirmative:  <ActionButton iconLeft="action-refresh" buttonType="confirmative" standalone base label="Label" />,
+    default:       <ActionButton iconLeft="edit" buttonType="default" standalone base label="Label" />,
+    primary:       <ActionButton iconLeft="add-outline" buttonType="primary" standalone base label="Label" />,
+    destructive:   <ActionButton iconLeft="remove-outline" buttonType="destructive" standalone base label="Label" />,
+    confirmative:  <ActionButton iconLeft="refresh" buttonType="confirmative" standalone base label="Label" />,
   },
   {
     id: 'Icon Right',
-    default:       <ActionButton iconRight="action-edit" buttonType="default" label="Label" />,
-    primary:       <ActionButton iconRight="action-add-circle" buttonType="primary" label="Label" />,
-    destructive:   <ActionButton iconRight="action-remove-circle" buttonType="destructive" label="Label" />,
-    confirmative:  <ActionButton iconRight="action-refresh" buttonType="confirmative" label="Label" />,
+    default:       <ActionButton iconRight="edit" buttonType="default" label="Label" />,
+    primary:       <ActionButton iconRight="add-outline" buttonType="primary" label="Label" />,
+    destructive:   <ActionButton iconRight="remove-outline" buttonType="destructive" label="Label" />,
+    confirmative:  <ActionButton iconRight="refresh" buttonType="confirmative" label="Label" />,
   },
 ];
 
@@ -89,10 +89,10 @@ Use buttonType to set the type (and color) of the button.
 ```js
 import { ActionButton, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <ActionButton buttonType="default" iconLeft="action-edit" label="Default" />
-  <ActionButton buttonType="primary" iconLeft="action-edit" label="Primary" />
-  <ActionButton buttonType="confirmative" iconLeft="action-edit" label="Confirmative" />
-  <ActionButton buttonType="destructive" iconLeft="action-edit" label="Destructive" />
+  <ActionButton buttonType="default" iconLeft="edit" label="Default" />
+  <ActionButton buttonType="primary" iconLeft="edit" label="Primary" />
+  <ActionButton buttonType="confirmative" iconLeft="edit" label="Confirmative" />
+  <ActionButton buttonType="destructive" iconLeft="edit" label="Destructive" />
 </FloatingList>
 ```
 
@@ -107,10 +107,10 @@ import * as olt from '@lightelligence/styles';
 
 <>
 <FloatingList>
-  <ActionButton iconLeft="action-add-default" label="Label" />
+  <ActionButton iconLeft="add-default" label="Label" />
 </FloatingList>
 <FloatingList className={olt.uTextAlignRight}>
-  <ActionButton iconRight="action-add-default" label="Label" />
+  <ActionButton iconRight="add-default" label="Label" />
 </FloatingList>
 </>
 ```
@@ -128,19 +128,19 @@ import { ActionButton } from '@lightelligence/react';
 <>
 <p>
   Fixed:
-  <ActionButton iconLeft="action-add-default" label="Fixed Label" fixed />
+  <ActionButton iconLeft="add-default" label="Fixed Label" fixed />
 </p>
 <p>
   Standalone:
-  <ActionButton iconLeft="action-add-default" label="Standalone" standalone />
+  <ActionButton iconLeft="add-default" label="Standalone" standalone />
 </p>
 <p>
   Base:
-  <ActionButton iconRight="action-add-default" label="Base" base />
+  <ActionButton iconRight="add-default" label="Base" base />
 </p>
 <p>
   Standalone Base:
-  <ActionButton iconRight="action-add-default" label="Standalone Base" standalone base />
+  <ActionButton iconRight="add-default" label="Standalone Base" standalone base />
 </p>
 </>
 ```
@@ -155,19 +155,19 @@ import { ActionButton, FloatingList } from '@lightelligence/react';
 <>
 <p>
   Disabled:
-  <ActionButton iconLeft="action-add-default" label="Disabled" disabled />
+  <ActionButton iconLeft="add-default" label="Disabled" disabled />
 </p>
 <p>
   Standalone Disabled:
-  <ActionButton iconLeft="action-add-default" label="Standalone disabled" standalone disabled />
+  <ActionButton iconLeft="add-default" label="Standalone disabled" standalone disabled />
 </p>
 <p>
   Base Disabled:
-  <ActionButton iconLeft="action-add-default" label="Base disabled" base disabled />
+  <ActionButton iconLeft="add-default" label="Base disabled" base disabled />
 </p>
 <p>
   Standalone Base Disabled:
-  <ActionButton iconLeft="action-add-default" label="Standalone Base Disabled" standalone base disabled />
+  <ActionButton iconLeft="add-default" label="Standalone Base Disabled" standalone base disabled />
 </p>
 </>
 ```
@@ -182,7 +182,7 @@ import * as olt from '@lightelligence/styles';
 
 <>
 <div className={olt.ActionButtonProximityArea} style={{padding: '50px', border: '1px dotted lightgray'}}>
-  <ActionButton iconLeft="action-add-default" buttonType="primary" label="With Proximity" />
+  <ActionButton iconLeft="add-default" buttonType="primary" label="With Proximity" />
 </div>
 </>
 ```

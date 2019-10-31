@@ -2,9 +2,9 @@ Interface for [olt icons](https://lightelligence-io.github.io/styles/#icon).
 
 ```jsx
 <>
-  <Icon name="security-locked" size="small" />
-  <Icon name="security-locked" />
-  <Icon name="time-calendar" color="info" />
+  <Icon name="locked" size="small" />
+  <Icon name="locked" />
+  <Icon name="calendar" color="info" />
   <Icon name="user-add" size="large" color="primary" />
   <Icon name="zoom-in" size="large"  />
 </>
@@ -19,13 +19,13 @@ For decorative and non-interactive icons (e.g. input fields) the default is gray
 
 ```jsx
 <>
-  <Icon name="feedback-check-filled" color="primary" />
-  <Icon name="action-add-default" color="primary" />
-  <Icon name="feedback-check-filled" color="secondary" />
-  <Icon name="feedback-check-filled" />
-  <Icon name="feedback-info-filled" color="info" />
-  <Icon name="feedback-warning-critical-filled" color="error" />
-  <Icon name="feedback-check-filled" color="success" />
+  <Icon name="check-filled" color="primary" />
+  <Icon name="add-default" color="primary" />
+  <Icon name="check-filled" color="secondary" />
+  <Icon name="check-filled" />
+  <Icon name="info-filled" color="info" />
+  <Icon name="warning-critical-filled" color="error" />
+  <Icon name="check-filled" color="success" />
 </>
 ```
 ### Feedback
@@ -37,19 +37,19 @@ To assign a color to the icon, use the `olt-Icon--*` classes as listed below.
 If the icon is placed on a matching background color it has to be white.
 
 ```jsx
-<Icon name="feedback-help-circle" color="info" />
-<Icon name="feedback-info-circle" color="info" />
-<Icon name="feedback-warning-low-circle" color="warning" />
-<Icon name="feedback-warning-medium-circle" color="warning" />
-<Icon name="feedback-warning-critical-circle" color="error" />
-<Icon name="feedback-check-circle" color="success" />
+<Icon name="help-outline" color="info" />
+<Icon name="info-outline" color="info" />
+<Icon name="warning-low-outline" color="warning" />
+<Icon name="warning-medium-outline" color="warning" />
+<Icon name="warning-critical-outline" color="error" />
+<Icon name="check-outline" color="success" />
 <br/><br/>
-<Icon name="feedback-help-filled" color="info" />
-<Icon name="feedback-info-filled" color="info" />
-<Icon name="feedback-warning-low-filled" color="warning" />
-<Icon name="feedback-warning-medium-filled" color="warning" />
-<Icon name="feedback-warning-critical-filled" color="error" />
-<Icon name="feedback-check-filled" color="success" />
+<Icon name="help-filled" color="info" />
+<Icon name="info-filled" color="info" />
+<Icon name="warning-low-filled" color="warning" />
+<Icon name="warning-medium-filled" color="warning" />
+<Icon name="warning-critical-filled" color="error" />
+<Icon name="check-filled" color="success" />
 ```
 
 Sizes
@@ -65,9 +65,9 @@ Depending on the use case the correct icon has to be used.
 
 ```jsx
 <>
-  <Icon name="feedback-check-default" size="small" />
-  <Icon name="feedback-check-default" size="medium" />
-  <Icon name="feedback-check-default" size="large" />
+  <Icon name="check-default" size="small" />
+  <Icon name="check-default" size="medium" />
+  <Icon name="check-default" size="large" />
 </>
 ```
 
