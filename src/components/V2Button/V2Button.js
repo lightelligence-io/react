@@ -15,7 +15,6 @@ const V2Button = React.forwardRef(
       children,
       disabled,
       tag,
-      icon,
       iconLeft,
       iconRight,
       onClick,
@@ -24,7 +23,6 @@ const V2Button = React.forwardRef(
     ref,
   ) => {
     const Element = tag || 'button';
-    const isIconDefault = icon && !emphasis && !buttonType;
     return (
       <Element
         disabled={disabled}
@@ -36,9 +34,6 @@ const V2Button = React.forwardRef(
           emphasis && olt[`V2Button${pascalize(emphasis)}`],
           buttonType && olt[`V2Button${pascalize(buttonType)}`],
           theme && olt[`V2Button${pascalize(theme)}`],
-          isIconDefault && olt.V2ButtonIconDefault,
-          icon && olt.V2ButtonIcon,
-          icon && olt[`Icon${pascalize(icon)}`],
           iconLeft && olt[`Icon${pascalize(iconLeft)}`],
           iconLeft && olt.V2ButtonIconLeft,
           iconRight && olt[`Icon${pascalize(iconRight)}`],
