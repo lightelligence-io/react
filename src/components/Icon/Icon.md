@@ -1,5 +1,107 @@
 Interface for [olt icons](https://lightelligence-io.github.io/styles/#icon).
 
+```js noeditor
+  <Icon style={{padding: '5px'}} name="account" title="account" />
+  <Icon style={{padding: '5px'}} name="add-default" title="add-default" />
+  <Icon style={{padding: '5px'}} name="add-outline" title="add-outline" />
+  <Icon style={{padding: '5px'}} name="app" title="app" />
+  <Icon style={{padding: '5px'}} name="arrow-down" title="arrow-down" />
+  <Icon style={{padding: '5px'}} name="arrow-falling" title="arrow-falling" />
+  <Icon style={{padding: '5px'}} name="arrow-left" title="arrow-left" />
+  <Icon style={{padding: '5px'}} name="arrow-raising" title="arrow-raising" />
+  <Icon style={{padding: '5px'}} name="arrow-right" title="arrow-right" />
+  <Icon style={{padding: '5px'}} name="arrow-up" title="arrow-up" />
+  <Icon style={{padding: '5px'}} name="attachment" title="attachment" />
+  <Icon style={{padding: '5px'}} name="brightness" title="brightness" />
+  <Icon style={{padding: '5px'}} name="bullet-big" title="bullet-big" />
+  <Icon style={{padding: '5px'}} name="bullet-small" title="bullet-small" />
+  <Icon style={{padding: '5px'}} name="calendar" title="calendar" />
+  <Icon style={{padding: '5px'}} name="cart" title="cart" />
+  <Icon style={{padding: '5px'}} name="check-default" title="check-default" />
+  <Icon style={{padding: '5px'}} name="check-filled" title="check-filled" />
+  <Icon style={{padding: '5px'}} name="check-outline" title="check-outline" />
+  <Icon style={{padding: '5px'}} name="chevron-down" title="chevron-down" />
+  <Icon style={{padding: '5px'}} name="chevron-left" title="chevron-left" />
+  <Icon style={{padding: '5px'}} name="chevron-right" title="chevron-right" />
+  <Icon style={{padding: '5px'}} name="chevron-up" title="chevron-up" />
+  <Icon style={{padding: '5px'}} name="clock" title="clock" />
+  <Icon style={{padding: '5px'}} name="cloud" title="cloud" />
+  <Icon style={{padding: '5px'}} name="code" title="code" />
+  <Icon style={{padding: '5px'}} name="copy" title="copy" />
+  <Icon style={{padding: '5px'}} name="dashboard" title="dashboard" />
+  <Icon style={{padding: '5px'}} name="delete" title="delete" />
+  <Icon style={{padding: '5px'}} name="device" title="device" />
+  <Icon style={{padding: '5px'}} name="document" title="document" />
+  <Icon style={{padding: '5px'}} name="download" title="download" />
+  <Icon style={{padding: '5px'}} name="duplicate" title="duplicate" />
+  <Icon style={{padding: '5px'}} name="edit" title="edit" />
+  <Icon style={{padding: '5px'}} name="emission" title="emission" />
+  <Icon style={{padding: '5px'}} name="enter" title="enter" />
+  <Icon style={{padding: '5px'}} name="failure" title="failure" />
+  <Icon style={{padding: '5px'}} name="favorite-outline" title="favorite-outline" />
+  <Icon style={{padding: '5px'}} name="favorite-filled" title="favorite-filled" />
+  <Icon style={{padding: '5px'}} name="fill" title="fill" />
+  <Icon style={{padding: '5px'}} name="filter" title="filter" />
+  <Icon style={{padding: '5px'}} name="floorplan" title="floorplan" />
+  <Icon style={{padding: '5px'}} name="help-filled" title="help-filled" />
+  <Icon style={{padding: '5px'}} name="help-outline" title="help-outline" />
+  <Icon style={{padding: '5px'}} name="home" title="home" />
+  <Icon style={{padding: '5px'}} name="hourglass" title="hourglass" />
+  <Icon style={{padding: '5px'}} name="humidity" title="humidity" />
+  <Icon style={{padding: '5px'}} name="info-filled" title="info-filled" />
+  <Icon style={{padding: '5px'}} name="info-outline" title="info-outline" />
+  <Icon style={{padding: '5px'}} name="key" title="key" />
+  <Icon style={{padding: '5px'}} name="led" title="led" />
+  <Icon style={{padding: '5px'}} name="lifetime" title="lifetime" />
+  <Icon style={{padding: '5px'}} name="light" title="light" />
+  <Icon style={{padding: '5px'}} name="external" title="external" />
+  <Icon style={{padding: '5px'}} name="live" title="live" />
+  <Icon style={{padding: '5px'}} name="location" title="location" />
+  <Icon style={{padding: '5px'}} name="locked" title="locked" />
+  <Icon style={{padding: '5px'}} name="logo" title="logo" />
+  <Icon style={{padding: '5px'}} name="maintenance" title="maintenance" />
+  <Icon style={{padding: '5px'}} name="message" title="message" />
+  <Icon style={{padding: '5px'}} name="move" title="move" />
+  <Icon style={{padding: '5px'}} name="close" title="close" />
+  <Icon style={{padding: '5px'}} name="handle" title="handle" />
+  <Icon style={{padding: '5px'}} name="menu" title="menu" />
+  <Icon style={{padding: '5px'}} name="ellipsis" title="ellipsis" />
+  <Icon style={{padding: '5px'}} name="notification-active" title="notification-active" />
+  <Icon style={{padding: '5px'}} name="notification-default" title="notification-default" />
+  <Icon style={{padding: '5px'}} name="office" title="office" />
+  <Icon style={{padding: '5px'}} name="power" title="power" />
+  <Icon style={{padding: '5px'}} name="redirect" title="redirect" />
+  <Icon style={{padding: '5px'}} name="refresh" title="refresh" />
+  <Icon style={{padding: '5px'}} name="remove-filled" title="remove-filled" />
+  <Icon style={{padding: '5px'}} name="remove-outline" title="remove-outline" />
+  <Icon style={{padding: '5px'}} name="resize" title="resize" />
+  <Icon style={{padding: '5px'}} name="restricted" title="restricted" />
+  <Icon style={{padding: '5px'}} name="rocket" title="rocket" />
+  <Icon style={{padding: '5px'}} name="save" title="save" />
+  <Icon style={{padding: '5px'}} name="savings" title="savings" />
+  <Icon style={{padding: '5px'}} name="search" title="search" />
+  <Icon style={{padding: '5px'}} name="hidden" title="hidden" />
+  <Icon style={{padding: '5px'}} name="visible" title="visible" />
+  <Icon style={{padding: '5px'}} name="sensor" title="sensor" />
+  <Icon style={{padding: '5px'}} name="settings" title="settings" />
+  <Icon style={{padding: '5px'}} name="success" title="success" />
+  <Icon style={{padding: '5px'}} name="temperature" title="temperature" />
+  <Icon style={{padding: '5px'}} name="unlocked" title="unlocked" />
+  <Icon style={{padding: '5px'}} name="upload" title="upload" />
+  <Icon style={{padding: '5px'}} name="user-add" title="user-add" />
+  <Icon style={{padding: '5px'}} name="user-default" title="user-default" />
+  <Icon style={{padding: '5px'}} name="user-filled" title="user-filled" />
+  <Icon style={{padding: '5px'}} name="warning-critical-filled" title="warning-critical-filled" />
+  <Icon style={{padding: '5px'}} name="warning-critical-outline" title="warning-critical-outline" />
+  <Icon style={{padding: '5px'}} name="warning-low-filled" title="warning-low-filled" />
+  <Icon style={{padding: '5px'}} name="warning-low-outline" title="warning-low-outline" />
+  <Icon style={{padding: '5px'}} name="warning-medium-filled" title="warning-medium-filled" />
+  <Icon style={{padding: '5px'}} name="warning-medium-outline" title="warning-medium-outline" />
+  <Icon style={{padding: '5px'}} name="zoom-in" title="zoom-in" />
+  <Icon style={{padding: '5px'}} name="zoom-out" title="zoom-out" />
+```
+
+
 ```jsx
 <>
   <Icon name="locked" size="small" />
@@ -11,110 +113,6 @@ Interface for [olt icons](https://lightelligence-io.github.io/styles/#icon).
 ```
 
 All Icons:
-
-```jsx
-<>
-  <Icon name="account" title="account" />
-  <Icon name="add-default" title="add-default" />
-  <Icon name="add-outline" title="add-outline" />
-  <Icon name="app" title="app" />
-  <Icon name="arrow-down" title="arrow-down" />
-  <Icon name="arrow-falling" title="arrow-falling" />
-  <Icon name="arrow-left" title="arrow-left" />
-  <Icon name="arrow-raising" title="arrow-raising" />
-  <Icon name="arrow-right" title="arrow-right" />
-  <Icon name="arrow-up" title="arrow-up" />
-  <Icon name="attachment" title="attachment" />
-  <Icon name="brightness" title="brightness" />
-  <Icon name="bullet-big" title="bullet-big" />
-  <Icon name="bullet-small" title="bullet-small" />
-  <Icon name="calendar" title="calendar" />
-  <Icon name="cart" title="cart" />
-  <Icon name="check-default" title="check-default" />
-  <Icon name="check-filled" title="check-filled" />
-  <Icon name="check-outline" title="check-outline" />
-  <Icon name="chevron-down" title="chevron-down" />
-  <Icon name="chevron-left" title="chevron-left" />
-  <Icon name="chevron-right" title="chevron-right" />
-  <Icon name="chevron-up" title="chevron-up" />
-  <Icon name="clock" title="clock" />
-  <Icon name="cloud" title="cloud" />
-  <Icon name="code" title="code" />
-  <Icon name="copy" title="copy" />
-  <Icon name="dashboard" title="dashboard" />
-  <Icon name="delete" title="delete" />
-  <Icon name="device" title="device" />
-  <Icon name="document" title="document" />
-  <Icon name="download" title="download" />
-  <Icon name="duplicate" title="duplicate" />
-  <Icon name="edit" title="edit" />
-  <Icon name="emission" title="emission" />
-  <Icon name="enter" title="enter" />
-  <Icon name="failure" title="failure" />
-  <Icon name="favorite-outline" title="favorite-outline" />
-  <Icon name="favorite-filled" title="favorite-filled" />
-  <Icon name="fill" title="fill" />
-  <Icon name="filter" title="filter" />
-  <Icon name="floorplan" title="floorplan" />
-  <Icon name="help-filled" title="help-filled" />
-  <Icon name="help-outline" title="help-outline" />
-  <Icon name="home" title="home" />
-  <Icon name="hourglass" title="hourglass" />
-  <Icon name="humidity" title="humidity" />
-  <Icon name="info-filled" title="info-filled" />
-  <Icon name="info-outline" title="info-outline" />
-  <Icon name="key" title="key" />
-  <Icon name="led" title="led" />
-  <Icon name="lifetime" title="lifetime" />
-  <Icon name="light" title="light" />
-  <Icon name="external" title="external" />
-  <Icon name="live" title="live" />
-  <Icon name="location" title="location" />
-  <Icon name="locked" title="locked" />
-  <Icon name="logo" title="logo" />
-  <Icon name="maintenance" title="maintenance" />
-  <Icon name="message" title="message" />
-  <Icon name="move" title="move" />
-  <Icon name="close" title="close" />
-  <Icon name="handle" title="handle" />
-  <Icon name="menu" title="menu" />
-  <Icon name="ellipsis" title="ellipsis" />
-  <Icon name="notification-active" title="notification-active" />
-  <Icon name="notification-default" title="notification-default" />
-  <Icon name="office" title="office" />
-  <Icon name="power" title="power" />
-  <Icon name="redirect" title="redirect" />
-  <Icon name="refresh" title="refresh" />
-  <Icon name="remove-filled" title="remove-filled" />
-  <Icon name="remove-outline" title="remove-outline" />
-  <Icon name="resize" title="resize" />
-  <Icon name="restricted" title="restricted" />
-  <Icon name="rocket" title="rocket" />
-  <Icon name="save" title="save" />
-  <Icon name="savings" title="savings" />
-  <Icon name="search" title="search" />
-  <Icon name="hidden" title="hidden" />
-  <Icon name="visible" title="visible" />
-  <Icon name="sensor" title="sensor" />
-  <Icon name="settings" title="settings" />
-  <Icon name="success" title="success" />
-  <Icon name="temperature" title="temperature" />
-  <Icon name="unlocked" title="unlocked" />
-  <Icon name="upload" title="upload" />
-  <Icon name="user-add" title="user-add" />
-  <Icon name="user-default" title="user-default" />
-  <Icon name="user-filled" title="user-filled" />
-  <Icon name="warning-critical-filled" title="warning-critical-filled" />
-  <Icon name="warning-critical-outline" title="warning-critical-outline" />
-  <Icon name="warning-low-filled" title="warning-low-filled" />
-  <Icon name="warning-low-outline" title="warning-low-outline" />
-  <Icon name="warning-medium-filled" title="warning-medium-filled" />
-  <Icon name="warning-medium-outline" title="warning-medium-outline" />
-  <Icon name="zoom-in" title="zoom-in" />
-  <Icon name="zoom-out" title="zoom-out" />
-</>
-```
-
 ## Colors
 
 ### General
