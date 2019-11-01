@@ -1,4 +1,4 @@
-A V2Checkbox can be used instead of Checkbox to toggle between 2 states.
+A V2Checkbox implementation.
 
 ```js
 import { V2Checkbox, Card, DataCards, DataCardsItem, oltStyles } from '@lightelligence/react';
