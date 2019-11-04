@@ -3,20 +3,29 @@ import { string, bool, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
-export const V2Tab = (props) => {
+export const V2Tab = ({
+  active,
+  label,
+  onSelect,
+  value,
+  className,
+  ...props
+}) => {
   const handleChange = () => {
-    const { onSelect, value } = props;
-    if (onSelect) onSelect(value);
+    if (onSelect && typeof onSelect === 'function') onSelect(value);
   };
-
-  const { active, label } = props;
 
   return (
     <>
       <button
         type="button"
         onClick={handleChange}
-        className={classnames(olt.V2TabsLink, active && olt.isActive)}
+        className={classnames(
+          olt.V2TabsLink,
+          active && olt.isActive,
+          className,
+        )}
+        {...props}
       >
         {label}
       </button>
@@ -25,14 +34,31 @@ export const V2Tab = (props) => {
 };
 
 V2Tab.propTypes = {
+  /**
+   * The value passed back in the callback
+   */
   value: string.isRequired,
+  /**
+   * The label shown on the tab
+   */
   label: string,
+  /**
+   * Is the tab currently active
+   */
   active: bool,
+  /**
+   * The callback when selecting a tab
+   */
   onSelect: func,
+  /**
+   * additinal classes for the container component
+   */
+  className: string,
 };
 
 V2Tab.defaultProps = {
   label: '',
   active: false,
   onSelect: null,
+  className: null,
 };
