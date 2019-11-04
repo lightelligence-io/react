@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef, useEffect } from 'react';
 import { func, node, bool, string, shape } from 'prop-types';
 import classnames from 'classnames';
 
@@ -8,19 +8,23 @@ export const V2Checkbox = ({
   children,
   className,
   checked,
-  indetermined,
+  indeterminate,
   disabled,
   onChange,
   inline,
   inputProps,
   ...other
 }) => {
+  const inputRef = useRef();
   const change = useCallback(() => {
     if (onChange) {
       onChange(!checked);
     }
   }, [onChange, checked]);
 
+  useEffect(() => {
+    inputRef.current.indeterminate = indeterminate;
+  }, [indeterminate, checked]);
   const { className: inputClassName, ...finalInputProps } = inputProps;
 
   return (
@@ -35,13 +39,13 @@ export const V2Checkbox = ({
       <input
         type="checkbox"
         className={classnames(
-          olt.V2CheckboxInput,
-          indetermined && olt.V2CheckboxIndetermined,
+          indeterminate && olt.V2CheckboxIndeterminate,
           inputClassName,
         )}
         checked={checked}
         onChange={change}
         disabled={disabled}
+        ref={inputRef}
         {...finalInputProps}
       />
       <div className={olt.V2CheckboxButton} />
@@ -74,9 +78,9 @@ V2Checkbox.propTypes = {
    */
   checked: bool,
   /**
-   * The `indetermined` state of this input.
+   * The `indeterminate` state of this input.
    */
-  indetermined: bool,
+  indeterminate: bool,
   /**
    * The `disabled` state of this input.
    */
@@ -93,7 +97,7 @@ V2Checkbox.defaultProps = {
   className: null,
   onChange: null,
   checked: false,
-  indetermined: false,
+  indeterminate: false,
   disabled: false,
   inputProps: {},
 };

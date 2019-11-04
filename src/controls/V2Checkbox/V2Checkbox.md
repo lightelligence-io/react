@@ -8,8 +8,10 @@ initialState = { checked : [
 ] };
 const onChange = (index) => () => {
 	const newChecked = [...state.checked];
+	console.log('onChange', index)
 	newChecked[index] = !state.checked[index];
 	setState({ checked: newChecked });
+	console.log('onChange', newChecked[6], newChecked[7])
 }
 
 const fields = [
@@ -38,30 +40,25 @@ const rows = [
 	light: wrap(<V2Checkbox onChange={onChange(2)} checked={state.checked[2]} disabled>Label</V2Checkbox>),
 	dark: wrap(<V2Checkbox onChange={onChange(3)} checked={state.checked[3]} disabled>Label</V2Checkbox>, true),
   },
-	{
-	id: 'Active Indetermined',
-	light: wrap(<V2Checkbox onChange={onChange(4)} indetermined checked={state.checked[4]}>Label</V2Checkbox>),
-	dark: wrap(<V2Checkbox onChange={onChange(5)} indetermined checked={state.checked[5]}>Label</V2Checkbox>, true),
-	},
   {
-	id: 'Indetermined',
-	light: wrap(<V2Checkbox onChange={onChange(4)} indetermined checked={state.checked[6]}>Label</V2Checkbox>),
-	dark: wrap(<V2Checkbox onChange={onChange(5)} indetermined checked={state.checked[7]}>Label</V2Checkbox>, true),
+	id: 'Indeterminate',
+	light: wrap(<V2Checkbox onChange={onChange(4)} indeterminate checked={state.checked[4]}>Label</V2Checkbox>),
+	dark: wrap(<V2Checkbox onChange={onChange(5)} indeterminate checked={state.checked[5]}>Label</V2Checkbox>, true),
   },
   {
-	id: 'Indetermined Disabled',
-	light: wrap(<V2Checkbox onChange={onChange(4)} indetermined checked={state.checked[8]} disabled>Label</V2Checkbox>),
-	dark: wrap(<V2Checkbox onChange={onChange(5)} indetermined checked={state.checked[9]} disabled>Label</V2Checkbox>, true),
+	id: 'Indeterminate Disabled',
+	light: wrap(<V2Checkbox onChange={onChange(6)} indeterminate checked={state.checked[6]} disabled>Label</V2Checkbox>),
+	dark: wrap(<V2Checkbox onChange={onChange(7)} indeterminate checked={state.checked[7]} disabled>Label</V2Checkbox>, true),
   },
   {
 	id: 'Inactive',
-	light: wrap(<V2Checkbox onChange={onChange(4)} checked={state.checked[10]}>Label</V2Checkbox>),
-	dark: wrap(<V2Checkbox onChange={onChange(5)} checked={state.checked[11]}>Label</V2Checkbox>, true),
+	light: wrap(<V2Checkbox onChange={onChange(8)} checked={state.checked[8]}>Label</V2Checkbox>),
+	dark: wrap(<V2Checkbox onChange={onChange(9)} checked={state.checked[9]}>Label</V2Checkbox>, true),
   },
   {
 	id: 'Inactive Disabled',
-	light: wrap(<V2Checkbox onChange={onChange(6)} checked={state.checked[12]} disabled>Label</V2Checkbox>),
-	dark: wrap(<V2Checkbox onChange={onChange(7)} checked={state.checked[13]} disabled>Label</V2Checkbox>, true),
+	light: wrap(<V2Checkbox onChange={onChange(10)} checked={state.checked[10]} disabled>Label</V2Checkbox>),
+	dark: wrap(<V2Checkbox onChange={onChange(11)} checked={state.checked[11]} disabled>Label</V2Checkbox>, true),
   },
 ];
 
@@ -90,5 +87,44 @@ const onChange = (checked) => { setState({ checked }); }
 <Card color="dark" className={oltStyles.ThemeDark}>
 	<V2Checkbox checked={state.checked} onChange={onChange}>Label</V2Checkbox>
 	<V2Checkbox disabled checked={state.checked} onChange={onChange}>Label</V2Checkbox>
+</Card>
+```
+
+## Indeterminate
+
+```js
+import { Card, V2Checkbox, oltStyles } from '@lightelligence/react';
+initialState = { checked: {parent: false, one: false, two: false }, indeterminate: false };
+
+const onChange = (element) => (isChecked) => {
+	let {checked, indeterminate} = {...state}
+	checked[element] = isChecked
+	const {parent, one, two} = checked
+	if (element==='parent') {
+		checked['parent'] = isChecked
+		checked['one'] = isChecked
+		checked['two'] = isChecked
+		indeterminate = false
+	} else if (one && two) {
+		checked['parent'] = true
+		indeterminate = false
+	} else if (one || two) {
+		checked['parent'] = false
+		indeterminate = true
+	} else {
+		indeterminate = false
+	}
+
+	setState({
+		checked,
+		indeterminate,
+	})
+}
+
+
+<Card>
+	<V2Checkbox checked={state.checked.parent} indeterminate={state.indeterminate} onChange={onChange('parent')}>Parent</V2Checkbox>
+	<V2Checkbox checked={state.checked.one} onChange={onChange('one')} className={oltStyles.uMarginLeft2}>Child</V2Checkbox>
+	<V2Checkbox checked={state.checked.two} onChange={onChange('two')} className={oltStyles.uMarginLeft2}>Child</V2Checkbox>
 </Card>
 ```
