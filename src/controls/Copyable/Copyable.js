@@ -10,7 +10,7 @@ export const Copyable = (props) => {
 
   const copy = () => {
     copyToClipboard();
-    if (onCopy) onCopy(value || children);
+    if (onCopy && typeof onCopy === 'function') onCopy(value || children);
   };
 
   return (
@@ -29,7 +29,7 @@ export const Copyable = (props) => {
 
 Copyable.propTypes = {
   value: string,
-  onCopy: func.isRequired,
+  onCopy: func,
   children: node.isRequired,
   className: string,
 };
@@ -37,4 +37,5 @@ Copyable.propTypes = {
 Copyable.defaultProps = {
   className: null,
   value: null,
+  onCopy: () => {},
 };

@@ -58,10 +58,6 @@ export class Checkbox extends PureComponent {
                   olt.CheckboxLabel,
                   indeterminate && olt.CheckboxIndeterminate,
                 )}
-                style={{
-                  fontSize: olt.theme.fontSize.small,
-                  marginBottom: olt.theme.spacing[1],
-                }}
               >
                 {children}
               </label>

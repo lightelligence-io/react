@@ -9,7 +9,7 @@ class NotificationContainer extends Component {
     notifications: [],
   };
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     NotificationManager.addChangeListener(this.handleStoreChange);
   };
 
@@ -25,6 +25,7 @@ class NotificationContainer extends Component {
 
   handleRequestHide = (notification) => () => {
     NotificationManager.remove(notification);
+    if (notification.onHide) notification.onHide();
   };
 
   render() {
@@ -42,8 +43,7 @@ class NotificationContainer extends Component {
               timeout={notification.timeout}
               onClick={notification.onClick}
               onClose={notification.onClose}
-              onHide={notification.onHide}
-              onRequestHide={this.handleRequestHide(notification)}
+              onHide={this.handleRequestHide(notification)}
             />
           );
         })}

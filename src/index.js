@@ -2,28 +2,36 @@ import * as oltStyles from '@lightelligence/styles';
 
 export * from './components/Avatar';
 export * from './components/Button';
+export * from './components/ActionButton';
 export * from './components/V2Button';
 export * from './components/Card';
 export * from './components/Chip';
+export * from './components/Dialog';
 export * from './components/Dropdown';
 export * from './components/Icon';
 export * from './components/Menu';
 export * from './components/Modal';
+export * from './components/V2Modal';
 export * from './components/Navbar';
 export * from './components/Notification';
 export * from './components/Snackbar';
 export * from './components/Stepper';
+export * from './components/StepperDialog';
 export * from './components/Tabs';
+export * from './components/V2Tabs';
 export * from './components/Tag';
 export * from './components/Tooltip';
+export * from './components/Pagination';
 
 // content
 export * from './content/BasicDataCards';
 export * from './content/DataCards';
 export * from './content/FloatingList';
 export * from './content/Table';
+export * from './content/Fonts';
 export * from './content/Headline';
 export * from './content/List';
+export * from './content/DynamicList';
 export * from './content/Paragraph';
 export * from './content/Image';
 export * from './content/Link';

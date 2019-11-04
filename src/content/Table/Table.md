@@ -43,14 +43,14 @@ initialState = {
 
 #### Complex example with flexible design cells, Devices
 ```js
-import { 
-  Table, 
-  TableHead, 
-  TableCell, 
-  TableCellRowIndex, 
-  Headline, 
-  Icon, 
-  Tag, 
+import {
+  Table,
+  TableHead,
+  TableCell,
+  TableCellRowIndex,
+  Headline,
+  Icon,
+  Tag,
   GridItem,
   Grid
 } from '@lightelligence/react';
@@ -80,10 +80,10 @@ initialState = {
   rows={state.rows}
 >
   <TableCell field="headline" renderer={
-    ({ name, id }) => <React.Fragment>
+    ({ name, id }) => <>
       <Headline style={{ margin: '0' }} size={6} color='primary'>{name}</Headline>
       <div className="olt-MonoText olt-MonoText--xxSmall">{id}</div>
-    </React.Fragment>
+    </>
   }/>
   <TableCell field="device-type" renderer={
     (row) => (
@@ -109,10 +109,10 @@ initialState = {
     ({ meta: { lastSeen } }) => (lastSeen)
   } />
   <TableCell field="meta" renderer={
-        ({ status }) => <React.Fragment>
+        ({ status }) => <>
           <i className="olt-u-colorSuccess">●</i>
           { status }
-        </React.Fragment>
+        </>
       } />
 </Table>
 ```

@@ -1,6 +1,6 @@
 
 ```jsx
-import { Headline, Paragraph, Button, NotificationContainer, NotificationManager, Icon } from '@lightelligence/react';
+import { Headline, Paragraph, Button, NotificationContainer, NotificationManager } from '@lightelligence/react';
 
 const notify = () => {
     const demos = [
@@ -49,17 +49,17 @@ const notify = () => {
     demos[index]()
 };
 
-<React.Fragment>
+<>
   <Headline size={4}>General Demo</Headline>
-  <Paragraph>Click the button below multiple times to see different notifications. The notificaitons have different timeouts and some stay until you click them away.</Paragraph>
+  <Paragraph>Click the button below multiple times to see different notifications. The notifications have different timeouts and some stay until you click them away.</Paragraph>
   <Button onClick={notify}>Click Me</Button>
-  <NotificationContainer /> 
-</React.Fragment>
+  <NotificationContainer />
+</>
 ```
 
 
 ```jsx
-import { Headline, Paragraph, Button, NotificationContainer, NotificationManager, Icon } from '@lightelligence/react';
+import { Headline, Paragraph, Button, NotificationContainer, NotificationManager } from '@lightelligence/react';
 
 const notify = () => NotificationManager.error({
     title: 'Error!!',
@@ -67,19 +67,19 @@ const notify = () => NotificationManager.error({
     content: 'Something very bad has happened AND IT IS NOT GOING AWAY!',
 });
 
-<React.Fragment>
+<>
   <Headline size={4}>Error Notification</Headline>
   <Paragraph>Notification example that indicates an error. The example uses timeout: 0 to stop the notifcation from closing automatically.</Paragraph>
   <Button onClick={notify}>Click to open</Button>
-  <NotificationContainer /> 
-</React.Fragment>
+  <NotificationContainer />
+</>
 ```
 
 ```jsx noeditor
 import { Headline, Paragraph, Notification, NOTIFICATION_TYPE_INFO, NOTIFICATION_TYPE_SUCCESS, NOTIFICATION_TYPE_WARNING, NOTIFICATION_TYPE_ERROR } from '@lightelligence/react';
 import * as olt from '@lightelligence/styles';
 
-<React.Fragment>
+<>
   <Headline size={4}>Notification Types</Headline>
   <Paragraph>The following types of notifications can be created.</Paragraph>
   <div className={olt.NotificationContainer} style={{position: 'relative', margin: '10px'}}>
@@ -108,7 +108,7 @@ import * as olt from '@lightelligence/styles';
         content='An error has occured!'
     />
   </div>
-</React.Fragment>
+</>
 ```
 
 ``` jsx static

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { pascalize } from 'humps';
 import { string, func, bool, shape } from 'prop-types';
 import classnames from 'classnames';
 import { UID } from 'react-uid';
@@ -203,7 +204,12 @@ class TextField extends PureComponent {
                 className={olt.TextFieldIcon}
                 style={{ pointerEvents: 'none' }}
               >
-                <i className={olt.Icon} data-icon={icon} />
+                <i
+                  className={classnames(
+                    olt.Icon,
+                    olt[`Icon${pascalize(icon)}`],
+                  )}
+                />
               </span>
             )}
           </div>

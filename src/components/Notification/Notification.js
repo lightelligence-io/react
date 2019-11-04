@@ -10,7 +10,6 @@ import {
   NOTIFICATION_TYPE_WARNING,
   NOTIFICATION_TYPE_ERROR,
 } from './types';
-// import { NOTIFICATION_TYPE_ERROR } from './types';
 
 const animationDuration = 200;
 class Notification extends PureComponent {
@@ -43,11 +42,6 @@ class Notification extends PureComponent {
     onClose: func,
     /** Callback when the notification finishes closing after a click or the timeout. */
     onHide: func,
-    /**
-     * Internal function to hide the notification.
-     * @ignore
-     */
-    onRequestHide: func,
   };
 
   static defaultProps = {
@@ -58,7 +52,6 @@ class Notification extends PureComponent {
     onClick: () => {},
     onClose: () => {},
     onHide: () => {},
-    onRequestHide: () => {},
   };
 
   componentDidMount = () => {
@@ -87,11 +80,10 @@ class Notification extends PureComponent {
   };
 
   requestHide = () => {
-    const { onRequestHide, onHide } = this.props;
+    const { onHide } = this.props;
     this.setState({ open: false });
     this.timers.push(
       setTimeout(() => {
-        if (onRequestHide) onRequestHide();
         if (onHide) onHide();
       }, animationDuration),
     );
@@ -106,7 +98,6 @@ class Notification extends PureComponent {
       onClick,
       onClose,
       onHide,
-      onRequestHide,
       ...rest
     } = this.props;
     const { open } = this.state;
@@ -122,7 +113,6 @@ class Notification extends PureComponent {
         onKeyDown={() => {}}
         role="button"
         tabIndex={0}
-        data-testid="Notification"
         {...rest}
       >
         <div className={olt.NotificationDialog}>
@@ -134,9 +124,15 @@ class Notification extends PureComponent {
           className={olt.NotificationClose}
           onClick={this.onClose}
           tabIndex={0}
-          data-testid="Notification-Close"
         >
-          <i className={olt.Icon} data-icon="close" />
+          <i
+            className={classnames(
+              olt.Icon,
+              olt.IconMedium,
+              olt.IconNavigationClose,
+            )}
+            data-icon="close"
+          />
         </button>
       </div>
     );
