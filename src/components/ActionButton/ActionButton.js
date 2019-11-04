@@ -22,9 +22,7 @@ const ActionButton = ({
   const Element = tag || 'button';
   return (
     <Element
-      onClick={(e) => {
-        if (!disabled && typeof onClick === 'function') onClick(e);
-      }}
+      onClick={disabled ? undefined : onClick}
       disabled={disabled}
       {...props}
       className={classnames(
