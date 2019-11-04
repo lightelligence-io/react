@@ -125,7 +125,14 @@ class Notification extends PureComponent {
           onClick={this.onClose}
           tabIndex={0}
         >
-          <i className={olt.Icon} data-icon="close" />
+          <i
+            className={classnames(
+              olt.Icon,
+              olt.IconMedium,
+              olt.IconNavigationClose,
+            )}
+            data-icon="close"
+          />
         </button>
       </div>
     );

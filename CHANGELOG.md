@@ -28,3 +28,9 @@
 - Chore: update to styles 1.0.0-alpha.2
 - Chore: Updated Dependencies
 - Chore: Sections in Documentation
+
+#v1.0.0-alpha.2
+- Feature: Dialog
+- Feature: Disabled Action Button
+- Feature: Dynamic List
+- Feature: Stepper Dialog
