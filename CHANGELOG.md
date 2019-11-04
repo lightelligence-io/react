@@ -38,4 +38,3 @@
 - Fix: className property for Tabs Component
 - Fix: Design for Notification
 - Fix: Docs for v2 Modal
-
