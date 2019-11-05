@@ -40,4 +40,10 @@
 - Fix: Docs for v2 Modal
 
 #v1.0.0-alpha.4
-- Chore: New Icons
+- Feature: v2 radio
+- Feature: v2 checkbox
+- Fix: maxLength for input fields
+- Fix: handlebars vulnerability
+- Chore: update to styles 1.0.0-alpha.5
+- Chore: new Icons
+- Chore: package update
