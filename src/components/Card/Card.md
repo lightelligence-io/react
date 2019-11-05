@@ -28,7 +28,7 @@ import { Card, Icon } from '@lightelligence/react';
   title="Card with action"
   description="This is a very descriptive text"
   action={(
-    <Icon onClick={() => alert('click')} name="more_vert"/>
+    <Icon onClick={() => alert('click')} name="ellipsis"/>
   )}
 >
   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -71,7 +71,7 @@ import { Card, Icon } from '@lightelligence/react';
   title="Click here"
   description="...to use a card like a button"
   selectable
-  action={<Icon className="olt-Card-icon" name="more_vert"/>}
+  action={<Icon className="olt-Card-icon" name="ellipsis"/>}
   onClick={() => {
     console.log('click');
   }}/>
@@ -87,7 +87,7 @@ import { Card, Link, Icon } from '@lightelligence/react';
     description="Description"
     selectable
     action={(
-      <Icon name="more_vert"/>
+      <Icon name="ellipsis"/>
     )}
   >
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.

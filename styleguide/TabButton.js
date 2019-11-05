@@ -22,7 +22,7 @@ export const TabButtonRenderer = ({
       onClick={onClick}
     >
       <Icon
-        name={active ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}
+        name={active ? 'chevron-down' : 'chevron-right'}
         size="xx-small"
         className="tab-button--icon"
       />

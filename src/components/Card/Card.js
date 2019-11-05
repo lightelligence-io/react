@@ -78,7 +78,7 @@ export const Card = ({
               {action}
               {edit && (
                 <ActionButton
-                  iconRight="action-edit"
+                  iconRight="edit"
                   buttonType="primary"
                   label="Edit"
                   className={editClassName}
