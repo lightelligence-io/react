@@ -127,7 +127,7 @@ export const DynamicList = ({
                 olt.uMarginRight2,
                 addButtonClassName,
               )}
-              iconLeft="action-add-circle"
+              iconLeft="add-outline"
               standalone
               buttonType={internalValues[index] ? 'primary' : 'default'}
               {...otherAddButtonProps}
@@ -155,7 +155,7 @@ export const DynamicList = ({
                 olt.uMarginLeft2,
                 deleteButtonClassName,
               )}
-              iconLeft="action-delete"
+              iconLeft="delete"
               standalone
               buttonType="primary"
               {...otherDeleteButtonProps}

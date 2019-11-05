@@ -62,7 +62,7 @@ describe('ActionButton', () => {
     );
   });
   test('correctly sets iconLeft', () => {
-    const iconLeft = 'action-add-default';
+    const iconLeft = 'add-default';
     const { getByTestId } = renderButton({
       iconLeft,
     });
@@ -73,7 +73,7 @@ describe('ActionButton', () => {
     expect(button.classList.contains(`olt-Icon-${iconLeft}`)).toBe(true);
   });
   test('correctly sets iconRight', () => {
-    const iconRight = 'action-add-default';
+    const iconRight = 'add-default';
     const { getByTestId } = renderButton({
       iconRight,
     });

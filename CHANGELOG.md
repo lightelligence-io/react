@@ -38,3 +38,6 @@
 - Fix: className property for Tabs Component
 - Fix: Design for Notification
 - Fix: Docs for v2 Modal
+
+#v1.0.0-alpha.4
+- Chore: New Icons
