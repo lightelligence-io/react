@@ -119,7 +119,17 @@ initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
 };
-<TextField label="Label" value={state.value} infoText={`${state.value.length}/200`} errorMessage="TextField is required" onChange={onChange} required/>
+<TextField label="Label" value={state.value} infoText={`You entered ${state.value.length} characters`} errorMessage="TextField is required" onChange={onChange} required/>
+```
+
+### Required with error-message, info-text and max-length
+```js
+import { TextField } from '@lightelligence/react';
+initialState = { value: 'Value'};
+const onChange = (event) => {
+    setState({ value: event.target.value });
+};
+<TextField label="Label" value={state.value} infoText={`${state.value.length}/20`} errorMessage="TextField is required" maxLength={20} onChange={onChange} required/>
 ```
 
 ### Required with info-text
@@ -129,7 +139,7 @@ initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
 };
-<TextField label="Label" value={state.value} infoText={`${state.value.length}/200`} onChange={onChange} />
+<TextField label="Label" value={state.value} infoText={`You entered ${state.value.length} characters`} onChange={onChange} />
 ```
 
 ### Required with info-text
@@ -139,7 +149,7 @@ initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
 };
-<TextField floating={false} label="Label" value={state.value} infoText={`${state.value.length}/200`}  onChange={onChange} />
+<TextField floating={false} label="Label" value={state.value} infoText={`You entered ${state.value.length} characters`}  onChange={onChange} />
 ```
 
 
@@ -150,5 +160,5 @@ initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
 };
-<TextField floating={false} label="Label" value={state.value} infoText={`${state.value.length}/200`} errorMessage="TextField is required" onChange={onChange} />
+<TextField floating={false} label="Label" value={state.value} infoText={`You entered ${state.value.length} characters`} errorMessage="TextField is required" onChange={onChange} />
 ```

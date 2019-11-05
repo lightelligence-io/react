@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { pascalize } from 'humps';
-import { string, func, bool, shape } from 'prop-types';
+import { string, func, bool, shape, number } from 'prop-types';
 import classnames from 'classnames';
 import { UID } from 'react-uid';
 import * as olt from '@lightelligence/styles';
@@ -26,6 +26,7 @@ class TextField extends PureComponent {
     autogrow: bool,
     noFooter: bool,
     placeholder: string,
+    maxLength: number,
     style: shape({}),
   };
 
@@ -48,6 +49,7 @@ class TextField extends PureComponent {
     autogrow: false,
     noFooter: false,
     placeholder: null,
+    maxLength: null,
     style: null,
   };
 
@@ -104,6 +106,7 @@ class TextField extends PureComponent {
       placeholder,
       required,
       noFooter,
+      maxLength,
       ...rest
     } = this.props;
     const Element = textarea || autogrow ? 'textarea' : 'input';
@@ -154,6 +157,7 @@ class TextField extends PureComponent {
                 htmlFor={id}
                 required={required}
                 readOnly={readOnly}
+                maxLength={maxLength}
               />
             )}
             <Element
@@ -168,6 +172,7 @@ class TextField extends PureComponent {
               ref={this.inputRef}
               value={value}
               placeholder={newPlaceholder}
+              maxLength={maxLength}
               {...autogrowProps}
               {...{ ...rest, required }}
             />
@@ -177,6 +182,7 @@ class TextField extends PureComponent {
                 htmlFor={id}
                 required={required}
                 readOnly={readOnly}
+                maxLength={maxLength}
               />
             )}
             {!noFooter && (

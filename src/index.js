@@ -50,6 +50,7 @@ export * from './controls/TextField';
 export * from './controls/V2Label';
 export * from './controls/V2Input';
 export * from './controls/V2Select';
+export * from './controls/V2Checkbox';
 
 export * from './layout/Container';
 export * from './layout/V2Container';
