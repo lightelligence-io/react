@@ -76,6 +76,7 @@ const TextArea = ({
         readOnly={readOnly}
         required={required}
         rows={autogrow ? '1' : undefined}
+        maxLength={maxLength}
         {...others}
         style={style}
       />
