@@ -38,3 +38,11 @@
 - Fix: className property for Tabs Component
 - Fix: Design for Notification
 - Fix: Docs for v2 Modal
+
+#v1.0.0-alpha.4
+- Feature: v2 radio
+- Feature: v2 checkbox
+- Fix: maxLength for input fields
+- Chore: update to styles 1.0.0-alpha.5
+- Chore: update icons
+- Chore: package update
