@@ -20,10 +20,8 @@ describe('V2Radio', () => {
     });
 
     const component = getByLabelText('Component');
-
     fireEvent.click(component);
-
-    expect(onChange).toHaveBeenCalled();
+    expect(onChange).toHaveBeenCalledWith(true);
   });
 
   test('should forward disabled to underlying radio', () => {
@@ -67,7 +65,6 @@ describe('V2Radio', () => {
     const component = getByTestId(COMPONENT_TEST_ID);
 
     fireEvent.click(component);
-
     expect(onChange).not.toHaveBeenCalled();
   });
 
@@ -78,14 +75,6 @@ describe('V2Radio', () => {
 
     const toggle = getByTestId(COMPONENT_TEST_ID);
     expect(toggle.classList.contains('myClass')).toBe(true);
-  });
-
-  test('correctly sets the css-modifier for inline', () => {
-    const { getByTestId } = renderComponent({
-      inline: true,
-    });
-    const button = getByTestId(COMPONENT_TEST_ID);
-    expect(button.classList.contains(oltStyles.V2RadioInline)).toBe(true);
   });
 
   test('correctly sets the css base class', () => {

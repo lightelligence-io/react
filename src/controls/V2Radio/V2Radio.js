@@ -10,7 +10,6 @@ export const V2Radio = ({
   checked,
   disabled,
   onChange,
-  inline,
   inputProps,
   name,
   value,
@@ -25,14 +24,7 @@ export const V2Radio = ({
   const { className: inputClassName, ...finalInputProps } = inputProps;
 
   return (
-    <label
-      className={classnames(
-        olt.V2Radio,
-        inline && olt.V2RadioInline,
-        className,
-      )}
-      {...other}
-    >
+    <label className={classnames(olt.V2Radio, className)} {...other}>
       <input
         type="radio"
         className={classnames(olt.V2RadioInput, inputClassName)}
@@ -61,10 +53,6 @@ V2Radio.propTypes = {
    */
   className: string,
   /**
-   * Renders the V2Radio as `inline-flex` instead of `flex`.
-   */
-  inline: bool,
-  /**
    * Eventhandler which is called when this V2Radio is clicked.
    */
   onChange: func,
@@ -92,7 +80,6 @@ V2Radio.propTypes = {
 
 V2Radio.defaultProps = {
   children: null,
-  inline: false,
   className: null,
   onChange: null,
   checked: null,
