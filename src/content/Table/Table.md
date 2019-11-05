@@ -88,7 +88,7 @@ initialState = {
   <TableCell field="device-type" renderer={
     (row) => (
         <div className="olt-text--line">
-          <Icon name="exit_to_app" color="primary"/>
+          <Icon name="external" color="primary"/>
           <span className="olt-MonoText olt-MonoText--xxSmall">Gateway</span>
         </div>
     )

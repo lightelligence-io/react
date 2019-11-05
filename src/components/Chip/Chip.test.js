@@ -114,7 +114,7 @@ describe('Chip', () => {
   });
 
   test('correctly sets the  css-modifier  for bubbleIcon', () => {
-    const bubbleIcon = 'action-add-default';
+    const bubbleIcon = 'add-default';
     const { getByText } = renderComponent({
       children: 'Chip',
       bubbleIcon,
@@ -133,7 +133,7 @@ describe('Chip', () => {
   });
 
   test('correctly sets css-modifier for iconLeft', () => {
-    const iconLeft = 'action-add-default';
+    const iconLeft = 'add-default';
     const { getByText } = renderComponent({
       children: 'Chip',
       iconLeft,
@@ -143,7 +143,7 @@ describe('Chip', () => {
     expect(chip.classList.contains(`olt-Icon-${iconLeft}`)).toBe(true);
   });
   test('correctly sets css-modifier for iconRight', () => {
-    const iconRight = 'action-add-default';
+    const iconRight = 'add-default';
     const { getByText } = renderComponent({
       children: 'Chip',
       iconRight,

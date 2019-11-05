@@ -45,5 +45,5 @@
 - Fix: maxLength for input fields
 - Fix: handlebars vulnerability
 - Chore: update to styles 1.0.0-alpha.5
-- Chore: update icons
+- Chore: new Icons
 - Chore: package update
