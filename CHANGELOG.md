@@ -43,6 +43,7 @@
 - Feature: v2 radio
 - Feature: v2 checkbox
 - Fix: maxLength for input fields
+- Fix: handlebars vulnerability
 - Chore: update to styles 1.0.0-alpha.5
 - Chore: update icons
 - Chore: package update
