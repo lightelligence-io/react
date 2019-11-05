@@ -27,6 +27,8 @@ const Button = ({
         color && olt[`Button${pascalize(color)}`],
         outline && olt.ButtonOutline,
         icon && olt.ButtonIcon,
+        icon && olt.IconSmall,
+        icon && olt[`Icon${pascalize(icon)}`],
         className,
       )}
     >
