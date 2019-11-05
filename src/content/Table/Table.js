@@ -72,6 +72,7 @@ class Table extends PureComponent {
       <div className={olt.uOverflowXAuto}>
         <table
           className={classnames(
+            className,
             olt.Table,
             selectable && olt.TableSelectable,
             justify && olt.TableJustify,

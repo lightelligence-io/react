@@ -1,9 +1,16 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
-import { func, string, node } from 'prop-types';
+import { func, string, node, shape } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
-export const V2Tabs = (props) => {
+export const V2Tabs = ({
+  value,
+  onSelect,
+  className,
+  children,
+  tabsProps,
+  ...props
+}) => {
   const tabBar = useRef(null);
   const [gradient, setGradient] = useState({ left: false, right: false });
 
@@ -22,18 +29,20 @@ export const V2Tabs = (props) => {
     window.addEventListener('resize', handleScroll);
   }, [tabBar, handleScroll]);
 
-  const { value, onSelect, className, children, ...rest } = props;
+  const { className: tabsClassName, ...otherTabsProps } = tabsProps;
 
   return (
-    <div {...rest} style={{ position: 'relative' }} onScroll={handleScroll}>
+    <div style={{ position: 'relative' }} onScroll={handleScroll} {...props}>
       <div
         className={classnames(
           !gradient.right && olt.V2Tabs,
           gradient.right && olt.V2TabsForceScroll,
           gradient.left && olt.hasGradientLeft,
           gradient.right && olt.hasGradientRight,
+          tabsClassName,
         )}
         ref={tabBar}
+        {...otherTabsProps}
       >
         {React.Children.map(children, (element) =>
           React.cloneElement(element, {
@@ -47,12 +56,29 @@ export const V2Tabs = (props) => {
 };
 
 V2Tabs.propTypes = {
+  /**
+   * The currently selected tab
+   */
   value: string.isRequired,
+  /**
+   * The callback when selecting a tab
+   */
   onSelect: func.isRequired,
+  /**
+   * The tabs to render
+   */
   children: node.isRequired,
+  /**
+   * additinal classes for the container component
+   */
   className: string,
+  /**
+   * Props for tabs
+   */
+  tabsProps: shape({ className: string }),
 };
 
 V2Tabs.defaultProps = {
   className: null,
+  tabsProps: {},
 };

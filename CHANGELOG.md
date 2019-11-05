@@ -28,3 +28,13 @@
 - Chore: update to styles 1.0.0-alpha.2
 - Chore: Updated Dependencies
 - Chore: Sections in Documentation
+
+#v1.0.0-alpha.3
+- Feature: Dialog
+- Feature: Disabled Action Button
+- Feature: Dynamic List
+- Feature: Stepper Dialog
+- Fix: className property for Table Component
+- Fix: className property for Tabs Component
+- Fix: Design for Notification
+- Fix: Docs for v2 Modal
