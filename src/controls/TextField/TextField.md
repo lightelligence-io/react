@@ -76,7 +76,7 @@ initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
 };
-<TextField label="Label" value={state.value} icon="action-edit" onChange={onChange}/>
+<TextField label="Label" value={state.value} icon="edit" onChange={onChange}/>
 ```
 
 
@@ -87,7 +87,7 @@ initialState = { value: 'Value'};
 const onChange = (event) => {
     setState({ value: event.target.value });
 };
-<TextField floating={false} label="Label" value={state.value} icon="action-edit" onChange={onChange}/>
+<TextField floating={false} label="Label" value={state.value} icon="edit" onChange={onChange}/>
 ```
 
 

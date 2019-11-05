@@ -15,7 +15,6 @@ const V2Button = React.forwardRef(
       children,
       disabled,
       tag,
-      icon,
       iconLeft,
       iconRight,
       onClick,

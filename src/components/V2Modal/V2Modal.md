@@ -207,7 +207,7 @@ const toggleModal = () => {
     <V2Button buttonType="default" onClick={toggleModal}>Modified Header and More Content</V2Button>
     <V2Modal
       title='Headline'
-      icon={<Icon name="action-add-default" color="primary" />}
+      icon={<Icon name="add-default" color="primary" />}
       headerProps={{style: {backgroundColor: 'black'}}}
       open={state.modalOpen}
       content={
