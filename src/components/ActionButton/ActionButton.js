@@ -11,6 +11,7 @@ const ActionButton = ({
   fixed,
   standalone,
   base,
+  disabled,
   label,
   tag,
   iconLeft,
@@ -21,7 +22,8 @@ const ActionButton = ({
   const Element = tag || 'button';
   return (
     <Element
-      onClick={onClick}
+      onClick={disabled ? undefined : onClick}
+      disabled={disabled}
       {...props}
       className={classnames(
         olt.ActionButton,
@@ -29,6 +31,7 @@ const ActionButton = ({
         fixed && olt.ActionButtonFixed,
         standalone && olt.ActionButtonStandalone,
         base && olt.ActionButtonBase,
+        disabled && olt.ActionButtonDisabled,
         iconLeft && olt[`Icon${pascalize(iconLeft)}`],
         iconLeft && olt.ActionButtonIconLeft,
         iconRight && olt[`Icon${pascalize(iconRight)}`],
@@ -80,6 +83,10 @@ ActionButton.propTypes = {
    */
   base: bool,
   /**
+   * Disable the button.
+   */
+  disabled: bool,
+  /**
    * This function is called when a the button is clicked.
    */
   onClick: func,
@@ -91,6 +98,7 @@ ActionButton.defaultProps = {
   fixed: false,
   standalone: false,
   base: false,
+  disabled: false,
   className: undefined,
   iconLeft: undefined,
   iconRight: undefined,
