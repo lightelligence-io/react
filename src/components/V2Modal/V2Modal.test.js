@@ -126,13 +126,13 @@ describe('V2Modal', () => {
   });
   test('renders custom icons ', () => {
     const { getByTestId } = renderModal({
-      icon: <Icon name="action-add-default" color="primary" />,
+      icon: <Icon name="add-default" color="primary" />,
     });
     const header = getByTestId('header');
     const icon = header.getElementsByTagName('i')[0];
     expect(icon.classList.contains(oltStyles.Icon)).toBe(true);
-    expect(icon.classList.contains(oltStyles.IconPrimary)).toBe(true);
-    expect(icon.classList.contains(oltStyles.IconActionAddDefault)).toBe(true);
+    expect(icon.classList.contains(oltStyles.uColorPrimary)).toBe(true);
+    expect(icon.classList.contains(oltStyles.IconAddDefault)).toBe(true);
   });
   test('renders wide modals ', () => {
     const { getByTestId } = renderModal({
