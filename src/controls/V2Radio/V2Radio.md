@@ -81,13 +81,14 @@ const onChange = (checked) => { setState({ checked }); }
 ## Radio Group
 
 ```js
-import { Card, V2Radio, oltStyles } from '@lightelligence/react';
-initialState = { checked: null };
-const onChange = (id) => () => setState({ checked: id });
+import { RadioGroup, V2Radio } from '@lightelligence/react';
 
-<Card>
-	<V2Radio value="1" onChange={onChange(1)} name="role">Admin</V2Radio>
-	<V2Radio value="2" onChange={onChange(2)} name="role">Manager</V2Radio>
-	<V2Radio value="3" onChange={onChange(3)} name="role">User</V2Radio>
-</Card>
+initialState = { value: 'a' };
+const onChange = (value) => { setState({ value }); }
+
+<RadioGroup name="radio-group" value={state.value} onChange={onChange}>
+	<V2Radio value="a">Option A</V2Radio>
+	<V2Radio value="b">Option B</V2Radio>
+	<V2Radio value="c">Option C</V2Radio>
+</RadioGroup>
 ```
