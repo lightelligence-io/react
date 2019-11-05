@@ -42,6 +42,7 @@ export * from './controls/Toggle';
 export * from './controls/Label';
 export * from './controls/Radio';
 export * from './controls/RadioGroup';
+export * from './controls/V2Radio';
 export * from './controls/Select';
 export * from './controls/SelectField';
 export * from './controls/TextArea';
