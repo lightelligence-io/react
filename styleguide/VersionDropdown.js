@@ -9,7 +9,7 @@ const VersionDropdownRenderer = ({ version }) => {
   const createOptions = useCallback(
     (versions) =>
       setOptions(
-        versions.map((v) => ({ value: v, label: `/react/releases/${v}` })),
+        versions.map((v) => ({ value: `/react/releases/${v}`, label: v })),
       ),
     [],
   );
