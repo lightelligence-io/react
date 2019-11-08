@@ -17,7 +17,7 @@
     "test": "react-scripts test",
     "lint": "eslint src/ --max-warnings 0 && prettier -c \"src/**/*.js\"",
     "lint:fix": "eslint --fix src/ --max-warnings 0 && prettier -c --write \"src/**/*.js\"",
-    "license-report": "legally",
+    "license-report": "legally -lr",
     "transpile-esm": "BABEL_ENV=esm babel src -d dist/esm --copy-files",
     "transpile-cjs": "BABEL_ENV=cjs babel src -d dist/cjs --copy-files"
   },
