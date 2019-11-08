@@ -7,7 +7,10 @@ const VersionDropdownRenderer = ({ version }) => {
   const [options, setOptions] = useState([]);
 
   const createOptions = useCallback(
-    (versions) => setOptions(versions.map((v) => ({ value: v, label: v }))),
+    (versions) =>
+      setOptions(
+        versions.map((v) => ({ value: v, label: `/react/releases/${v}` })),
+      ),
     [],
   );
 
@@ -26,7 +29,7 @@ const VersionDropdownRenderer = ({ version }) => {
         label="Select an option"
         value={version}
         onChange={(v) => {
-          window.location.href = `/react/releases/${v.target.value}`;
+          window.location.href = v.target.value;
         }}
         options={options}
         className={olt.uMarginBottom0}
