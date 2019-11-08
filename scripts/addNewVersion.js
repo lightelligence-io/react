@@ -1,5 +1,5 @@
 const fs = require('fs');
-const versionsFile = 'gh-pages/versions.json';
+const versionsFile = 'gh-pages/versions_json.txt';
 const version = require('../package.json').version;
 
 let versions;
