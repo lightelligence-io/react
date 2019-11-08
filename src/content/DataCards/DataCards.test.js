@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
   render,
   fireEvent,
@@ -83,9 +83,9 @@ describe('DataCards', () => {
   test('can render fragments', async () => {
     // eslint-disable-next-line react/prop-types
     const fragmentRenderItem = ({ row }) => (
-      <Fragment>
+      <>
         <div>Name: {row.name}</div>
-      </Fragment>
+      </>
     );
     const { getByText, findByText } = renderDataCards({
       children: getChildren({ renderItem: fragmentRenderItem }),

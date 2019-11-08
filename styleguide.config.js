@@ -120,6 +120,7 @@ module.exports = {
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/layout/Frame/Frame'),
     Logo: path.join(__dirname, 'styleguide/Logo'),
+    VersionDropdown: path.join(__dirname, 'styleguide/VersionDropdown'),
     StyleGuideRenderer: path.join(__dirname, 'styleguide/StyleGuide'),
     TableOfContentsRenderer: path.join(
       __dirname,
