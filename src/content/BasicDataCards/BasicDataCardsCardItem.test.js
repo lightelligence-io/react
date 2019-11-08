@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { render } from 'react-testing-library';
 
 import { BasicDataCardsContent, BasicDataCardsCardItem } from './index';
@@ -69,10 +69,10 @@ describe('BasicDataCardsItem', () => {
   test('renders fragments with content children', async () => {
     const { container } = renderCardItem({
       children: (
-        <Fragment>
+        <>
           <BasicDataCardsContent>A</BasicDataCardsContent>
           <BasicDataCardsContent>B</BasicDataCardsContent>
-        </Fragment>
+        </>
       ),
     });
 

@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Logo from 'rsg-components/Logo'; // eslint-disable-line
+import VersionDropdown from 'rsg-components/VersionDropdown'; // eslint-disable-line
 import './styles.css';
 
 const StyleGuideRenderer = ({ toc, version, children, title }) => (
   <div className="wrapper">
     <div className="sidebar">
       <Logo version={version}>{title}</Logo>
+      <VersionDropdown version={version}>{title}</VersionDropdown>
       {toc}
     </div>
     <div className="content">
