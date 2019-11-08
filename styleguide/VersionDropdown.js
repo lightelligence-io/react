@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import * as olt from '@lightelligence/styles';
-import { Select } from '../src/controls/Select';
+import { V2Select } from '../src/controls/V2Select';
 
 const VersionDropdownRenderer = ({ version }) => {
   const [options, setOptions] = useState([]);
@@ -25,7 +25,7 @@ const VersionDropdownRenderer = ({ version }) => {
 
   return (
     <div className={olt.uMarginTop2}>
-      <Select
+      <V2Select
         label="Select an option"
         value={version}
         onChange={(v) => {
