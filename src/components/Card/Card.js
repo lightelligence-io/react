@@ -85,7 +85,7 @@ export const Card = React.forwardRef(
                 {action}
                 {edit && (
                   <ActionButton
-                    iconRight="action-edit"
+                    iconRight="edit"
                     buttonType="primary"
                     label="Edit"
                     className={editClassName}

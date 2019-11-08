@@ -112,7 +112,7 @@ describe('Card', () => {
     expect(edit.classList.contains(oltStyles.ActionButton)).toBe(true);
     expect(edit.classList.contains(oltStyles.ActionButtonPrimary)).toBe(true);
     expect(edit.classList.contains(oltStyles.ActionButtonIconRight)).toBe(true);
-    expect(edit.classList.contains(oltStyles.IconActionEdit)).toBe(true);
+    expect(edit.classList.contains(oltStyles.IconEdit)).toBe(true);
     const label = edit.getElementsByClassName('olt-ActionButton-label')[0];
     expect(label).not.toBeUndefined();
   });

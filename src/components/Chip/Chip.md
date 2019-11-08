@@ -36,17 +36,17 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    default:    wrap(<Chip iconLeft="action-add-default" color="default">Chip</Chip>),
-    dark:      wrap(<Chip iconLeft="action-add-default" color="dark">Chip</Chip>),
-    light:        wrap(<Chip iconLeft="action-add-default" color="light">Chip</Chip>, true),
-    primary_active: wrap(<Chip iconLeft="action-add-default" color="primary">Chip</Chip>),
+    default:    wrap(<Chip iconLeft="add-default" color="default">Chip</Chip>),
+    dark:      wrap(<Chip iconLeft="add-default" color="dark">Chip</Chip>),
+    light:        wrap(<Chip iconLeft="add-default" color="light">Chip</Chip>, true),
+    primary_active: wrap(<Chip iconLeft="add-default" color="primary">Chip</Chip>),
   },
   {
     id: 'Decoration Right',
-    default:    wrap(<Chip iconRight="action-add-default" color="default">Chip</Chip>),
-    dark:      wrap(<Chip iconRight="action-add-default" color="dark">Chip</Chip>),
-    light:        wrap(<Chip iconRight="action-add-default" color="light">Chip</Chip>, true),
-    primary_active: wrap(<Chip iconRight="action-add-default" color="primary">Chip</Chip>),
+    default:    wrap(<Chip iconRight="add-default" color="default">Chip</Chip>),
+    dark:      wrap(<Chip iconRight="add-default" color="dark">Chip</Chip>),
+    light:        wrap(<Chip iconRight="add-default" color="light">Chip</Chip>, true),
+    primary_active: wrap(<Chip iconRight="add-default" color="primary">Chip</Chip>),
   },
   {
     id: 'Count',
@@ -57,10 +57,10 @@ const rows = [
   },
   {
     id: 'Count + Decoration Left',
-    default:    wrap(<Chip iconLeft="action-add-default" color="default" bubble={5}>Chip</Chip>),
-    dark:      wrap(<Chip iconLeft="action-add-default" color="dark" bubble={5}>Chip</Chip>),
-    light:        wrap(<Chip iconLeft="action-add-default" color="light" bubble={5}>Chip</Chip>, true),
-    primary_active: wrap(<Chip iconLeft="action-add-default" color="primary" bubble={5}>Chip</Chip>),
+    default:    wrap(<Chip iconLeft="add-default" color="default" bubble={5}>Chip</Chip>),
+    dark:      wrap(<Chip iconLeft="add-default" color="dark" bubble={5}>Chip</Chip>),
+    light:        wrap(<Chip iconLeft="add-default" color="light" bubble={5}>Chip</Chip>, true),
+    primary_active: wrap(<Chip iconLeft="add-default" color="primary" bubble={5}>Chip</Chip>),
   },
   {
     id: 'Shortened',
@@ -130,9 +130,9 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    error:    wrap(<Chip iconLeft="action-add-default" color="error">Chip</Chip>),
-    success:      wrap(<Chip iconLeft="action-add-default" color="success">Chip</Chip>),
-    info:        wrap(<Chip iconLeft="action-add-default" color="info">Chip</Chip>),
+    error:    wrap(<Chip iconLeft="add-default" color="error">Chip</Chip>),
+    success:      wrap(<Chip iconLeft="add-default" color="success">Chip</Chip>),
+    info:        wrap(<Chip iconLeft="add-default" color="info">Chip</Chip>),
   },
   {
     id: 'Count',
@@ -142,9 +142,9 @@ const rows = [
   },
   {
     id: 'Count + Decoration Left',
-    error:    wrap(<Chip iconLeft="action-add-default" color="error" bubble={5}>Chip</Chip>),
-    success:      wrap(<Chip iconLeft="action-add-default" color="success" bubble={5}>Chip</Chip>),
-    info:        wrap(<Chip iconLeft="action-add-default" color="info" bubble={5}>Chip</Chip>),
+    error:    wrap(<Chip iconLeft="add-default" color="error" bubble={5}>Chip</Chip>),
+    success:      wrap(<Chip iconLeft="add-default" color="success" bubble={5}>Chip</Chip>),
+    info:        wrap(<Chip iconLeft="add-default" color="info" bubble={5}>Chip</Chip>),
   },
   {
     id: 'Shortened',
@@ -235,10 +235,10 @@ Each Chip can have an icon rendered on the left or on the right side by adding `
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <Chip onClick={() => alert('Chip closed!')} color="primary" selectable iconLeft="action-add-default">
+  <Chip onClick={() => alert('Chip closed!')} color="primary" selectable iconLeft="add-default">
     Primary
   </Chip>
-  <Chip onClick={() => alert('Chip closed!')} selectable iconRight="action-add-default">
+  <Chip onClick={() => alert('Chip closed!')} selectable iconRight="add-default">
     Primary
   </Chip>
 </FloatingList>;
@@ -292,25 +292,25 @@ import { Card, Chip, Icon, FloatingList } from '@lightelligence/react';
 <>
 <Card>
   <FloatingList>
-    <Chip bubbleIcon="action-add-default">
+    <Chip bubbleIcon="add-default">
       Default
     </Chip>
-    <Chip color="primary" bubbleIcon="action-add-default">
+    <Chip color="primary" bubbleIcon="add-default">
       Primary
     </Chip>
-    <Chip color="dark" bubbleIcon="action-add-default">
+    <Chip color="dark" bubbleIcon="add-default">
       Dark
     </Chip>
-    <Chip color="light" bubbleIcon="action-add-default">
+    <Chip color="light" bubbleIcon="add-default">
       Light
     </Chip>
-    <Chip color="error" bubbleIcon="action-add-default">
+    <Chip color="error" bubbleIcon="add-default">
       Error
     </Chip>
-    <Chip color="success" bubbleIcon="action-add-default">
+    <Chip color="success" bubbleIcon="add-default">
       Success
     </Chip>
-    <Chip color="info" bubbleIcon="action-add-default">
+    <Chip color="info" bubbleIcon="add-default">
       Info
     </Chip>
   </FloatingList>
@@ -328,16 +328,16 @@ Bubble's colors can also be fixed by setting the `bubbleColor` property to `info
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <Chip bubbleColor="info" bubbleIcon="action-add-default">
+  <Chip bubbleColor="info" bubbleIcon="add-default">
     Info with icon
   </Chip>
   <Chip bubbleColor="success" bubble={42}>
     Success with Counter
   </Chip>
-  <Chip bubbleColor="warning" bubbleIcon="action-add-default">
+  <Chip bubbleColor="warning" bubbleIcon="add-default">
     Warning with icon
   </Chip>
-  <Chip bubbleColor="error" bubbleIcon="action-add-default">
+  <Chip bubbleColor="error" bubbleIcon="add-default">
     Error with icon
   </Chip>
 </FloatingList>;

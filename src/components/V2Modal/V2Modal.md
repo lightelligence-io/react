@@ -43,7 +43,7 @@ We support the following types:
 
 
 ```js
-import { V2Modal, V2MODAL_TYPE_CRITICAL, V2MODAL_TYPE_SUCCESS, V2MODAL_TYPE_INFO, V2MODAL_TYPE_WARNING, V2MODAL_TYPE_ACTION, V2Button } from '@lightelligence/react';
+import { V2Modal, V2MODAL_TYPE_CRITICAL, V2MODAL_TYPE_SUCCESS, V2MODAL_TYPE_INFO, V2MODAL_TYPE_WARNING, V2MODAL_TYPE_ACTION, V2Button, FloatingList } from '@lightelligence/react';
 initialState = { modalOpen: {
   error: false,
   warning: false,
@@ -66,11 +66,13 @@ const onSubmit = (type) => {
   }});
 };
 <div>
-  <V2Button buttonType="destructive" onClick={() => toggleModal('error')}>Open Error Modal</V2Button>
-  <V2Button buttonType="default" onClick={() => toggleModal('warning')}>Open Warning Modal</V2Button>
-  <V2Button buttonType="default" onClick={() => toggleModal('info')}>Open Info Modal</V2Button>
-  <V2Button buttonType="confirmative" onClick={() => toggleModal('success')}>Open Success Modal</V2Button>
-  <V2Button buttonType="action" onClick={() => toggleModal('action')}>Open Action Modal</V2Button>
+  <FloatingList>
+    <V2Button buttonType="destructive" onClick={() => toggleModal('error')}>Open Error Modal</V2Button>
+    <V2Button buttonType="default" onClick={() => toggleModal('warning')}>Open Warning Modal</V2Button>
+    <V2Button buttonType="default" onClick={() => toggleModal('info')}>Open Info Modal</V2Button>
+    <V2Button buttonType="confirmative" onClick={() => toggleModal('success')}>Open Success Modal</V2Button>
+    <V2Button buttonType="action" onClick={() => toggleModal('action')}>Open Action Modal</V2Button>
+  </FloatingList>
   <V2Modal
     type={V2MODAL_TYPE_CRITICAL}
     title="Error!!!!!"
@@ -109,7 +111,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('warning')}
       >
         Ok
@@ -131,7 +133,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('info')}
       >
         Ok
@@ -139,7 +141,7 @@ const onSubmit = (type) => {
     ]}/>
   <V2Modal
     type={V2MODAL_TYPE_SUCCESS}
-    title="SUCCESS!!"
+    title="Success!!"
     content="Lorem ipsum dolor sit amet."
     open={state.modalOpen.success}
     actions={[
@@ -153,7 +155,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('success')}
       >
         Ok
@@ -175,7 +177,7 @@ const onSubmit = (type) => {
       </V2Button>,
       <V2Button
         key="ok"
-        buttonType="destructive"
+        buttonType="primary"
         onClick={() => onSubmit('action')}
       >
         Ok
@@ -205,7 +207,7 @@ const toggleModal = () => {
     <V2Button buttonType="default" onClick={toggleModal}>Modified Header and More Content</V2Button>
     <V2Modal
       title='Headline'
-      icon={<Icon name="action-add-default" color="primary" />}
+      icon={<Icon name="add-default" color="primary" />}
       headerProps={{style: {backgroundColor: 'black'}}}
       open={state.modalOpen}
       content={

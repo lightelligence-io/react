@@ -117,7 +117,7 @@ describe('V2Button', () => {
   });
 
   test('correctly sets iconLeft', () => {
-    const iconLeft = 'action-add-default';
+    const iconLeft = 'add-default';
     const { getByText } = renderButton({
       children: 'Button',
       iconLeft,
@@ -128,7 +128,7 @@ describe('V2Button', () => {
   });
 
   test('correctly sets iconRight', () => {
-    const iconRight = 'action-add-default';
+    const iconRight = 'add-default';
     const { getByText } = renderButton({
       children: 'Button',
       iconRight,

@@ -15,13 +15,11 @@ describe('ActionButton', () => {
     const button = getByTestId('Button');
     expect(button.classList.contains(oltStyles.ActionButton)).toBe(true);
   });
-
   test('sets the label and correct class from styles', () => {
     const { getByText } = renderButton();
     const label = getByText('Label');
     expect(label.classList.contains(oltStyles.ActionButtonLabel)).toBe(true);
   });
-
   test('triggers onClick', () => {
     const onClick = jest.fn();
     const { getByTestId } = renderButton({
@@ -31,7 +29,6 @@ describe('ActionButton', () => {
     fireEvent.click(button);
     expect(onClick).toHaveBeenCalled();
   });
-
   test('forwards className', () => {
     const { getByTestId } = renderButton({
       className: 'myClass',
@@ -39,7 +36,6 @@ describe('ActionButton', () => {
     const button = getByTestId('Button');
     expect(button.classList.contains('myClass')).toBe(true);
   });
-
   test('correctly sets the css-modifier for buttonType primary', () => {
     const { getByTestId } = renderButton({
       buttonType: 'primary',
@@ -47,7 +43,6 @@ describe('ActionButton', () => {
     const button = getByTestId('Button');
     expect(button.classList.contains(oltStyles.ActionButtonPrimary)).toBe(true);
   });
-
   test('correctly sets the css-modifier for buttonType confirmative', () => {
     const { getByTestId } = renderButton({
       buttonType: 'confirmative',
@@ -57,7 +52,6 @@ describe('ActionButton', () => {
       true,
     );
   });
-
   test('correctly sets the css-modifier for buttonType destructive', () => {
     const { getByTestId } = renderButton({
       buttonType: 'destructive',
@@ -67,9 +61,8 @@ describe('ActionButton', () => {
       true,
     );
   });
-
   test('correctly sets iconLeft', () => {
-    const iconLeft = 'action-add-default';
+    const iconLeft = 'add-default';
     const { getByTestId } = renderButton({
       iconLeft,
     });
@@ -79,9 +72,8 @@ describe('ActionButton', () => {
     );
     expect(button.classList.contains(`olt-Icon-${iconLeft}`)).toBe(true);
   });
-
   test('correctly sets iconRight', () => {
-    const iconRight = 'action-add-default';
+    const iconRight = 'add-default';
     const { getByTestId } = renderButton({
       iconRight,
     });
@@ -91,7 +83,6 @@ describe('ActionButton', () => {
     );
     expect(button.classList.contains(`olt-Icon-${iconRight}`)).toBe(true);
   });
-
   test('correctly sets fixed', () => {
     const { getByTestId } = renderButton({
       fixed: true,
@@ -99,7 +90,6 @@ describe('ActionButton', () => {
     const button = getByTestId('Button');
     expect(button.classList.contains(oltStyles.ActionButtonFixed)).toBe(true);
   });
-
   test('correctly sets standalone', () => {
     const { getByTestId } = renderButton({
       standalone: true,
@@ -109,12 +99,25 @@ describe('ActionButton', () => {
       true,
     );
   });
-
   test('correctly sets base', () => {
     const { getByTestId } = renderButton({
       base: true,
     });
     const button = getByTestId('Button');
     expect(button.classList.contains(oltStyles.ActionButtonBase)).toBe(true);
+  });
+  test('correctly sets disabled', () => {
+    const onClick = jest.fn();
+    const { getByTestId } = renderButton({
+      onClick,
+      disabled: true,
+    });
+    const button = getByTestId('Button');
+    expect(button.classList.contains(oltStyles.ActionButtonDisabled)).toBe(
+      true,
+    );
+    expect(button.disabled).toBe(true);
+    fireEvent.click(button);
+    expect(onClick).not.toHaveBeenCalled();
   });
 });
