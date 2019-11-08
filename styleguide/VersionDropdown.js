@@ -15,12 +15,12 @@ const VersionDropdownRenderer = ({ version }) => {
   );
 
   useEffect(() => {
-    fetch('/react/versions_json.txt').then((response) => {
-      if (response.status === 200) {
-        const versionList = JSON.parse(response.text()).sort();
+    fetch('/react/versions_json.txt')
+      .then((response) => (response.status === 200 ? response.text() : '[]'))
+      .then((versions) => {
+        const versionList = JSON.parse(versions).sort();
         createOptions(versionList);
-      }
-    });
+      });
   }, [createOptions]);
 
   return (
