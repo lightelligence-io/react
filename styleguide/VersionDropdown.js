@@ -9,18 +9,18 @@ const VersionDropdownRenderer = ({ version }) => {
   const createOptions = useCallback(
     (versions) =>
       setOptions(
-        versions.map((v) => ({ value: v, label: `/react/releases/${v}` })),
+        versions.map((v) => ({ value: `/react/releases/${v}`, label: v })),
       ),
     [],
   );
 
   useEffect(() => {
-    fetch('/react/versions_json.txt').then((response) => {
-      if (response.status === 200) {
-        const versionList = JSON.parse(response.text()).sort();
+    fetch('/react/versions_json.txt')
+      .then((response) => (response.status === 200 ? response.text() : '[]'))
+      .then((versions) => {
+        const versionList = JSON.parse(versions).sort();
         createOptions(versionList);
-      }
-    });
+      });
   }, [createOptions]);
 
   return (
