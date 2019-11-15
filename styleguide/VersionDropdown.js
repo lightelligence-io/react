@@ -27,7 +27,7 @@ const VersionDropdownRenderer = ({ version }) => {
     <div className={olt.uMarginTop2}>
       <V2Select
         label="Select an option"
-        value={version}
+        value={`/react/releases/${version}`}
         onChange={(v) => {
           window.location.href = v.target.value;
         }}
