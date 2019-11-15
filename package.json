@@ -18,7 +18,7 @@
     "test:nolint": "node ./node_modules/react-scripts/scripts/test.js",
     "lint": "eslint src/ --max-warnings 0 && prettier -c \"src/**/*.js\"",
     "lint:fix": "eslint --fix src/ --max-warnings 0 && prettier -c --write \"src/**/*.js\"",
-    "license-report": "legally",
+    "license-report": "legally -lr",
     "transpile-esm": "BABEL_ENV=esm babel src -d dist/esm --copy-files",
     "transpile-cjs": "BABEL_ENV=cjs babel src -d dist/cjs --copy-files"
   },
@@ -26,7 +26,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@lightelligence/styles": "^1.0.0-alpha.5",
+    "@lightelligence/styles": "^1.0.0-alpha.6",
     "@testing-library/jest-dom": "^4.2.3",
     "classnames": "^2.2.6",
     "clipboard-copy": "^3.1.0",
