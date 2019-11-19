@@ -47,6 +47,8 @@ const Button = React.forwardRef(
   },
 );
 
+Button.displayName = 'Button';
+
 Button.propTypes = {
   /**
    * The html tag that should be rendered for this button.

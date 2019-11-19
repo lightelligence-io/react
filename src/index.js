@@ -13,6 +13,8 @@ export * from './components/StepperDialog';
 export * from './components/Tabs';
 export * from './components/Tooltip';
 export * from './components/Pagination';
+export * from './components/V2Dropdown';
+export * from './components/InputList';
 
 // content
 export * from './content/BasicDataCards';
