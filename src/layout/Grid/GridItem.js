@@ -1,67 +1,111 @@
-import React, { PureComponent } from 'react';
-import { node, number, string, shape, oneOfType } from 'prop-types';
+import React from 'react';
+import { node, string, oneOf } from 'prop-types';
 import classnames from 'classnames';
-import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 
-const isFirstBreakpoint = (breakpoint) => breakpoint === 'xs';
+export const GridItem = ({
+  className,
+  children,
+  xs,
+  sm,
+  md,
+  lg,
+  xl,
+  offsetXs,
+  offsetSm,
+  offsetMd,
+  offsetLg,
+  offsetXl,
+  ...props
+}) => {
+  return (
+    <div
+      className={classnames(
+        olt.GridItem,
+        xs && (xs === 'auto' ? olt.GridItemAuto : olt[`GridItem${xs}`]),
+        sm && (sm === 'auto' ? olt.GridItemSmAuto : olt[`GridItemSm${sm}`]),
+        md && (md === 'auto' ? olt.GridItemMdAuto : olt[`GridItemMd${md}`]),
+        lg && (lg === 'auto' ? olt.GridItemLgAuto : olt[`GridItemLg${lg}`]),
+        xl && (xl === 'auto' ? olt.GridItemXlAuto : olt[`GridItemXl${xl}`]),
+        offsetXs && olt[`GridItemOffset${offsetXs}`],
+        offsetSm && olt[`GridItemSmOffset${offsetSm}`],
+        offsetMd && olt[`GridItemMdOffset${offsetMd}`],
+        offsetLg && olt[`GridItemLgOffset${offsetLg}`],
+        offsetXl && olt[`GridItemXlOffset${offsetXl}`],
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
 
-class GridItem extends PureComponent {
-  static propTypes = {
-    children: node,
-    className: string,
-    size: oneOfType([
-      number,
-      string,
-      shape({}), // Provide breakpoints as object literal, e.g. `{ xs: 12, sm: 6, md: 4, lg: 3 }`
-    ]),
-    offset: oneOfType([
-      number,
-      string,
-      shape({}), // Provide breakpoints as object literal, e.g. `{ xs: 0, sm: 2, md: 4, lg: 6 }`
-    ]),
-  };
+const offsetProp = oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+const sizeProp = oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'auto']);
 
-  static defaultProps = {
-    children: null,
-    className: null,
-    size: 'auto',
-    offset: '',
-  };
+GridItem.propTypes = {
+  /**
+   * The content of this item.
+   */
+  children: node,
+  /**
+   * Forward an additional className to the underlying component.
+   */
+  className: string,
+  /**
+   * The number of colums this grid item occupies for `xs` breakpoint.
+   */
+  xs: sizeProp,
+  /**
+   * The number of colums this grid item occupies for `sm` breakpoint.
+   */
+  sm: sizeProp,
+  /**
+   * The number of colums this grid item occupies for `md` breakpoint.
+   */
+  md: sizeProp,
+  /**
+   * The number of colums this grid item occupies for `lg` breakpoint.
+   */
+  lg: sizeProp,
+  /**
+   * The number of colums this grid item occupies for `xl` breakpoint.
+   */
+  xl: sizeProp,
+  /**
+   * The offset of colums this grid item is moved to the right for `xs` breakpoint.
+   */
+  offsetXs: offsetProp,
+  /**
+   * The offset of colums this grid item is moved to the right for `sm` breakpoint.
+   */
+  offsetSm: offsetProp,
+  /**
+   * The offset of colums this grid item is moved to the right for `md` breakpoint.
+   */
+  offsetMd: offsetProp,
+  /**
+   * The offset of colums this grid item is moved to the right for `lg` breakpoint.
+   */
+  offsetLg: offsetProp,
+  /**
+   * The offset of colums this grid item is moved to the right for `xl` breakpoint.
+   */
+  offsetXl: offsetProp,
+};
 
-  render() {
-    const { className, children, size, offset, ...props } = this.props;
-
-    const classes = [olt.GridItem];
-
-    // NOTE: This is using new props-API:
-    // TODO: Make it a single line!
-    if (typeof size === 'object') {
-      for (const [breakpoint, value] of Object.entries(size)) {
-        const infix = isFirstBreakpoint(breakpoint) ? '' : `${breakpoint}-`;
-        classes.push(olt[`GridItem${pascalize(infix + value)}`]);
-      }
-    } else if (size) {
-      classes.push(olt[`GridItem${pascalize(String(size))}`]);
-    }
-
-    if (typeof offset === 'object') {
-      for (const [breakpoint, value] of Object.entries(offset)) {
-        const infix = isFirstBreakpoint(breakpoint) ? '' : `${breakpoint}-`;
-        classes.push(
-          olt[`GridItem${pascalize(infix)}Offset${pascalize(String(value))}`],
-        );
-      }
-    } else if (offset) {
-      classes.push(olt[`GridItemOffset${pascalize(String(offset))}`]);
-    }
-
-    return (
-      <div className={classnames(...classes, className)} {...props}>
-        {children}
-      </div>
-    );
-  }
-}
-
-export { GridItem };
+GridItem.defaultProps = {
+  children: null,
+  className: null,
+  xs: 'auto',
+  sm: undefined,
+  md: undefined,
+  lg: undefined,
+  xl: undefined,
+  offsetXs: undefined,
+  offsetSm: undefined,
+  offsetMd: undefined,
+  offsetLg: undefined,
+  offsetXl: undefined,
+};

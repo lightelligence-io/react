@@ -3,13 +3,13 @@ import { render } from '@testing-library/react';
 
 import { oltStyles } from '../..';
 
-import { V2GridItem } from './V2GridItem';
+import { GridItem } from './GridItem';
 
 const renderComponent = (props) => {
-  return render(<V2GridItem {...props} />);
+  return render(<GridItem {...props} />);
 };
 
-describe('V2GridItem', () => {
+describe('GridItem', () => {
   test('forwards className', () => {
     const { getByText } = renderComponent({
       className: 'myClass',
@@ -25,7 +25,7 @@ describe('V2GridItem', () => {
       children: 'Component',
     });
     const component = getByText('Component');
-    expect(component.classList.contains(oltStyles.V2GridItem)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItem)).toBeTruthy();
   });
 
   test('sets the corresponding size styles when passing values for all breakpoints', () => {
@@ -38,11 +38,11 @@ describe('V2GridItem', () => {
       xl: 3,
     });
     const component = getByText('Component');
-    expect(component.classList.contains(oltStyles.V2GridItem12)).toBeTruthy();
-    expect(component.classList.contains(oltStyles.V2GridItemSm8)).toBeTruthy();
-    expect(component.classList.contains(oltStyles.V2GridItemMd6)).toBeTruthy();
-    expect(component.classList.contains(oltStyles.V2GridItemLg4)).toBeTruthy();
-    expect(component.classList.contains(oltStyles.V2GridItemXl3)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItem12)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItemSm8)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItemMd6)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItemLg4)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItemXl3)).toBeTruthy();
   });
 
   test("sets the corresponding size styles when passing 'auto' for all breakpoints", () => {
@@ -55,19 +55,11 @@ describe('V2GridItem', () => {
       xl: 'auto',
     });
     const component = getByText('Component');
-    expect(component.classList.contains(oltStyles.V2GridItemAuto)).toBeTruthy();
-    expect(
-      component.classList.contains(oltStyles.V2GridItemSmAuto),
-    ).toBeTruthy();
-    expect(
-      component.classList.contains(oltStyles.V2GridItemMdAuto),
-    ).toBeTruthy();
-    expect(
-      component.classList.contains(oltStyles.V2GridItemLgAuto),
-    ).toBeTruthy();
-    expect(
-      component.classList.contains(oltStyles.V2GridItemXlAuto),
-    ).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItemAuto)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItemSmAuto)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItemMdAuto)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItemLgAuto)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItemXlAuto)).toBeTruthy();
   });
 
   test('sets auto css modifier as default size', () => {
@@ -75,7 +67,7 @@ describe('V2GridItem', () => {
       children: 'Component',
     });
     const component = getByText('Component');
-    expect(component.classList.contains(oltStyles.V2GridItemAuto)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.GridItemAuto)).toBeTruthy();
   });
 
   test('sets the corresponding offset styles passing values for all breakpoints', () => {
@@ -90,19 +82,19 @@ describe('V2GridItem', () => {
     const component = getByText('Component');
 
     expect(
-      component.classList.contains(oltStyles.V2GridItemOffset1),
+      component.classList.contains(oltStyles.GridItemOffset1),
     ).toBeTruthy();
     expect(
-      component.classList.contains(oltStyles.V2GridItemSmOffset2),
+      component.classList.contains(oltStyles.GridItemSmOffset2),
     ).toBeTruthy();
     expect(
-      component.classList.contains(oltStyles.V2GridItemMdOffset3),
+      component.classList.contains(oltStyles.GridItemMdOffset3),
     ).toBeTruthy();
     expect(
-      component.classList.contains(oltStyles.V2GridItemLgOffset4),
+      component.classList.contains(oltStyles.GridItemLgOffset4),
     ).toBeTruthy();
     expect(
-      component.classList.contains(oltStyles.V2GridItemXlOffset5),
+      component.classList.contains(oltStyles.GridItemXlOffset5),
     ).toBeTruthy();
   });
 });

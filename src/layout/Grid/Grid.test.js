@@ -3,13 +3,13 @@ import { render } from '@testing-library/react';
 
 import { oltStyles } from '../..';
 
-import { V2Grid } from './V2Grid';
+import { Grid } from './Grid';
 
 const renderComponent = (props) => {
-  return render(<V2Grid {...props} />);
+  return render(<Grid {...props} />);
 };
 
-describe('V2Grid', () => {
+describe('Grid', () => {
   test('forwards className', () => {
     const { getByText } = renderComponent({
       className: 'myClass',
@@ -25,6 +25,6 @@ describe('V2Grid', () => {
       children: 'Component',
     });
     const component = getByText('Component');
-    expect(component.classList.contains(oltStyles.V2Grid)).toBeTruthy();
+    expect(component.classList.contains(oltStyles.Grid)).toBeTruthy();
   });
 });
