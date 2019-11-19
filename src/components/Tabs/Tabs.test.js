@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent, wait } from '@testing-library/react';
 
-import { V2Tabs, V2Tab } from '.';
+import { Tabs, Tab } from '.';
 import { oltStyles } from '../..';
 
 const renderTabs = (onSelect) =>
   render(
-    <V2Tabs value="tab1" onSelect={onSelect} data-testid="Tabs">
-      <V2Tab label="Tab A" value="tab1" />
-      <V2Tab label="Tab B" value="tab2" />
-      <V2Tab label="Tab C" value="tab3" />
-      <V2Tab label="Tab D" value="tab4" />
-      <V2Tab label="Tab E" value="tab5" />
-      <V2Tab label="Tab F" value="tab6" />
-    </V2Tabs>,
+    <Tabs value="tab1" onSelect={onSelect} data-testid="Tabs">
+      <Tab label="Tab A" value="tab1" />
+      <Tab label="Tab B" value="tab2" />
+      <Tab label="Tab C" value="tab3" />
+      <Tab label="Tab D" value="tab4" />
+      <Tab label="Tab E" value="tab5" />
+      <Tab label="Tab F" value="tab6" />
+    </Tabs>,
   );
 
 describe('Tabs render correctly', () => {
@@ -26,10 +26,10 @@ describe('Tabs render correctly', () => {
     getByText('Tab E');
     getByText('Tab F');
     const tabA = getByText('Tab A');
-    expect(tabA.classList.contains(oltStyles.V2TabsLink)).toBe(true);
+    expect(tabA.classList.contains(oltStyles.TabsLink)).toBe(true);
     expect(tabA.classList.contains(oltStyles.isActive)).toBe(true);
     const tabB = getByText('Tab B');
-    expect(tabB.classList.contains(oltStyles.V2TabsLink)).toBe(true);
+    expect(tabB.classList.contains(oltStyles.TabsLink)).toBe(true);
     expect(tabB.classList.contains(oltStyles.isActive)).toBe(false);
   });
   test('renders inactive Tab', () => {

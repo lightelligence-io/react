@@ -50,7 +50,7 @@ import {
   TableCellRowIndex,
   Headline,
   Icon,
-  Tag,
+  Chip,
   GridItem,
   Grid
 } from '@lightelligence/react';
@@ -100,7 +100,7 @@ initialState = {
         <Grid>
           {tags.map((tag) => (
             <GridItem key={tag}>
-              <Tag>{tag}</Tag>
+              <Chip>{tag}</Chip>
             </GridItem>
           ))}
         </Grid>

@@ -29,7 +29,7 @@ You can wrap the **DynamicList** in a **Dialog** component to show it as a modal
 import {
   Dialog,
   DynamicList,
-  V2Button,
+  Button,
 } from '@lightelligence/react';
 
 initialState = {
@@ -55,7 +55,7 @@ const dynamicList = (
 );
 
 <div>
-  <V2Button color="primary" onClick={toggleDialog}>Dynamic List Dialog</V2Button>
+  <Button color="primary" onClick={toggleDialog}>Dynamic List Dialog</Button>
   <Dialog
     title="All will be fine"
     description="All will be fine"
@@ -76,7 +76,7 @@ These attributes affect the appearance of the `add` and `remove` buttons and may
 import {
   Dialog,
   DynamicList,
-  V2Button,
+  Button,
 } from '@lightelligence/react';
 
 initialState = {
@@ -108,7 +108,7 @@ Use `inputElement` to specify an input element different from `V2Input` and ensu
 ```js
 import {
   DynamicList,
-  V2Button,
+  Button,
   V2Input,
   V2Select
 } from '@lightelligence/react';

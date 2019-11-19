@@ -9,19 +9,12 @@ import {
   Button,
   Card,
   Divider,
-  Dropdown,
   Icon,
-  Menu,
-  Modal,
-  Navbar,
-  Snackbar,
   Notification,
   NotificationContainer,
   NOTIFICATION_TYPE_INFO,
-  Stepper,
   Tabs,
   Tab,
-  Tag,
   Tooltip,
   Table,
   TableCell,
@@ -82,12 +75,6 @@ describe('Divider', () => {
   });
 });
 
-describe('Dropdown', () => {
-  it('should render without failing', () => {
-    render(<Dropdown label="Dropdown">Dropdown content</Dropdown>);
-  });
-});
-
 describe('Frame', () => {
   it('should render without failing', () => {
     render(<Frame />);
@@ -140,24 +127,6 @@ describe('List', () => {
   });
 });
 
-describe('Menu', () => {
-  it('should render without failing', () => {
-    render(<Menu />);
-  });
-});
-
-describe('Modal', () => {
-  it('should render without failing', () => {
-    render(<Modal open={false} />);
-  });
-});
-
-describe('Navbar', () => {
-  it('should render without failing', () => {
-    render(<Navbar />);
-  });
-});
-
 describe('Paragraph', () => {
   it('should render without failing', () => {
     render(<Paragraph />);
@@ -193,12 +162,6 @@ describe('SelectField', () => {
   });
 });
 
-describe('Snackbar', () => {
-  it('should render without failing', () => {
-    render(<Snackbar />);
-  });
-});
-
 describe('NotificationContainer', () => {
   it('should render without failing', () => {
     render(<NotificationContainer />);
@@ -229,12 +192,6 @@ describe('NotificationContainer', () => {
   });
 });
 
-describe('Stepper', () => {
-  it('should render without failing', () => {
-    render(<Stepper steps={[]} />);
-  });
-});
-
 describe('Table', () => {
   it('should render without failing', () => {
     render(
@@ -253,12 +210,6 @@ describe('Tabs', () => {
         <Tab label="Tab A" value="tab1" />
       </Tabs>,
     );
-  });
-});
-
-describe('Tag', () => {
-  it('should render without failing', () => {
-    render(<Tag />);
   });
 });
 

@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 import { V2Select } from '../../controls/V2Select';
 import { Description } from '../../content/Fonts';
-import { V2Button } from '../V2Button';
+import { Button } from '../Button';
 
 const Pagination = ({
   currentPage,
@@ -108,20 +108,20 @@ const Pagination = ({
           )}
           style={{ minWidth: '165px' }}
         >
-          <V2Button
+          <Button
             buttonType="paginationPrev"
             onClick={() => setPage(currentPage - 1)}
             disabled={currentPage === 1}
           >
             prev
-          </V2Button>
-          <V2Button
+          </Button>
+          <Button
             buttonType="paginationNext"
             onClick={() => setPage(currentPage + 1)}
             disabled={currentPage >= noOfPages}
           >
             next
-          </V2Button>
+          </Button>
         </div>
       </div>
     </div>

@@ -4,19 +4,19 @@ import { render, fireEvent } from '@testing-library/react';
 import { oltStyles } from '../..';
 
 import { Icon } from '../Icon';
-import { V2Button } from '../V2Button';
-import { V2Modal } from './V2Modal';
+import { Button } from '../Button';
+import { Modal } from './Modal';
 import {
-  V2MODAL_TYPE_CRITICAL,
-  V2MODAL_TYPE_SUCCESS,
-  V2MODAL_TYPE_INFO,
-  V2MODAL_TYPE_WARNING,
-  V2MODAL_TYPE_ACTION,
+  MODAL_TYPE_CRITICAL,
+  MODAL_TYPE_SUCCESS,
+  MODAL_TYPE_INFO,
+  MODAL_TYPE_WARNING,
+  MODAL_TYPE_ACTION,
 } from './types';
 
 const renderModal = (props) => {
   return render(
-    <V2Modal
+    <Modal
       title="All will be fine"
       open={false}
       content="Lorem ipsum dolor sit amet"
@@ -41,31 +41,31 @@ const renderModal = (props) => {
   );
 };
 
-describe('V2Modal', () => {
+describe('Modal', () => {
   test('has the model uses the right classes from styles', () => {
     const { getByTestId } = renderModal();
     const modal = getByTestId('modal');
-    expect(modal.classList.contains(oltStyles.V2Modal)).toBe(true);
+    expect(modal.classList.contains(oltStyles.Modal)).toBe(true);
   });
   test('has the model dialog uses the right classes from styles', () => {
     const { getByTestId } = renderModal();
     const modal = getByTestId('dialog');
-    expect(modal.classList.contains(oltStyles.V2ModalDialog)).toBe(true);
+    expect(modal.classList.contains(oltStyles.ModalDialog)).toBe(true);
   });
   test('has the model header uses the right classes from styles', () => {
     const { getByTestId } = renderModal();
     const modal = getByTestId('header');
-    expect(modal.classList.contains(oltStyles.V2ModalHeader)).toBe(true);
+    expect(modal.classList.contains(oltStyles.ModalHeader)).toBe(true);
   });
   test('has the model content uses the right classes from styles', () => {
     const { getByTestId } = renderModal();
     const modal = getByTestId('content');
-    expect(modal.classList.contains(oltStyles.V2ModalContent)).toBe(true);
+    expect(modal.classList.contains(oltStyles.ModalContent)).toBe(true);
   });
   test('has the model footer uses the right classes from styles', () => {
     const { getByTestId } = renderModal();
     const modal = getByTestId('footer');
-    expect(modal.classList.contains(oltStyles.V2ModalFooter)).toBe(true);
+    expect(modal.classList.contains(oltStyles.ModalFooter)).toBe(true);
   });
   test('sets isOpen', () => {
     const { getByTestId } = renderModal({
@@ -79,9 +79,9 @@ describe('V2Modal', () => {
     const onClick = jest.fn();
     const { getByTestId } = renderModal({
       actions: [
-        <V2Button key="ok" buttonType="action" onClick={onClick}>
+        <Button key="ok" buttonType="action" onClick={onClick}>
           Ok
-        </V2Button>,
+        </Button>,
       ],
     });
     const footer = getByTestId('footer');
@@ -91,38 +91,38 @@ describe('V2Modal', () => {
   });
   test('renders critical modifier', () => {
     const { getByTestId } = renderModal({
-      type: V2MODAL_TYPE_CRITICAL,
+      type: MODAL_TYPE_CRITICAL,
     });
     const modal = getByTestId('modal');
-    expect(modal.classList.contains(oltStyles.V2ModalCritical)).toBe(true);
+    expect(modal.classList.contains(oltStyles.ModalCritical)).toBe(true);
   });
   test('renders warning modifier', () => {
     const { getByTestId } = renderModal({
-      type: V2MODAL_TYPE_WARNING,
+      type: MODAL_TYPE_WARNING,
     });
     const modal = getByTestId('modal');
-    expect(modal.classList.contains(oltStyles.V2ModalWarning)).toBe(true);
+    expect(modal.classList.contains(oltStyles.ModalWarning)).toBe(true);
   });
   test('renders info modifier', () => {
     const { getByTestId } = renderModal({
-      type: V2MODAL_TYPE_INFO,
+      type: MODAL_TYPE_INFO,
     });
     const modal = getByTestId('modal');
-    expect(modal.classList.contains(oltStyles.V2ModalInfo)).toBe(true);
+    expect(modal.classList.contains(oltStyles.ModalInfo)).toBe(true);
   });
   test('renders success modifier', () => {
     const { getByTestId } = renderModal({
-      type: V2MODAL_TYPE_SUCCESS,
+      type: MODAL_TYPE_SUCCESS,
     });
     const modal = getByTestId('modal');
-    expect(modal.classList.contains(oltStyles.V2ModalSuccess)).toBe(true);
+    expect(modal.classList.contains(oltStyles.ModalSuccess)).toBe(true);
   });
   test('renders action modifier', () => {
     const { getByTestId } = renderModal({
-      type: V2MODAL_TYPE_ACTION,
+      type: MODAL_TYPE_ACTION,
     });
     const modal = getByTestId('modal');
-    expect(modal.classList.contains(oltStyles.V2ModalAction)).toBe(true);
+    expect(modal.classList.contains(oltStyles.ModalAction)).toBe(true);
   });
   test('renders custom icons ', () => {
     const { getByTestId } = renderModal({
@@ -139,6 +139,6 @@ describe('V2Modal', () => {
       wide: true,
     });
     const modal = getByTestId('modal');
-    expect(modal.classList.contains(oltStyles.V2ModalWide)).toBe(true);
+    expect(modal.classList.contains(oltStyles.ModalWide)).toBe(true);
   });
 });

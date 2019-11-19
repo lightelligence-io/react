@@ -1,48 +1,60 @@
-import React, { PureComponent } from 'react';
-import { node, string, bool, func } from 'prop-types';
+import React from 'react';
+import { string, bool, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
-export class Tab extends PureComponent {
-  static propTypes = {
-    value: string.isRequired,
-    label: string,
-    active: bool,
-    children: node,
-    onSelect: func,
+export const Tab = ({
+  active,
+  label,
+  onSelect,
+  value,
+  className,
+  ...props
+}) => {
+  const handleChange = () => {
+    if (onSelect && typeof onSelect === 'function') onSelect(value);
   };
 
-  static defaultProps = {
-    label: '',
-    active: false,
-    children: null,
-    onSelect: null,
-  };
+  return (
+    <>
+      <button
+        type="button"
+        onClick={handleChange}
+        className={classnames(olt.TabsLink, active && olt.isActive, className)}
+        {...props}
+      >
+        {label}
+      </button>
+    </>
+  );
+};
 
-  handleChange = () => {
-    const { onSelect, value } = this.props;
+Tab.propTypes = {
+  /**
+   * The value passed back in the callback
+   */
+  value: string.isRequired,
+  /**
+   * The label shown on the tab
+   */
+  label: string,
+  /**
+   * Is the tab currently active
+   */
+  active: bool,
+  /**
+   * The callback when selecting a tab
+   */
+  onSelect: func,
+  /**
+   * additinal classes for the container component
+   */
+  className: string,
+};
 
-    if (onSelect) onSelect(value);
-  };
-
-  render() {
-    const { active, label, children } = this.props;
-
-    return (
-      <>
-        <button
-          type="button"
-          onClick={this.handleChange}
-          className={classnames(olt.TabsHeader, active && olt.isActive)}
-        >
-          {label}
-        </button>
-        {children && (
-          <div className={classnames(olt.TabsContent, active && olt.isActive)}>
-            {children}
-          </div>
-        )}
-      </>
-    );
-  }
-}
+Tab.defaultProps = {
+  label: '',
+  active: false,
+  onSelect: null,
+  className: null,
+};

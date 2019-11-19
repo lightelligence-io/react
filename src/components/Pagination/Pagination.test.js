@@ -34,16 +34,16 @@ describe('Pagination', () => {
     expect(pageText.classList.contains(oltStyles.uDescription)).toBe(true);
 
     const prevButton = getByText('prev');
-    expect(prevButton.classList.contains(oltStyles.V2Button)).toBe(true);
-    expect(
-      prevButton.classList.contains(oltStyles.V2ButtonPaginationPrev),
-    ).toBe(true);
+    expect(prevButton.classList.contains(oltStyles.Button)).toBe(true);
+    expect(prevButton.classList.contains(oltStyles.ButtonPaginationPrev)).toBe(
+      true,
+    );
 
     const nextButton = getByText('next');
-    expect(nextButton.classList.contains(oltStyles.V2Button)).toBe(true);
-    expect(
-      nextButton.classList.contains(oltStyles.V2ButtonPaginationNext),
-    ).toBe(true);
+    expect(nextButton.classList.contains(oltStyles.Button)).toBe(true);
+    expect(nextButton.classList.contains(oltStyles.ButtonPaginationNext)).toBe(
+      true,
+    );
   });
   test('goes to next page', () => {
     const setItemsPerPageIndex = jest.fn();

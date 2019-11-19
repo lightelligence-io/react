@@ -7,7 +7,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 import { isServerSideRendering } from '../../utils/isServerSideRendering';
 import { ActionButton } from '../ActionButton';
-import { V2Button } from '../V2Button';
+import { Button } from '../Button';
 
 export const StepperDialog = ({
   stepperHeader,
@@ -203,17 +203,17 @@ export const StepperDialog = ({
         {...otherFooterProps}
       >
         {!backButton.disabled && currentStep > 0 && (
-          <V2Button
+          <Button
             emphasis="tertiary"
             onClick={handleBack}
             {...backButton.props}
             ref={backButtonRef}
           >
             {backButton.label || 'Back'}
-          </V2Button>
+          </Button>
         )}
         {currentStep <= steps.length - 1 && (
-          <V2Button
+          <Button
             buttonType="action"
             onClick={handleProceed}
             disabled={proceedButton.disabled}
@@ -221,7 +221,7 @@ export const StepperDialog = ({
             ref={proceedButtonRef}
           >
             {proceedButton.label || 'Proceed'}
-          </V2Button>
+          </Button>
         )}
       </div>
     </div>
