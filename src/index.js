@@ -36,7 +36,6 @@ export * from './controls/Radio';
 export * from './controls/RadioGroup';
 export * from './controls/Select';
 export * from './controls/TextArea';
-export * from './controls/TextField';
 export * from './controls/Input';
 
 export * from './layout/Container';
