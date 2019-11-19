@@ -22,6 +22,8 @@ export * from './components/V2Tabs';
 export * from './components/Tag';
 export * from './components/Tooltip';
 export * from './components/Pagination';
+export * from './components/V2Dropdown';
+export * from './components/InputList';
 
 // content
 export * from './content/BasicDataCards';

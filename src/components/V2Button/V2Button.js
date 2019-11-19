@@ -47,6 +47,8 @@ const V2Button = React.forwardRef(
   },
 );
 
+V2Button.displayName = 'V2Button';
+
 V2Button.propTypes = {
   /**
    * The html tag that should be rendered for this button.
