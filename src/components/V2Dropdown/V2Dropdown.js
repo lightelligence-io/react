@@ -51,6 +51,7 @@ export const V2Dropdown = React.forwardRef(
           {selectedElement && (
             <div
               className={classnames(olt.V2DropdownSelectedContent)}
+              style={{ minHeight: 'auto' }}
               {...selectedContentProps}
             >
               {selectedElement.props.children}
