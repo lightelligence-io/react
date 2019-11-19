@@ -17,8 +17,8 @@ export * from './components/Dropdown';
 export * from './components/InputList';
 
 // content
-export * from './content/BasicDataCards';
-export * from './content/DataCards';
+export * from './content/BasicCardTable';
+export * from './content/CardTable';
 export * from './content/FloatingList';
 export * from './content/Fonts';
 export * from './content/Headline';
@@ -49,7 +49,5 @@ export * from './layout/Theme';
 export * from './constants';
 
 export * from './propTypes';
-
-export { theme } from '@lightelligence/styles';
 
 export { oltStyles };

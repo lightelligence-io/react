@@ -20,7 +20,7 @@ const Pagination = ({
 
   const setMobileFlag = useCallback(() => {
     setIsMobile(
-      paginationBar.current.clientWidth < parseInt(olt.theme.breakpoint.sm, 10),
+      paginationBar.current.clientWidth < 576, // TODO: use styles breakpoint! used to be parseInt(olt.theme.breakpoint.sm, 10),
     );
   }, [paginationBar]);
 

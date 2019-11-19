@@ -32,7 +32,6 @@ class Headline extends PureComponent {
       size,
       className,
       color,
-      style,
       ...props
     } = this.props;
 
@@ -45,12 +44,9 @@ class Headline extends PureComponent {
           olt.Headline,
           olt[`Headline${pascalize(String(size))}`],
           regular && olt.HeadlineRegular,
+          color && olt[`uColor${pascalize(color)}`],
           className,
         )}
-        style={{
-          ...style,
-          color: color ? olt.theme.color[color] : undefined,
-        }}
       >
         {children}
       </Element>

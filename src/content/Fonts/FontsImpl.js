@@ -1,6 +1,8 @@
 import React from 'react';
 import { string, node, shape } from 'prop-types';
 import classnames from 'classnames';
+import { pascalize } from 'humps';
+
 import * as olt from '@lightelligence/styles';
 
 const getElement = (tag, type) => {
@@ -29,13 +31,14 @@ const H = (type, params) => {
   return (
     <Element
       {...rest}
-      className={classnames(olt[`u${type}`], className)}
+      className={classnames(
+        olt[`u${type}`],
+        color && olt[`uColor${pascalize(color)}`],
+        className,
+      )}
       style={{
         margin: 0,
         ...style,
-        color: color
-          ? olt.theme.color[color] || olt.theme.gray[color]
-          : undefined,
       }}
     >
       {children}

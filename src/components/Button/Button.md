@@ -19,7 +19,7 @@ Contrasting levels of emphasis help the user to differentiate between important 
 ### Light Theme
 
 ```js
-import { DataCards, DataCardsItem, Button } from '@lightelligence/react';
+import { CardTable, CardTableItem, Button } from '@lightelligence/react';
 
 const fields = [
   { key: 'id', label: '' },
@@ -60,27 +60,27 @@ const rows = [
   },
 ];
 
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="primary" />
-  <DataCardsItem halfSize align="center" field="secondary" />
-  <DataCardsItem halfSize align="center" field="tertiary" />
-  <DataCardsItem halfSize align="center" field="tertiary_action" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="primary" />
+  <CardTableItem halfSize align="center" field="secondary" />
+  <CardTableItem halfSize align="center" field="tertiary" />
+  <CardTableItem halfSize align="center" field="tertiary_action" />
+</CardTable>;
 ```
 
 ### Dark Theme
 
 ```js
-import { Card, DataCards, DataCardsItem, Button } from '@lightelligence/react';
+import { Card, CardTable, CardTableItem, Button } from '@lightelligence/react';
 
 const fields = [
   { key: 'id', label: '' },
@@ -121,21 +121,21 @@ const rows = [
   },
 ];
 
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="primary" />
-  <DataCardsItem halfSize align="center" field="secondary" />
-  <DataCardsItem halfSize align="center" field="tertiary" />
-  <DataCardsItem halfSize align="center" field="tertiary_action" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="primary" />
+  <CardTableItem halfSize align="center" field="secondary" />
+  <CardTableItem halfSize align="center" field="tertiary" />
+  <CardTableItem halfSize align="center" field="tertiary_action" />
+</CardTable>;
 ```
 
 ## Completing Actions
@@ -156,7 +156,7 @@ Buttons for destructive actions are available with three levels of emphasis and 
 #### Light Theme
 
 ```js
-import { DataCards, DataCardsItem, Button } from '@lightelligence/react';
+import { CardTable, CardTableItem, Button } from '@lightelligence/react';
 
 const fields = [
   { key: 'id', label: '' },
@@ -192,26 +192,26 @@ const rows = [
   },
 ];
 
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="primary" />
-  <DataCardsItem halfSize align="center" field="secondary" />
-  <DataCardsItem halfSize align="center" field="tertiary" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="primary" />
+  <CardTableItem halfSize align="center" field="secondary" />
+  <CardTableItem halfSize align="center" field="tertiary" />
+</CardTable>;
 ```
 
 #### Dark Theme
 
 ```js
-import { Card, DataCards, DataCardsItem, Button } from '@lightelligence/react';
+import { Card, CardTable, CardTableItem, Button } from '@lightelligence/react';
 
 const fields = [
   { key: 'id', label: '' },
@@ -247,20 +247,20 @@ const rows = [
   },
 ];
 
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="primary" />
-  <DataCardsItem halfSize align="center" field="secondary" />
-  <DataCardsItem halfSize align="center" field="tertiary" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="primary" />
+  <CardTableItem halfSize align="center" field="secondary" />
+  <CardTableItem halfSize align="center" field="tertiary" />
+</CardTable>;
 ```
 
 
@@ -276,7 +276,7 @@ Buttons for confirmative actions are available with three levels of emphasis and
 #### Light Theme
 
 ```js
-import { DataCards, DataCardsItem, Button } from '@lightelligence/react';
+import { CardTable, CardTableItem, Button } from '@lightelligence/react';
 
 const fields = [
   { key: 'id', label: '' },
@@ -314,26 +314,26 @@ const rows = [
 
 ];
 
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="primary" />
-  <DataCardsItem halfSize align="center" field="secondary" />
-  <DataCardsItem halfSize align="center" field="tertiary" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="primary" />
+  <CardTableItem halfSize align="center" field="secondary" />
+  <CardTableItem halfSize align="center" field="tertiary" />
+</CardTable>;
 ```
 
 #### Dark Theme
 
 ```js
-import { Card, DataCards, DataCardsItem, Button } from '@lightelligence/react';
+import { Card, CardTable, CardTableItem, Button } from '@lightelligence/react';
 
 const fields = [
   { key: 'id', label: '' },
@@ -369,20 +369,20 @@ const rows = [
   },
 ];
 
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="primary" />
-  <DataCardsItem halfSize align="center" field="secondary" />
-  <DataCardsItem halfSize align="center" field="tertiary" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="primary" />
+  <CardTableItem halfSize align="center" field="secondary" />
+  <CardTableItem halfSize align="center" field="tertiary" />
+</CardTable>;
 ```
 
 ## Properties

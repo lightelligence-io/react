@@ -189,10 +189,10 @@ class TextField extends PureComponent {
               <span className={olt.TextFieldFooter}>
                 {errorMessage && (
                   <span
-                    className={olt.TextFieldMessage}
-                    style={{
-                      color: olt.theme.color.error,
-                    }}
+                    className={classnames(
+                      olt.TextFieldMessage,
+                      olt.uColorError,
+                    )}
                   >
                     {readOnly ? <span>&nbsp;</span> : errorMessage}
                   </span>

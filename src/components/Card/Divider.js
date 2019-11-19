@@ -8,10 +8,11 @@ import * as olt from '@lightelligence/styles';
 // TODO check if we need an autoprefixer here
 // TODO maybe we should solve the :after style otherwise
 
+// TODO: refactor usage of theme to get colors
+// background: ${olt.theme.gray[300]};
 const dividerAfterStyle = (id) => `.${id}:after {
   content: '';
   width: 2px;
-  background: ${olt.theme.gray[300]};
   position: absolute;
   top: 0;
   bottom: 0;

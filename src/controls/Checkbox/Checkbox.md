@@ -1,7 +1,7 @@
 A Checkbox implementation.
 
 ```js
-import { Checkbox, Card, DataCards, DataCardsItem, oltStyles } from '@lightelligence/react';
+import { Checkbox, Card, CardTable, CardTableItem, oltStyles } from '@lightelligence/react';
 initialState = { checked : [
 	true, true, true, true, true, true,
 	false, false, false, false, false
@@ -62,19 +62,19 @@ const rows = [
   },
 ];
 
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="light" />
-  <DataCardsItem halfSize align="center" field="dark" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="light" />
+  <CardTableItem halfSize align="center" field="dark" />
+</CardTable>;
 ```
 
 ## Theme dark

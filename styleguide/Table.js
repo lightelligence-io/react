@@ -1,33 +1,33 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
-  BasicDataCardsBody,
-  BasicDataCards,
-  BasicDataCardsHead,
-  BasicDataCardsCardItem,
-  BasicDataCardsCard,
-  BasicDataCardsHeadItem,
+  BasicCardTableBody,
+  BasicCardTable,
+  BasicCardTableHead,
+  BasicCardTableCardItem,
+  BasicCardTableCard,
+  BasicCardTableHeadItem,
 } from '../src';
 
 const TableRenderer = ({ columns, rows, getRowKey }) => (
-  <BasicDataCards alwaysTable layout="table">
-    <BasicDataCardsHead>
+  <BasicCardTable alwaysTable layout="table">
+    <BasicCardTableHead>
       {columns.map(({ caption }) => (
-        <BasicDataCardsHeadItem key={caption}>{caption}</BasicDataCardsHeadItem>
+        <BasicCardTableHeadItem key={caption}>{caption}</BasicCardTableHeadItem>
       ))}
-    </BasicDataCardsHead>
-    <BasicDataCardsBody>
+    </BasicCardTableHead>
+    <BasicCardTableBody>
       {rows.map((row) => (
-        <BasicDataCardsCard key={getRowKey(row)}>
+        <BasicCardTableCard key={getRowKey(row)}>
           {columns.map(({ caption, render }, index) => (
-            <BasicDataCardsCardItem key={caption} title={caption}>
+            <BasicCardTableCardItem key={caption} title={caption}>
               {render(row)}
-            </BasicDataCardsCardItem>
+            </BasicCardTableCardItem>
           ))}
-        </BasicDataCardsCard>
+        </BasicCardTableCard>
       ))}
-    </BasicDataCardsBody>
-  </BasicDataCards>
+    </BasicCardTableBody>
+  </BasicCardTable>
 );
 
 TableRenderer.propTypes = {

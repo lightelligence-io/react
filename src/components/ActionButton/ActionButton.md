@@ -3,7 +3,7 @@ It is responsive and on mobile devices only the icon is shown (unless you add th
 
 
 ```js
-import { DataCards, DataCardsItem, ActionButton } from '@lightelligence/react';
+import { CardTable, CardTableItem, ActionButton } from '@lightelligence/react';
 
 const fields = [
   { key: 'id', label: '' },
@@ -58,21 +58,21 @@ const rows = [
   },
 ];
 
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="default" />
-  <DataCardsItem halfSize align="center" field="primary" />
-  <DataCardsItem halfSize align="center" field="destructive" />
-  <DataCardsItem halfSize align="center" field="confirmative" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="default" />
+  <CardTableItem halfSize align="center" field="primary" />
+  <CardTableItem halfSize align="center" field="destructive" />
+  <CardTableItem halfSize align="center" field="confirmative" />
+</CardTable>;
 ```
 
 ## Properties
