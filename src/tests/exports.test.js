@@ -16,8 +16,6 @@ import {
   Tabs,
   Tab,
   Tooltip,
-  Table,
-  TableCell,
   Headline,
   List,
   Paragraph,
@@ -188,17 +186,6 @@ describe('NotificationContainer', () => {
           content="Here is some information."
         />
       </NotificationContainer>,
-    );
-  });
-});
-
-describe('Table', () => {
-  it('should render without failing', () => {
-    render(
-      <Table rows={[]}>
-        <TableCell field="" />
-        <TableCell field="" />
-      </Table>,
     );
   });
 });
