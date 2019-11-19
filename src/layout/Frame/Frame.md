@@ -1,6 +1,8 @@
 ```jsx
-import { Frame } from '@lightelligence/react';
+import { Frame, Card } from '@lightelligence/react';
 <Frame>
-    TODO: Add an example here!!
+    <Card>
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </Card>
 </Frame>
 ```
