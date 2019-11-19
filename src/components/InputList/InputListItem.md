@@ -3,8 +3,8 @@
 
 ```jsx 
 import { InputList, InputListItem } from '@lightelligence/react';
-const onClick = (value) => {
-  console.log(`clicked ${value}`);
+const onChange = (value) => {
+  console.log(`changed to ${value}`);
 };
 <InputList onChange={onChange}>
   <InputListItem value="1">Item 1</InputListItem>

@@ -17,7 +17,7 @@ describe('InputListItem', () => {
     });
 
     const component = getByText('Component');
-    expect(component.classList.contains('myClass')).toBeTruthy();
+    expect(component.classList.contains('myClass')).toBe(true);
   });
   test('forwards onClick', () => {
     const onClick = jest.fn();
@@ -40,6 +40,6 @@ describe('InputListItem', () => {
       children: 'Component',
     });
     const component = getByText('Component');
-    expect(component.classList.contains('is-active')).toBeTruthy();
+    expect(component.classList.contains('is-active')).toBe(true);
   });
 });

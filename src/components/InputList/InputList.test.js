@@ -19,7 +19,7 @@ describe('InputList', () => {
       ],
     });
     const component = getByTestId('component');
-    expect(component.classList.contains('myClass')).toBeTruthy();
+    expect(component.classList.contains('myClass')).toBe(true);
   });
   test('properly sets value', () => {
     const { getByText } = renderComponent({
@@ -36,8 +36,8 @@ describe('InputList', () => {
     });
     const itemFoo = getByText('Item Foo');
     const itemBar = getByText('Item Bar');
-    expect(itemFoo.classList.contains('is-active')).toBeTruthy();
-    expect(itemBar.classList.contains('is-active')).toBeFalsy();
+    expect(itemFoo.classList.contains('is-active')).toBe(true);
+    expect(itemBar.classList.contains('is-active')).toBe(false);
   });
   test('properly propagates onChange', () => {
     const onChange = jest.fn();

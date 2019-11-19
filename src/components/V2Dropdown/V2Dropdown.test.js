@@ -20,7 +20,7 @@ describe('V2Dropdown', () => {
       ],
     });
     const component = getByTestId('component');
-    expect(component.classList.contains('myClass')).toBeTruthy();
+    expect(component.classList.contains('myClass')).toBe(true);
   });
   test('able to open', () => {
     const { getByTestId } = renderComponent({
@@ -33,9 +33,9 @@ describe('V2Dropdown', () => {
     });
     const component = getByTestId('component');
     fireEvent.click(component);
-    expect(component.classList.contains('is-open')).toBeTruthy();
+    expect(component.classList.contains('is-open')).toBe(true);
     fireEvent.click(component);
-    expect(component.classList.contains('is-open')).toBeFalsy();
+    expect(component.classList.contains('is-open')).toBe(false);
   });
   test('properly sets value', () => {
     const { getAllByText } = renderComponent({

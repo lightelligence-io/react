@@ -6,7 +6,20 @@ import { V2Label } from '../../controls/V2Label';
 import { InputListItem, InputList } from '../InputList';
 
 export const V2Dropdown = React.forwardRef(
-  ({ className, label, children, value, onChange, ...props }, ref) => {
+  (
+    {
+      className,
+      label,
+      children,
+      value,
+      onChange,
+      labelProps,
+      selectedContentProps,
+      inputListProps,
+      ...props
+    },
+    ref,
+  ) => {
     const [isOpen, setOpen] = useState(false);
 
     const onClick = useCallback(() => {
@@ -23,6 +36,7 @@ export const V2Dropdown = React.forwardRef(
         label={label}
         value={(isOpen ? '' : value) || ''}
         onClick={onClick}
+        {...labelProps}
       >
         <div
           ref={ref}
@@ -35,15 +49,21 @@ export const V2Dropdown = React.forwardRef(
           )}
         >
           {selectedElement && (
-            <div className={classnames(olt.V2DropdownSelectedContent)}>
+            <div
+              className={classnames(olt.V2DropdownSelectedContent)}
+              {...selectedContentProps}
+            >
               {selectedElement.props.children}
             </div>
           )}
-          <div className={classnames(olt.V2DropdownContent)}>
-            <InputList value={value} onChange={onChange}>
-              {children}
-            </InputList>
-          </div>
+          <InputList
+            value={value}
+            onChange={onChange}
+            className={classnames(olt.V2DropdownContent)}
+            {...inputListProps}
+          >
+            {children}
+          </InputList>
         </div>
       </V2Label>
     );
@@ -77,11 +97,26 @@ V2Dropdown.propTypes = {
    * Callback when the value of the input list was changed
    */
   onChange: func,
+  /**
+   * Additional label props
+   */
+  labelProps: shape({}),
+  /**
+   * Additional selected content props
+   */
+  selectedContentProps: shape({}),
+  /**
+   * Additional input list props
+   */
+  inputListProps: shape({}),
 };
 
 V2Dropdown.defaultProps = {
   className: null,
   children: null,
   value: null,
+  labelProps: {},
+  selectedContentProps: {},
+  inputListProps: {},
   onChange: () => {},
 };
