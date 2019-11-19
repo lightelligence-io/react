@@ -59,6 +59,7 @@ export * from './layout/V2Container';
 export * from './layout/Frame';
 export * from './layout/Grid';
 export * from './layout/V2Grid';
+export * from './layout/Theme';
 
 export * from './constants';
 
