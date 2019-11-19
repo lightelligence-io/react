@@ -1,7 +1,7 @@
 
 The **DynamicList** allows a number of similar entries. Use `onChange` callback to keep track of the user input. `onSubmit` is called when the user clicks the submit button.
 
-The default element is `V2Input`. You need to specify a label for the element using the `inputProps` attribute. The label will be used for each input element shown to the user.
+The default element is `Input`. You need to specify a label for the element using the `inputProps` attribute. The label will be used for each input element shown to the user.
 
 ```js
 import {
@@ -103,14 +103,14 @@ const onSubmit = (values) => {
 
 You can use `onChange` to receive updates on user input.
 
-Use `inputElement` to specify an input element different from `V2Input` and ensure you are passing all props needed by it using `inputProps`.
+Use `inputElement` to specify an input element different from `Input` and ensure you are passing all props needed by it using `inputProps`.
 
 ```js
 import {
   DynamicList,
   Button,
-  V2Input,
-  V2Select
+  Input,
+  Select
 } from '@lightelligence/react';
 
 initialState = {
@@ -142,7 +142,7 @@ const options = [
       label: "Please Select your data",
       options,
     }}
-    inputElement={V2Select}
+    inputElement={Select}
     values={state.values}
   />
 </div>

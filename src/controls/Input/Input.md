@@ -1,23 +1,23 @@
 ```js
-import { V2Input } from '@lightelligence/react';
+import { Input } from '@lightelligence/react';
 initialState = { value: '' };
 const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
-<V2Input label="Enter your data" value={state.value} onChange={onChange} />;
+<Input label="Enter your data" value={state.value} onChange={onChange} />;
 ```
 
 Disabled
 
 ```js
-import { V2Input } from '@lightelligence/react';
+import { Input } from '@lightelligence/react';
 initialState = { value: 'Lorem ipsum' };
 const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
-<V2Input
+<Input
   label="Enter your data"
   value={state.value}
   onChange={onChange}
@@ -28,13 +28,13 @@ const onChange = (event) => {
 Required
 
 ```js
-import { V2Input } from '@lightelligence/react';
+import { Input } from '@lightelligence/react';
 initialState = { value: '' };
 const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
-<V2Input
+<Input
   label="Enter your data"
   value={state.value}
   onChange={onChange}
@@ -45,13 +45,13 @@ const onChange = (event) => {
 Icon
 
 ```js
-import { V2Input } from '@lightelligence/react';
+import { Input } from '@lightelligence/react';
 initialState = { value: '' };
 const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
-<V2Input
+<Input
   label="Enter your data"
   value={state.value}
   onChange={onChange}
@@ -62,13 +62,13 @@ const onChange = (event) => {
 Maximum length (displayed when limit is almost reached)
 
 ```js
-import { V2Input } from '@lightelligence/react';
+import { Input } from '@lightelligence/react';
 initialState = { value: 'Lorem ipsum' };
 const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
-<V2Input
+<Input
   label="Enter your data"
   value={state.value}
   onChange={onChange}
@@ -79,13 +79,13 @@ const onChange = (event) => {
 Maximum length (always displayed)
 
 ```js
-import { V2Input } from '@lightelligence/react';
+import { Input } from '@lightelligence/react';
 initialState = { value: 'Lorem ipsum' };
 const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
-<V2Input
+<Input
   label="Enter your data"
   value={state.value}
   onChange={onChange}
@@ -97,13 +97,13 @@ const onChange = (event) => {
 Error
 
 ```js
-import { V2Input } from '@lightelligence/react';
+import { Input } from '@lightelligence/react';
 initialState = { value: 'Lorem ipsum' };
 const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
-<V2Input
+<Input
   label="Enter your data"
   value={state.value}
   onChange={onChange}
@@ -114,13 +114,13 @@ const onChange = (event) => {
 Hint
 
 ```js
-import { V2Input } from '@lightelligence/react';
+import { Input } from '@lightelligence/react';
 initialState = { value: 'Lorem ipsum' };
 const onChange = (event) => {
   setState({ value: event.target.value });
 };
 
-<V2Input
+<Input
   label="Enter your data"
   value={state.value}
   onChange={onChange}

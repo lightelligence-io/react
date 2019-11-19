@@ -1,10 +1,10 @@
 import React from 'react';
 import { string, func, bool, number, oneOfType } from 'prop-types';
 import * as olt from '@lightelligence/styles';
-import { V2Label } from '../V2Label';
+import { Label } from '../Label';
 import { getStringValue } from '../../utils/getStringValue';
 
-const V2Input = ({
+const Input = ({
   className,
   id,
   defaultValue,
@@ -25,7 +25,7 @@ const V2Input = ({
 }) => {
   const displayValue = getStringValue(value, defaultValue);
   return (
-    <V2Label
+    <Label
       className={className}
       errorMessage={errorMessage}
       icon={icon}
@@ -36,7 +36,7 @@ const V2Input = ({
       hint={hint}
     >
       <input
-        className={olt.V2Input}
+        className={olt.Input}
         id={id}
         placeholder={placeholder}
         value={displayValue}
@@ -47,11 +47,11 @@ const V2Input = ({
         required={required}
         {...others}
       />
-    </V2Label>
+    </Label>
   );
 };
 
-V2Input.propTypes = {
+Input.propTypes = {
   /**
    * Forward an additional className to the underlying component.
    */
@@ -119,7 +119,7 @@ V2Input.propTypes = {
   required: bool,
 };
 
-V2Input.defaultProps = {
+Input.defaultProps = {
   className: null,
   id: null,
   defaultValue: null,
@@ -136,4 +136,4 @@ V2Input.defaultProps = {
   required: false,
 };
 
-export { V2Input };
+export { Input };

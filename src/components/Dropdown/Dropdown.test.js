@@ -1,14 +1,14 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
-import { V2Dropdown } from './V2Dropdown';
+import { Dropdown } from './Dropdown';
 import { InputListItem } from '../InputList';
 
 const renderComponent = (props) => {
-  return render(<V2Dropdown {...props} data-testid="component" />);
+  return render(<Dropdown {...props} data-testid="component" />);
 };
 
-describe('V2Dropdown', () => {
+describe('Dropdown', () => {
   test('forwards className', () => {
     const { getByTestId } = renderComponent({
       className: 'myClass',

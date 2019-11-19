@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { V2Select } from './V2Select';
+import { Select } from './Select';
 
 const renderComponent = (props) => {
   const options = [
@@ -13,7 +13,7 @@ const renderComponent = (props) => {
   ];
 
   const queries = render(
-    <V2Select label="Select an option" options={options} {...props} />,
+    <Select label="Select an option" options={options} {...props} />,
   );
 
   const selectOption = (value) => {
@@ -27,7 +27,7 @@ const renderComponent = (props) => {
   };
 };
 
-describe('V2Select', () => {
+describe('Select', () => {
   test('renders children', () => {
     const { getByText } = renderComponent({ onChange: jest.fn() });
 

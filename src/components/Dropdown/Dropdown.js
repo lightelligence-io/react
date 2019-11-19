@@ -2,10 +2,10 @@ import classnames from 'classnames';
 import { string, oneOfType, shape, oneOf, arrayOf, func } from 'prop-types';
 import React, { useCallback, useState } from 'react';
 import * as olt from '@lightelligence/styles';
-import { V2Label } from '../../controls/V2Label';
+import { Label } from '../../controls/Label';
 import { InputListItem, InputList } from '../InputList';
 
-export const V2Dropdown = React.forwardRef(
+export const Dropdown = React.forwardRef(
   (
     {
       className,
@@ -32,7 +32,7 @@ export const V2Dropdown = React.forwardRef(
     const selectedElement = selectedChild && React.cloneElement(selectedChild);
 
     return (
-      <V2Label
+      <Label
         label={label}
         value={(isOpen ? '' : value) || ''}
         onClick={onClick}
@@ -42,15 +42,15 @@ export const V2Dropdown = React.forwardRef(
           ref={ref}
           {...props}
           className={classnames(
-            olt.V2Dropdown,
+            olt.Dropdown,
             isOpen && 'is-open',
-            selectedElement && olt.V2DropdownSelected,
+            selectedElement && olt.DropdownSelected,
             className,
           )}
         >
           {selectedElement && (
             <div
-              className={classnames(olt.V2DropdownSelectedContent)}
+              className={classnames(olt.DropdownSelectedContent)}
               style={{ minHeight: 'auto' }}
               {...selectedContentProps}
             >
@@ -60,20 +60,20 @@ export const V2Dropdown = React.forwardRef(
           <InputList
             value={value}
             onChange={onChange}
-            className={classnames(olt.V2DropdownContent)}
+            className={classnames(olt.DropdownContent)}
             {...inputListProps}
           >
             {children}
           </InputList>
         </div>
-      </V2Label>
+      </Label>
     );
   },
 );
 
-V2Dropdown.displayName = 'V2Dropdown';
+Dropdown.displayName = 'Dropdown';
 
-V2Dropdown.propTypes = {
+Dropdown.propTypes = {
   /**
    * The floating label
    */
@@ -112,7 +112,7 @@ V2Dropdown.propTypes = {
   inputListProps: shape({}),
 };
 
-V2Dropdown.defaultProps = {
+Dropdown.defaultProps = {
   className: null,
   children: null,
   value: null,

@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useEffect, useState } from 'react';
 import { number, arrayOf, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
-import { V2Select } from '../../controls/V2Select';
+import { Select } from '../../controls/Select';
 import { Description } from '../../content/Fonts';
 import { Button } from '../Button';
 
@@ -72,7 +72,7 @@ const Pagination = ({
         <div style={{ padding: '8px' }}>
           <Description color="500">Show</Description>
         </div>
-        <V2Select
+        <Select
           options={options}
           value={`${selectedItemsPerPageIndex}`}
           onChange={(e) => handleChangeItemsPerPage(e.target.value)}

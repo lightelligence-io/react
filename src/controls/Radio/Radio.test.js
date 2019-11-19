@@ -3,15 +3,15 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { oltStyles } from '../..';
 
-import { V2Checkbox } from './V2Checkbox';
+import { Radio } from './Radio';
 
 const COMPONENT_TEST_ID = 'Component-Id';
 
 const renderComponent = ({ testId = COMPONENT_TEST_ID, ...props }) => {
-  return render(<V2Checkbox data-testid={testId} {...props} />);
+  return render(<Radio data-testid={testId} {...props} />);
 };
 
-describe('V2Checkbox', () => {
+describe('Radio', () => {
   test('triggers onChange when not disabled', () => {
     const onChange = jest.fn();
     const { getByLabelText } = renderComponent({
@@ -20,41 +20,39 @@ describe('V2Checkbox', () => {
     });
 
     const component = getByLabelText('Component');
-
     fireEvent.click(component);
-
-    expect(onChange).toHaveBeenCalled();
+    expect(onChange).toHaveBeenCalledWith(true);
   });
 
-  test('should forward disabled to underlying checkbox', () => {
+  test('should forward disabled to underlying radio', () => {
     const { getByLabelText } = renderComponent({
       disabled: true,
       children: 'Component',
     });
 
-    const checkbox = getByLabelText('Component');
-    expect(checkbox.disabled).toBe(true);
+    const radio = getByLabelText('Component');
+    expect(radio.disabled).toBe(true);
   });
 
-  test('should forward inputProps to underlying checkbox', () => {
+  test('should forward inputProps to underlying radio', () => {
     const { getByLabelText } = renderComponent({
       disabled: true,
       inputProps: { id: 'myId' },
       children: 'Component',
     });
 
-    const checkbox = getByLabelText('Component');
-    expect(checkbox.id).toBe('myId');
+    const radio = getByLabelText('Component');
+    expect(radio.id).toBe('myId');
   });
 
-  test('should forward checked to underlying checkbox', () => {
+  test('should forward checked to underlying radio', () => {
     const { getByLabelText } = renderComponent({
       checked: true,
       children: 'Component',
     });
 
-    const checkbox = getByLabelText('Component');
-    expect(checkbox.checked).toBe(true);
+    const radio = getByLabelText('Component');
+    expect(radio.checked).toBe(true);
   });
 
   test("doesn't trigger onClick when disabled", () => {
@@ -67,7 +65,6 @@ describe('V2Checkbox', () => {
     const component = getByTestId(COMPONENT_TEST_ID);
 
     fireEvent.click(component);
-
     expect(onChange).not.toHaveBeenCalled();
   });
 
@@ -80,17 +77,9 @@ describe('V2Checkbox', () => {
     expect(toggle.classList.contains('myClass')).toBe(true);
   });
 
-  test('correctly sets the css-modifier for inline', () => {
-    const { getByTestId } = renderComponent({
-      inline: true,
-    });
-    const button = getByTestId(COMPONENT_TEST_ID);
-    expect(button.classList.contains(oltStyles.V2CheckboxInline)).toBe(true);
-  });
-
   test('correctly sets the css base class', () => {
     const { getByTestId } = renderComponent({});
     const button = getByTestId(COMPONENT_TEST_ID);
-    expect(button.classList.contains(oltStyles.V2Checkbox)).toBe(true);
+    expect(button.classList.contains(oltStyles.Radio)).toBe(true);
   });
 });

@@ -27,8 +27,8 @@ describe('Pagination', () => {
     expect(showText.classList.contains(oltStyles.uDescription)).toBe(true);
 
     const select = pagination.getElementsByTagName('select')[0];
-    expect(select.classList.contains(oltStyles.V2Select)).toBe(true);
-    expect(select.classList.contains(oltStyles.V2SelectPagination)).toBe(true);
+    expect(select.classList.contains(oltStyles.Select)).toBe(true);
+    expect(select.classList.contains(oltStyles.SelectPagination)).toBe(true);
 
     const pageText = getByText('11-20 of 30');
     expect(pageText.classList.contains(oltStyles.uDescription)).toBe(true);

@@ -79,7 +79,7 @@ Use the `activeStep` prop to select the start step.
 Refer to the next example to learn more about controlling the stepper.
 
 ```js
-import { StepperDialog, Button, V2Input } from '@lightelligence/react';
+import { StepperDialog, Button, Input } from '@lightelligence/react';
 initialState = { dialogOpen: false, name: '<Skipped at first>', company: '', email: ''};
 const toggleDialog = () => {
   setState({ dialogOpen: !state.dialogOpen });
@@ -104,7 +104,7 @@ const onFinish = () => {
           title: "This is the first Step",
           description: "Please enter your personal data.",
           content: (
-            <V2Input
+            <Input
               label="Enter your name"
               value={state.name}
               onChange={onChange('name')}
@@ -118,7 +118,7 @@ const onFinish = () => {
           title: "This is the second Step",
           description: "Please enter your personal data.",
           content: (
-            <V2Input
+            <Input
               label="Enter your company name"
               value={state.company}
               onChange={onChange('company')}
@@ -132,7 +132,7 @@ const onFinish = () => {
           title: "This is the third Step",
           description: "Please enter your personal data.",
           content: (
-            <V2Input
+            <Input
               label="Enter your email"
               value={state.email}
               onChange={onChange('email')}
@@ -163,7 +163,7 @@ You can use several callbacks and properties to control the functionality of the
 Finally, you can use `dialogProps, windowProps, stepperProps, stepperHeaderProps,stepperCounterProps, stepperStepProps, stepperContentProps,closeProps, titleProps,descriptionProps, contentProps, footerProps` to set the properties of any of the sub-components of the stepper.
 
 ```js
-import { StepperDialog, Button, V2Input } from '@lightelligence/react';
+import { StepperDialog, Button, Input } from '@lightelligence/react';
 initialState = { dialogOpen: false, name: '', company: '', activeStep: 0};
 
 const toggleDialog = () => {
@@ -202,7 +202,7 @@ const onBack = (to) => {
           title: "This is the first Step",
           description: "Please enter your personal data.",
           content: (
-            <V2Input
+            <Input
               label="Enter your name"
               value={state.name}
               onChange={onChange('name')}
@@ -216,7 +216,7 @@ const onBack = (to) => {
           title: "This is the second Step",
           description: "Please enter your personal data.",
           content: (
-            <V2Input
+            <Input
               label="Enter your company name"
               hint="Optional"
               value={state.company}

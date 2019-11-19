@@ -13,7 +13,7 @@ export * from './components/StepperDialog';
 export * from './components/Tabs';
 export * from './components/Tooltip';
 export * from './components/Pagination';
-export * from './components/V2Dropdown';
+export * from './components/Dropdown';
 export * from './components/InputList';
 
 // content
@@ -34,15 +34,10 @@ export * from './controls/Toggle';
 export * from './controls/Label';
 export * from './controls/Radio';
 export * from './controls/RadioGroup';
-export * from './controls/V2Radio';
 export * from './controls/Select';
-export * from './controls/SelectField';
 export * from './controls/TextArea';
 export * from './controls/TextField';
-export * from './controls/V2Label';
-export * from './controls/V2Input';
-export * from './controls/V2Select';
-export * from './controls/V2Checkbox';
+export * from './controls/Input';
 
 export * from './layout/Container';
 export * from './layout/V2Container';
