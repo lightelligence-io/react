@@ -52,6 +52,7 @@
 - Feature: Dropdown
 - Feature: Filter
 - Feature: Theme Support for White-Labelling
+- Fix: Handlebars Vulnerability
 - Chore: upgrade styles package
 - Chore: Remove Components: Dropdown, Menu, MenuItem, ModalContent, ModalFooter, Navbar, Snackbar, Stepper, Tag, Table, SelectField, TextField
 - Chore: Rename to replace old Components: V2Container, V2Grid, V2Button, V2Modal, V2Tab, V2Tabs, V2Checkbox, V2Radio, V2Select, V2Input
