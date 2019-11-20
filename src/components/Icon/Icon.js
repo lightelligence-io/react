@@ -1,23 +1,20 @@
 import React from 'react';
 import { string, node, shape } from 'prop-types';
 import classnames from 'classnames';
-import { pascalize, camelize } from 'humps';
+import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 
-const Icon = ({ name, size, color, children, className, style, ...props }) => (
+const Icon = ({ name, size, color, children, className, ...props }) => (
   <i
     {...props}
     className={classnames(
       olt.Icon,
       color &&
         (olt[`uColor${pascalize(color)}`] || olt[`Icon${pascalize(color)}`]),
-      className,
       name && olt[`Icon${pascalize(name)}`],
+      size && olt[`uFontSize${pascalize(size)}`],
+      className,
     )}
-    style={{
-      ...style,
-      fontSize: size ? olt.theme.fontSize[camelize(size)] : undefined,
-    }}
   />
 );
 

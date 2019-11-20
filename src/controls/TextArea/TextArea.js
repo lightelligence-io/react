@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import { string, func, bool, number, oneOfType } from 'prop-types';
 import * as olt from '@lightelligence/styles';
-import { V2Label } from '../V2Label';
+import { Label } from '../Label';
 import { getStringValue } from '../../utils/getStringValue';
 
 const SINGLE_LINE_HEIGHT_LIMIT = 40;
@@ -54,7 +54,7 @@ const TextArea = ({
   );
 
   return (
-    <V2Label
+    <Label
       className={className}
       errorMessage={errorMessage}
       icon={icon}
@@ -80,7 +80,7 @@ const TextArea = ({
         {...others}
         style={style}
       />
-    </V2Label>
+    </Label>
   );
 };
 

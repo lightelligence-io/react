@@ -21,7 +21,7 @@ import { List, ListItem } from '@lightelligence/react';
 Definition Lists
 
 ```jsx
-import { List, ListItem, Tag } from '@lightelligence/react';
+import { List, ListItem, Chip } from '@lightelligence/react';
 <List definition>
   <ListItem term="Device Name">Waterproofed solar roof</ListItem>
   <ListItem term="Device Type">Gateway</ListItem>
@@ -30,8 +30,8 @@ import { List, ListItem, Tag } from '@lightelligence/react';
   </ListItem>
   <ListItem term="Firmware">DEV2S</ListItem>
   <ListItem term="Tags">
-    <Tag>Light</Tag>
-    <Tag>Intelligence</Tag>
+    <Chip>Light</Chip>
+    <Chip>Intelligence</Chip>
   </ListItem>
   <ListItem term="Status">online</ListItem>
 </List>
@@ -40,7 +40,7 @@ import { List, ListItem, Tag } from '@lightelligence/react';
 Vertically stacked definition lists
 
 ```jsx
-import { List, ListItem, Tag } from '@lightelligence/react';
+import { List, ListItem, Chip } from '@lightelligence/react';
 <List definition vertical="xl">
   <ListItem term="Device Name">Waterproofed solar roof</ListItem>
   <ListItem term="Device Type">Gateway</ListItem>
@@ -49,8 +49,8 @@ import { List, ListItem, Tag } from '@lightelligence/react';
   </ListItem>
   <ListItem term="Firmware">DEV2S</ListItem>
   <ListItem term="Tags">
-    <Tag>Light</Tag>
-    <Tag>Intelligence</Tag>
+    <Chip>Light</Chip>
+    <Chip>Intelligence</Chip>
   </ListItem>
   <ListItem term="Status">online</ListItem>
 </List>

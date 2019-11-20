@@ -18,7 +18,7 @@ const renderComponent = (props) => {
   };
 };
 
-describe('V2Select', () => {
+describe('Select', () => {
   test('triggers onChange when not disabled', async () => {
     const onChange = jest.fn();
     const { enterValue } = renderComponent({

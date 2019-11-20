@@ -3,7 +3,7 @@ It is responsive and on mobile devices only the icon is shown (unless you add th
 
 
 ```js
-import { DataCards, DataCardsItem, ActionButton } from '@lightelligence/react';
+import { CardTable, CardTableItem, ActionButton } from '@lightelligence/react';
 
 const fields = [
   { key: 'id', label: '' },
@@ -58,21 +58,21 @@ const rows = [
   },
 ];
 
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="default" />
-  <DataCardsItem halfSize align="center" field="primary" />
-  <DataCardsItem halfSize align="center" field="destructive" />
-  <DataCardsItem halfSize align="center" field="confirmative" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="default" />
+  <CardTableItem halfSize align="center" field="primary" />
+  <CardTableItem halfSize align="center" field="destructive" />
+  <CardTableItem halfSize align="center" field="confirmative" />
+</CardTable>;
 ```
 
 ## Properties
@@ -197,19 +197,19 @@ import { ActionButton, FloatingList } from '@lightelligence/react';
 <>
 <p>
   Disabled:
-  <ActionButton iconLeft="action-add-default" label="Disabled" disabled />
+  <ActionButton iconLeft="add-default" label="Disabled" disabled />
 </p>
 <p>
   Standalone Disabled:
-  <ActionButton iconLeft="action-add-default" label="Standalone disabled" standalone disabled />
+  <ActionButton iconLeft="add-default" label="Standalone disabled" standalone disabled />
 </p>
 <p>
   Base Disabled:
-  <ActionButton iconLeft="action-add-default" label="Base disabled" base disabled />
+  <ActionButton iconLeft="add-default" label="Base disabled" base disabled />
 </p>
 <p>
   Standalone Base Disabled:
-  <ActionButton iconLeft="action-add-default" label="Standalone Base Disabled" standalone base disabled />
+  <ActionButton iconLeft="add-default" label="Standalone Base Disabled" standalone base disabled />
 </p>
 </>
 ```
@@ -224,7 +224,7 @@ import * as olt from '@lightelligence/styles';
 
 <>
 <div className={olt.ActionButtonProximityArea} style={{padding: '50px', border: '1px dotted lightgray'}}>
-  <ActionButton iconLeft="action-add-default" buttonType="primary" label="With Proximity" />
+  <ActionButton iconLeft="add-default" buttonType="primary" label="With Proximity" />
 </div>
 </>
 ```

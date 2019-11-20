@@ -1,16 +1,16 @@
 
 ```js
-import { 
+import {
 	FloatingList,
-	Tag,
+	Chip,
 } from '@lightelligence/react';
 
 
 <FloatingList style={{border: "1px solid #ddd", width: "220px"}}>
-  <Tag>Tag A</Tag>
-  <Tag>Tag B</Tag>
-  <Tag>Tag C</Tag>
-  <Tag>Tag D</Tag>
+  <Chip>Tag A</Chip>
+  <Chip>Tag B</Chip>
+  <Chip>Tag C</Chip>
+  <Chip>Tag D</Chip>
 </FloatingList>
 ```
 
@@ -19,17 +19,17 @@ import {
 By default a small gap is placed between elements horizontally and vertically. This can be customized with values between 0 (no gap) and 8 (large gap).
 
 ```js
-import { 
+import {
 	FloatingList,
-	Tag,
+	Chip,
 } from '@lightelligence/react';
 
 
 <FloatingList gap={3} style={{border: "1px solid #ddd", width: "220px"}}>
-  <Tag>Tag A</Tag>
-  <Tag>Tag B</Tag>
-  <Tag>Tag C</Tag>
-  <Tag>Tag D</Tag>
+  <Chip>Tag A</Chip>
+  <Chip>Tag B</Chip>
+  <Chip>Tag C</Chip>
+  <Chip>Tag D</Chip>
 </FloatingList>
 ```
 
@@ -38,16 +38,16 @@ import {
 Normally all items are aligned to the left or in flex box terms justified to the start. Use `justifyEnd` to align them to the right.
 
 ```js
-import { 
+import {
 	FloatingList,
-	Tag,
+	Chip,
 } from '@lightelligence/react';
 
 
 <FloatingList justifyEnd gap={3} style={{border: "1px solid #ddd", width: "220px"}}>
-  <Tag>Tag A</Tag>
-  <Tag>Tag B</Tag>
-  <Tag>Tag C</Tag>
-  <Tag>Tag D</Tag>
+  <Chip>Tag A</Chip>
+  <Chip>Tag B</Chip>
+  <Chip>Tag C</Chip>
+  <Chip>Tag D</Chip>
 </FloatingList>
 ```

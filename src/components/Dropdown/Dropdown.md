@@ -1,30 +1,17 @@
-#### Dropdown with menu
 
-```js
-import { Dropdown, Menu, MenuItem } from '@lightelligence/react';
-<Dropdown label="Dropdown">
-  <Menu submenu>
-    <MenuItem>Test</MenuItem>
-  </Menu>
-</Dropdown>
-```
+### Example
 
-#### Plain Dropdown
-
-```js
-import { Dropdown, Menu, MenuItem } from '@lightelligence/react';
-<Dropdown label="Dropdown">
-  Dropdown content
-</Dropdown>
-```
-
-#### Contextual Dropdown
-
-```js
-import { Dropdown, Menu, MenuItem } from '@lightelligence/react';
-<Dropdown color="primary" label="Dropdown">
-  <Menu submenu>
-    <MenuItem>Test</MenuItem>
-  </Menu>
-</Dropdown>
+```jsx
+import { InputListItem } from "@lightelligence/react";
+const [value, setValue] = React.useState('2');
+const onChange = (value) => {
+  setValue(value);
+};
+<div style={{ paddingBottom: '120px' }}>
+  <Dropdown label="Select an option" value={value} onChange={onChange}>
+    <InputListItem value="1">Item 1</InputListItem>
+    <InputListItem value="2">Item 2</InputListItem>
+    <InputListItem value="3">Item 3</InputListItem>
+  </Dropdown>
+</div>
 ```

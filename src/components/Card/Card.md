@@ -130,15 +130,6 @@ import { Card } from '@lightelligence/react';
 </Card>
 ```
 
-#### Card with divider
-
-```js
-import { Card, Divider } from '@lightelligence/react';
-<Card>
-  Echo<Divider/>Echo
-</Card>
-```
-
 #### Disabled Card
 
 ```js

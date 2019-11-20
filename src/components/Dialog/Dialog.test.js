@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import { oltStyles } from '../..';
 
-import { V2Button } from '../V2Button';
+import { Button } from '../Button';
 import { Dialog } from './Dialog';
 
 const renderDialog = (props) => {
@@ -90,9 +90,9 @@ describe('Dialog', () => {
     const onClick = jest.fn();
     const { getByTestId } = renderDialog({
       actions: [
-        <V2Button key="ok" buttonType="action" onClick={onClick}>
+        <Button key="ok" buttonType="action" onClick={onClick}>
           Ok
-        </V2Button>,
+        </Button>,
       ],
     });
     const footer = getByTestId('footer');

@@ -3,8 +3,8 @@ import * as olt from '@lightelligence/styles';
 import { shape, func, string, number, arrayOf, any } from 'prop-types';
 import classnames from 'classnames';
 
-import { V2Input } from '../../controls/V2Input';
-import { V2Button } from '../../components/V2Button';
+import { Input } from '../../controls/Input';
+import { Button } from '../../components/Button';
 import { ActionButton } from '../../components/ActionButton';
 
 export const DynamicList = ({
@@ -23,7 +23,7 @@ export const DynamicList = ({
   className,
   ...other
 }) => {
-  const element = inputElement || V2Input;
+  const element = inputElement || Input;
 
   const [elements, setElements] = useState([]);
   const [internalValues, setInternalValues] = useState([]);
@@ -170,7 +170,7 @@ export const DynamicList = ({
           ) : null}
         </div>
       ))}
-      <V2Button
+      <Button
         className={classnames(olt.uMarginTop3, submitButtonClassName)}
         style={{ alignSelf: 'flex-end' }}
         buttonType="action"
@@ -187,7 +187,7 @@ export const DynamicList = ({
         }
       >
         {submitLabel}
-      </V2Button>
+      </Button>
     </div>
   );
 };
