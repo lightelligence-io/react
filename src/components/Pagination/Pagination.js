@@ -2,9 +2,9 @@ import React, { useCallback, useRef, useEffect, useState } from 'react';
 import { number, arrayOf, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
-import { V2Select } from '../../controls/V2Select';
+import { Select } from '../../controls/Select';
 import { Description } from '../../content/Fonts';
-import { V2Button } from '../V2Button';
+import { Button } from '../Button';
 
 const Pagination = ({
   currentPage,
@@ -20,7 +20,7 @@ const Pagination = ({
 
   const setMobileFlag = useCallback(() => {
     setIsMobile(
-      paginationBar.current.clientWidth < parseInt(olt.theme.breakpoint.sm, 10),
+      paginationBar.current.clientWidth < 576, // TODO: use styles breakpoint! used to be parseInt(olt.theme.breakpoint.sm, 10),
     );
   }, [paginationBar]);
 
@@ -72,7 +72,7 @@ const Pagination = ({
         <div style={{ padding: '8px' }}>
           <Description color="500">Show</Description>
         </div>
-        <V2Select
+        <Select
           options={options}
           value={`${selectedItemsPerPageIndex}`}
           onChange={(e) => handleChangeItemsPerPage(e.target.value)}
@@ -108,20 +108,20 @@ const Pagination = ({
           )}
           style={{ minWidth: '165px' }}
         >
-          <V2Button
+          <Button
             buttonType="paginationPrev"
             onClick={() => setPage(currentPage - 1)}
             disabled={currentPage === 1}
           >
             prev
-          </V2Button>
-          <V2Button
+          </Button>
+          <Button
             buttonType="paginationNext"
             onClick={() => setPage(currentPage + 1)}
             disabled={currentPage >= noOfPages}
           >
             next
-          </V2Button>
+          </Button>
         </div>
       </div>
     </div>

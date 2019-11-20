@@ -6,7 +6,7 @@ component, so a good place for that component would be in the root of your
 application.
 
 ```js
-import { Theme, Chip, V2Button, Toggle } from '@lightelligence/react';
+import { Theme, Chip, Button, Toggle } from '@lightelligence/react';
 <div>
   {/** Try changing the value here */}
   <Theme primaryColor="#bf0cff">
@@ -15,7 +15,7 @@ import { Theme, Chip, V2Button, Toggle } from '@lightelligence/react';
     </Chip>
     <br />
     <br />
-    <V2Button buttonType="default">Button</V2Button>
+    <Button buttonType="default">Button</Button>
     <br />
     <br />
     <Toggle checked />
@@ -27,7 +27,7 @@ import { Theme, Chip, V2Button, Toggle } from '@lightelligence/react';
     </Chip>
     <br />
     <br />
-    <V2Button buttonType="default">Button</V2Button>
+    <Button buttonType="default">Button</Button>
     <br />
     <br />
     <Toggle checked />

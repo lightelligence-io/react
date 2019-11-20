@@ -1,101 +1,123 @@
-import React, { Component } from 'react';
-import { bool, string, node } from 'prop-types';
 import classnames from 'classnames';
-import { pascalize } from 'humps';
+import { string, oneOfType, shape, oneOf, arrayOf, func } from 'prop-types';
+import React, { useCallback, useState } from 'react';
 import * as olt from '@lightelligence/styles';
+import { Label } from '../../controls/Label';
+import { InputListItem, InputList } from '../InputList';
 
-import { isServerSideRendering } from '../../utils/isServerSideRendering';
-
-export class Dropdown extends Component {
-  static propTypes = {
-    children: node,
-    className: string,
-    label: node.isRequired,
-    color: string,
-    outline: bool,
-    disabled: bool,
-  };
-
-  static defaultProps = {
-    children: null,
-    className: null,
-    color: undefined,
-    outline: false,
-    disabled: false,
-  };
-
-  state = {
-    open: false,
-  };
-
-  dropdownRef = React.createRef();
-
-  componentDidMount() {
-    if (!isServerSideRendering) {
-      window.addEventListener('click', this.handleOffClick);
-    }
-  }
-
-  componentWillUnmount() {
-    if (!isServerSideRendering) {
-      window.removeEventListener('click', this.handleOffClick);
-    }
-  }
-
-  handleOffClick = (event) => {
-    const { current: dropdown } = this.dropdownRef;
-    const isContained =
-      'contains' in dropdown ? dropdown.contains(event.target) : event.target;
-
-    if (!isContained) {
-      this.setState({
-        open: false,
-      });
-    }
-  };
-
-  handleClick = (event) => {
-    const { open } = this.state;
-
-    this.setState({
-      open: !open,
-    });
-  };
-
-  render() {
-    const {
-      children,
+export const Dropdown = React.forwardRef(
+  (
+    {
       className,
       label,
-      color,
-      outline,
-      disabled,
+      children,
+      value,
+      onChange,
+      labelProps,
+      selectedContentProps,
+      inputListProps,
       ...props
-    } = this.props;
-    const { open } = this.state;
+    },
+    ref,
+  ) => {
+    const [isOpen, setOpen] = useState(false);
+
+    const onClick = useCallback(() => {
+      setOpen(!isOpen);
+    }, [isOpen, setOpen]);
+
+    const selectedChild = React.Children.toArray(children).find(
+      (child) => child.props.value === value,
+    );
+    const selectedElement = selectedChild && React.cloneElement(selectedChild);
 
     return (
-      <div
-        ref={this.dropdownRef}
-        {...props}
-        className={classnames(
-          olt.Dropdown,
-          color && olt[`Dropdown${pascalize(color)}`],
-          outline && olt.DropdownOutline,
-          className,
-          open && olt.isOpen,
-          disabled && olt.isDisabled,
-        )}
+      <Label
+        label={label}
+        value={(isOpen ? '' : value) || ''}
+        onClick={onClick}
+        {...labelProps}
       >
-        <button
-          type="button"
-          className={olt.DropdownLabel}
-          onClick={this.handleClick}
+        <div
+          ref={ref}
+          {...props}
+          className={classnames(
+            olt.Dropdown,
+            isOpen && 'is-open',
+            selectedElement && olt.DropdownSelected,
+            className,
+          )}
         >
-          {label}
-        </button>
-        <div className={olt.DropdownContent}>{children}</div>
-      </div>
+          {selectedElement && (
+            <div
+              className={classnames(olt.DropdownSelectedContent)}
+              style={{ minHeight: 'auto' }}
+              {...selectedContentProps}
+            >
+              {selectedElement.props.children}
+            </div>
+          )}
+          <InputList
+            value={value}
+            onChange={onChange}
+            className={classnames(olt.DropdownContent)}
+            {...inputListProps}
+          >
+            {children}
+          </InputList>
+        </div>
+      </Label>
     );
-  }
-}
+  },
+);
+
+Dropdown.displayName = 'Dropdown';
+
+Dropdown.propTypes = {
+  /**
+   * The floating label
+   */
+  label: string.isRequired,
+  /**
+   * Forward an additional className to the underlying element
+   */
+  className: string,
+  /**
+   * Content of the element should always be consisted of
+   * [InputListItem](/#/Components/InputListItem) components.
+   */
+  children: oneOfType([
+    shape({ type: oneOf([InputListItem]) }),
+    arrayOf(shape({ type: oneOf([InputListItem]) })),
+  ]),
+  /**
+   * The current value of the input list
+   */
+  value: string,
+  /**
+   * Callback when the value of the input list was changed
+   */
+  onChange: func,
+  /**
+   * Additional label props
+   */
+  labelProps: shape({}),
+  /**
+   * Additional selected content props
+   */
+  selectedContentProps: shape({}),
+  /**
+   * Additional input list props
+   */
+  inputListProps: shape({}),
+};
+
+Dropdown.defaultProps = {
+  className: null,
+  children: null,
+  value: null,
+  labelProps: {},
+  selectedContentProps: {},
+  inputListProps: {},
+  onChange: () => {},
+};

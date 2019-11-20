@@ -1,7 +1,7 @@
 
 The **DynamicList** allows a number of similar entries. Use `onChange` callback to keep track of the user input. `onSubmit` is called when the user clicks the submit button.
 
-The default element is `V2Input`. You need to specify a label for the element using the `inputProps` attribute. The label will be used for each input element shown to the user.
+The default element is `Input`. You need to specify a label for the element using the `inputProps` attribute. The label will be used for each input element shown to the user.
 
 ```js
 import {
@@ -29,7 +29,7 @@ You can wrap the **DynamicList** in a **Dialog** component to show it as a modal
 import {
   Dialog,
   DynamicList,
-  V2Button,
+  Button,
 } from '@lightelligence/react';
 
 initialState = {
@@ -55,7 +55,7 @@ const dynamicList = (
 );
 
 <div>
-  <V2Button color="primary" onClick={toggleDialog}>Dynamic List Dialog</V2Button>
+  <Button color="primary" onClick={toggleDialog}>Dynamic List Dialog</Button>
   <Dialog
     title="All will be fine"
     description="All will be fine"
@@ -76,7 +76,7 @@ These attributes affect the appearance of the `add` and `remove` buttons and may
 import {
   Dialog,
   DynamicList,
-  V2Button,
+  Button,
 } from '@lightelligence/react';
 
 initialState = {
@@ -103,14 +103,14 @@ const onSubmit = (values) => {
 
 You can use `onChange` to receive updates on user input.
 
-Use `inputElement` to specify an input element different from `V2Input` and ensure you are passing all props needed by it using `inputProps`.
+Use `inputElement` to specify an input element different from `Input` and ensure you are passing all props needed by it using `inputProps`.
 
 ```js
 import {
   DynamicList,
-  V2Button,
-  V2Input,
-  V2Select
+  Button,
+  Input,
+  Select
 } from '@lightelligence/react';
 
 initialState = {
@@ -142,7 +142,7 @@ const options = [
       label: "Please Select your data",
       options,
     }}
-    inputElement={V2Select}
+    inputElement={Select}
     values={state.values}
   />
 </div>

@@ -49,7 +49,4 @@ export const KEY_CODE_SPACE = 32;
 export const KEY_CODE_ENTER = 13;
 export const KEY_CODE_BACKSPACE = 8;
 
-export const SNACKBAR_TIMEOUT_NORMAL = 6000;
-export const SNACKBAR_TIMEOUT_SHORT = 3000;
-
 export const OLT_NAMESPACE = 'olt-';

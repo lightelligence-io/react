@@ -195,10 +195,8 @@ describe('StepperDialog - Styles', () => {
   test('proceed button uses the right classes from styles', () => {
     const { getByTestId } = render(createDialog());
     const proceedButton = getByTestId('proceedButton');
-    expect(proceedButton.classList.contains(oltStyles.V2Button)).toBe(true);
-    expect(proceedButton.classList.contains(oltStyles.V2ButtonAction)).toBe(
-      true,
-    );
+    expect(proceedButton.classList.contains(oltStyles.Button)).toBe(true);
+    expect(proceedButton.classList.contains(oltStyles.ButtonAction)).toBe(true);
   });
   test('back button uses the right classes from styles', () => {
     const { getByTestId } = render(
@@ -208,9 +206,7 @@ describe('StepperDialog - Styles', () => {
       }),
     );
     const backButton = getByTestId('backButton');
-    expect(backButton.classList.contains(oltStyles.V2ButtonTertiary)).toBe(
-      true,
-    );
+    expect(backButton.classList.contains(oltStyles.ButtonTertiary)).toBe(true);
   });
 });
 
@@ -271,9 +267,7 @@ describe('StepperDialog - Props', () => {
       }),
     );
     const proceedButton = getByText('new proceed label');
-    expect(proceedButton.classList.contains(oltStyles.V2ButtonAction)).toBe(
-      true,
-    );
+    expect(proceedButton.classList.contains(oltStyles.ButtonAction)).toBe(true);
   });
   test('disables proceedButton', () => {
     const { getByTestId } = render(
@@ -293,9 +287,7 @@ describe('StepperDialog - Props', () => {
       }),
     );
     const backButton = getByText('new back label');
-    expect(backButton.classList.contains(oltStyles.V2ButtonTertiary)).toBe(
-      true,
-    );
+    expect(backButton.classList.contains(oltStyles.ButtonTertiary)).toBe(true);
   });
   test('disables backButton', () => {
     const { queryByTestId } = render(

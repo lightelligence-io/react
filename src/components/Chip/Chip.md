@@ -14,7 +14,7 @@ Clickable but no Call To Action
 Clickable but no CTA
 
 ```js
-import { DataCards, DataCardsItem, Chip, Card } from '@lightelligence/react';
+import { CardTable, CardTableItem, Chip, Card } from '@lightelligence/react';
 const fields = [
   { key: 'id', label: '' },
   { key: 'default', label: 'Default'},
@@ -84,21 +84,21 @@ const rows = [
     primary_active: wrap(<Chip disabled color="primary">Chip</Chip>),
   },
 ];
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="default" />
-  <DataCardsItem halfSize align="center" field="dark" />
-  <DataCardsItem halfSize align="center" field="light" />
-  <DataCardsItem halfSize align="center" field="primary_active" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="default" />
+  <CardTableItem halfSize align="center" field="dark" />
+  <CardTableItem halfSize align="center" field="light" />
+  <CardTableItem halfSize align="center" field="primary_active" />
+</CardTable>;
 ```
 
 - **Error**: Negative Emphasis, No destructive CTA<br />
@@ -111,7 +111,7 @@ Not Clickable
 
 
 ```js
-import { DataCards, DataCardsItem, Chip, Card } from '@lightelligence/react';
+import { CardTable, CardTableItem, Chip, Card } from '@lightelligence/react';
 const fields = [
   { key: 'id', label: '' },
   { key: 'error', label: 'Error'},
@@ -153,20 +153,20 @@ const rows = [
     info:        wrap(<Chip color="info">Lore...sum</Chip>),
   }
 ];
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="error" />
-  <DataCardsItem halfSize align="center" field="success" />
-  <DataCardsItem halfSize align="center" field="info" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="error" />
+  <CardTableItem halfSize align="center" field="success" />
+  <CardTableItem halfSize align="center" field="info" />
+</CardTable>;
 ```
 
 ### Colors

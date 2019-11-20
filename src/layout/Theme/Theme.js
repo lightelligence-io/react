@@ -7,7 +7,7 @@ import tinycolor from 'tinycolor2';
  *
  * @type {string}
  */
-const primaryColorProperty = `--olt-v2-primaryColor`;
+const primaryColorProperty = `--olt-primaryColor`;
 
 /**
  * @typedef Mix

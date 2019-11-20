@@ -1,37 +1,26 @@
-import React, { PureComponent } from 'react';
-import { string, bool, node } from 'prop-types';
+import React from 'react';
+import { string, node } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
-class Grid extends PureComponent {
-  static propTypes = {
-    noPadding: bool,
-    className: string,
-    children: node,
-  };
+export const Grid = ({ children, className, ...props }) => (
+  <div className={classnames(olt.Grid, className)} {...props}>
+    {children}
+  </div>
+);
 
-  static defaultProps = {
-    noPadding: false,
-    className: null,
-    children: null,
-  };
+Grid.propTypes = {
+  /**
+   * Forward an additional className to the underlying component.
+   */
+  className: string,
+  /**
+   * An arbitrary number of `GridItem` elements.
+   */
+  children: node,
+};
 
-  render() {
-    const { noPadding, children, className, ...props } = this.props;
-
-    const classes = classnames(
-      olt.Grid,
-      noPadding && olt.GridNoPadding, // NOTE: What about --gutterless?
-      // ...or maybe better: Provide list of gutters like spacings and modifiers like `--gutter{0-4}`.
-      className,
-    );
-
-    return (
-      <div className={classes} {...props}>
-        {children}
-      </div>
-    );
-  }
-}
-
-export { Grid };
+Grid.defaultProps = {
+  className: null,
+  children: null,
+};

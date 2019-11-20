@@ -27,23 +27,23 @@ describe('Pagination', () => {
     expect(showText.classList.contains(oltStyles.uDescription)).toBe(true);
 
     const select = pagination.getElementsByTagName('select')[0];
-    expect(select.classList.contains(oltStyles.V2Select)).toBe(true);
-    expect(select.classList.contains(oltStyles.V2SelectPagination)).toBe(true);
+    expect(select.classList.contains(oltStyles.Select)).toBe(true);
+    expect(select.classList.contains(oltStyles.SelectPagination)).toBe(true);
 
     const pageText = getByText('11-20 of 30');
     expect(pageText.classList.contains(oltStyles.uDescription)).toBe(true);
 
     const prevButton = getByText('prev');
-    expect(prevButton.classList.contains(oltStyles.V2Button)).toBe(true);
-    expect(
-      prevButton.classList.contains(oltStyles.V2ButtonPaginationPrev),
-    ).toBe(true);
+    expect(prevButton.classList.contains(oltStyles.Button)).toBe(true);
+    expect(prevButton.classList.contains(oltStyles.ButtonPaginationPrev)).toBe(
+      true,
+    );
 
     const nextButton = getByText('next');
-    expect(nextButton.classList.contains(oltStyles.V2Button)).toBe(true);
-    expect(
-      nextButton.classList.contains(oltStyles.V2ButtonPaginationNext),
-    ).toBe(true);
+    expect(nextButton.classList.contains(oltStyles.Button)).toBe(true);
+    expect(nextButton.classList.contains(oltStyles.ButtonPaginationNext)).toBe(
+      true,
+    );
   });
   test('goes to next page', () => {
     const setItemsPerPageIndex = jest.fn();
