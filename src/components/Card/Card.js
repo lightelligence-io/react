@@ -10,105 +10,97 @@ import { ActionButton } from '../ActionButton';
 import { Image } from '../../content/Image';
 import { Link } from '../../content/Link';
 
-export const Card = React.forwardRef(
-  (
-    {
-      children,
-      image,
-      title,
-      description,
-      action,
-      color,
-      selectable,
-      className,
-      disabled,
-      popup,
-      edit,
-      onEdit,
-      to,
-      contentProps,
-      actionProps,
-      headerProps,
-      editProps,
-      ...props
-    },
-    ref,
-  ) => {
-    const Element = selectable && !to ? 'button' : (to && Link) || 'div';
+export const Card = ({
+  children,
+  image,
+  title,
+  description,
+  action,
+  color,
+  selectable,
+  className,
+  disabled,
+  edit,
+  onEdit,
+  to,
+  contentProps,
+  actionProps,
+  headerProps,
+  editProps,
+  ...props
+}) => {
+  const Element = selectable && !to ? 'button' : (to && Link) || 'div';
 
-    const { className: contentClassName, ...contentOther } = contentProps;
-    const { className: actionClassName, ...actionOther } = actionProps;
-    const { className: headerClassName, ...headerOther } = headerProps;
-    const { className: editClassName, ...editOther } = editProps;
+  const { className: contentClassName, ...contentOther } = contentProps;
+  const { className: actionClassName, ...actionOther } = actionProps;
+  const { className: headerClassName, ...headerOther } = headerProps;
+  const { className: editClassName, ...editOther } = editProps;
 
-    return (
-      <Element
-        to={to || undefined}
-        normal={to ? true : undefined}
-        className={classnames(
-          olt.Card,
-          color && olt[`Card${pascalize(color)}`],
-          selectable && olt.ButtonSelectable,
-          className,
-          disabled && olt.isDisabled,
-          popup && olt.CardPopup,
-          edit && olt.CardEdit,
-          edit && olt.ActionButtonProximityArea,
-        )}
-        ref={ref}
-        {...props}
-      >
-        {image &&
-          (typeof image === 'string' ? (
-            <Image
-              className={classnames(olt.Image, olt.CardImage)}
-              src={image}
-              fluid
-            />
-          ) : (
-            image
-          ))}
-        {(title || description || action || edit) && (
-          <div
-            className={classnames(olt.CardHeader, headerClassName)}
-            {...headerOther}
-          >
-            {title && <div className={olt.CardTitle}>{title}</div>}
-            {description && (
-              <div className={olt.CardDescription}>{description}</div>
-            )}
-            {(action || edit) && (
-              <div
-                className={classnames(olt.CardAction, actionClassName)}
-                {...actionOther}
-              >
-                {action}
-                {edit && (
-                  <ActionButton
-                    iconRight="edit"
-                    buttonType="primary"
-                    label="Edit"
-                    className={editClassName}
-                    onClick={() => typeof onEdit === 'function' && onEdit()}
-                    {...editOther}
-                  />
-                )}
-              </div>
-            )}
-          </div>
-        )}
-        {children && (
-          <div
-            className={classnames(olt.CardContent, contentClassName)}
-            {...contentOther}
-          >
-            {children}
-          </div>
-        )}
-      </Element>
-    );
-  },
-);
+  return (
+    <Element
+      to={to || undefined}
+      normal={to ? true : undefined}
+      className={classnames(
+        olt.Card,
+        color && olt[`Card${pascalize(color)}`],
+        selectable && olt.ButtonSelectable,
+        className,
+        disabled && olt.isDisabled,
+        edit && olt.CardEdit,
+        edit && olt.ActionButtonProximityArea,
+      )}
+      {...props}
+    >
+      {image &&
+        (typeof image === 'string' ? (
+          <Image
+            className={classnames(olt.Image, olt.CardImage)}
+            src={image}
+            fluid
+          />
+        ) : (
+          image
+        ))}
+      {(title || description || action || edit) && (
+        <div
+          className={classnames(olt.CardHeader, headerClassName)}
+          {...headerOther}
+        >
+          {title && <div className={olt.CardTitle}>{title}</div>}
+          {description && (
+            <div className={olt.CardDescription}>{description}</div>
+          )}
+          {(action || edit) && (
+            <div
+              className={classnames(olt.CardAction, actionClassName)}
+              {...actionOther}
+            >
+              {action}
+              {edit && (
+                <ActionButton
+                  iconRight="edit"
+                  buttonType="primary"
+                  label="Edit"
+                  className={editClassName}
+                  onClick={() => typeof onEdit === 'function' && onEdit()}
+                  {...editOther}
+                />
+              )}
+            </div>
+          )}
+        </div>
+      )}
+      {children && (
+        <div
+          className={classnames(olt.CardContent, contentClassName)}
+          {...contentOther}
+        >
+          {children}
+        </div>
+      )}
+    </Element>
+  );
+};
 
 Card.propTypes = {
   children: node,
@@ -121,7 +113,6 @@ Card.propTypes = {
   selectable: bool,
   disabled: bool,
   edit: bool,
-  popup: bool,
   onEdit: func,
   contentProps: shape({}),
   actionProps: shape({}),
@@ -141,7 +132,6 @@ Card.defaultProps = {
   selectable: false,
   disabled: false,
   edit: false,
-  popup: false,
   onEdit: null,
   contentProps: {},
   actionProps: {},
