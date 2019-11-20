@@ -47,3 +47,13 @@
 - Chore: update to styles 1.0.0-alpha.5
 - Chore: new Icons
 - Chore: package update
+
+#v1.0.0-rc.1
+- Feature: Dropdown
+- Feature: Filter
+- Feature: Theme Support for White-Labelling
+- Chore: upgrade styles package
+- Chore: Remove Components: Dropdown, Menu, MenuItem, ModalContent, ModalFooter, Navbar, Snackbar, Stepper, Tag, Table, SelectField, TextField
+- Chore: Rename to replace old Components: V2Container, V2Grid, V2Button, V2Modal, V2Tab, V2Tabs, V2Checkbox, V2Radio, V2Select, V2Input
+- Chore: Rename for clarity: DataCards -> CardTable
+- Chore: code cleanups
