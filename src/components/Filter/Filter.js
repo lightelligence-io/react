@@ -1,122 +1,116 @@
-import React, { useRef, useEffect } from 'react';
-import { string, bool, number, func, node, arrayOf } from 'prop-types';
 import classnames from 'classnames';
+import { string, shape, node, bool, func } from 'prop-types';
+import React from 'react';
 import * as olt from '@lightelligence/styles';
-// import { Description } from '../../content/Fonts';
-import { Button } from '../Button';
-import { Card } from '../Card';
+import { Label } from '../../controls/Label';
 
-const Filter = ({
-  count,
-  active,
-  buttonLabel,
-  content,
-  open,
-  toggleOpen,
-  actions,
-  onApply,
-  ...props
-}) => {
-  const popup = useRef();
-
-  // if (typeof toggleOpen !== 'function')
-  // console.warn('@lighttelligence: Filter: toggleOpen is not a Function')
-
-  // const handleApply = () => {
-  //   if (onApply && typeof onApply === 'function') onApply()
-  // }
-  const handleOpen = () => {
-    if (toggleOpen && typeof toggleOpen === 'function') toggleOpen();
-  };
-
-  const handleClickOutside = (event) => {
-    if (open && popup.current && !popup.current.contains(event.target)) {
-      handleOpen();
-      event.preventDefault();
-    }
-  };
-
-  const handleEscKey = (event) => {
-    if (event.key === 'Escape' && open) {
-      handleOpen();
-      event.preventDefault();
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
-    document.addEventListener('keydown', handleEscKey, false);
-    return () => {
-      document.removeEventListener('click', handleClickOutside, true);
-      document.removeEventListener('keydown', handleEscKey, false);
-    };
-  });
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <Button
-        iconRight={open ? 'arrows-chevron-up' : 'arrows-chevron-down'}
-        emphasis="secondary"
-        className={active ? olt.ButtonDark : undefined}
-        onClick={handleOpen}
+export const Filter = React.forwardRef(
+  (
+    {
+      className,
+      label,
+      children,
+      labelProps,
+      contentProps,
+      bubbleProps,
+      onClick,
+      open,
+      bubbleText,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <Label
+        label={label}
+        value=""
+        onClick={onClick}
+        {...labelProps}
+        /*
+           We need the htmlFor, because otherwise the label clicks any inputs
+           nested in the Filter
+         */
+        htmlFor="__LIGHTELLIGENCE_REACT__"
       >
-        {buttonLabel}
-      </Button>
-      {open && (
-        <Card popup ref={popup}>
-          {content}
-          <Card className={classnames(olt.uBorderTop, olt.uMarginTop2)}>
-            {actions}
-          </Card>
-        </Card>
-      )}
-    </div>
-  );
-};
+        <div
+          ref={ref}
+          {...props}
+          className={classnames(olt.Filter, open && 'is-open', className)}
+        >
+          {bubbleText && (
+            <div
+              {...bubbleProps}
+              className={classnames(olt.FilterBubble, bubbleProps.className)}
+            >
+              {bubbleText}
+            </div>
+          )}
+          <div
+            {...contentProps}
+            style={{ minHeight: 'auto' }}
+            className={classnames(
+              olt.FilterContent,
+              contentProps,
+              className,
+              contentProps.className,
+            )}
+          >
+            {children}
+          </div>
+        </div>
+      </Label>
+    );
+  },
+);
+
+Filter.displayName = 'Filter';
 
 Filter.propTypes = {
   /**
-   * ...
+   * Bubble text to display on the right side of the filter
    */
-  count: number,
+  bubbleText: string,
   /**
-   * ...
+   * Prop to set if the filter is open
    */
-  active: bool,
+  open: bool,
   /**
-   * ...
+   * The floating label
    */
-  buttonLabel: string,
+  label: string.isRequired,
   /**
-   * ...
+   * Forward an additional className to the underlying element
    */
-  content: node.isRequired,
+  className: string,
   /**
-   * ...
+   * Content of the filter
    */
-  open: bool.isRequired,
+  children: node,
   /**
-   * Callback, ...
-   * @param a ...
+   * Click handler
    */
-  toggleOpen: func.isRequired,
+  onClick: func,
   /**
-   * ...
+   * Additional label props
    */
-  actions: arrayOf(node),
+  labelProps: shape({}),
   /**
-   * Callback, ...
-   * @param a ...
+   * Additional content props
    */
-  onApply: func,
+  contentProps: shape({}),
+  /**
+   * Additional bubble props
+   */
+  bubbleProps: shape({}),
 };
 
 Filter.defaultProps = {
-  count: -1,
-  active: false,
-  buttonLabel: 'Filter',
-  actions: null,
-  onApply: () => {},
+  bubbleText: null,
+  open: false,
+  className: null,
+  children: null,
+  labelProps: {},
+  contentProps: {},
+  bubbleProps: {},
+  onClick: () => {},
 };
-
-export { Filter };
