@@ -3,7 +3,7 @@ import { string, bool, number, func, node, arrayOf } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 // import { Description } from '../../content/Fonts';
-import { V2Button } from '../V2Button';
+import { Button } from '../Button';
 import { Card } from '../Card';
 
 const Filter = ({
@@ -54,14 +54,14 @@ const Filter = ({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <V2Button
+      <Button
         iconRight={open ? 'arrows-chevron-up' : 'arrows-chevron-down'}
         emphasis="secondary"
-        className={active ? olt.V2ButtonDark : undefined}
+        className={active ? olt.ButtonDark : undefined}
         onClick={handleOpen}
       >
         {buttonLabel}
-      </V2Button>
+      </Button>
       {open && (
         <Card popup ref={popup}>
           {content}

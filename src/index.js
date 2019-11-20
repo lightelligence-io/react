@@ -15,6 +15,7 @@ export * from './components/Tooltip';
 export * from './components/Pagination';
 export * from './components/Dropdown';
 export * from './components/InputList';
+export * from './components/Filter';
 
 // content
 export * from './content/BasicCardTable';
