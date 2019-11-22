@@ -51,7 +51,6 @@ const onChange = (event) => {
   setState({ value: event.target.value });
 };
 const onIconClick = () => {
-  console.log('clicked')
   setState({ value: '' });
 };
 
