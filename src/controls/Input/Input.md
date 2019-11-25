@@ -50,11 +50,15 @@ initialState = { value: '' };
 const onChange = (event) => {
   setState({ value: event.target.value });
 };
+const onIconClick = () => {
+  setState({ value: '' });
+};
 
 <Input
   label="Enter your data"
   value={state.value}
   onChange={onChange}
+  onIconClick={onIconClick}
   icon="edit"
 />;
 ```
