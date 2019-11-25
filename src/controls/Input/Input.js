@@ -13,6 +13,7 @@ const Input = ({
   icon,
   label,
   onChange,
+  onIconClick,
   onBlur,
   readOnly,
   value,
@@ -34,6 +35,7 @@ const Input = ({
       maxLength={maxLength}
       allwaysShowMaxLength={allwaysShowMaxLength}
       hint={hint}
+      {...(onIconClick ? { onIconClick } : {})}
     >
       <input
         className={olt.Input}
@@ -106,6 +108,10 @@ Input.propTypes = {
    */
   onChange: func.isRequired,
   /**
+   * Callback which is called when the icon is clicked
+   */
+  onIconClick: func,
+  /**
    * disables the input (defaults to false)
    */
   disabled: bool,
@@ -126,6 +132,7 @@ Input.defaultProps = {
   value: null,
   placeholder: null,
   icon: null,
+  onIconClick: null,
   errorMessage: null,
   maxLength: null,
   allwaysShowMaxLength: false,

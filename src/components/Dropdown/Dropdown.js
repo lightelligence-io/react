@@ -50,9 +50,12 @@ export const Dropdown = React.forwardRef(
         >
           {selectedElement && (
             <div
-              className={classnames(olt.DropdownSelectedContent)}
               style={{ minHeight: 'auto' }}
               {...selectedContentProps}
+              className={classnames(
+                olt.DropdownSelectedContent,
+                selectedContentProps.className,
+              )}
             >
               {selectedElement.props.children}
             </div>
@@ -60,8 +63,11 @@ export const Dropdown = React.forwardRef(
           <InputList
             value={value}
             onChange={onChange}
-            className={classnames(olt.DropdownContent)}
             {...inputListProps}
+            className={classnames(
+              olt.DropdownContent,
+              inputListProps.className,
+            )}
           >
             {children}
           </InputList>
