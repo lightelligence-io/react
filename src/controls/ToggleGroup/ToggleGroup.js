@@ -26,7 +26,7 @@ export class ToggleGroup extends PureComponent {
     value: null,
   };
 
-  handleChange = (buttonValue) => {
+  handleChange = (buttonValue) => () => {
     const { onChange, value } = this.props;
 
     if (!onChange) {
@@ -56,18 +56,18 @@ export class ToggleGroup extends PureComponent {
     } = this.props;
 
     const content = React.Children.map(children, (child) => {
-      const { selected: buttonSelected, value: buttonValue } = child.props;
+      const { checked: buttonChecked, value: buttonValue } = child.props;
 
-      const selected =
-        buttonSelected === undefined || buttonSelected === null
+      const checked =
+        buttonChecked === undefined || buttonChecked === null
           ? isValueSelected(buttonValue, value)
-          : buttonSelected;
+          : buttonChecked;
 
-      const onChange = this.handleChange;
+      const onChange = this.handleChange(buttonValue);
 
       return React.cloneElement(child, {
         name,
-        selected,
+        checked,
         onChange,
       });
     });
