@@ -47,25 +47,28 @@ describe('Tabs can be clicked', () => {
     expect(onSelect).toHaveBeenCalled();
     expect(tab.classList.contains(oltStyles.isActive)).toBe(true);
   });
-  test('clicks inactive Tab', () => {
+  test('clicks inactive Tab', async () => {
     const onSelect = jest.fn();
     const { getByText } = renderTabs(onSelect);
     const tab = getByText('Tab B');
     expect(!tab.classList.contains(oltStyles.isActive)).toBe(true);
     fireEvent.click(tab);
     expect(onSelect).toHaveBeenCalled();
-    wait(() => expect(tab.classList.contains(oltStyles.isActive)).toBe(true));
+    await wait(() =>
+      expect(tab.classList.contains(oltStyles.isActive)).toBe(true),
+    );
   });
 });
 
-describe('Tabs render gradient when scrolled', () => {
+describe.only('Tabs render gradient when scrolled', () => {
   Object.defineProperty(window.HTMLElement.prototype, 'clientWidth', {
     value: 100,
   });
   Object.defineProperty(window.HTMLElement.prototype, 'scrollWidth', {
     value: 200,
   });
-  test('renders gradient right', () => {
+
+  test('renders gradient right', async () => {
     Object.defineProperty(window.HTMLElement.prototype, 'scrollLeft', {
       writable: true,
       value: 0,
@@ -74,15 +77,15 @@ describe('Tabs render gradient when scrolled', () => {
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
     const tabs = getByTestId('Tabs').firstChild;
-    wait(() =>
+    await wait(() =>
       expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true),
     );
-    wait(() =>
+    await wait(() =>
       expect(!tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true),
     );
   });
 
-  test('renders gradient left and right', () => {
+  test('renders gradient left and right', async () => {
     Object.defineProperty(window.HTMLElement.prototype, 'scrollLeft', {
       value: 50,
     });
@@ -90,15 +93,15 @@ describe('Tabs render gradient when scrolled', () => {
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
     const tabs = getByTestId('Tabs').firstChild;
-    wait(() =>
+    await wait(() =>
       expect(tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true),
     );
-    wait(() =>
+    await wait(() =>
       expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true),
     );
   });
 
-  test('renders gradient left', () => {
+  test('renders gradient left', async () => {
     Object.defineProperty(window.HTMLElement.prototype, 'scrollLeft', {
       value: 100,
     });
@@ -106,10 +109,10 @@ describe('Tabs render gradient when scrolled', () => {
     const onSelect = jest.fn();
     const { getByTestId } = renderTabs(onSelect);
     const tabs = getByTestId('Tabs').firstChild;
-    wait(() =>
+    await wait(() =>
       expect(!tabs.classList.contains(oltStyles.hasGradientRight)).toBe(true),
     );
-    wait(() =>
+    await wait(() =>
       expect(tabs.classList.contains(oltStyles.hasGradientLeft)).toBe(true),
     );
   });

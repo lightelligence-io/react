@@ -15,6 +15,7 @@ export const Tabs = ({
   const [gradient, setGradient] = useState({ left: false, right: false });
 
   const handleScroll = useCallback(() => {
+    if (!tabBar || !tabBar.current) return;
     const left = tabBar.current.scrollLeft > 0;
     const right =
       tabBar.current.scrollWidth -
