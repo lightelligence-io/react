@@ -49,6 +49,11 @@ module.exports = {
       sectionDepth: 2,
     },
     {
+      name: 'Navigation',
+      components: 'src/navigation/**/[A-Z]*.js',
+      sectionDepth: 2,
+    },
+    {
       name: 'Hooks',
       components: 'src/hooks/**/[A-Z]*.js', // exclude index.js files
       sectionDepth: 2,
