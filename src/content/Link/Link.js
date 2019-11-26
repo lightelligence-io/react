@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { string, bool, node } from 'prop-types';
 import { NavLink, matchPath } from 'react-router-dom';
 import classnames from 'classnames';
@@ -7,40 +7,37 @@ import * as olt from '@lightelligence/styles';
 /**
  * Combines router navigation with standard link, seasoned with some spicy color schemes
  */
-export class Link extends PureComponent {
-  static propTypes = {
-    to: string.isRequired,
-    normal: bool,
-    children: node,
-    className: string,
-  };
+const Link = React.memo(({ to, children, className, normal, ...props }) => {
+  const match = matchPath(to, {
+    path: '/',
+    exact: false,
+  });
+  const Element = match ? NavLink : 'a';
 
-  static defaultProps = {
-    normal: false,
-    className: null,
-    children: null,
-  };
+  return (
+    <Element
+      {...{
+        ...(match ? { to } : { href: to }),
+        ...props,
+        className: classnames(!normal && olt.Link, className),
+      }}
+    >
+      {children}
+    </Element>
+  );
+});
 
-  render() {
-    const { to, children, className, normal, ...props } = this.props;
-    // React routers matchPath will return a match object if the link matches an
-    // internal link otherwise it returns null. Uses the "Route" logic to match.
-    const match = matchPath(to, {
-      path: '/',
-      exact: false,
-    });
-    const Element = match ? NavLink : 'a';
+Link.propTypes = {
+  to: string.isRequired,
+  normal: bool,
+  children: node,
+  className: string,
+};
 
-    return (
-      <Element
-        {...{
-          ...(match ? { to } : { href: to }),
-          ...props,
-          className: classnames(!normal && olt.Link, className),
-        }}
-      >
-        {children}
-      </Element>
-    );
-  }
-}
+Link.defaultProps = {
+  normal: false,
+  className: null,
+  children: null,
+};
+
+export { Link };
