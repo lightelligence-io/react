@@ -1,26 +1,43 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { func, string, node } from 'prop-types';
-import { ToggleGroup } from '../ToggleGroup';
 
-export class RadioGroup extends PureComponent {
-  static propTypes = {
-    children: node,
-    onChange: func.isRequired,
-    value: string.isRequired,
-    name: string.isRequired,
-  };
+const RadioGroup = React.memo(
+  ({ children, name, value, onChange, ...props }) => {
+    const isValueSelected = (radioValue) => {
+      if (value === undefined) return false;
+      if (radioValue === undefined) return false;
+      return value === radioValue;
+    };
 
-  static defaultProps = {
-    children: null,
-  };
+    const handleChange = (radioValue) => () => {
+      if (!onChange) return;
+      onChange(radioValue);
+    };
 
-  render() {
-    const { children, name, value, onChange, ...props } = this.props;
+    const content = React.Children.map(children, (child) => {
+      const { value: radioValue } = child.props;
+      const checked = isValueSelected(radioValue, value);
 
-    return (
-      <ToggleGroup name={name} value={value} onChange={onChange} {...props}>
-        {children}
-      </ToggleGroup>
-    );
-  }
-}
+      return React.cloneElement(child, {
+        name,
+        checked,
+        onChange: handleChange(radioValue),
+      });
+    });
+
+    return <div {...props}>{content}</div>;
+  },
+);
+
+RadioGroup.propTypes = {
+  children: node,
+  onChange: func.isRequired,
+  value: string.isRequired,
+  name: string.isRequired,
+};
+
+RadioGroup.defaultProps = {
+  children: null,
+};
+
+export { RadioGroup };
