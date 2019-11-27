@@ -22,7 +22,6 @@ export * from './content/BasicCardTable';
 export * from './content/CardTable';
 export * from './content/FloatingList';
 export * from './content/Fonts';
-export * from './content/Headline';
 export * from './content/List';
 export * from './content/DynamicList';
 export * from './content/Paragraph';
