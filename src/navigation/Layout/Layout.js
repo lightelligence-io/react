@@ -12,9 +12,6 @@ import * as olt from '@lightelligence/styles';
  * - [Sidebar Component](#/Navigation/Sidebar)
  * - [SecondarySidebar Component](#/Navigation/SecondarySidebar)
  * - [LayoutBody Component](#/Navigation/LayoutBody)
- *
- * The layout uses a `div` HTML tag and passes all props to it's corresponding
- * React Element.
  */
 export const Layout = ({ className, children, ...props }) => (
   <div {...props} className={classnames(olt.Layout, className)}>
