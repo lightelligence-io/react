@@ -15,6 +15,7 @@ export const Tabs = ({
   const [gradient, setGradient] = useState({ left: false, right: false });
 
   const handleScroll = useCallback(() => {
+    if (!tabBar || !tabBar.current) return;
     const left = tabBar.current.scrollLeft > 0;
     const right =
       tabBar.current.scrollWidth -
@@ -27,6 +28,9 @@ export const Tabs = ({
   useEffect(() => {
     handleScroll();
     window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('resize', handleScroll);
+    };
   }, [tabBar, handleScroll]);
 
   const { className: tabsClassName, ...otherTabsProps } = tabsProps;
