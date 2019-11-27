@@ -28,19 +28,13 @@ export const SecondarySidebar = ({
   onClickMobileClose,
   header,
   open,
-  hidden,
   backButtonProps,
   closeButtonProps,
   ...props
 }) => (
   <aside
     {...props}
-    className={classnames(
-      olt.SidebarSecondary,
-      open && 'is-open',
-      hidden && 'is-hidden',
-      className,
-    )}
+    className={classnames(olt.SidebarSecondary, open && 'is-open', className)}
   >
     <div className={classnames(olt.SidebarSecondaryMobileMenu)}>
       <ActionButton
@@ -93,19 +87,6 @@ SecondarySidebar.propTypes = {
    */
   open: bool,
   /**
-   * Controls if the secondary sidebar should be hidden on mobile devices.
-   * On mobile screen the sidebar is rendered when the user clicks on the
-   * Header's mobile menu button. However since the Sidebar takes the whole
-   * screen, whenever a SecondarySidebar is showed it will hide the main
-   * Sidebar. In order to go back to the main Sidebar the user clicks the
-   * SecondarySidebar's Back button ( Check `onClickMobileBack` in this
-   * component ).
-   *
-   * This `hidden` prop allows the developer to hide the secondary sidebar even
-   * though is considered "open"
-   */
-  hidden: bool,
-  /**
    * Props passed to the mobile back action button
    */
   backButtonProps: shape({}),
@@ -122,7 +103,6 @@ SecondarySidebar.defaultProps = {
   onClickMobileClose: null,
   header: null,
   open: false,
-  hidden: false,
   backButtonProps: null,
   closeButtonProps: null,
 };

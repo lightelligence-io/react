@@ -28,15 +28,6 @@ describe('Secondary Sidebar', () => {
     expect(component.classList.contains('is-open')).toBe(true);
   });
 
-  test('renders properly when is hidden', () => {
-    const { getByTestId } = renderComponent({
-      hidden: true,
-    });
-
-    const component = getByTestId('secondary-sidebar');
-    expect(component.classList.contains('is-hidden')).toBe(true);
-  });
-
   test('renders header', () => {
     const { getByText } = renderComponent({
       header: 'Header',
