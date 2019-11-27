@@ -14,7 +14,7 @@ import { SidebarSubNavigationItem } from './SidebarSubNavigationItem';
  * The component also passes all other `props` to the underlying
  * [Link](#/Content/Link) component.
  *
- * It always have a rendered icon on the left side of the navigation item.
+ * It always displays an icon on the left side of the navigation item.
  *
  * In case of provided children the navigation item renders additional `nav`
  * HTML element that consists of
