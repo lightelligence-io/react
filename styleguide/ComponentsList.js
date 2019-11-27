@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import { getHash } from 'react-styleguidist/lib/client/utils/handleHash'; // eslint-disable-line
 import * as oltStyles from '@lightelligence/styles';
 
-const ComponentsListRenderer = ({ items }, { config }) => {
-  const { pagePerSection } = config;
+const ComponentsListRenderer = ({ items }) => {
+  const pagePerSection = true;
   const visibleItems = items.filter((item) => item.visibleName);
 
   if (!visibleItems.length) {
@@ -52,10 +52,6 @@ const ComponentsListRenderer = ({ items }, { config }) => {
 
 ComponentsListRenderer.propTypes = {
   items: PropTypes.array.isRequired, // eslint-disable-line
-};
-
-ComponentsListRenderer.contextTypes = {
-  config: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 // eslint-disable-next-line
