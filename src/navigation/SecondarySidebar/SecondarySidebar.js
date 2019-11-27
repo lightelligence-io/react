@@ -18,8 +18,8 @@ import { ActionButton } from '../../components/ActionButton';
  * By default the sidebar doesn't have additional padding, so the children
  * can reach full width of the container.
  *
- * Whenever a secondary sidebar is opened, it will "blur" the body of the
- * Layout component by modifying the overlay.
+ * Whenever a secondary sidebar is opened, it will "blur" the RootMainContainer
+ * component by modifying the overlay.
  */
 export const SecondarySidebar = ({
   className,

@@ -3,19 +3,19 @@
 For better understanding on the interaction between the
 [Header](#/Navigation/Header), [Sidebar](#/Navigation/Sidebar) and
 [SecondarySidebar](#/Navigation/SecondarySidebar) please check the
-[Layout](#/Navigation/Layout).
+[RootContainer](#/Layout/RootContainer).
 
-*Please note that the blurred overlay doesn't work in this example*
+_Please note that the blurred overlay doesn't work in this example_
 
 ```js
 import {
-  Layout,
+  RootContainer,
   Header,
   Sidebar,
   SidebarSeparator,
   SidebarSelectorFilter,
   SidebarSelectorFilterItem,
-  LayoutBody,
+  RootMainContainer,
   SecondarySidebar,
   Card,
 } from '@lightelligence/react';
@@ -23,7 +23,7 @@ import {
 const [open, setOpen] = React.useState(false);
 
 <div style={{ position: 'relative', minHeight: '600px', overflow: 'hidden' }}>
-  <Layout>
+  <RootContainer>
     <Header
       style={{ position: 'static' }} /* Used for demo purposes */
       logo={'MyApp'}
@@ -40,9 +40,9 @@ const [open, setOpen] = React.useState(false);
       header="Filters"
       open={open}
     />
-    <LayoutBody>
+    <RootMainContainer>
       <Card>My Application's content</Card>
-    </LayoutBody>
-  </Layout>
+    </RootMainContainer>
+  </RootContainer>
 </div>;
 ```

@@ -1,25 +1,26 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Layout } from './Layout';
+import { RootContainer } from './RootContainer';
 import { oltStyles } from '../..';
 
 const renderComponent = (props) => {
-  return render(<Layout {...props} data-testid="layout" />);
+  return render(<RootContainer {...props} data-testid="root-container" />);
 };
 
-describe('Layout', () => {
-  test('has oltStyles.Layout', () => {
+describe('RootContainer', () => {
+  test('has oltStyles.Layout and oltStyles.Frame', () => {
     const { getByTestId } = renderComponent();
 
-    const component = getByTestId('layout');
+    const component = getByTestId('root-container');
     expect(component.classList.contains(oltStyles.Layout)).toBe(true);
+    expect(component.classList.contains(oltStyles.Frame)).toBe(true);
   });
   test('forwards className', () => {
     const { getByTestId } = renderComponent({
       className: 'myClass',
     });
 
-    const component = getByTestId('layout');
+    const component = getByTestId('root-container');
     expect(component.classList.contains('myClass')).toBe(true);
   });
   test('renders children', () => {

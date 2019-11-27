@@ -4,19 +4,21 @@ import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
 /**
- * The LayoutBody is used in the [Layout Component](#/Navigation/Layout) as
- * the container of your body.
+ * The RootMainContainer is used in the
+ * [RootContainer Component](#/Layout/RootContainer) as the container of your
+ * body.
  *
  * It includes an Overlay, which is used to "blur" the content whenever
  * a [SecondarySidebar](#/Navigation/SecondarySidebar) is active.
  *
- * The LayoutBody passes all props to the container of the content, which is
- * using the semantic `main` HTML element.
+ * The RootMainContainer passes all props to the container of the content,
+ * which is using the semantic `main` HTML element.
  *
- * The LayoutBody also has predefined paddings, according to the Layout's
- * [Header](#/Navigation/Layout) and [Sidebar](#/Navigation/Sidebar).
+ * The RootMainContainer also has predefined padding, according to the
+ * RootContainer's [Header](#/Navigation/Header) and
+ * [Sidebar](#/Navigation/Sidebar).
  */
-export const LayoutBody = ({ className, children, ...props }) => (
+export const RootMainContainer = ({ className, children, ...props }) => (
   <>
     <div className={classnames(olt.LayoutOverlay)} />
     <main {...props} className={classnames(olt.LayoutBody, className)}>
@@ -25,7 +27,7 @@ export const LayoutBody = ({ className, children, ...props }) => (
   </>
 );
 
-LayoutBody.propTypes = {
+RootMainContainer.propTypes = {
   /**
    * Forward an additional className to the underlying element
    */
@@ -36,7 +38,7 @@ LayoutBody.propTypes = {
   children: node,
 };
 
-LayoutBody.defaultProps = {
+RootMainContainer.defaultProps = {
   className: null,
   children: null,
 };

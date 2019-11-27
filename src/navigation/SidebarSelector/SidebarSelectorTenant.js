@@ -8,7 +8,7 @@ import * as olt from '@lightelligence/styles';
  * show a tenant switch
  *
  * You can wire this to a [SecondarySidebar](#/Navigation/SecondarySidebar)
- * component. Please check [Layout](#/Navigation/Layout) for
+ * component. Please check [RootContainer](#/Layout/RootContainer) for
  * implementation details.
  */
 export const SidebarSelectorTenant = ({

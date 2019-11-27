@@ -4,22 +4,22 @@ import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
 /**
- * Use the Layout component to build a layout of your application.
+ * Use the RootContainer component to build a layout of your application.
  *
  * It gives you a wrapper that will properly position :
  *
  * - [Header Component](#/Navigation/Header)
  * - [Sidebar Component](#/Navigation/Sidebar)
  * - [SecondarySidebar Component](#/Navigation/SecondarySidebar)
- * - [LayoutBody Component](#/Navigation/LayoutBody)
+ * - [RootMainContainer Component](#/Layout/RootMainContainer)
  */
-export const Layout = ({ className, children, ...props }) => (
-  <div {...props} className={classnames(olt.Layout, className)}>
+export const RootContainer = ({ className, children, ...props }) => (
+  <div {...props} className={classnames(olt.Frame, olt.Layout, className)}>
     {children}
   </div>
 );
 
-Layout.propTypes = {
+RootContainer.propTypes = {
   /**
    * Forward an additional className to the underlying element
    */
@@ -27,12 +27,12 @@ Layout.propTypes = {
   /**
    * The body of the layout. To work correctly you must include
    * [Header](#/Navigation/Header), [Sidebar](#/Navigation/Sidebar) and
-   * [LayoutBody](#/Navigation/LayoutBody)
+   * [RootMainContainer](#/Layout/RootMainContainer)
    */
   children: node,
 };
 
-Layout.defaultProps = {
+RootContainer.defaultProps = {
   className: null,
   children: null,
 };

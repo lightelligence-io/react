@@ -2,8 +2,9 @@
 
 The implementation of the secondary's sidebar behaviour is left to the user.
 
-Please check the corresponding [Layout](#/Navigation/Layout) to see a better
-example of how the sidebar work together with Layout's overlay and body.
+Please check the corresponding [RootContainer](#/Layout/RootContainer) to see a
+better example of how the sidebar work together with RootContainers's overlay
+and RootMainContainer.
 
 ```js
 import { MemoryRouter } from 'react-router';

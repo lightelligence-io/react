@@ -1,17 +1,19 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { LayoutBody } from './LayoutBody';
+import { RootMainContainer } from './RootMainContainer';
 import { oltStyles } from '../..';
 
 const renderComponent = (props) => {
-  return render(<LayoutBody {...props} data-testid="layout-body" />);
+  return render(
+    <RootMainContainer {...props} data-testid="root-main-container" />,
+  );
 };
 
-describe('LayoutBody', () => {
+describe('RootMainContainer', () => {
   test('has oltStyles.LayoutBody', () => {
     const { getByTestId } = renderComponent();
 
-    const component = getByTestId('layout-body');
+    const component = getByTestId('root-main-container');
     expect(component.classList.contains(oltStyles.LayoutBody)).toBe(true);
   });
   test('forwards className', () => {
@@ -19,7 +21,7 @@ describe('LayoutBody', () => {
       className: 'myClass',
     });
 
-    const component = getByTestId('layout-body');
+    const component = getByTestId('root-main-container');
     expect(component.classList.contains('myClass')).toBe(true);
   });
   test('renders children', () => {
@@ -32,7 +34,8 @@ describe('LayoutBody', () => {
   });
   test('renders overlay', () => {
     const { getByTestId } = renderComponent();
-    const component = getByTestId('layout-body').parentNode.childNodes[0];
+    const component = getByTestId('root-main-container').parentNode
+      .childNodes[0];
     expect(component.classList.contains(oltStyles.LayoutOverlay)).toBe(true);
   });
 });
