@@ -1,14 +1,15 @@
 import React from 'react';
-import { pascalize } from 'humps';
-import { string, number, bool, node } from 'prop-types';
+import { string, number, bool, node, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
+import { Icon } from '../../components/Icon';
 
 const Label = ({
   className,
   children,
   errorMessage,
   icon,
+  onIconClick,
   label,
   value,
   maxLength,
@@ -36,7 +37,11 @@ const Label = ({
 
       {icon && (
         <span className={olt.LabelIcon}>
-          <i className={classnames(olt.Icon, olt[`Icon${pascalize(icon)}`])} />
+          <Icon
+            name={icon}
+            onClick={onIconClick}
+            style={onIconClick ? { cursor: 'pointer' } : {}}
+          />
         </span>
       )}
 
@@ -83,6 +88,10 @@ Label.propTypes = {
    */
   icon: string,
   /**
+   * Callback which is called when the icon is clicked
+   */
+  onIconClick: func,
+  /**
    * An error message that is displayed below the input
    */
   errorMessage: string,
@@ -105,6 +114,7 @@ Label.defaultProps = {
   className: null,
   icon: null,
   errorMessage: null,
+  onIconClick: null,
   maxLength: null,
   allwaysShowMaxLength: false,
   hint: null,
