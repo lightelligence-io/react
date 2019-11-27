@@ -15,7 +15,7 @@ import { ActionButton } from '../../components/ActionButton';
  * - Content, which is rendered in the middle of the header
  * - Mobile menu button, which is visible only on mobile devices
  *
- * The header should be used in conjunction with [Layout](#/Navigation/Layout)
+ * The Header should be used in conjunction with [Layout](#/Navigation/Layout)
  * component.
  *
  * The Header component uses the semantic `header` HTML tag and passes all
