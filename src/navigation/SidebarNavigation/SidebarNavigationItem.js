@@ -16,7 +16,7 @@ import { SidebarSubNavigationItem } from './SidebarSubNavigationItem';
  *
  * It always displays an icon on the left side of the navigation item.
  *
- * In case of provided children the navigation item renders additional `nav`
+ * If children are provided the navigation item renders additional `nav`
  * HTML element that consists of
  * [SidebarSubNavigationItem](#/Navigation/SidebarSubNavigationItem). Whenever
  * the navigation item is active, it will also display the sub navigation.
