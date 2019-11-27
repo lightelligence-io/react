@@ -62,3 +62,13 @@
 #v1.0.0-rc.2
 - Feature: add clickhandler to input icon
 - Chore: upgrade styles package
+
+#v1.0.0-rc.3
+- Feature: navigation
+- Fix: Tabs sometimes throw an error during render
+- Fix: change EditCard button default color to gray
+- Fix: RadioGroup onChange function return correct value
+- Chore: remove headline component
+- Chore: upgrade styles package
+- Chore: update package.json
+- Chore: Upgrade to Styleguidist v10
