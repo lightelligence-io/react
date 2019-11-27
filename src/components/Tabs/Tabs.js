@@ -28,6 +28,9 @@ export const Tabs = ({
   useEffect(() => {
     handleScroll();
     window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('resize', handleScroll);
+    };
   }, [tabBar, handleScroll]);
 
   const { className: tabsClassName, ...otherTabsProps } = tabsProps;
