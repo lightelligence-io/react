@@ -79,7 +79,6 @@ export const Card = ({
               {edit && (
                 <ActionButton
                   iconRight="edit"
-                  buttonType="primary"
                   label="Edit"
                   className={editClassName}
                   onClick={() => typeof onEdit === 'function' && onEdit()}
