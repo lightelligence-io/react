@@ -3,7 +3,7 @@
 Use the *Dialog* Component to render a modal dialog.
 
 ```js
-import { Dialog, Button, Headline, Paragraph } from '@lightelligence/react';
+import { Dialog, Button, Paragraph } from '@lightelligence/react';
 initialState = { dialogOpen: false};
 const toggleDialog = () => {
   setState({ dialogOpen: !state.dialogOpen });

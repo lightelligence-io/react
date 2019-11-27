@@ -110,7 +110,6 @@ describe('Card', () => {
     expect(action.classList.contains(oltStyles.CardAction)).toBe(true);
     const edit = getByTestId('Edit');
     expect(edit.classList.contains(oltStyles.ActionButton)).toBe(true);
-    expect(edit.classList.contains(oltStyles.ActionButtonPrimary)).toBe(true);
     expect(edit.classList.contains(oltStyles.ActionButtonIconRight)).toBe(true);
     expect(edit.classList.contains(oltStyles.IconEdit)).toBe(true);
     const label = edit.getElementsByClassName('olt-ActionButton-label')[0];
