@@ -44,7 +44,7 @@ module.exports = {
       sectionDepth: 2,
     },
     {
-      name: 'Layout',
+      name: ' Layout',
       components: 'src/layout/**/[A-Z]*.js', // exclude index.js files
       sectionDepth: 2,
     },
