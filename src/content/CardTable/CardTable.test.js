@@ -14,6 +14,12 @@ const defaultFields = [
   { key: 'birthday', label: 'Birthday' },
   { key: 'removeButton', label: '' },
 ];
+
+const fieldsWithRender = [
+  { key: 'test', renderer: () => <h1>Test</h1> },
+  { key: 'surname', renderer: () => <h1>Surname</h1> },
+];
+
 const defaultRows = [
   {
     id: '1',
@@ -71,6 +77,15 @@ describe('CardTable', () => {
 
     await getByText('Name: Aron');
     await getByText('Name: Karli');
+  });
+
+  test('renders custom jsx using passed via renderer prop of the fields', async () => {
+    const { findByText } = renderCardTable({
+      fields: fieldsWithRender,
+    });
+
+    await findByText('Test');
+    await findByText('Surname');
   });
 
   test('renders field value by default', async () => {

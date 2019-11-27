@@ -28,8 +28,8 @@ export const CardTable = ({
 
   const headItems = useMemo(
     () =>
-      fields.map(({ key, label, ...otherProps }) => (
-        <BasicCardTableHeadItem key={key} {...otherProps}>
+      fields.map(({ key, label, renderer, ...otherProps }) => (
+        <BasicCardTableHeadItem key={key} renderer={renderer} {...otherProps}>
           {label}
         </BasicCardTableHeadItem>
       )),
@@ -91,8 +91,9 @@ CardTable.propTypes = {
    * All other properties of a field are forwarded to the
    *  underlying `BasicCardTableHeadItem` component.
    */
-  fields: arrayOf(shape({ key: string.isRequired, label: node.isRequired }))
-    .isRequired,
+  fields: arrayOf(
+    shape({ key: string.isRequired, label: node.isRequired, renderer: func }),
+  ).isRequired,
   /**
    * The underlying data source which is used to render the individual cards of this
    * component.

@@ -1,11 +1,12 @@
 import React from 'react';
 import * as olt from '@lightelligence/styles';
-import { node, string, oneOf } from 'prop-types';
+import { func, node, string, oneOf } from 'prop-types';
 import classnames from 'classnames';
 
 export const BasicCardTableHeadItem = ({
   children,
   className,
+  renderer,
   verticalAlign,
   align,
   ...other
@@ -19,7 +20,9 @@ export const BasicCardTableHeadItem = ({
     className,
   );
 
-  return (
+  return renderer ? (
+    renderer()
+  ) : (
     <div className={classes} {...other}>
       {children}
     </div>
@@ -36,6 +39,10 @@ BasicCardTableHeadItem.propTypes = {
    */
   className: string,
   /**
+   * A function that returns jsx to render inside the header item
+   */
+  renderer: func,
+  /**
    * Vertical alignment of item in table mode.
    */
   verticalAlign: oneOf(['bottom', 'top', 'center']),
@@ -47,6 +54,7 @@ BasicCardTableHeadItem.propTypes = {
 
 BasicCardTableHeadItem.defaultProps = {
   className: undefined,
+  renderer: undefined,
   verticalAlign: 'center',
   align: 'left',
 };

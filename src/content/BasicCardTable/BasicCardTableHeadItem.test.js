@@ -13,4 +13,10 @@ describe('BasicCardTableHeadItem', () => {
       getByTestId('A').classList.contains(oltStyles.CardTableHeadItem),
     ).toBeTruthy();
   });
+  test('should rely on the renderer prop for custom item markup', async () => {
+    const { findByText } = render(
+      <BasicCardTableHeadItem renderer={() => <h1>Test</h1>} />,
+    );
+    await findByText('Test');
+  });
 });
