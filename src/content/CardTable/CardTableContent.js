@@ -1,3 +1,1 @@
-export {
-  BasicCardTableContent as CardTableContent,
-} from '../BasicCardTable/BasicCardTableContent';
+export { BasicCardTableContent as CardTableContent } from '../BasicCardTable/BasicCardTableContent';
