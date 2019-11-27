@@ -17,7 +17,7 @@ import { SidebarSelectorFilterItem } from './SidebarSelectorFilterItem';
  * show a filter button.
  *
  * You can wire this to a [SecondarySidebar](#/Navigation/SecondarySidebar)
- * component. Please check [Layout](#/Navigation/Layout) to check for
+ * component. Please check [Layout](#/Navigation/Layout) for
  * implementation details.
  */
 export const SidebarSelectorFilter = ({
