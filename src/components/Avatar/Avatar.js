@@ -10,25 +10,29 @@ import {
   AVATAR_SIZE_MEDIUM,
 } from '../../constants';
 
-export const Avatar = React.memo(
-  ({ type, size = AVATAR_SIZE_MEDIUM, name, className = null, ...props }) => {
-    const shortName = name.substr(0, 1);
+export const Avatar = ({
+  type,
+  size = AVATAR_SIZE_MEDIUM,
+  name,
+  className = null,
+  ...props
+}) => {
+  const shortName = name.substr(0, 1);
 
-    return (
-      <i
-        {...props}
-        className={classnames(
-          olt.Avatar,
-          size === AVATAR_SIZE_LARGE && olt.AvatarLarge,
-          type === 'tenant' ? olt.AvatarTenant : olt.AvatarUser,
-          className,
-        )}
-      >
-        {shortName}
-      </i>
-    );
-  },
-);
+  return (
+    <i
+      {...props}
+      className={classnames(
+        olt.Avatar,
+        size === AVATAR_SIZE_LARGE && olt.AvatarLarge,
+        type === 'tenant' ? olt.AvatarTenant : olt.AvatarUser,
+        className,
+      )}
+    >
+      {shortName}
+    </i>
+  );
+};
 
 Avatar.propTypes = {
   name: string.isRequired,

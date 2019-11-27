@@ -7,7 +7,7 @@ import * as olt from '@lightelligence/styles';
 /**
  * Combines router navigation with standard link, seasoned with some spicy color schemes
  */
-const Link = React.memo(({ to, children, className, normal, ...props }) => {
+const Link = ({ to, children, className, normal, ...props }) => {
   const match = matchPath(to, {
     path: '/',
     exact: false,
@@ -25,7 +25,7 @@ const Link = React.memo(({ to, children, className, normal, ...props }) => {
       {children}
     </Element>
   );
-});
+};
 
 Link.propTypes = {
   to: string.isRequired,

@@ -4,24 +4,29 @@ import classnames from 'classnames';
 import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 
-const List = React.memo(
-  ({ children, className, ordered, definition, vertical, ...props }) => {
-    return (
-      <ul
-        {...props}
-        className={classnames(
-          olt.List,
-          ordered && olt.ListOrdered,
-          definition && olt.ListDefinition,
-          vertical && olt[`List${pascalize(vertical)}Vertical`],
-          className,
-        )}
-      >
-        {children}
-      </ul>
-    );
-  },
-);
+const List = ({
+  children,
+  className,
+  ordered,
+  definition,
+  vertical,
+  ...props
+}) => {
+  return (
+    <ul
+      {...props}
+      className={classnames(
+        olt.List,
+        ordered && olt.ListOrdered,
+        definition && olt.ListDefinition,
+        vertical && olt[`List${pascalize(vertical)}Vertical`],
+        className,
+      )}
+    >
+      {children}
+    </ul>
+  );
+};
 
 List.propTypes = {
   children: node,

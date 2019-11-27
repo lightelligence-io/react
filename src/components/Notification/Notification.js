@@ -6,87 +6,94 @@ import * as olt from '@lightelligence/styles';
 
 const animationDuration = 200;
 
-const Notification = React.memo(
-  ({ type, title, content, timeout, onClick, onClose, onHide, ...props }) => {
-    const timers = React.useRef([]);
-    const [isOpen, setOpenState] = React.useState(false);
+const Notification = ({
+  type,
+  title,
+  content,
+  timeout,
+  onClick,
+  onClose,
+  onHide,
+  ...props
+}) => {
+  const timers = React.useRef([]);
+  const [isOpen, setOpenState] = React.useState(false);
 
-    const requestHide = React.useCallback(() => {
-      setOpenState(false);
-      timers.current.push(
-        setTimeout(() => {
-          if (onHide) onHide();
-        }, animationDuration),
-      );
-    }, [onHide]);
+  const requestHide = React.useCallback(() => {
+    setOpenState(false);
+    timers.current.push(
+      setTimeout(() => {
+        if (onHide) onHide();
+      }, animationDuration),
+    );
+  }, [onHide]);
 
-    React.useEffect(() => {
-      const registeredTimers = timers.current;
-      if (timeout !== 0) {
-        registeredTimers.push(setTimeout(requestHide, timeout));
+  React.useEffect(() => {
+    const registeredTimers = timers.current;
+    if (timeout !== 0) {
+      registeredTimers.push(setTimeout(requestHide, timeout));
+    }
+    registeredTimers.push(setTimeout(() => setOpenState(true), 100));
+    return () => {
+      registeredTimers.forEach(clearTimeout);
+    };
+  }, [requestHide, timeout]);
+
+  const clickHandler = React.useCallback(() => {
+    if (onClick) {
+      onClick();
+    }
+
+    requestHide();
+  }, [onClick, requestHide]);
+
+  const closeHandler = React.useCallback(
+    (event) => {
+      if (event.stopPropagation) {
+        event.stopPropagation();
       }
-      registeredTimers.push(setTimeout(() => setOpenState(true), 100));
-      return () => {
-        registeredTimers.forEach(clearTimeout);
-      };
-    }, [requestHide, timeout]);
 
-    const clickHandler = React.useCallback(() => {
-      if (onClick) {
-        onClick();
+      if (onClose) {
+        onClose();
       }
 
       requestHide();
-    }, [onClick, requestHide]);
+    },
+    [onClose, requestHide],
+  );
 
-    const closeHandler = React.useCallback(
-      (event) => {
-        if (event.stopPropagation) {
-          event.stopPropagation();
-        }
-
-        if (onClose) {
-          onClose();
-        }
-
-        requestHide();
-      },
-      [onClose, requestHide],
-    );
-
-    return (
-      <div
-        className={classnames(
-          olt.Notification,
-          type && olt[`Notification${pascalize(type)}`],
-          type + type + type,
-          isOpen && olt.isOpen,
-        )}
-        onClick={clickHandler}
-        onKeyDown={() => {}}
-        role="button"
-        tabIndex={0}
-        {...props}
-      >
-        <div className={olt.NotificationDialog}>
-          <header className={olt.NotificationHeader}>{title}</header>
-          <div className={olt.NotificationContent}>{content}</div>
-        </div>
-        <button
-          type="button"
-          className={olt.NotificationClose}
-          onClick={closeHandler}
-          tabIndex={0}
-        >
-          <i
-            className={classnames(olt.Icon, olt.IconMedium, olt.IconClose)}
-            data-icon="close"
-          />
-        </button>
+  return (
+    <div
+      className={classnames(
+        olt.Notification,
+        type && olt[`Notification${pascalize(type)}`],
+        type + type + type,
+        isOpen && olt.isOpen,
+      )}
+      onClick={clickHandler}
+      onKeyDown={() => {}}
+      role="button"
+      tabIndex={0}
+      {...props}
+    >
+      <div className={olt.NotificationDialog}>
+        <header className={olt.NotificationHeader}>{title}</header>
+        <div className={olt.NotificationContent}>{content}</div>
       </div>
-    );
-  },
-);
+      <button
+        type="button"
+        className={olt.NotificationClose}
+        onClick={closeHandler}
+        tabIndex={0}
+      >
+        <i
+          className={classnames(olt.Icon, olt.IconMedium, olt.IconClose)}
+          data-icon="close"
+        />
+      </button>
+    </div>
+  );
+};
 
 Notification.propTypes = {
   // TODO: oneOf Rendering is broken in guide
