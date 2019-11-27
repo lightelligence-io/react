@@ -1,119 +1,72 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { number, string, func, oneOf } from 'prop-types';
 import classnames from 'classnames';
 import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 
-import {
-  NOTIFICATION_TYPE_INFO,
-  NOTIFICATION_TYPE_SUCCESS,
-  NOTIFICATION_TYPE_WARNING,
-  NOTIFICATION_TYPE_ERROR,
-} from './types';
-
 const animationDuration = 200;
-class Notification extends PureComponent {
-  timers = [];
 
-  state = {
-    open: false,
-  };
+const Notification = React.memo(
+  ({ type, title, content, timeout, onClick, onClose, onHide, ...props }) => {
+    const timers = React.useRef([]);
+    const [isOpen, setOpenState] = React.useState(false);
 
-  static propTypes = {
-    // TODO: oneOf Rendering is broken in guide
-    // this should be should be
-    // type: oneOf([NOTIFICATION_TYPE_INFO, NOTIFICATION_TYPE_SUCCESS, NOTIFICATION_TYPE_WARNING, NOTIFICATION_TYPE_ERROR]),
-    /** The type of the notification. */
-    type: oneOf([
-      NOTIFICATION_TYPE_INFO,
-      NOTIFICATION_TYPE_SUCCESS,
-      NOTIFICATION_TYPE_WARNING,
-      NOTIFICATION_TYPE_ERROR,
-    ]),
-    /** Defines the title of the notification. */
-    title: string,
-    /** Defines the content of the notification. */
-    content: string,
-    /** Set the timeout in ms, use 0 to make the notificaiton stay until the user clicks.. */
-    timeout: number,
-    /** Callback when the user clicks the notification. The notification starts closing at this moment. */
-    onClick: func,
-    /** Callback when the user clicks the close icon. The notification starts closing at this moment. */
-    onClose: func,
-    /** Callback when the notification finishes closing after a click or the timeout. */
-    onHide: func,
-  };
+    const requestHide = React.useCallback(() => {
+      setOpenState(false);
+      timers.current.push(
+        setTimeout(() => {
+          if (onHide) onHide();
+        }, animationDuration),
+      );
+    }, [onHide]);
 
-  static defaultProps = {
-    type: NOTIFICATION_TYPE_ERROR,
-    title: '',
-    content: '',
-    timeout: 4000,
-    onClick: () => {},
-    onClose: () => {},
-    onHide: () => {},
-  };
+    React.useEffect(() => {
+      const registeredTimers = timers.current;
+      if (timeout !== 0) {
+        registeredTimers.push(setTimeout(requestHide, timeout));
+      }
+      registeredTimers.push(setTimeout(() => setOpenState(true), 100));
+      return () => {
+        registeredTimers.forEach(clearTimeout);
+      };
+    }, [requestHide, timeout]);
 
-  componentDidMount = () => {
-    const { timeout } = this.props;
-    if (timeout !== 0) {
-      this.timers.push(setTimeout(this.requestHide, timeout));
-    }
-    this.timers.push(setTimeout(() => this.setState({ open: true }), 100));
-  };
+    const clickHandler = React.useCallback(() => {
+      if (onClick) {
+        onClick();
+      }
 
-  componentWillUnmount = () => {
-    this.timers.forEach(clearTimeout);
-  };
+      requestHide();
+    }, [onClick, requestHide]);
 
-  onClick = () => {
-    const { onClick } = this.props;
-    if (onClick) onClick();
-    this.requestHide();
-  };
+    const closeHandler = React.useCallback(
+      (event) => {
+        if (event.stopPropagation) {
+          event.stopPropagation();
+        }
 
-  onClose = (event) => {
-    const { onClose } = this.props;
-    if (event.stopPropagation) event.stopPropagation();
-    if (onClose) onClose();
-    this.requestHide();
-  };
+        if (onClose) {
+          onClose();
+        }
 
-  requestHide = () => {
-    const { onHide } = this.props;
-    this.setState({ open: false });
-    this.timers.push(
-      setTimeout(() => {
-        if (onHide) onHide();
-      }, animationDuration),
+        requestHide();
+      },
+      [onClose, requestHide],
     );
-  };
-
-  render() {
-    const {
-      type,
-      title,
-      content,
-      timeout,
-      onClick,
-      onClose,
-      onHide,
-      ...rest
-    } = this.props;
-    const { open } = this.state;
 
     return (
       <div
         className={classnames(
           olt.Notification,
           type && olt[`Notification${pascalize(type)}`],
-          open && olt.isOpen,
+          type + type + type,
+          isOpen && olt.isOpen,
         )}
-        onClick={this.onClick}
+        onClick={clickHandler}
         onKeyDown={() => {}}
         role="button"
         tabIndex={0}
-        {...rest}
+        {...props}
       >
         <div className={olt.NotificationDialog}>
           <header className={olt.NotificationHeader}>{title}</header>
@@ -122,7 +75,7 @@ class Notification extends PureComponent {
         <button
           type="button"
           className={olt.NotificationClose}
-          onClick={this.onClose}
+          onClick={closeHandler}
           tabIndex={0}
         >
           <i
@@ -132,7 +85,36 @@ class Notification extends PureComponent {
         </button>
       </div>
     );
-  }
-}
+  },
+);
+
+Notification.propTypes = {
+  // TODO: oneOf Rendering is broken in guide
+  // this should be should be
+  /** The type of the notification. */
+  type: oneOf(['info', 'success', 'warning', 'error']),
+  /** Defines the title of the notification. */
+  title: string,
+  /** Defines the content of the notification. */
+  content: string,
+  /** Set the timeout in ms, use 0 to make the notificaiton stay until the user clicks.. */
+  timeout: number,
+  /** Callback when the user clicks the notification. The notification starts closing at this moment. */
+  onClick: func,
+  /** Callback when the user clicks the close icon. The notification starts closing at this moment. */
+  onClose: func,
+  /** Callback when the notification finishes closing after a click or the timeout. */
+  onHide: func,
+};
+
+Notification.defaultProps = {
+  type: 'error',
+  title: '',
+  content: '',
+  timeout: 4000,
+  onClick: () => {},
+  onClose: () => {},
+  onHide: () => {},
+};
 
 export { Notification };
