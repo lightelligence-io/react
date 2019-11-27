@@ -1,6 +1,6 @@
 
 ```jsx
-import { Headline, Paragraph, Button, NotificationContainer, NotificationManager } from '@lightelligence/react';
+import { Paragraph, Button, NotificationContainer, NotificationManager } from '@lightelligence/react';
 
 const notify = () => {
     const demos = [
@@ -50,7 +50,7 @@ const notify = () => {
 };
 
 <>
-  <Headline size={4}>General Demo</Headline>
+  <h2>General Demo</h2>
   <Paragraph>Click the button below multiple times to see different notifications. The notifications have different timeouts and some stay until you click them away.</Paragraph>
   <Button onClick={notify}>Click Me</Button>
   <NotificationContainer />
@@ -59,7 +59,7 @@ const notify = () => {
 
 
 ```jsx
-import { Headline, Paragraph, Button, NotificationContainer, NotificationManager } from '@lightelligence/react';
+import { Paragraph, Button, NotificationContainer, NotificationManager } from '@lightelligence/react';
 
 const notify = () => NotificationManager.error({
     title: 'Error!!',
@@ -68,7 +68,7 @@ const notify = () => NotificationManager.error({
 });
 
 <>
-  <Headline size={4}>Error Notification</Headline>
+  <h2>Error Notification</h2>
   <Paragraph>Notification example that indicates an error. The example uses timeout: 0 to stop the notifcation from closing automatically.</Paragraph>
   <Button onClick={notify}>Click to open</Button>
   <NotificationContainer />
@@ -76,11 +76,11 @@ const notify = () => NotificationManager.error({
 ```
 
 ```jsx noeditor
-import { Headline, Paragraph, Notification, NOTIFICATION_TYPE_INFO, NOTIFICATION_TYPE_SUCCESS, NOTIFICATION_TYPE_WARNING, NOTIFICATION_TYPE_ERROR } from '@lightelligence/react';
+import { Paragraph, Notification, NOTIFICATION_TYPE_INFO, NOTIFICATION_TYPE_SUCCESS, NOTIFICATION_TYPE_WARNING, NOTIFICATION_TYPE_ERROR } from '@lightelligence/react';
 import * as olt from '@lightelligence/styles';
 
 <>
-  <Headline size={4}>Notification Types</Headline>
+  <h2>Notification Types</h2>
   <Paragraph>The following types of notifications can be created.</Paragraph>
   <div className={olt.NotificationContainer} style={{position: 'relative', margin: '10px'}}>
     <Notification

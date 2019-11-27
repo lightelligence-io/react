@@ -3,7 +3,7 @@
 Use the *Modal* Component to render a modal.
 
 ```js
-import { Modal, Button, Headline, Paragraph } from '@lightelligence/react';
+import { Modal, Button, Paragraph } from '@lightelligence/react';
 initialState = { modalOpen: false};
 const toggleModal = () => {
   setState({ modalOpen: !state.modalOpen });
@@ -197,7 +197,7 @@ All styles of the modal can be changed using `modalProps`, `dialogProps`, `heade
 
 ```js
 import classnames from 'classnames';
-import { Modal, Button, Icon, Headline, Paragraph } from '@lightelligence/react';
+import { Modal, Button, Icon, Paragraph } from '@lightelligence/react';
 import * as olt from '@lightelligence/styles';
 initialState = { modalOpen: false};
 const toggleModal = () => {
@@ -212,7 +212,6 @@ const toggleModal = () => {
       open={state.modalOpen}
       content={
         <>
-          <Headline>Headline</Headline>
           <Paragraph>
             Lorem ipsum dolor sit amet
           </Paragraph>
