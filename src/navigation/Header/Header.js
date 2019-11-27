@@ -57,7 +57,7 @@ export const Header = ({
 
 Header.propTypes = {
   /**
-   * The body of the navigation. You can use any types of children there,
+   * The body of the navigation. You can use any type of children there,
    * however, most useful navigation component for this part of your
    * header are [Tabs](#/Components/Tabs).
    *
