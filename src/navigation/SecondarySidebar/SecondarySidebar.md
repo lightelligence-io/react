@@ -1,4 +1,9 @@
-_SecondarySidebar_ creates a secondary sidebar for our application
+### Example
+
+The implementation of the secondary's sidebar behaviour is left to the user.
+
+Please check the corresponding [Layout](#/Navigation/Layout) to see a better
+example of how the sidebar work together with Layout's overlay and body.
 
 ```js
 import { MemoryRouter } from 'react-router';

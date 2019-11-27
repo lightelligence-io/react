@@ -3,6 +3,7 @@ import { pascalize } from 'humps';
 import { string, oneOfType, shape, oneOf, arrayOf } from 'prop-types';
 import React from 'react';
 import * as olt from '@lightelligence/styles';
+import { matchPath } from 'react-router-dom';
 import { Link } from '../../content/Link';
 import { SidebarSubNavigationItem } from './SidebarSubNavigationItem';
 
@@ -10,8 +11,17 @@ import { SidebarSubNavigationItem } from './SidebarSubNavigationItem';
  * Navigation item for the [SidebarNavigation](#/Navigation/SidebarNavigation)
  * Component.
  *
- * The component also passes all other `props` to the underlying `Link`
- * component
+ * The component also passes all other `props` to the underlying
+ * [Link](#/Content/Link) component.
+ *
+ * It always have a rendered icon on the left side of the navigation item.
+ *
+ * In case of provided children the navigation item renders additional `nav`
+ * HTML element that consists of
+ * [SidebarSubNavigationItem](#/Navigation/SidebarSubNavigationItem). Whenever
+ * the navigation item is active, it will also display the sub navigation.
+ *
+ * @example ./SidebarNavigation.md
  */
 export const SidebarNavigationItem = ({
   className,
@@ -20,26 +30,31 @@ export const SidebarNavigationItem = ({
   icon,
   children,
   ...props
-}) => (
-  <>
-    <Link
-      {...props}
-      to={to}
-      normal
-      activeClassName="is-active"
-      className={classnames(
-        olt.SidebarNavigationItem,
-        icon && olt[`Icon${pascalize(icon)}`],
-        className,
+}) => {
+  const match = matchPath(to, {
+    path: '/',
+    exact: false,
+  });
+  return (
+    <>
+      <Link
+        {...{ ...props, ...(match ? { activeClassName: 'is-active' } : {}) }}
+        to={to}
+        normal
+        className={classnames(
+          olt.SidebarNavigationItem,
+          icon && olt[`Icon${pascalize(icon)}`],
+          className,
+        )}
+      >
+        {title}
+      </Link>
+      {children && (
+        <nav className={classnames(olt.SidebarSubnavigation)}>{children}</nav>
       )}
-    >
-      {title}
-    </Link>
-    {children && (
-      <nav className={classnames(olt.SidebarSubnavigation)}>{children}</nav>
-    )}
-  </>
-);
+    </>
+  );
+};
 
 SidebarNavigationItem.propTypes = {
   /**

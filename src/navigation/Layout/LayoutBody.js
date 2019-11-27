@@ -4,24 +4,34 @@ import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
 /**
- * Layout is used to have a Layout in your application
+ * The LayoutBody is used in the [Layout Component](#/Navigation/Layout) as
+ * the container of your body.
+ *
+ * It includes as well an Overlay, which is used to "blur" the content whenever
+ * a [SecondarySidebar](#/Navigation/SecondarySidebar) is active.
+ *
+ * The LayoutBody passes all props to the container of the content, which is
+ * using the semantic `main` HTML element.
+ *
+ * The LayoutBody also has predefine paddings, according to the Layout's
+ * [Header](#/Navigation/Layout) and [Sidebar](#/Navigation/Sidebar).
  */
 export const LayoutBody = ({ className, children, ...props }) => (
   <>
     <div className={classnames(olt.LayoutOverlay)} />
-    <div {...props} className={classnames(olt.LayoutBody, className)}>
+    <main {...props} className={classnames(olt.LayoutBody, className)}>
       {children}
-    </div>
+    </main>
   </>
 );
 
 LayoutBody.propTypes = {
   /**
-   * Class name
+   * Forward an additional className to the underlying element
    */
   className: string,
   /**
-   * Body of the layout
+   * Body of the layout is the main content of your application
    */
   children: node,
 };

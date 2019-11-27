@@ -7,6 +7,8 @@ import * as olt from '@lightelligence/styles';
 /**
  * Sidebar selector filter item is used in the sidebar filter selector to show
  * the active filters
+ *
+ * @example ./SidebarSelectorFilter.md
  */
 export const SidebarSelectorFilterItem = ({
   icon,

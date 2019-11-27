@@ -1,4 +1,6 @@
-_Sidebar_ is the sidebar for our application
+### Example
+
+The mobile behaviour should be implemented in your application
 
 ```js
 import { MemoryRouter } from 'react-router';

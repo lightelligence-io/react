@@ -1,9 +1,26 @@
 import React from 'react';
-import { func, node, string, bool } from 'prop-types';
+import { func, node, string, bool, shape } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 import { ActionButton } from '../../components/ActionButton';
 
+/**
+ * Secondary Sidebar is used when you want to render another sidebar next to
+ * the main [Sidebar](#/Navigation/Sidebar) component.
+ *
+ * It is rendered as fixed positioned `aside` html element and passes the
+ * corresponding `props` of the SecondarySidebar component.
+ *
+ * The Secondary Sidebar has optional header that can be used, as well as
+ * mobile navigation controls, which can be used to create interaction
+ * when the user's device is a mobile screen.
+ *
+ * By default the sidebar doesn't have additional padding, so the children
+ * can reach full width of the container.
+ *
+ * Whenever a secondary sidebar is opened, it will "blur" the body of the
+ * Layout component by modifying the overlay.
+ */
 export const SecondarySidebar = ({
   className,
   children,
@@ -12,6 +29,8 @@ export const SecondarySidebar = ({
   header,
   open,
   hidden,
+  backButtonProps,
+  closeButtonProps,
   ...props
 }) => (
   <aside
@@ -25,6 +44,7 @@ export const SecondarySidebar = ({
   >
     <div className={classnames(olt.SidebarSecondaryMobileMenu)}>
       <ActionButton
+        {...backButtonProps}
         buttonType="default"
         iconLeft="chevron-left"
         standalone
@@ -32,6 +52,7 @@ export const SecondarySidebar = ({
         onClick={onClickMobileBack}
       />
       <ActionButton
+        {...closeButtonProps}
         buttonType="default"
         iconLeft="close"
         standalone
@@ -48,33 +69,41 @@ export const SecondarySidebar = ({
 
 SecondarySidebar.propTypes = {
   /**
-   * The body of the sidebar
-   */
-  children: node,
-  /**
    * Forward an additional className to the underlying element
    */
   className: string,
   /**
-   * On clicking the back button for mobile
+   * The body of the sidebar. It can be any additional content.
+   */
+  children: node,
+  /**
+   * On clicking the back button for mobile navigation
    */
   onClickMobileBack: func,
   /**
-   * On clicking the close button for mobile
+   * On clicking the close button for mobile navigation
    */
   onClickMobileClose: func,
   /**
-   * Header of the sidebar
+   * Optional header of the sidebar that is rendered at the top
    */
   header: node,
   /**
-   * Is the secondary sidebar open
+   * Controls if the secondary sidebar should be visible
    */
   open: bool,
   /**
-   * Is the secondary sidebar hidden on a mobile screen
+   * Controls if the secondary sidebar should be hidden on mobile devices
    */
   hidden: bool,
+  /**
+   * Props passed to the mobile back action button
+   */
+  backButtonProps: shape({}),
+  /**
+   * Props passed to the mobile close action button
+   */
+  closeButtonProps: shape({}),
 };
 
 SecondarySidebar.defaultProps = {
@@ -85,4 +114,6 @@ SecondarySidebar.defaultProps = {
   header: null,
   open: false,
   hidden: false,
+  backButtonProps: null,
+  closeButtonProps: null,
 };

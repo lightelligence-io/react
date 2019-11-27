@@ -6,6 +6,10 @@ import * as olt from '@lightelligence/styles';
 /**
  * Sidebar selector is a selector component that is used in the Sidebar to
  * show a tenant switch
+ *
+ * You can wire this to a [SecondarySidebar](#/Navigation/SecondarySidebar)
+ * component. Please check [Layout](#/Navigation/Layout) to check for
+ * implementation details.
  */
 export const SidebarSelectorTenant = ({
   onClick,

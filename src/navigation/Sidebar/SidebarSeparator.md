@@ -1,4 +1,4 @@
-_Sidebar_ is the sidebar for our application
+### Example
 
 ```js
 import { MemoryRouter } from 'react-router';

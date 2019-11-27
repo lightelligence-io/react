@@ -4,7 +4,17 @@ import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
 /**
- * Layout is used to have a Layout in your application
+ * Use the Layout to build a layout of your application.
+ *
+ * It gives you a wrapper that will properly position :
+ *
+ * - [Header Component](#/Navigation/Header)
+ * - [Sidebar Component](#/Navigation/Sidebar)
+ * - [SecondarySidebar Component](#/Navigation/SecondarySidebar)
+ * - [LayoutBody Component](#/Navigation/LayoutBody)
+ *
+ * The layout uses a `div` HTML tag and passes all props to it's corresponding
+ * React Element.
  */
 export const Layout = ({ className, children, ...props }) => (
   <div {...props} className={classnames(olt.Layout, className)}>
@@ -18,7 +28,9 @@ Layout.propTypes = {
    */
   className: string,
   /**
-   * Body
+   * The body of the layout. To work correctly you must include
+   * [Header](#/Navigation/Header), [Sidebar](#/Navigation/Sidebar) and
+   * [LayoutBody](#/Navigation/LayoutBody)
    */
   children: node,
 };

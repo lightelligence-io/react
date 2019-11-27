@@ -14,7 +14,11 @@ import { SidebarSelectorFilterItem } from './SidebarSelectorFilterItem';
 
 /**
  * Sidebar selector is a selector component that is used in the Sidebar to
- * show a filter switch
+ * show a filter button.
+ *
+ * You can wire this to a [SecondarySidebar](#/Navigation/SecondarySidebar)
+ * component. Please check [Layout](#/Navigation/Layout) to check for
+ * implementation details.
  */
 export const SidebarSelectorFilter = ({
   title,
@@ -44,16 +48,18 @@ export const SidebarSelectorFilter = ({
 
 SidebarSelectorFilter.propTypes = {
   /**
-   * Filters for the filter
+   * Forward an additional className to the underlying element
+   */
+  className: string,
+  /**
+   * Filters for the filter are rendered as a list with icons. The children
+   * must be of
+   * [SidebarSelectorFilterItem](#/Navigation/SidebarSelectorFilterItem) type.
    */
   children: oneOfType([
     shape({ type: oneOf([SidebarSelectorFilterItem]) }),
     arrayOf(shape({ type: oneOf([SidebarSelectorFilterItem]) })),
   ]).isRequired,
-  /**
-   * Forward an additional className to the underlying element
-   */
-  className: string,
   /**
    * The title of this component
    */

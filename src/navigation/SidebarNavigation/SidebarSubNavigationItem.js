@@ -2,31 +2,39 @@ import classnames from 'classnames';
 import { string } from 'prop-types';
 import React from 'react';
 import * as olt from '@lightelligence/styles';
+import { matchPath } from 'react-router-dom';
 import { Link } from '../../content/Link';
 
 /**
  * Sub Navigation item for the
  * [SidebarNavigationItem](#/Navigation/SidebarNavigationItem) component.
  *
- * The component also passes all other `props` to the underlying `Link`
+ * The component passes all other `props` to the underlying `Link`
  * component
+ *
+ * @example ./SidebarNavigation.md
  */
 export const SidebarSubNavigationItem = ({
   className,
   to,
   title,
   ...props
-}) => (
-  <Link
-    {...props}
-    to={to}
-    normal
-    activeClassName="is-active"
-    className={classnames(olt.SidebarSubnavigationItem, className)}
-  >
-    {title}
-  </Link>
-);
+}) => {
+  const match = matchPath(to, {
+    path: '/',
+    exact: false,
+  });
+  return (
+    <Link
+      {...{ ...props, ...(match ? { activeClassName: 'is-active' } : {}) }}
+      to={to}
+      normal
+      className={classnames(olt.SidebarSubnavigationItem, className)}
+    >
+      {title}
+    </Link>
+  );
+};
 
 SidebarSubNavigationItem.propTypes = {
   /**
