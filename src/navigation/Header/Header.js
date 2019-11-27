@@ -22,7 +22,7 @@ import { ActionButton } from '../../components/ActionButton';
  * props to the `header` React Element.
  *
  * The Header by default also implements Action Button's proximity area, so
- * whenever the user hovers on the header the action buttons are triggered.
+ * whenever the user hovers on the header the action buttons are highlighted.
  */
 export const Header = ({
   className,
