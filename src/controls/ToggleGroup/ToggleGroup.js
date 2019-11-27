@@ -18,42 +18,43 @@ const ToggleGroup = ({
   children,
   name,
   value,
-  onChange: _onchange, // !!! onChange should not be passed to the div element as props
+  onChange: _onChange,
   ...props
 }) => {
   const handleChange = React.useCallback(
-    (buttonValue) => {
-      if (!_onchange) {
+    (buttonValue) => () => {
+      if (!_onChange) {
         return;
       }
 
       const val = value === buttonValue ? null : buttonValue;
 
       // don't propagate null changes ( deselect)
-
       const isDeselect = val === undefined || val === null;
 
       const propagateChange = !isDeselect;
 
       if (propagateChange) {
-        _onchange(val);
+        _onChange(val);
       }
     },
-    [_onchange, value],
+    [_onChange, value],
   );
 
   const content = React.Children.map(children, (child) => {
-    const { selected: buttonSelected, value: buttonValue } = child.props;
+    const { checked: buttonChecked, value: buttonValue } = child.props;
 
-    const selected =
-      buttonSelected === undefined || buttonSelected === null
+    const checked =
+      buttonChecked === undefined || buttonChecked === null
         ? isValueSelected(buttonValue, value)
-        : buttonSelected;
+        : buttonChecked;
+
+    const onChange = handleChange(buttonValue);
 
     return React.cloneElement(child, {
       name,
-      selected,
-      onChange: handleChange,
+      checked,
+      onChange,
     });
   });
 

@@ -1,6 +1,5 @@
 ```jsx
 import {
-  Headline,
   Paragraph,
   Button,
   NotificationContainer,
@@ -60,7 +59,7 @@ const notify = () => {
 };
 
 <>
-  <Headline size={4}>General Demo</Headline>
+  <h2>General Demo</h2>
   <Paragraph>
     Click the button below multiple times to see different notifications. The
     notifications have different timeouts and some stay until you click them
@@ -73,7 +72,6 @@ const notify = () => {
 
 ```jsx
 import {
-  Headline,
   Paragraph,
   Button,
   NotificationContainer,
@@ -88,7 +86,7 @@ const notify = () =>
   });
 
 <>
-  <Headline size={4}>Error Notification</Headline>
+  <h2>Error Notification</h2>
   <Paragraph>
     Notification example that indicates an error. The example uses timeout: 0 to
     stop the notifcation from closing automatically.
@@ -99,11 +97,11 @@ const notify = () =>
 ```
 
 ```jsx noeditor
-import { Headline, Paragraph, Notification } from '@lightelligence/react';
+import { Paragraph, Notification } from '@lightelligence/react';
 import * as olt from '@lightelligence/styles';
 
 <>
-  <Headline size={4}>Notification Types</Headline>
+  <h2>Notification Types</h2>
   <Paragraph>The following types of notifications can be created.</Paragraph>
   <div
     className={olt.NotificationContainer}
