@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Input } from './Input';
@@ -27,6 +27,20 @@ describe('Select', () => {
 
     enterValue('Lorem Ipsum');
     expect(onChange).toHaveBeenCalled();
+  });
+
+  test('triggers onIconClick', async () => {
+    const onIconClick = jest.fn();
+    const onChange = jest.fn();
+    const { container } = renderComponent({
+      icon: 'edit',
+      onChange,
+      onIconClick,
+    });
+    const icon = container.getElementsByClassName('olt-Icon')[0];
+    fireEvent.click(icon);
+    expect(onIconClick).toHaveBeenCalled();
+    expect(onChange).not.toHaveBeenCalled();
   });
 
   test("doesn't trigger onChange when disabled", () => {
