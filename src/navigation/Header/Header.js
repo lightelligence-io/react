@@ -11,7 +11,7 @@ import { ActionButton } from '../../components/ActionButton';
  *
  * - Logo container, used for placing an image with your logo
  * - Left container, usually used with an Action Button rendered on the left
- * - Right container, usually used with an Action Button rendered on the rigth
+ * - Right container, usually used with an Action Button rendered on the right
  * - Content, which is rendered in the middle of the header
  * - Mobile menu button, which is visible only on mobile devices
  *
