@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
 /**
- * Use the Layout to build a layout of your application.
+ * Use the Layout component to build a layout of your application.
  *
  * It gives you a wrapper that will properly position :
  *
