@@ -5,11 +5,11 @@ import * as olt from '@lightelligence/styles';
 import { ActionButton } from '../../components/ActionButton';
 
 /**
- * Sidebar component is used to render a sidebar on the left side of the user's
+ * The Sidebar component is used to render a sidebar on the left side of the user's
  * browser.
  *
  * It consists of body, which is rendered on the top side of the sidebar and
- * additional `bottom` property which is rendered on the bottom side of the
+ * an additional `bottom` property which is rendered on the bottom side of the
  * sidebar.
  *
  * On mobile screens the sidebar also displays a close button, that can be used

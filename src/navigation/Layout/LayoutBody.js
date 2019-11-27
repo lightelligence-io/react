@@ -7,13 +7,13 @@ import * as olt from '@lightelligence/styles';
  * The LayoutBody is used in the [Layout Component](#/Navigation/Layout) as
  * the container of your body.
  *
- * It includes as well an Overlay, which is used to "blur" the content whenever
+ * It includes an Overlay, which is used to "blur" the content whenever
  * a [SecondarySidebar](#/Navigation/SecondarySidebar) is active.
  *
  * The LayoutBody passes all props to the container of the content, which is
  * using the semantic `main` HTML element.
  *
- * The LayoutBody also has predefine paddings, according to the Layout's
+ * The LayoutBody also has predefined paddings, according to the Layout's
  * [Header](#/Navigation/Layout) and [Sidebar](#/Navigation/Sidebar).
  */
 export const LayoutBody = ({ className, children, ...props }) => (

@@ -3,8 +3,8 @@ import React from 'react';
 import { SidebarNavigationItem } from './SidebarNavigationItem';
 
 /**
- * Sidebar navigation is the navigation for the middle of the sidebar. It is
- * consisted of [SidebarNavigationItem](#/Navigation/SidebarNavigationItem) and
+ * Sidebar navigation is the navigation for the middle of the sidebar. It
+ * consists of [SidebarNavigationItem](#/Navigation/SidebarNavigationItem) and
  * uses the semantic `nav` HTML element.
  *
  * It passes additional `props` to the underlying React element and is

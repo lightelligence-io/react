@@ -37,6 +37,7 @@ const [open, setOpen] = React.useState(false);
     style={{ position: 'absolute' }}
     header="Filters"
     open={open}
+    onClickMobileBack={() => setOpen(false)}
   />
 </div>;
 ```

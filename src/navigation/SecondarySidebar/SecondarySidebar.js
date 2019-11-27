@@ -11,7 +11,7 @@ import { ActionButton } from '../../components/ActionButton';
  * It is rendered as fixed positioned `aside` html element and passes the
  * corresponding `props` of the SecondarySidebar component.
  *
- * The Secondary Sidebar has optional header that can be used, as well as
+ * The Secondary Sidebar has an optional header that can be used, as well as
  * mobile navigation controls, which can be used to create interaction
  * when the user's device is a mobile screen.
  *
