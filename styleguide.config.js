@@ -49,6 +49,11 @@ module.exports = {
       sectionDepth: 2,
     },
     {
+      name: 'Navigation',
+      components: 'src/navigation/**/[A-Z]*.js',
+      sectionDepth: 2,
+    },
+    {
       name: 'Hooks',
       components: 'src/hooks/**/[A-Z]*.js', // exclude index.js files
       sectionDepth: 2,
@@ -141,7 +146,7 @@ module.exports = {
     },
   },
   styleguideComponents: {
-    Wrapper: path.join(__dirname, 'src/layout/Frame/Frame'),
+    Wrapper: path.join(__dirname, 'styleguide/Frame'),
     Logo: path.join(__dirname, 'styleguide/Logo'),
     VersionDropdown: path.join(__dirname, 'styleguide/VersionDropdown'),
     StyleGuideRenderer: path.join(__dirname, 'styleguide/StyleGuide'),
