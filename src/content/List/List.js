@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 
-const List = ({
+export const List = ({
   children,
   className,
   ordered,
@@ -43,5 +43,3 @@ List.defaultProps = {
   definition: false,
   vertical: null,
 };
-
-export { List };

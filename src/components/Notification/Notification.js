@@ -40,10 +40,7 @@ const Notification = ({
   }, [requestHide, timeout]);
 
   const clickHandler = React.useCallback(() => {
-    if (onClick) {
-      onClick();
-    }
-
+    onClick();
     requestHide();
   }, [onClick, requestHide]);
 
@@ -53,10 +50,7 @@ const Notification = ({
         event.stopPropagation();
       }
 
-      if (onClose) {
-        onClose();
-      }
-
+      onClose();
       requestHide();
     },
     [onClose, requestHide],

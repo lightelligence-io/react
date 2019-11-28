@@ -10,13 +10,7 @@ import {
   AVATAR_SIZE_MEDIUM,
 } from '../../constants';
 
-export const Avatar = ({
-  type,
-  size = AVATAR_SIZE_MEDIUM,
-  name,
-  className = null,
-  ...props
-}) => {
+export const Avatar = ({ type, size, name, className, ...props }) => {
   const shortName = name.substr(0, 1);
 
   return (
