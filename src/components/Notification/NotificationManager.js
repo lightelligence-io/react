@@ -26,7 +26,7 @@ class NotificationManagerClass extends EventEmitter {
       timeout: 4000,
       ...notify,
     };
-    this.listNotify = this.listNotify.concat(finalNotify);
+    this.listNotify = [finalNotify].concat(this.listNotify);
     this.emitChange();
   }
 
