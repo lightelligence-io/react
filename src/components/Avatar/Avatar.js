@@ -1,16 +1,10 @@
 import React from 'react';
 import { oneOf, string } from 'prop-types';
 import classnames from 'classnames';
+import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 
-import {
-  AVATAR_TYPE_USER,
-  AVATAR_TYPE_TENANT,
-  AVATAR_SIZE_LARGE,
-  AVATAR_SIZE_MEDIUM,
-} from '../../constants';
-
-export const Avatar = ({ type, size, name, className, ...props }) => {
+export const Avatar = ({ type, size, name, color, className, ...props }) => {
   const shortName = name.substr(0, 1);
 
   return (
@@ -18,8 +12,11 @@ export const Avatar = ({ type, size, name, className, ...props }) => {
       {...props}
       className={classnames(
         olt.Avatar,
-        size === AVATAR_SIZE_LARGE && olt.AvatarLarge,
+        size === 'm' && olt.AvatarMedium,
+        size === 'l' && olt.AvatarLarge,
         type === 'tenant' ? olt.AvatarTenant : olt.AvatarUser,
+        color &&
+          (olt[`uColor${pascalize(color)}`] || olt[`Icon${pascalize(color)}`]),
         className,
       )}
     >
@@ -31,11 +28,13 @@ export const Avatar = ({ type, size, name, className, ...props }) => {
 Avatar.propTypes = {
   name: string.isRequired,
   className: string,
-  size: oneOf([AVATAR_SIZE_MEDIUM, AVATAR_SIZE_LARGE]),
-  type: oneOf([AVATAR_TYPE_USER, AVATAR_TYPE_TENANT]).isRequired,
+  color: string,
+  size: oneOf(['s', 'm', 'l']),
+  type: oneOf(['user', 'tenant']).isRequired,
 };
 
 Avatar.defaultProps = {
   className: null,
-  size: AVATAR_SIZE_MEDIUM,
+  size: 'm',
+  color: null,
 };

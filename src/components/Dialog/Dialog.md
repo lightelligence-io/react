@@ -2,6 +2,9 @@
 
 Use the *Dialog* Component to render a modal dialog.
 
+The dialog changes to full screen on mobile and tablet devices.
+
+
 ```js
 import { Dialog, Button, Paragraph } from '@lightelligence/react';
 initialState = { dialogOpen: false};

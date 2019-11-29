@@ -20,12 +20,6 @@ export const COLOR_GRAY_800 = 'gray-800';
 export const COLOR_GRAY_900 = 'gray-900';
 export const COLOR_BLACK = 'black';
 
-export const AVATAR_TYPE_USER = 'user';
-export const AVATAR_TYPE_TENANT = 'tenant';
-
-export const AVATAR_SIZE_MEDIUM = 'm';
-export const AVATAR_SIZE_LARGE = 'l';
-
 export const FONT_SIZE_XXSMALL = 'xxSmall';
 export const FONT_SIZE_XSMALL = 'xSmall';
 export const FONT_SIZE_SMALL = 'small';
