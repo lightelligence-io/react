@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { oneOf, string } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
@@ -10,35 +10,32 @@ import {
   AVATAR_SIZE_MEDIUM,
 } from '../../constants';
 
-export class Avatar extends PureComponent {
-  static propTypes = {
-    name: string.isRequired,
-    className: string,
-    size: oneOf([AVATAR_SIZE_MEDIUM, AVATAR_SIZE_LARGE]),
-    type: oneOf([AVATAR_TYPE_USER, AVATAR_TYPE_TENANT]).isRequired,
-  };
+export const Avatar = ({ type, size, name, className, ...props }) => {
+  const shortName = name.substr(0, 1);
 
-  static defaultProps = {
-    className: null,
-    size: AVATAR_SIZE_MEDIUM,
-  };
+  return (
+    <i
+      {...props}
+      className={classnames(
+        olt.Avatar,
+        size === AVATAR_SIZE_LARGE && olt.AvatarLarge,
+        type === 'tenant' ? olt.AvatarTenant : olt.AvatarUser,
+        className,
+      )}
+    >
+      {shortName}
+    </i>
+  );
+};
 
-  render() {
-    const { type, size, name, className, ...props } = this.props;
-    const shortName = name.substr(0, 1);
+Avatar.propTypes = {
+  name: string.isRequired,
+  className: string,
+  size: oneOf([AVATAR_SIZE_MEDIUM, AVATAR_SIZE_LARGE]),
+  type: oneOf([AVATAR_TYPE_USER, AVATAR_TYPE_TENANT]).isRequired,
+};
 
-    return (
-      <i
-        {...props}
-        className={classnames(
-          olt.Avatar,
-          size === AVATAR_SIZE_LARGE && olt.AvatarLarge,
-          type === 'tenant' ? olt.AvatarTenant : olt.AvatarUser,
-          className,
-        )}
-      >
-        {shortName}
-      </i>
-    );
-  }
-}
+Avatar.defaultProps = {
+  className: null,
+  size: AVATAR_SIZE_MEDIUM,
+};

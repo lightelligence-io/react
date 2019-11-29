@@ -4,7 +4,7 @@ import { string, bool, node, func, oneOf } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
-const Button = React.forwardRef(
+export const Button = React.forwardRef(
   (
     {
       className,
@@ -117,5 +117,3 @@ Button.defaultProps = {
   buttonType: undefined,
   theme: 'light',
 };
-
-export { Button };

@@ -1,10 +1,4 @@
 import { EventEmitter } from 'events';
-import {
-  NOTIFICATION_TYPE_INFO,
-  NOTIFICATION_TYPE_SUCCESS,
-  NOTIFICATION_TYPE_WARNING,
-  NOTIFICATION_TYPE_ERROR,
-} from './types';
 
 /* eslint-disable */
 const createUUID = () => {
@@ -32,13 +26,13 @@ class NotificationManagerClass extends EventEmitter {
       timeout: 4000,
       ...notify,
     };
-    this.listNotify.unshift(finalNotify);
+    this.listNotify = [finalNotify].concat(this.listNotify);
     this.emitChange();
   }
 
   info({ title, content, timeout, onClose, onClick, onHide }) {
     this.create({
-      type: NOTIFICATION_TYPE_INFO,
+      type: 'info',
       title,
       content,
       timeout,
@@ -50,7 +44,7 @@ class NotificationManagerClass extends EventEmitter {
 
   success({ title, content, timeout, onClose, onClick, onHide }) {
     this.create({
-      type: NOTIFICATION_TYPE_SUCCESS,
+      type: 'success',
       title,
       content,
       timeout,
@@ -62,7 +56,7 @@ class NotificationManagerClass extends EventEmitter {
 
   warning({ title, content, timeout, onClose, onClick, onHide }) {
     this.create({
-      type: NOTIFICATION_TYPE_WARNING,
+      type: 'warning',
       title,
       content,
       timeout,
@@ -74,7 +68,7 @@ class NotificationManagerClass extends EventEmitter {
 
   error({ title, content, timeout, onClose, onClick, onHide }) {
     this.create({
-      type: NOTIFICATION_TYPE_ERROR,
+      type: 'error',
       title,
       content,
       timeout,

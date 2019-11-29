@@ -1,20 +1,14 @@
 import React from 'react';
 import { render, fireEvent, wait } from '@testing-library/react';
 
-import {
-  Notification,
-  NOTIFICATION_TYPE_INFO,
-  NOTIFICATION_TYPE_SUCCESS,
-  NOTIFICATION_TYPE_WARNING,
-  NOTIFICATION_TYPE_ERROR,
-} from '.';
+import { Notification } from '.';
 import { oltStyles } from '../..';
 
 describe('Notifications Render Correctly', () => {
   test('renders INFO', () => {
     const { getByText, getByTestId } = render(
       <Notification
-        type={NOTIFICATION_TYPE_INFO}
+        type="info"
         title="INFO!"
         content="Here is some information."
         data-testid="Notification"
@@ -33,7 +27,7 @@ describe('Notifications Render Correctly', () => {
   test('renders SUCCESS', () => {
     const { getByText, getByTestId } = render(
       <Notification
-        type={NOTIFICATION_TYPE_SUCCESS}
+        type="success"
         title="SUCCESS!"
         content="That was a success!"
         data-testid="Notification"
@@ -50,7 +44,7 @@ describe('Notifications Render Correctly', () => {
   test('renders WARNING', () => {
     const { getByText, getByTestId } = render(
       <Notification
-        type={NOTIFICATION_TYPE_WARNING}
+        type="warning"
         title="WARNING!"
         content="This is only a warning!"
         data-testid="Notification"
@@ -69,7 +63,7 @@ describe('Notifications Render Correctly', () => {
   test('renders ERROR', () => {
     const { getByText, getByTestId } = render(
       <Notification
-        type={NOTIFICATION_TYPE_ERROR}
+        type="error"
         title="ERROR!"
         content="An error has occured!"
         data-testid="Notification"
@@ -91,7 +85,7 @@ describe('Notification Callbacks', () => {
   test('isOpen is set called', () => {
     const { getByText } = render(
       <Notification
-        type={NOTIFICATION_TYPE_INFO}
+        type="info"
         title="INFO!"
         content="Here is some information."
         data-testid="Notification"
@@ -108,7 +102,7 @@ describe('Notification Callbacks', () => {
     const onClick = jest.fn();
     const { getByText } = render(
       <Notification
-        type={NOTIFICATION_TYPE_INFO}
+        type="info"
         title="INFO!"
         content="Here is some information."
         onClick={onClick}
@@ -127,7 +121,7 @@ describe('Notification Callbacks', () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
       <Notification
-        type={NOTIFICATION_TYPE_INFO}
+        type="info"
         title="INFO!"
         content="Here is some information."
         onClose={onClose}
