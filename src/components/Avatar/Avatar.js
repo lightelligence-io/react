@@ -30,11 +30,12 @@ Avatar.propTypes = {
   className: string,
   color: string,
   size: oneOf(['s', 'm', 'l']),
-  type: oneOf(['user', 'tenant']).isRequired,
+  type: oneOf(['user', 'tenant']),
 };
 
 Avatar.defaultProps = {
   className: null,
   size: 'm',
   color: null,
+  type: 'user',
 };
