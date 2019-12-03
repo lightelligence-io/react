@@ -67,8 +67,8 @@ module.exports = {
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/, '.md');
   },
-  exampleMode: 'expand',
-  usageMode: 'expand',
+  exampleMode: 'collapse',
+  usageMode: 'collapse',
   ignore: ['src/**/[A-Z]*.test.js'],
   webpackConfig: {
     resolve: {
