@@ -1,20 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
 import { string, shape, oneOf } from 'prop-types';
-import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
+import { Content } from '../Fonts';
 
-export const Paragraph = ({ className, tag, style, size, ...props }) => {
-  const Component = tag;
-
+export const Paragraph = ({ className, tag, style, ...props }) => {
   return (
-    <Component
+    <Content
       {...props}
-      className={classnames(
-        olt.Paragraph,
-        size && olt[`uFontSize${pascalize(size)}`],
-        className,
-      )}
+      tag={tag}
+      className={classnames(olt.Paragraph, className)}
     />
   );
 };
@@ -22,21 +17,11 @@ export const Paragraph = ({ className, tag, style, size, ...props }) => {
 Paragraph.propTypes = {
   className: string,
   tag: oneOf(['p', 'span']),
-  size: oneOf([
-    'xxSmall',
-    'xSmall',
-    'small',
-    'medium',
-    'large',
-    'xLarge',
-    'xxLarge',
-  ]),
   style: shape({}),
 };
 
 Paragraph.defaultProps = {
   className: null,
   tag: 'p',
-  size: 'xxSmall',
   style: null,
 };
