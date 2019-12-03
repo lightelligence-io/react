@@ -79,4 +79,7 @@
 - Chore: all components are now functional
 - Chore: refactor RadioGroup (removed controls/Toggle)
 - Chore: update documentation 
-- Chore: restructuring (moved Dropdown -> controls and InputList -> content, removed AVATAR constants)
+- Chore: restructuring (moved Dropdown -> controls and InputList -> content)
+- Chore: remove all constants (e.g. AVATAR_..., COLOR_..., FONT_...) 
+- Fix: Card color prop now takes any color
+- Chore: Paragraph now enforces formatting of type Content
