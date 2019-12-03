@@ -2,8 +2,8 @@ import classnames from 'classnames';
 import { string, oneOfType, shape, oneOf, arrayOf, func } from 'prop-types';
 import React, { useCallback, useState } from 'react';
 import * as olt from '@lightelligence/styles';
-import { Label } from '../../controls/Label';
-import { InputListItem, InputList } from '../InputList';
+import { Label } from '../Label';
+import { InputListItem, InputList } from '../../content/InputList';
 
 export const Dropdown = React.forwardRef(
   (
