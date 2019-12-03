@@ -4,7 +4,7 @@ UI Styleguide](https://developers.lightelligence.io/styles).
 ## Getting Started
 
 In order to use Lightelligence React Components, you need to install them via
-npm. 
+npm.
 
 ```bash
 $ npm install @lightelligence/react
@@ -17,10 +17,10 @@ You can use the components directly into your React Application.
 
 ```jsx static
 import React from 'react';
-import {Button, COLOR_PRIMARY} from '@lightelligence/react';
+import {Button} from '@lightelligence/react';
 
 const App = () => (
-  <Button color={COLOR_PRIMARY}>
+  <Button>
     Hello World
   </Button>
 );
@@ -28,7 +28,7 @@ const App = () => (
 
 The components rely on [Lightelligence
 UI Styleguide](https://developers.lightelligence.io/styles), so make sure that
-it is loaded via webpack 
+it is loaded via webpack
 
 ```js static
 import '@lightelligence/styles/dist/index.css';
