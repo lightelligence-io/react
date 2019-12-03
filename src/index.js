@@ -22,7 +22,6 @@ export * from './content/BasicCardTable';
 export * from './content/CardTable';
 export * from './content/FloatingList';
 export * from './content/Fonts';
-export * from './content/Headline';
 export * from './content/List';
 export * from './content/DynamicList';
 export * from './content/Paragraph';
@@ -40,9 +39,15 @@ export * from './controls/TextArea';
 export * from './controls/Input';
 
 export * from './layout/Container';
-export * from './layout/Frame';
 export * from './layout/Grid';
 export * from './layout/Theme';
+export * from './layout/RootContainer';
+
+export * from './navigation/Header';
+export * from './navigation/Sidebar';
+export * from './navigation/SidebarNavigation';
+export * from './navigation/SidebarSelector';
+export * from './navigation/SecondarySidebar';
 
 export * from './constants';
 

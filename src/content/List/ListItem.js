@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { OLT_NAMESPACE } from '../../constants';
 
-const ListItem = React.memo(({ children, className, term, ...props }) => {
+const ListItem = ({ children, className, term, ...props }) => {
   const base = `${OLT_NAMESPACE}List`;
 
   return (
@@ -19,7 +19,7 @@ const ListItem = React.memo(({ children, className, term, ...props }) => {
       </li>
     </>
   );
-});
+};
 
 ListItem.propTypes = {
   children: node,

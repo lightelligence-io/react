@@ -17,12 +17,12 @@ TooltipMessage.propTypes = {
 };
 
 const Tooltip = ({
-  bottom = false,
+  bottom,
   children,
-  color = null,
-  contentClassName = null,
+  color,
+  contentClassName,
   message,
-  wide = false,
+  wide,
   ...props
 }) => {
   return (

@@ -10,6 +10,13 @@ import tinycolor from 'tinycolor2';
 const primaryColorProperty = `--olt-primaryColor`;
 
 /**
+ * The property name of the sidebar color
+ *
+ * @type {string}
+ */
+const sidebarColorProperty = '--olt-sidebarColor';
+
+/**
  * @typedef Mix
  * @property name   {string}    The name of the color to mix with
  * @property color  {string}    The hex value of the color to mix with
@@ -56,7 +63,7 @@ const generateProperties = (color) =>
     .reduce((result, item) => result.concat(item), [])
     .concat([{ name: primaryColorProperty, value: color }]);
 
-export const Theme = ({ primaryColor, children }) => {
+export const Theme = ({ primaryColor, sidebarColor, children }) => {
   const elementRef = useRef(null);
 
   useEffect(() => {
@@ -69,7 +76,12 @@ export const Theme = ({ primaryColor, children }) => {
         ? style.setProperty(name, value)
         : style.removeProperty(name);
     });
-  }, [elementRef, primaryColor]);
+    if (sidebarColor) {
+      style.setProperty(sidebarColorProperty, sidebarColor);
+    } else {
+      style.removeProperty(sidebarColorProperty);
+    }
+  }, [elementRef, primaryColor, sidebarColor]);
 
   return <div ref={elementRef}>{children}</div>;
 };
@@ -80,6 +92,10 @@ Theme.propTypes = {
    */
   primaryColor: string,
   /**
+   * Sets the sidebar color
+   */
+  sidebarColor: string,
+  /**
    * Children
    */
   children: node,
@@ -87,5 +103,6 @@ Theme.propTypes = {
 
 Theme.defaultProps = {
   primaryColor: null,
+  sidebarColor: null,
   children: null,
 };

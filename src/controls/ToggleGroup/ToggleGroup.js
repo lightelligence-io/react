@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { any, func, node, string } from 'prop-types';
 
 /**
@@ -14,64 +14,62 @@ function isValueSelected(value, candidate) {
   return value === candidate;
 }
 
-export class ToggleGroup extends PureComponent {
-  static propTypes = {
-    value: any, // eslint-disable-line react/forbid-prop-types
-    name: string.isRequired,
-    onChange: func.isRequired,
-    children: node.isRequired,
-  };
+const ToggleGroup = ({
+  children,
+  name,
+  value,
+  onChange: _onChange,
+  ...props
+}) => {
+  const handleChange = React.useCallback(
+    (buttonValue) => () => {
+      if (!_onChange) {
+        return;
+      }
 
-  static defaultProps = {
-    value: null,
-  };
+      const val = value === buttonValue ? null : buttonValue;
 
-  handleChange = (buttonValue) => {
-    const { onChange, value } = this.props;
+      // don't propagate null changes ( deselect)
+      const isDeselect = val === undefined || val === null;
 
-    if (!onChange) {
-      return;
-    }
+      const propagateChange = !isDeselect;
 
-    const val = value === buttonValue ? null : buttonValue;
+      if (propagateChange) {
+        _onChange(val);
+      }
+    },
+    [_onChange, value],
+  );
 
-    // don't propagate null changes ( deselect)
+  const content = React.Children.map(children, (child) => {
+    const { checked: buttonChecked, value: buttonValue } = child.props;
 
-    const isDeselect = val === undefined || val === null;
+    const checked =
+      buttonChecked === undefined || buttonChecked === null
+        ? isValueSelected(buttonValue, value)
+        : buttonChecked;
 
-    const propagateChange = !isDeselect;
+    const onChange = handleChange(buttonValue);
 
-    if (propagateChange) {
-      onChange(val);
-    }
-  };
-
-  render() {
-    const {
-      children,
+    return React.cloneElement(child, {
       name,
-      value,
-      onChange: _, // !!! onChange should not be passed to the div element as props
-      ...props
-    } = this.props;
-
-    const content = React.Children.map(children, (child) => {
-      const { selected: buttonSelected, value: buttonValue } = child.props;
-
-      const selected =
-        buttonSelected === undefined || buttonSelected === null
-          ? isValueSelected(buttonValue, value)
-          : buttonSelected;
-
-      const onChange = this.handleChange;
-
-      return React.cloneElement(child, {
-        name,
-        selected,
-        onChange,
-      });
+      checked,
+      onChange,
     });
+  });
 
-    return <div {...props}>{content}</div>;
-  }
-}
+  return <div {...props}>{content}</div>;
+};
+
+ToggleGroup.propTypes = {
+  value: any, // eslint-disable-line react/forbid-prop-types
+  name: string.isRequired,
+  onChange: func.isRequired,
+  children: node.isRequired,
+};
+
+ToggleGroup.defaultProps = {
+  value: null,
+};
+
+export { ToggleGroup };

@@ -8,31 +8,29 @@ import * as olt from '@lightelligence/styles';
 /**
  * Combines router navigation with standard link, seasoned with some spicy color schemes
  */
-const Link = React.memo(
-  ({ to, children, className, normal, color, ...props }) => {
-    const match = matchPath(to, {
-      path: '/',
-      exact: false,
-    });
-    const Element = match ? NavLink : 'a';
+const Link = ({ to, children, className, normal, color, ...props }) => {
+  const match = matchPath(to, {
+    path: '/',
+    exact: false,
+  });
+  const Element = match ? NavLink : 'a';
 
-    return (
-      <Element
-        {...{
-          ...(match ? { to } : { href: to }),
-          ...props,
-          className: classnames(
-            !normal && olt.Link,
-            color && olt[`uColor${pascalize(color)}`],
-            className,
-          ),
-        }}
-      >
-        {children}
-      </Element>
-    );
-  },
-);
+  return (
+    <Element
+      {...{
+        ...(match ? { to } : { href: to }),
+        ...props,
+        className: classnames(
+          !normal && olt.Link,
+          color && olt[`uColor${pascalize(color)}`],
+          className,
+        ),
+      }}
+    >
+      {children}
+    </Element>
+  );
+};
 
 Link.propTypes = {
   to: string.isRequired,
