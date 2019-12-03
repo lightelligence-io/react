@@ -16,12 +16,14 @@ describe('Radio', () => {
     const onChange = jest.fn();
     const { getByLabelText } = renderComponent({
       onChange,
+      value: 'value',
+      name: 'name',
       children: 'Component',
     });
 
     const component = getByLabelText('Component');
     fireEvent.click(component);
-    expect(onChange).toHaveBeenCalledWith(true);
+    expect(onChange).toHaveBeenCalledWith('value', 'name');
   });
 
   test('should forward disabled to underlying radio', () => {
