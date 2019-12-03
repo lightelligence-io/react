@@ -75,4 +75,8 @@
 
 #v1.0.0-rc.4
 - Fix: upgrade to latest styles
+- Feature: add color prop for link
 - Chore: all components are now functional
+- Chore: refactor RadioGroup (removed controls/Toggle)
+- Chore: update documentation 
+- Chore: restructuring (moved Dropdown -> controls and InputList -> content, removed AVATAR constants)
