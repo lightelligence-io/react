@@ -4,8 +4,6 @@ import classnames from 'classnames';
 import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 
-import { colorProp } from '../../propTypes';
-
 import { ActionButton } from '../ActionButton';
 import { Image } from '../../content/Image';
 import { Link } from '../../content/Link';
@@ -108,7 +106,7 @@ Card.propTypes = {
   description: node,
   image: oneOfType([node, string]),
   action: node,
-  color: colorProp,
+  color: string,
   selectable: bool,
   disabled: bool,
   edit: bool,

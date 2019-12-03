@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 import { Dropdown } from './Dropdown';
-import { InputListItem } from '../InputList';
+import { InputListItem } from '../../content/InputList';
 
 const renderComponent = (props) => {
   return render(<Dropdown {...props} data-testid="component" />);
