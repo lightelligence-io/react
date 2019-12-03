@@ -20,6 +20,7 @@ const renderComponent = (props) => {
       <Radio value="b" data-testid="radio-b">
         Option B
       </Radio>
+      {/* set checked to ensure that it is overwritten by radio group value */}
       <Radio value="c" data-testid="radio-c" checked>
         Option C
       </Radio>
