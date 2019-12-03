@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { func, string, node } from 'prop-types';
 
 const RadioGroup = ({ children, name, value, onChange, ...props }) => {
@@ -8,11 +8,13 @@ const RadioGroup = ({ children, name, value, onChange, ...props }) => {
     return value === radioValue;
   };
 
-  const handleChange = (radioValue, radioName) => {
-    if (!onChange) return;
-    onChange(radioValue, radioName);
-  };
-
+  const handleChange = useCallback(
+    (radioValue, radioName) => {
+      if (!onChange) return;
+      onChange(radioValue, radioName);
+    },
+    [onChange],
+  );
   const content = React.Children.map(children, (child) => {
     const { value: radioValue } = child.props;
     const checked = isValueSelected(radioValue);
