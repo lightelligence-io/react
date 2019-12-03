@@ -22,7 +22,7 @@ export const Paragraph = ({ className, tag, style, size, ...props }) => {
 Paragraph.propTypes = {
   className: string,
   tag: oneOf(['p', 'span']),
-  size: oneOf(
+  size: oneOf([
     'xxSmall',
     'xSmall',
     'small',
@@ -30,7 +30,7 @@ Paragraph.propTypes = {
     'large',
     'xLarge',
     'xxLarge',
-  ),
+  ]),
   style: shape({}),
 };
 
