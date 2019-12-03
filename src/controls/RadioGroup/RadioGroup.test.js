@@ -36,10 +36,18 @@ describe('RadioGroup', () => {
 
     const radio = getByLabelText('Option B');
     fireEvent.click(radio);
-    expect(onChange).toHaveBeenCalledWith('b');
+    expect(onChange).toHaveBeenCalledWith('b', 'radios');
   });
 
   test('sets checked on underlying radio according to value', () => {
+    const { getByLabelText } = renderComponent({
+      value: 'b',
+    });
+    const radioB = getByLabelText('Option B');
+    expect(radioB.checked).toBe(true);
+  });
+
+  test('does not pass checked to child elements, but considers value only', () => {
     const { getByLabelText } = renderComponent({
       value: 'b',
     });
