@@ -72,3 +72,7 @@
 - Chore: upgrade styles package
 - Chore: update package.json
 - Chore: Upgrade to Styleguidist v10
+
+#v1.0.0-rc.4
+- Fix: upgrade to latest styles
+- Chore: all components are now functional
