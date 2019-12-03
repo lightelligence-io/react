@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 
 import { NotificationContainer, NotificationManager } from '.';
 import { oltStyles } from '../..';
@@ -7,9 +7,11 @@ import { oltStyles } from '../..';
 describe('NotificationManager Adds Notifications', () => {
   test('renders INFO', () => {
     const { getByText, container } = render(<NotificationContainer />);
-    NotificationManager.info({
-      title: 'INFO!',
-      content: 'Here is some information.',
+    act(() => {
+      NotificationManager.info({
+        title: 'INFO!',
+        content: 'Here is some information.',
+      });
     });
 
     getByText('INFO!');
@@ -22,9 +24,11 @@ describe('NotificationManager Adds Notifications', () => {
   });
   test('renders SUCCESS', () => {
     const { getByText, container } = render(<NotificationContainer />);
-    NotificationManager.success({
-      title: 'SUCCESS!',
-      content: 'That was a success!',
+    act(() => {
+      NotificationManager.success({
+        title: 'SUCCESS!',
+        content: 'That was a success!',
+      });
     });
 
     getByText('SUCCESS!');
@@ -37,9 +41,11 @@ describe('NotificationManager Adds Notifications', () => {
   });
   test('renders WARNING', () => {
     const { getByText, container } = render(<NotificationContainer />);
-    NotificationManager.warning({
-      title: 'WARNING!',
-      content: 'This is only a warning!',
+    act(() => {
+      NotificationManager.warning({
+        title: 'WARNING!',
+        content: 'This is only a warning!',
+      });
     });
 
     getByText('WARNING!');
@@ -52,9 +58,11 @@ describe('NotificationManager Adds Notifications', () => {
   });
   test('renders ERROR', () => {
     const { getByText, container } = render(<NotificationContainer />);
-    NotificationManager.error({
-      title: 'ERROR!',
-      content: 'An error has occured!',
+    act(() => {
+      NotificationManager.error({
+        title: 'ERROR!',
+        content: 'An error has occured!',
+      });
     });
 
     getByText('ERROR!');
@@ -73,16 +81,20 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     const onHide = jest.fn();
     const onClick = jest.fn();
     const { getByText } = render(<NotificationContainer />);
-    NotificationManager.info({
-      title: 'Click Me INFO!',
-      content: 'Here is some information.',
-      onClick,
-      onHide,
+    act(() => {
+      NotificationManager.info({
+        title: 'Click Me INFO!',
+        content: 'Here is some information.',
+        onClick,
+        onHide,
+      });
     });
     const notification = getByText('Click Me INFO!');
     fireEvent.click(notification);
     expect(onClick).toHaveBeenCalledTimes(1);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders SUCCESS', () => {
@@ -90,16 +102,20 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     const onHide = jest.fn();
     const onClick = jest.fn();
     const { getByText } = render(<NotificationContainer />);
-    NotificationManager.success({
-      title: 'Click Me SUCCESS!',
-      content: 'That was a success!',
-      onClick,
-      onHide,
+    act(() => {
+      NotificationManager.success({
+        title: 'Click Me SUCCESS!',
+        content: 'That was a success!',
+        onClick,
+        onHide,
+      });
     });
     const notification = getByText('Click Me SUCCESS!');
     fireEvent.click(notification);
     expect(onClick).toHaveBeenCalledTimes(1);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders WARNING', () => {
@@ -107,16 +123,20 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     const onHide = jest.fn();
     const onClick = jest.fn();
     const { getByText } = render(<NotificationContainer />);
-    NotificationManager.warning({
-      title: 'Click Me WARNING!',
-      content: 'This is only a warning!',
-      onClick,
-      onHide,
+    act(() => {
+      NotificationManager.warning({
+        title: 'Click Me WARNING!',
+        content: 'This is only a warning!',
+        onClick,
+        onHide,
+      });
     });
     const notification = getByText('Click Me WARNING!');
     fireEvent.click(notification);
     expect(onClick).toHaveBeenCalledTimes(1);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders ERROR', () => {
@@ -124,16 +144,20 @@ describe('NotificationManager Click and Hide Callbacks are set properly', () => 
     const onHide = jest.fn();
     const onClick = jest.fn();
     const { getByText } = render(<NotificationContainer />);
-    NotificationManager.error({
-      title: 'Click Me ERROR!',
-      content: 'An error has occured!',
-      onClick,
-      onHide,
+    act(() => {
+      NotificationManager.error({
+        title: 'Click Me ERROR!',
+        content: 'An error has occured!',
+        onClick,
+        onHide,
+      });
     });
     const notification = getByText('Click Me ERROR!');
     fireEvent.click(notification);
     expect(onClick).toHaveBeenCalledTimes(1);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(onHide).toHaveBeenCalledTimes(1);
   });
 });
@@ -144,16 +168,20 @@ describe('NotificationManager Close and Hide Callbacks are set properly', () => 
     const onHide = jest.fn();
     const onClose = jest.fn();
     const { container } = render(<NotificationContainer />);
-    NotificationManager.info({
-      title: 'INFO!',
-      content: 'Here is some information.',
-      onClose,
-      onHide,
+    act(() => {
+      NotificationManager.info({
+        title: 'INFO!',
+        content: 'Here is some information.',
+        onClose,
+        onHide,
+      });
     });
     const closeButton = container.getElementsByTagName('button')[0];
     fireEvent.click(closeButton);
     expect(onClose).toHaveBeenCalledTimes(1);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders SUCCESS', () => {
@@ -161,16 +189,20 @@ describe('NotificationManager Close and Hide Callbacks are set properly', () => 
     const onHide = jest.fn();
     const onClose = jest.fn();
     const { container } = render(<NotificationContainer />);
-    NotificationManager.success({
-      title: 'SUCCESS!',
-      content: 'That was a success!',
-      onClose,
-      onHide,
+    act(() => {
+      NotificationManager.success({
+        title: 'SUCCESS!',
+        content: 'That was a success!',
+        onClose,
+        onHide,
+      });
     });
     const closeButton = container.getElementsByTagName('button')[0];
     fireEvent.click(closeButton);
     expect(onClose).toHaveBeenCalledTimes(1);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders WARNING', () => {
@@ -178,16 +210,20 @@ describe('NotificationManager Close and Hide Callbacks are set properly', () => 
     const onHide = jest.fn();
     const onClose = jest.fn();
     const { container } = render(<NotificationContainer />);
-    NotificationManager.warning({
-      title: 'WARNING!',
-      content: 'This is only a warning!',
-      onClose,
-      onHide,
+    act(() => {
+      NotificationManager.warning({
+        title: 'WARNING!',
+        content: 'This is only a warning!',
+        onClose,
+        onHide,
+      });
     });
     const closeButton = container.getElementsByTagName('button')[0];
     fireEvent.click(closeButton);
     expect(onClose).toHaveBeenCalledTimes(1);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(onHide).toHaveBeenCalledTimes(1);
   });
   test('renders ERROR', () => {
@@ -195,16 +231,20 @@ describe('NotificationManager Close and Hide Callbacks are set properly', () => 
     const onHide = jest.fn();
     const onClose = jest.fn();
     const { container } = render(<NotificationContainer />);
-    NotificationManager.error({
-      title: 'ERROR!',
-      content: 'An error has occured!',
-      onClose,
-      onHide,
+    act(() => {
+      NotificationManager.error({
+        title: 'ERROR!',
+        content: 'An error has occured!',
+        onClose,
+        onHide,
+      });
     });
     const closeButton = container.getElementsByTagName('button')[0];
     fireEvent.click(closeButton);
     expect(onClose).toHaveBeenCalledTimes(1);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(onHide).toHaveBeenCalledTimes(1);
   });
 });
