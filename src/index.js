@@ -53,8 +53,4 @@ export * from './navigation/SidebarNavigation';
 export * from './navigation/SidebarSelector';
 export * from './navigation/SecondarySidebar';
 
-export * from './constants';
-
-export * from './propTypes';
-
 export { oltStyles };

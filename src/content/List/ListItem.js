@@ -2,19 +2,15 @@ import React from 'react';
 import { node, string } from 'prop-types';
 import classnames from 'classnames';
 
-import { OLT_NAMESPACE } from '../../constants';
-
 const ListItem = ({ children, className, term, ...props }) => {
-  const base = `${OLT_NAMESPACE}List`;
-
   return (
     <>
       {term && (
-        <li {...props} className={classnames(`${base}-term`, className)}>
+        <li {...props} className={classnames(`olt-List-term`, className)}>
           {term}
         </li>
       )}
-      <li {...props} className={classnames(`${base}-item`, className)}>
+      <li {...props} className={classnames(`olt-List-item`, className)}>
         {children}
       </li>
     </>
