@@ -74,7 +74,7 @@ const onSubmit = (type) => {
     <Button buttonType="action" onClick={() => toggleModal('action')}>Open Action Modal</Button>
   </FloatingList>
   <Modal
-    type={'critical}
+    type={'critical'}
     title="Error!!!!!"
     content="Lorem ipsum dolor sit amet."
     open={state.modalOpen.error}
