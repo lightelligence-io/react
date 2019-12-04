@@ -31,32 +31,32 @@ module.exports = {
       name: 'Components',
       components: 'src/components/**/[A-Z]*.js', // exclude index.js files
       // https://react-styleguidist.js.org/docs/components.html#finding-components
-      sectionDepth: 2,
+      sectionDepth: 1,
     },
     {
       name: 'Content',
       components: 'src/content/**/[A-Z]*.js', // exclude index.js files
-      sectionDepth: 2,
+      sectionDepth: 1,
     },
     {
       name: 'Controls',
       components: 'src/controls/**/[A-Z]*.js', // exclude index.js files
-      sectionDepth: 2,
+      sectionDepth: 1,
     },
     {
       name: 'Layout',
       components: 'src/layout/**/[A-Z]*.js', // exclude index.js files
-      sectionDepth: 2,
+      sectionDepth: 1,
     },
     {
       name: 'Navigation',
       components: 'src/navigation/**/[A-Z]*.js',
-      sectionDepth: 2,
+      sectionDepth: 1,
     },
     {
       name: 'Hooks',
       components: 'src/hooks/**/[A-Z]*.js', // exclude index.js files
-      sectionDepth: 2,
+      sectionDepth: 1,
     },
   ],
   getComponentPathLine(componentPath) {
