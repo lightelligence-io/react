@@ -35,7 +35,6 @@
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
-    "use-onclickoutside": "^0.3.1",
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -68,7 +67,8 @@
     "react-styleguidist": "^10.2.1",
     "react-test-renderer": "^16.11.0",
     "svg-url-loader": "^3.0.2",
-    "url-polyfill": "^1.1.7"
+    "url-polyfill": "^1.1.7",
+    "use-onclickoutside": "^0.3.1"
   },
   "peerDependencies": {
     "react-dom": "^16.8.4",
