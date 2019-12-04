@@ -83,3 +83,6 @@
 - Chore: remove all constants (e.g. AVATAR_..., COLOR_..., FONT_...) 
 - Fix: Card color prop now takes any color
 - Chore: Paragraph now enforces formatting of type Content
+
+#v1.0.0-rc.5
+- Chore: upgrade styles
