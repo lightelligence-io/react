@@ -31,6 +31,7 @@ module.exports = {
       name: 'Components',
       components: 'src/components/**/[A-Z]*.js', // exclude index.js files
       // https://react-styleguidist.js.org/docs/components.html#finding-components
+      // href: false, -> https://github.com/styleguidist/react-styleguidist/issues/1145
       sectionDepth: 1,
     },
     {
