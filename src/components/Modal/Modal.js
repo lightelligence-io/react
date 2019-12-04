@@ -5,14 +5,6 @@ import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 import { isServerSideRendering } from '../../utils/isServerSideRendering';
 
-import {
-  MODAL_TYPE_CRITICAL,
-  MODAL_TYPE_SUCCESS,
-  MODAL_TYPE_INFO,
-  MODAL_TYPE_WARNING,
-  MODAL_TYPE_ACTION,
-} from './types';
-
 export const Modal = ({
   type,
   wide,
@@ -91,13 +83,7 @@ export const Modal = ({
 };
 
 Modal.propTypes = {
-  type: oneOf([
-    MODAL_TYPE_CRITICAL,
-    MODAL_TYPE_SUCCESS,
-    MODAL_TYPE_INFO,
-    MODAL_TYPE_WARNING,
-    MODAL_TYPE_ACTION,
-  ]),
+  type: oneOf(['critical', 'success', 'info', 'warning', 'action']),
   wide: bool,
   title: string,
   icon: node,
