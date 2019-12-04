@@ -1,4 +1,4 @@
-# Showing a Notification
+## Description
 
 Use the *Notification* Component to render a notification.
 
@@ -72,7 +72,7 @@ const notify = () => {
 </>;
 ```
 
-# Error Notification
+## Error Notification
 
 The Notification example below indicates an error.
 
@@ -101,7 +101,7 @@ const notify = () =>
 </>;
 ```
 
-# Notification Types
+## Notification Types
 
 The following types of notifications can be created. <br /><br />
 

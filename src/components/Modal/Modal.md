@@ -1,4 +1,6 @@
-# Showing a Modal
+## Description
+
+Use modals to demand the user's confirmation or warn the user if he is making significant changes.
 
 Use the *Modal* Component to render a modal.
 

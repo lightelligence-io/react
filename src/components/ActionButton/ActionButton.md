@@ -1,4 +1,4 @@
-## General
+## Description
 
 The Action Button is used to trigger actions like editing, etc.
 

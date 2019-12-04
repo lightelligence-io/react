@@ -1,4 +1,6 @@
-### Example
+## Description
+
+Create a Tenant Selector element for the sidebar.
 
 ```jsx
 import { Sidebar, SidebarSelectorTenant } from '@lightelligence/react';

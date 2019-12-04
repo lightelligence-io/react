@@ -1,5 +1,7 @@
 
-Simple Tabs example
+## Description
+
+Tabs are an easy way to organize content by grouping similar information on the same page. This allows content to be viewed without having to navigate away from that page.
 
 ```js
 import { Tabs, Tab } from '@lightelligence/react';

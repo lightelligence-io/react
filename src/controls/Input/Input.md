@@ -1,3 +1,7 @@
+## Description
+
+An input component
+
 ```js
 import { Input } from '@lightelligence/react';
 initialState = { value: '' };
