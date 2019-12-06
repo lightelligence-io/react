@@ -33,6 +33,9 @@ export const Modal = ({
     if (!isServerSideRendering) {
       document.documentElement.style.overflow = open ? 'hidden' : '';
     }
+    return () => {
+      document.documentElement.style.overflow = '';
+    };
   }, [open]);
 
   const { className: modalClassName, ...otherModalProps } = modalProps;
