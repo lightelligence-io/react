@@ -7,11 +7,7 @@
  *  getWidthForBreakpoint('xl') -> "1200"
  */
 export const getBreakpointWidth = (breakpoint) =>
-  convertBreakpointValueToNumber(
-    getComputedStyle(document.documentElement)
-      .getPropertyValue(`--olt-breakpoint-${breakpoint}`)
-      .trim(),
-  );
+  convertBreakpointValueToNumber(getBreakpointValue(breakpoint));
 
 /**
  * get the value for the given active breakpoint (e.g. "768px")
