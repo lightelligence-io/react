@@ -1,4 +1,6 @@
-### Example
+## Description
+
+Use the `Seperator` to separate different items in the sidebar.
 
 ```js
 import { MemoryRouter } from 'react-router';

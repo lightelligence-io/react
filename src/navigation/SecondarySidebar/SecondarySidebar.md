@@ -1,4 +1,4 @@
-### Example
+## Description
 
 The implementation of the secondary's sidebar behaviour is left to the user.
 

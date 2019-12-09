@@ -1,3 +1,4 @@
+## Description
 
 The **DynamicList** allows a number of similar entries. Use `onChange` callback to keep track of the user input. `onSubmit` is called when the user clicks the submit button.
 

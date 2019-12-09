@@ -1,3 +1,5 @@
+## Description
+
 _Theme_ gives you the opportunity to use white-labeling in your application,
 by changing the `primaryColor` and the `sidebarColor` of the components.
 

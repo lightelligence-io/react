@@ -1,4 +1,6 @@
-### Example
+## Description
+
+Create a Property Selector element for the sidebar.
 
 ```jsx
 import { Sidebar, SidebarSelectorProperty } from '@lightelligence/react';

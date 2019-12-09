@@ -1,4 +1,6 @@
-### Example
+## Description
+
+The Navigation group element for the sidebar.
 
 ```jsx
 import { MemoryRouter } from 'react-router';

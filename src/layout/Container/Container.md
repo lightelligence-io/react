@@ -1,3 +1,5 @@
+## Description
+
 *Container* wraps content in a block and adds default padding around it, as
 well as additional responsive-friendly margin on screens wider than 576px.
 

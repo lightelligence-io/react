@@ -1,3 +1,11 @@
+## Description
+
+Use the *Notification* Component to render a notification.
+
+**Click the button below multiple times** to see different notifications. The
+notifications have different timeouts and some stay until you click them
+away.
+
 ```jsx
 import {
   Paragraph,
@@ -59,16 +67,18 @@ const notify = () => {
 };
 
 <>
-  <h2>General Demo</h2>
-  <Paragraph>
-    Click the button below multiple times to see different notifications. The
-    notifications have different timeouts and some stay until you click them
-    away.
-  </Paragraph>
   <Button onClick={notify}>Click Me</Button>
   <NotificationContainer />
 </>;
 ```
+
+## Error Notification
+
+The Notification example below indicates an error.
+
+The example uses `timeout: 0` to stop the notifcation from closing automatically.
+
+Use `type="info" | "success" | "warning" | "error"` to create the other notifcation types shown below.
 
 ```jsx
 import {
@@ -86,48 +96,46 @@ const notify = () =>
   });
 
 <>
-  <h2>Error Notification</h2>
-  <Paragraph>
-    Notification example that indicates an error. The example uses timeout: 0 to
-    stop the notifcation from closing automatically.
-  </Paragraph>
   <Button onClick={notify}>Click to open</Button>
   <NotificationContainer />
 </>;
 ```
+
+## Notification Types
+
+The following types of notifications can be created. <br /><br />
+
 
 ```jsx noeditor
 import { Paragraph, Notification } from '@lightelligence/react';
 import * as olt from '@lightelligence/styles';
 
 <>
-  <h2>Notification Types</h2>
-  <Paragraph>The following types of notifications can be created.</Paragraph>
   <div
     className={olt.NotificationContainer}
     style={{ position: 'relative', margin: '10px' }}
   >
     <Notification
       type="info"
-      title="INFO!"
+      title="Info Notification"
       timeout={0}
       content="Here is some information."
     />
     <Notification
       type="success"
-      title="SUCCESS!"
+      title="Success Notification"
       timeout={0}
       content="That was a success!"
     />
     <Notification
       type="warning"
-      title="WARNING!"
+      title="Warning Notification"
       timeout={0}
       content="This is only a warning!"
     />
     <Notification
       type="error"
-      title="ERROR!"
+      title="Error Notification"
       timeout={0}
       content="An error has occured!"
     />
@@ -137,7 +145,7 @@ import * as olt from '@lightelligence/styles';
 
 ```jsx static
 () => NotificationManager.info({
-    title: 'INFO!',
+    title="Info Notification"
     content: 'Here is some information.',
     timeout: 1000,
     onClose: () => {...}),
@@ -145,7 +153,7 @@ import * as olt from '@lightelligence/styles';
     onHide: () => {...}),
 });
 () => NotificationManager.success({
-    title: 'SUCCESS!',
+    title="Success Notification"
     content: 'That was a success!',
     timeout: 1000,
     onClose: () => {...}),
@@ -153,7 +161,7 @@ import * as olt from '@lightelligence/styles';
     onHide: () => {...}),
 });
 () => NotificationManager.warning({
-    title: 'WARNING!',
+    title="Warning Notification"
     content: 'This is only a warning!',
     timeout: 1000,
     onClose: () => {...}),
@@ -161,7 +169,7 @@ import * as olt from '@lightelligence/styles';
     onHide: () => {...}),
 });
 () => NotificationManager.error({
-    title: 'ERROR!',
+    title="Error Notification"
     content: 'An error has occured!',
     timeout: 1000,
     onClose: () => {...}),

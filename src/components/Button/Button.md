@@ -1,7 +1,9 @@
 
-## Types
+## Description
 
-Buttons communicate actions that users can take. They are typically placed throughout the UI, in places like Dialogs, Modals, Forms, Cards, Toolbars...
+Buttons enable users to perform clear actions with a single click. There are three levels of emphasis: primary, secondary and tertiary. For labeling purposes please use the [Chip](#/Components/Chip) Component.
+
+They are typically placed throughout the UI, in places like Dialogs, Modals, Forms, Cards, Toolbars...
 
 Different types of buttons communicate different actions.
 

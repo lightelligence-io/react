@@ -1,5 +1,32 @@
+## Description
+
 The Action Button is used to trigger actions like editing, etc.
-It is responsive and on mobile devices only the icon is shown (unless you add the fixed property to always show the label)
+
+It is responsive and on mobile devices only the icon is shown (unless you add the fixed property to always show the label).
+
+
+## States
+It consists of three states, depending on the cursor's distance to the click-area:
+
+* Default: The label is hidden and only the icon is displayed
+* Approximation: If the cursor is over a containing element (or near the button) the icon's base and the label appear
+* Hover: When the cursor directly approaches the click-area the base will expand and include the label. Also the label and the icon will come closer.
+
+## Types
+
+Different types help the user to differentiate between important and less important actions.
+- **Default**: Any possible actions
+- **Primary**: Actions with a clear intention
+- **Constructive**: Communicates that something is created through this action.
+- **Destructive**: Communicates that something is removed, deleted or destroyed through this action.
+
+## Additional modifiers
+
+On Tablet and Mobile Devices the action button is always displayed as the "Standalone with Base" variant to increase and show the click-area. If the standalone version cannot satisfactory represent the action it can be assisted with the label ("Fixed Label") depending on the context.
+
+- **fixed**: ensures that the label is always shown
+- **standalone**: hides the label
+- **base**: always shows the base
 
 
 ```js
@@ -55,6 +82,13 @@ const rows = [
     primary:       <ActionButton iconRight="add-outline" buttonType="primary" label="Label" />,
     destructive:   <ActionButton iconRight="remove-outline" buttonType="destructive" label="Label" />,
     confirmative:  <ActionButton iconRight="refresh" buttonType="confirmative" label="Label" />,
+  },
+  {
+    id: 'Fixed Label with Base',
+    default:       <ActionButton iconRight="edit" buttonType="default" label="Label" fixed base />,
+    primary:       <ActionButton iconRight="add-outline" buttonType="primary" label="Label" fixed base />,
+    destructive:   <ActionButton iconRight="remove-outline" buttonType="destructive" label="Label" fixed base />,
+    confirmative:  <ActionButton iconRight="refresh" buttonType="confirmative" label="Label" fixed base />,
   },
 ];
 

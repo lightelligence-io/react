@@ -17,9 +17,9 @@ export const Radio = ({
 }) => {
   const change = useCallback(() => {
     if (onChange && typeof onChange === 'function') {
-      onChange(!checked);
+      onChange(value, name);
     }
-  }, [onChange, checked]);
+  }, [onChange, value, name]);
 
   const { className: inputClassName, ...finalInputProps } = inputProps;
 
@@ -52,6 +52,7 @@ Radio.propTypes = {
   className: string,
   /**
    * Eventhandler which is called when this Radio is clicked.
+   * @return (value, name) the value and the name of the clicked radio button
    */
   onChange: func,
   /**
