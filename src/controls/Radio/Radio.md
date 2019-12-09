@@ -3,8 +3,7 @@ A Radio Button implementation.
 ```js
 import { Radio, Card, CardTable, CardTableItem, oltStyles } from '@lightelligence/react';
 initialState = { checked : [
-	true, true, true, true, true, true,
-	false, false, false, false, false
+	true, true, true, true, true, true, false
 ] };
 const onChange = (index) => () => {
 	const newChecked = [...state.checked];
@@ -40,13 +39,13 @@ const rows = [
   },
   {
 	id: 'Inactive',
-	light: wrap(<Radio onChange={onChange(4)} checked={state.checked[10]}>Label</Radio>),
-	dark: wrap(<Radio onChange={onChange(5)} checked={state.checked[11]}>Label</Radio>, true),
+	light: wrap(<Radio onChange={onChange(4)} checked={state.checked[4]}>Label</Radio>),
+	dark: wrap(<Radio onChange={onChange(5)} checked={state.checked[5]}>Label</Radio>, true),
   },
   {
 	id: 'Inactive Disabled',
-	light: wrap(<Radio onChange={onChange(6)} checked={state.checked[12]} disabled>Label</Radio>),
-	dark: wrap(<Radio onChange={onChange(7)} checked={state.checked[13]} disabled>Label</Radio>, true),
+	light: wrap(<Radio onChange={onChange(6)} checked={state.checked[6]} disabled>Label</Radio>),
+	dark: wrap(<Radio onChange={onChange(7)} checked={state.checked[7]} disabled>Label</Radio>, true),
   },
 ];
 
@@ -80,15 +79,4 @@ const onChange = (checked) => { setState({ checked }); }
 
 ## Radio Group
 
-```js
-import { RadioGroup, Radio } from '@lightelligence/react';
-
-initialState = { value: 'a' };
-const onChange = (value) => { setState({ value }); }
-
-<RadioGroup name="radio-group" value={state.value} onChange={onChange}>
-	<Radio value="a">Option A</Radio>
-	<Radio value="b">Option B</Radio>
-	<Radio value="c">Option C</Radio>
-</RadioGroup>
-```
+See [RadioGroup](#/Controls/RadioGroup)

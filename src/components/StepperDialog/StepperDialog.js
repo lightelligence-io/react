@@ -45,6 +45,9 @@ export const StepperDialog = ({
     if (!isServerSideRendering) {
       document.documentElement.style.overflow = open ? 'hidden' : '';
     }
+    return () => {
+      document.documentElement.style.overflow = '';
+    };
   }, [open]);
 
   // if the current step is handled from the outside, then (re-)set it on opening the dialog

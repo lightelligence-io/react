@@ -29,6 +29,9 @@ export const Dialog = ({
     if (!isServerSideRendering) {
       document.documentElement.style.overflow = open ? 'hidden' : '';
     }
+    return () => {
+      document.documentElement.style.overflow = '';
+    };
   }, [open]);
 
   const handleClickOutside = (event) => {

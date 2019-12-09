@@ -1,20 +1,17 @@
 import React from 'react';
 import { node, string } from 'prop-types';
 import classnames from 'classnames';
-
-import { OLT_NAMESPACE } from '../../constants';
+import * as olt from '@lightelligence/styles';
 
 const ListItem = ({ children, className, term, ...props }) => {
-  const base = `${OLT_NAMESPACE}List`;
-
   return (
     <>
       {term && (
-        <li {...props} className={classnames(`${base}-term`, className)}>
+        <li {...props} className={classnames(olt.ListTerm, className)}>
           {term}
         </li>
       )}
-      <li {...props} className={classnames(`${base}-item`, className)}>
+      <li {...props} className={classnames(olt.ListItem, className)}>
         {children}
       </li>
     </>
