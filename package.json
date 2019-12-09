@@ -19,8 +19,8 @@
     "lint": "eslint src/ --max-warnings 0 && prettier -c \"src/**/*.js\"",
     "lint:fix": "eslint --fix src/ --max-warnings 0 && prettier -c --write \"src/**/*.js\"",
     "license-report": "legally -lr",
-    "transpile-esm": "BABEL_ENV=esm babel src -d dist/esm --copy-files",
-    "transpile-cjs": "BABEL_ENV=cjs babel src -d dist/cjs --copy-files"
+    "transpile-esm": "cross-env BABEL_ENV=esm babel src -d dist/esm --copy-files",
+    "transpile-cjs": "cross-env BABEL_ENV=cjs babel src -d dist/cjs --copy-files"
   },
   "publishConfig": {
     "access": "public"
@@ -50,19 +50,18 @@
     "acorn": "^6.3.0",
     "audit-ci": "^2.4.2",
     "coveralls": "^3.0.7",
+    "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.5.0",
     "husky": "^3.0.9",
     "legally": "^3.3.7",
     "lint-staged": "^9.4.2",
-    "node-sass": "^4.13.0",
     "normalize.css": "^8.0.1",
     "prettier": "^1.18.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
-    "react-router-prop-types": "^1.0.4",
     "react-scripts": "^3.2.0",
     "react-styleguidist": "^10.2.1",
     "react-test-renderer": "^16.11.0",
