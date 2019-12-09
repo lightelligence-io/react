@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from 'react-testing-library';
+import { render, fireEvent } from '@testing-library/react';
 
 import { oltStyles } from '../..';
 
@@ -58,7 +58,7 @@ describe('Chip', () => {
     });
 
     const chip = getByText('Chip');
-    expect(chip.classList.contains('myClass')).toBeTruthy();
+    expect(chip.classList.contains('myClass')).toBe(true);
   });
 
   test('correctly sets the css-modifier for colors', () => {
@@ -67,7 +67,7 @@ describe('Chip', () => {
       color: 'primary',
     });
     const chip = getByText('Chip');
-    expect(chip.classList.contains(oltStyles.ChipPrimary)).toBeTruthy();
+    expect(chip.classList.contains(oltStyles.ChipPrimary)).toBe(true);
   });
 
   test('has the corresponding Chip class from styles', () => {
@@ -75,7 +75,7 @@ describe('Chip', () => {
       children: 'Chip',
     });
     const chip = getByText('Chip');
-    expect(chip.classList.contains(oltStyles.Chip)).toBeTruthy();
+    expect(chip.classList.contains(oltStyles.Chip)).toBe(true);
   });
 
   test('correctly sets the css-modifier for bubble', () => {
@@ -85,7 +85,7 @@ describe('Chip', () => {
       bubble: 1,
     });
     const chip = getByText('Chip');
-    expect(chip.classList.contains(oltStyles.ChipWithBubble)).toBeTruthy();
+    expect(chip.classList.contains(oltStyles.ChipWithBubble)).toBe(true);
   });
 
   test('correctly sets the css-modifier for bubbleIcon', () => {
@@ -95,7 +95,7 @@ describe('Chip', () => {
       bubbleIcon: 'add',
     });
     const chip = getByText('Chip');
-    expect(chip.classList.contains(oltStyles.ChipWithBubble)).toBeTruthy();
+    expect(chip.classList.contains(oltStyles.ChipWithBubble)).toBe(true);
   });
 
   test('correctly sets the css-modifier for bubbleColor', () => {
@@ -110,34 +110,46 @@ describe('Chip', () => {
       chip
         .querySelector(`.${oltStyles.ChipBubble}`)
         .classList.contains(oltStyles.ChipBubbleWarning),
-    ).toBeTruthy();
+    ).toBe(true);
   });
 
-  test('correctly sets the data-icon for bubbleIcon', () => {
+  test('correctly sets the  css-modifier  for bubbleIcon', () => {
+    const bubbleIcon = 'add-default';
     const { getByText } = renderComponent({
       children: 'Chip',
-      bubbleIcon: 'add',
+      bubbleIcon,
     });
     const chip = getByText('Chip');
     expect(
-      chip.querySelector(`.${oltStyles.ChipBubble}`).getAttribute('data-icon'),
-    ).toBe('add');
+      chip
+        .querySelector(`.${oltStyles.ChipBubble}`)
+        .classList.contains(oltStyles.ChipBubbleIcon),
+    ).toBe(true);
+    expect(
+      chip
+        .querySelector(`.${oltStyles.ChipBubble}`)
+        .classList.contains(`olt-Icon-${bubbleIcon}`),
+    ).toBe(true);
   });
 
-  test('correctly sets data-icon-left for iconLeft', () => {
+  test('correctly sets css-modifier for iconLeft', () => {
+    const iconLeft = 'add-default';
     const { getByText } = renderComponent({
       children: 'Chip',
-      iconLeft: 'add',
+      iconLeft,
     });
     const chip = getByText('Chip');
-    expect(chip.getAttribute('data-icon-left')).toBe('add');
+    expect(chip.classList.contains(oltStyles.ChipIconLeft)).toBe(true);
+    expect(chip.classList.contains(`olt-Icon-${iconLeft}`)).toBe(true);
   });
-  test('correctly sets data-icon-right for iconRight', () => {
+  test('correctly sets css-modifier for iconRight', () => {
+    const iconRight = 'add-default';
     const { getByText } = renderComponent({
       children: 'Chip',
-      iconRight: 'add',
+      iconRight,
     });
     const chip = getByText('Chip');
-    expect(chip.getAttribute('data-icon-right')).toBe('add');
+    expect(chip.classList.contains(oltStyles.ChipIconRight)).toBe(true);
+    expect(chip.classList.contains(`olt-Icon-${iconRight}`)).toBe(true);
   });
 });

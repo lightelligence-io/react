@@ -1,59 +1,63 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { string, element, bool } from 'prop-types';
 import classnames from 'classnames';
 import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 
-class Tooltip extends PureComponent {
-  static propTypes = {
-    contentClassName: string,
-    color: string,
-    message: string.isRequired,
-    children: element.isRequired,
-    wide: bool,
-    bottom: bool,
-  };
+const TooltipMessage = ({ message, wide = false }) =>
+  wide ? <p>{message}</p> : <span>{message}</span>;
 
-  static defaultProps = {
-    contentClassName: null,
-    color: null,
-    wide: false,
-    bottom: false,
-  };
+TooltipMessage.defaultProps = {
+  wide: false,
+};
 
-  renderMessage() {
-    const { message, wide } = this.props;
+TooltipMessage.propTypes = {
+  message: string.isRequired,
+  wide: bool,
+};
 
-    return wide ? <p>{message}</p> : <span>{message}</span>;
-  }
-
-  render() {
-    const {
-      children,
-      contentClassName,
-      color,
-      wide,
-      bottom,
-      ...props
-    } = this.props;
-    return (
+const Tooltip = ({
+  bottom,
+  children,
+  color,
+  contentClassName,
+  message,
+  wide,
+  ...props
+}) => {
+  return (
+    <div
+      className={classnames(olt.Tooltip, bottom && olt.TooltipBottom)}
+      {...props}
+    >
+      {children}
       <div
-        className={classnames(olt.Tooltip, bottom && olt.TooltipBottom)}
-        {...props}
+        className={classnames(
+          olt.TooltipContent,
+          color && olt[`Tooltip${pascalize(color)}`],
+          contentClassName,
+        )}
       >
-        {children}
-        <div
-          className={classnames(
-            olt.TooltipContent,
-            color && olt[`TooltipContent${pascalize(color)}`],
-            contentClassName,
-          )}
-        >
-          {this.renderMessage()}
-        </div>
+        <TooltipMessage wide={wide} message={message} />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+Tooltip.propTypes = {
+  contentClassName: string,
+  color: string,
+  message: string.isRequired,
+  children: element.isRequired,
+  wide: bool,
+  bottom: bool,
+};
+
+Tooltip.defaultProps = {
+  contentClassName: null,
+  color: null,
+  wide: false,
+  bottom: false,
+};
 
 export { Tooltip };

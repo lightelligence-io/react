@@ -26,19 +26,19 @@ design system. It is a React.js implementation of
 ## Usage
 
 Make sure to include the bundled CSS in your React Application as well as
-wrapping your content in [`<Frame />`](https://lightelligence-io.github.io/react/#/Components/Frame)
+wrapping your content in [`<RootContainer />`](https://lightelligence-io.github.io/react/#/Layout/RootContainer)
 component.
 
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '@lightelligence/react/dist/index.css';
-import { Button, Frame, COLOR_PRIMARY } from '@lightelligence/react';
+import { Button, RootContainer, COLOR_PRIMARY } from '@lightelligence/react';
 
 const App = () => (
-  <Frame>
+  <RootContainer>
     <Button color={COLOR_PRIMARY}>Hello World</Button>
-  </Frame>
+  </RootContainer>
 );
 
 ReactDOM.render(<App />, document.getElementById('root'));

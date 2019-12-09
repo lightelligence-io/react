@@ -1,74 +1,103 @@
-import React, { PureComponent } from 'react';
-import { func, node, bool, string } from 'prop-types';
-import { UID } from 'react-uid';
+import React, { useCallback, useRef, useEffect } from 'react';
+import { func, node, bool, string, shape } from 'prop-types';
 import classnames from 'classnames';
+
 import * as olt from '@lightelligence/styles';
 
-export class Checkbox extends PureComponent {
-  static propTypes = {
-    children: node,
-    className: string,
-    onChange: func,
-    checked: bool,
-    indeterminate: bool,
-    disabled: bool,
-  };
-
-  static defaultProps = {
-    children: null,
-    className: null,
-    onChange: null,
-    checked: false,
-    indeterminate: false,
-    disabled: false,
-  };
-
-  onChange = () => {
-    const { checked, onChange } = this.props;
+export const Checkbox = ({
+  children,
+  className,
+  checked,
+  indeterminate,
+  disabled,
+  onChange,
+  inline,
+  inputProps,
+  ...other
+}) => {
+  const inputRef = useRef();
+  const change = useCallback(() => {
     if (onChange) {
       onChange(!checked);
     }
-  };
+  }, [onChange, checked]);
 
-  render() {
-    const {
-      children,
-      className,
-      checked,
-      indeterminate,
-      disabled,
-    } = this.props;
-    return (
-      <UID name={(id) => `checkbox${id}`}>
-        {(id) => (
-          <div className={classnames(olt.Checkbox, className)}>
-            <input
-              id={id}
-              type="checkbox"
-              className={classnames(olt.CheckboxInput)}
-              checked={checked}
-              onChange={this.onChange}
-              disabled={disabled}
-            />
-            {children && (
-              <label
-                htmlFor={id}
-                className={classnames(
-                  olt.Label,
-                  olt.CheckboxLabel,
-                  indeterminate && olt.CheckboxIndeterminate,
-                )}
-                style={{
-                  fontSize: olt.theme.fontSize.small,
-                  marginBottom: olt.theme.spacing[1],
-                }}
-              >
-                {children}
-              </label>
-            )}
-          </div>
+  useEffect(() => {
+    inputRef.current.indeterminate = indeterminate;
+  }, [indeterminate, checked]);
+  const { className: inputClassName, ...finalInputProps } = inputProps;
+
+  return (
+    <label
+      className={classnames(
+        olt.Checkbox,
+        inline && olt.CheckboxInline,
+        className,
+      )}
+      {...other}
+    >
+      <input
+        type="checkbox"
+        className={classnames(
+          indeterminate && olt.CheckboxIndeterminate,
+          inputClassName,
         )}
-      </UID>
-    );
-  }
-}
+        checked={checked}
+        onChange={change}
+        disabled={disabled}
+        ref={inputRef}
+        {...finalInputProps}
+      />
+      <div className={olt.CheckboxButton} />
+      {children && (
+        <div className={classnames(olt.CheckboxLabel)}>{children}</div>
+      )}
+    </label>
+  );
+};
+
+Checkbox.propTypes = {
+  /**
+   * The label of this Checkbox.
+   */
+  children: node,
+  /**
+   * Forwards an additional className to the underlying component.
+   */
+  className: string,
+  /**
+   * Renders the Checkbox as `inline-flex` instead of `flex`.
+   */
+  inline: bool,
+  /**
+   * Eventhandler which is called when this Checkbox is clicked.
+   */
+  onChange: func,
+  /**
+   * The `checked` state of this input.
+   */
+  checked: bool,
+  /**
+   * The `indeterminate` state of this input.
+   */
+  indeterminate: bool,
+  /**
+   * The `disabled` state of this input.
+   */
+  disabled: bool,
+  /**
+   * `props` that will be forwarded to the underlying input component.
+   */
+  inputProps: shape({}),
+};
+
+Checkbox.defaultProps = {
+  children: null,
+  inline: false,
+  className: null,
+  onChange: null,
+  checked: false,
+  indeterminate: false,
+  disabled: false,
+  inputProps: {},
+};

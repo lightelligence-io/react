@@ -1,4 +1,12 @@
-#### Card with headline
+## Description
+
+The Card is used as a key element to group content and components.
+
+It supports several elements like title, description, actions, etc that can be passed as properties for a unified layout.
+
+Cards can also be used as buttons or edit cards as described below.
+
+## Card with headline
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -8,7 +16,7 @@ import { Card } from '@lightelligence/react';
 ```
 
 
-#### Card with headline and subtitle.
+## Card with headline and subtitle.
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -20,7 +28,7 @@ import { Card } from '@lightelligence/react';
 </Card>
 ```
 
-#### Card with action item
+## Card with action item
 
 ```js
 import { Card, Icon } from '@lightelligence/react';
@@ -28,14 +36,14 @@ import { Card, Icon } from '@lightelligence/react';
   title="Card with action"
   description="This is a very descriptive text"
   action={(
-    <Icon onClick={() => alert('click')} name="more_vert"/>
+    <Icon onClick={() => alert('click')} name="ellipsis"/>
   )}
 >
   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 </Card>
 ```
 
-#### Card with headline and action item only.
+## Card with headline and action item only.
 
 ```js
 import { Card, Button } from '@lightelligence/react';
@@ -53,7 +61,7 @@ import { Card, Button } from '@lightelligence/react';
 ```
 
 
-#### Card with content only.
+## Card with content only.
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -63,7 +71,7 @@ import { Card } from '@lightelligence/react';
 ```
 
 
-#### Card as Button
+## Card as Button
 
 ```js
 import { Card, Icon } from '@lightelligence/react';
@@ -71,13 +79,13 @@ import { Card, Icon } from '@lightelligence/react';
   title="Click here"
   description="...to use a card like a button"
   selectable
-  action={<Icon className="olt-Card-icon" name="more_vert"/>}
+  action={<Icon className="olt-Card-icon" name="ellipsis"/>}
   onClick={() => {
     console.log('click');
   }}/>
 ```
 
-#### Card as Links
+## Card as Links
 
 ```js
 import { Card, Link, Icon } from '@lightelligence/react';
@@ -87,7 +95,7 @@ import { Card, Link, Icon } from '@lightelligence/react';
     description="Description"
     selectable
     action={(
-      <Icon name="more_vert"/>
+      <Icon name="ellipsis"/>
     )}
   >
     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -96,7 +104,7 @@ import { Card, Link, Icon } from '@lightelligence/react';
 ```
 
 
-#### Context Cards
+## Context Cards
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -118,7 +126,7 @@ import { Card } from '@lightelligence/react';
 </Card>
 ```
 
-#### Card with teaser image
+## Card with teaser image
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -130,20 +138,20 @@ import { Card } from '@lightelligence/react';
 </Card>
 ```
 
-#### Card with divider
-
-```js
-import { Card, Divider } from '@lightelligence/react';
-<Card>
-  Echo<Divider/>Echo
-</Card>
-```
-
-#### Disabled Card
+## Disabled Card
 
 ```js
 import { Card } from '@lightelligence/react';
 <Card disabled>
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+</Card>
+```
+
+## Edit Card
+
+```js
+import { Card } from '@lightelligence/react';
+<Card edit onEdit={() => alert('Enabling Editing')}>
   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 </Card>
 ```

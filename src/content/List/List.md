@@ -1,3 +1,7 @@
+## Description
+
+A simple list component.
+
 ```jsx
 import { List, ListItem } from '@lightelligence/react';
 <List>
@@ -7,7 +11,7 @@ import { List, ListItem } from '@lightelligence/react';
 </List>
 ```
 
-Ordered Lists
+## Ordered Lists
 
 ```jsx
 import { List, ListItem } from '@lightelligence/react';
@@ -18,10 +22,10 @@ import { List, ListItem } from '@lightelligence/react';
 </List>
 ```
 
-Definition Lists
+## Definition Lists
 
 ```jsx
-import { List, ListItem, Tag } from '@lightelligence/react';
+import { List, ListItem, Chip } from '@lightelligence/react';
 <List definition>
   <ListItem term="Device Name">Waterproofed solar roof</ListItem>
   <ListItem term="Device Type">Gateway</ListItem>
@@ -30,17 +34,17 @@ import { List, ListItem, Tag } from '@lightelligence/react';
   </ListItem>
   <ListItem term="Firmware">DEV2S</ListItem>
   <ListItem term="Tags">
-    <Tag>Light</Tag>
-    <Tag>Intelligence</Tag>
+    <Chip>Light</Chip>
+    <Chip>Intelligence</Chip>
   </ListItem>
   <ListItem term="Status">online</ListItem>
 </List>
 ```
 
-Vertically stacked definition lists
+## Vertically stacked definition lists
 
 ```jsx
-import { List, ListItem, Tag } from '@lightelligence/react';
+import { List, ListItem, Chip } from '@lightelligence/react';
 <List definition vertical="xl">
   <ListItem term="Device Name">Waterproofed solar roof</ListItem>
   <ListItem term="Device Type">Gateway</ListItem>
@@ -49,8 +53,8 @@ import { List, ListItem, Tag } from '@lightelligence/react';
   </ListItem>
   <ListItem term="Firmware">DEV2S</ListItem>
   <ListItem term="Tags">
-    <Tag>Light</Tag>
-    <Tag>Intelligence</Tag>
+    <Chip>Light</Chip>
+    <Chip>Intelligence</Chip>
   </ListItem>
   <ListItem term="Status">online</ListItem>
 </List>

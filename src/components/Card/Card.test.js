@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 
 import { oltStyles } from '../..';
 
@@ -23,7 +23,7 @@ describe('Card', () => {
       'data-testid': 'Card',
     });
     const card = getByTestId('Card');
-    expect(card.classList.contains(oltStyles.Card)).toBeTruthy();
+    expect(card.classList.contains(oltStyles.Card)).toBe(true);
   });
 
   test('has the corresponding Content class from styles', () => {
@@ -34,7 +34,7 @@ describe('Card', () => {
       },
     });
     const card = getByTestId('Content');
-    expect(card.classList.contains(oltStyles.CardContent)).toBeTruthy();
+    expect(card.classList.contains(oltStyles.CardContent)).toBe(true);
   });
 
   test('has the corresponding Header class from styles', () => {
@@ -45,7 +45,7 @@ describe('Card', () => {
       },
     });
     const card = getByTestId('Header');
-    expect(card.classList.contains(oltStyles.CardHeader)).toBeTruthy();
+    expect(card.classList.contains(oltStyles.CardHeader)).toBe(true);
   });
 
   test('has the corresponding Action class from styles', () => {
@@ -56,7 +56,7 @@ describe('Card', () => {
       },
     });
     const card = getByTestId('Action');
-    expect(card.classList.contains(oltStyles.CardAction)).toBeTruthy();
+    expect(card.classList.contains(oltStyles.CardAction)).toBe(true);
   });
 
   test('has the corresponding Title class from styles', () => {
@@ -64,7 +64,7 @@ describe('Card', () => {
       title: 'TitleText',
     });
     const card = getByText('TitleText');
-    expect(card.classList.contains(oltStyles.CardTitle)).toBeTruthy();
+    expect(card.classList.contains(oltStyles.CardTitle)).toBe(true);
   });
 
   test('has the corresponding Desciption class from styles', () => {
@@ -72,6 +72,47 @@ describe('Card', () => {
       description: 'DescriptionText',
     });
     const card = getByText('DescriptionText');
-    expect(card.classList.contains(oltStyles.CardDescription)).toBeTruthy();
+    expect(card.classList.contains(oltStyles.CardDescription)).toBe(true);
+  });
+
+  test('edit adds edit class', () => {
+    const { getByTestId } = renderCard({
+      edit: true,
+      'data-testid': 'Card',
+    });
+    const card = getByTestId('Card');
+    expect(card.classList.contains(oltStyles.CardEdit)).toBe(true);
+  });
+
+  test('edit adds proximity class', () => {
+    const { getByTestId } = renderCard({
+      edit: true,
+      'data-testid': 'Card',
+    });
+    const card = getByTestId('Card');
+    expect(card.classList.contains(oltStyles.ActionButtonProximityArea)).toBe(
+      true,
+    );
+  });
+
+  test('edit adds correct edit button', () => {
+    const { getByTestId } = renderCard({
+      edit: true,
+      'data-testid': 'Card',
+      actionProps: {
+        'data-testid': 'Action',
+      },
+      editProps: {
+        'data-testid': 'Edit',
+      },
+    });
+    const action = getByTestId('Action');
+    expect(action.classList.contains(oltStyles.CardAction)).toBe(true);
+    const edit = getByTestId('Edit');
+    expect(edit.classList.contains(oltStyles.ActionButton)).toBe(true);
+    expect(edit.classList.contains(oltStyles.ActionButtonIconRight)).toBe(true);
+    expect(edit.classList.contains(oltStyles.IconEdit)).toBe(true);
+    const label = edit.getElementsByClassName('olt-ActionButton-label')[0];
+    expect(label).not.toBeUndefined();
   });
 });

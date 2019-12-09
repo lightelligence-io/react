@@ -1,11 +1,10 @@
 import React from 'react';
-import { bool, string, node, oneOfType, shape } from 'prop-types';
+import { bool, string, node, oneOfType, shape, func } from 'prop-types';
 import classnames from 'classnames';
 import { pascalize } from 'humps';
 import * as olt from '@lightelligence/styles';
 
-import { colorProp } from '../../propTypes';
-
+import { ActionButton } from '../ActionButton';
 import { Image } from '../../content/Image';
 import { Link } from '../../content/Link';
 
@@ -19,10 +18,13 @@ export const Card = ({
   selectable,
   className,
   disabled,
+  edit,
+  onEdit,
   to,
   contentProps,
   actionProps,
   headerProps,
+  editProps,
   ...props
 }) => {
   const Element = selectable && !to ? 'button' : (to && Link) || 'div';
@@ -30,6 +32,7 @@ export const Card = ({
   const { className: contentClassName, ...contentOther } = contentProps;
   const { className: actionClassName, ...actionOther } = actionProps;
   const { className: headerClassName, ...headerOther } = headerProps;
+  const { className: editClassName, ...editOther } = editProps;
 
   return (
     <Element
@@ -41,6 +44,8 @@ export const Card = ({
         selectable && olt.ButtonSelectable,
         className,
         disabled && olt.isDisabled,
+        edit && olt.CardEdit,
+        edit && olt.ActionButtonProximityArea,
       )}
       {...props}
     >
@@ -54,7 +59,7 @@ export const Card = ({
         ) : (
           image
         ))}
-      {(title || description || action) && (
+      {(title || description || action || edit) && (
         <div
           className={classnames(olt.CardHeader, headerClassName)}
           {...headerOther}
@@ -63,12 +68,21 @@ export const Card = ({
           {description && (
             <div className={olt.CardDescription}>{description}</div>
           )}
-          {action && (
+          {(action || edit) && (
             <div
               className={classnames(olt.CardAction, actionClassName)}
               {...actionOther}
             >
               {action}
+              {edit && (
+                <ActionButton
+                  iconRight="edit"
+                  label="Edit"
+                  className={editClassName}
+                  onClick={() => typeof onEdit === 'function' && onEdit()}
+                  {...editOther}
+                />
+              )}
             </div>
           )}
         </div>
@@ -92,12 +106,15 @@ Card.propTypes = {
   description: node,
   image: oneOfType([node, string]),
   action: node,
-  color: colorProp,
+  color: string,
   selectable: bool,
   disabled: bool,
+  edit: bool,
+  onEdit: func,
   contentProps: shape({}),
   actionProps: shape({}),
   headerProps: shape({}),
+  editProps: shape({}),
   to: string,
 };
 
@@ -111,8 +128,11 @@ Card.defaultProps = {
   color: undefined,
   selectable: false,
   disabled: false,
+  edit: false,
+  onEdit: null,
   contentProps: {},
   actionProps: {},
   headerProps: {},
+  editProps: {},
   to: '',
 };

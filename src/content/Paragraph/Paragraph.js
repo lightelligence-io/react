@@ -1,23 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
-import { string, shape } from 'prop-types';
+import { string, shape, oneOf } from 'prop-types';
 import * as olt from '@lightelligence/styles';
+import { Content } from '../Fonts';
 
-import { copyTextTypeProp, copyTextSizeProp } from '../../propTypes';
-import { FONT_SIZE_SMALL } from '../../constants';
-
-// TODO: Let's rename `element` prop to `tag` as with Headline
-export const Paragraph = ({ className, element, style, size, ...props }) => {
-  const Component = element;
-
+export const Paragraph = ({ className, tag, style, ...props }) => {
   return (
-    <Component
+    <Content
       {...props}
-      style={{
-        fontSize: size ? olt.theme.fontSize[size] : undefined,
-        lineHeight: size ? olt.theme.lineHeight[size] : undefined,
-        ...style,
-      }}
+      tag={tag}
       className={classnames(olt.Paragraph, className)}
     />
   );
@@ -25,14 +16,12 @@ export const Paragraph = ({ className, element, style, size, ...props }) => {
 
 Paragraph.propTypes = {
   className: string,
-  element: copyTextTypeProp,
-  size: copyTextSizeProp,
+  tag: oneOf(['p', 'span']),
   style: shape({}),
 };
 
 Paragraph.defaultProps = {
   className: null,
-  element: 'p',
-  size: FONT_SIZE_SMALL,
+  tag: 'p',
   style: null,
 };

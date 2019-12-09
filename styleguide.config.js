@@ -11,7 +11,10 @@ module.exports = {
     warn: (message) => {
       const ignore =
         message.indexOf(
-          `src/content/DataCards/DataCardsContent.js matches a pattern defined in “components” or “sections” options in your style guide`,
+          `src/content/CardTable/CardTableContent.js matches a pattern defined in “components” or “sections” options in your style guide`,
+        ) > -1 ||
+        message.indexOf(
+          `src/content/Fonts/Fonts.js matches a pattern defined in “components” or “sections” options in your style guide`,
         ) > -1;
       if (!ignore) {
         // eslint-disable-next-line no-console
@@ -22,12 +25,49 @@ module.exports = {
   sections: [
     {
       name: 'Introduction',
-      content: 'src/index.md',
+      content: 'src/introduction/index.md',
+      sectionDepth: 2,
+      sections: [
+        {
+          name: 'Basics',
+          content: 'src/introduction/basics.md',
+        },
+        {
+          name: 'Variables',
+          content: 'src/introduction/variables.md',
+        },
+      ],
     },
     {
       name: 'Components',
-      components: 'src/**/[A-Z]*.js', // exclude index.js files
+      components: 'src/components/**/[A-Z]*.js', // exclude index.js files
       // https://react-styleguidist.js.org/docs/components.html#finding-components
+      // href: false, -> https://github.com/styleguidist/react-styleguidist/issues/1145
+      sectionDepth: 2,
+    },
+    {
+      name: 'Content',
+      components: 'src/content/**/[A-Z]*.js', // exclude index.js files
+      sectionDepth: 2,
+    },
+    {
+      name: 'Controls',
+      components: 'src/controls/**/[A-Z]*.js', // exclude index.js files
+      sectionDepth: 2,
+    },
+    {
+      name: 'Layout',
+      components: 'src/layout/**/[A-Z]*.js', // exclude index.js files
+      sectionDepth: 2,
+    },
+    {
+      name: 'Navigation',
+      components: 'src/navigation/**/[A-Z]*.js',
+      sectionDepth: 2,
+    },
+    {
+      name: 'Hooks',
+      components: 'src/hooks/**/[A-Z]*.js', // exclude index.js files
       sectionDepth: 2,
     },
   ],
@@ -39,8 +79,8 @@ module.exports = {
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.jsx?$/, '.md');
   },
-  exampleMode: 'expand',
-  usageMode: 'expand',
+  exampleMode: 'collapse',
+  usageMode: 'collapse',
   ignore: ['src/**/[A-Z]*.test.js'],
   webpackConfig: {
     resolve: {
@@ -118,7 +158,7 @@ module.exports = {
     },
   },
   styleguideComponents: {
-    Wrapper: path.join(__dirname, 'src/layout/Frame/Frame'),
+    Wrapper: path.join(__dirname, 'styleguide/Frame'),
     Logo: path.join(__dirname, 'styleguide/Logo'),
     VersionDropdown: path.join(__dirname, 'styleguide/VersionDropdown'),
     StyleGuideRenderer: path.join(__dirname, 'styleguide/StyleGuide'),

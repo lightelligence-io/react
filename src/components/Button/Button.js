@@ -1,61 +1,119 @@
 import React from 'react';
 import { pascalize } from 'humps';
-import { string, bool, node, func } from 'prop-types';
+import { string, bool, node, func, oneOf } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
-const Button = ({
-  className,
-  color,
-  outline,
-  children,
-  disabled,
-  tag,
-  icon,
-  onClick,
-  ...props
-}) => {
-  const Element = tag || 'button';
+export const Button = React.forwardRef(
+  (
+    {
+      className,
+      emphasis,
+      // avoid name clash with type which can be passed to input elements
+      buttonType,
+      theme,
+      children,
+      disabled,
+      tag,
+      iconLeft,
+      iconRight,
+      onClick,
+      ...props
+    },
+    ref,
+  ) => {
+    const Element = tag || 'button';
+    return (
+      <Element
+        disabled={disabled}
+        onClick={onClick}
+        ref={ref}
+        {...props}
+        className={classnames(
+          olt.Button,
+          emphasis && olt[`Button${pascalize(emphasis)}`],
+          buttonType && olt[`Button${pascalize(buttonType)}`],
+          theme && olt[`Button${pascalize(theme)}`],
+          iconLeft && olt[`Icon${pascalize(iconLeft)}`],
+          iconLeft && olt.ButtonIconLeft,
+          iconRight && olt[`Icon${pascalize(iconRight)}`],
+          iconRight && olt.ButtonIconRight,
+          className,
+        )}
+      >
+        {children}
+      </Element>
+    );
+  },
+);
 
-  return (
-    <Element
-      onClick={onClick}
-      {...(Element === 'button' && disabled ? { disabled } : {})}
-      {...props}
-      className={classnames(
-        olt.Button,
-        color && olt[`Button${pascalize(color)}`],
-        outline && olt.ButtonOutline,
-        icon && olt.ButtonIcon,
-        className,
-      )}
-      data-icon={icon || undefined}
-    >
-      {children}
-    </Element>
-  );
-};
+Button.displayName = 'Button';
 
 Button.propTypes = {
-  tag: string,
+  /**
+   * The html tag that should be rendered for this button.
+   * Should be `button`, `input` or `a`.
+   */
+  tag: oneOf(['button', 'input', 'a']),
+  /**
+   * Forward an additional className to the underlying component.
+   */
   className: string,
-  outline: bool,
+  /**
+   * Should the button be rendered as icon only.
+   */
   icon: string,
+  /**
+   * An icon that should be rendered to the left of the button label.
+   */
+  iconLeft: string,
+  /**
+   * An icon that should be rendered to the right of the button label.
+   */
+  iconRight: string,
+  /**
+   * The `disabled` state of this button.
+   */
   disabled: bool,
+  /**
+   * The label of this button.
+   */
   children: node,
-  color: string,
+  /**
+   * This function is called when a the button is clicked.
+   */
   onClick: func,
+  /**
+   * The emphasis of this button, by default its rendered with `primary`-emphasis.
+   */
+  emphasis: oneOf(['primary', 'secondary', 'tertiary']),
+  /**
+   * The type of this button, by default its rendered as `default`.
+   */
+  buttonType: oneOf([
+    'default',
+    'confirmative',
+    'destructive',
+    'action',
+    'paginationPrev',
+    'paginationNext',
+  ]),
+  /**
+   * The theme of this button, by default its rendered with theme `light`.
+   */
+  theme: oneOf(['light', 'dark']),
 };
 
 Button.defaultProps = {
   tag: 'button',
-  className: null,
-  disabled: false,
-  icon: '',
-  outline: false,
+  className: undefined,
+  disabled: undefined,
+  icon: undefined,
+  iconLeft: undefined,
+  iconRight: undefined,
   children: null,
-  color: undefined,
   onClick: undefined,
+  emphasis: undefined,
+  buttonType: undefined,
+  theme: 'light',
 };
-
-export { Button };

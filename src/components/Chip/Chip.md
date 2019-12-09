@@ -1,8 +1,13 @@
-### Description
+## Description
 
-Chip can be used with <span> elements and and occupy the olt-Chip* class names.
+Chips are a perfect fit for small pieces of information such as tags with predefined and variable text or numbers. They can be used with different types of decorations to provide more clarity of their function to the user.
 
-### Overview
+Use chips to visually label UI elements for quick recognition and navigation. Chips can also be used in a group to provide filter functionality. For a Call to Action please use the Button Component.
+
+
+They can be used with <span> elements and and occupy the olt-Chip* class names.
+
+## Overview
 
 - **Default**: Tags, Attributes, Filters<br />
 Clickable but no Call To Action
@@ -14,7 +19,7 @@ Clickable but no Call To Action
 Clickable but no CTA
 
 ```js
-import { DataCards, DataCardsItem, Chip, Card } from '@lightelligence/react';
+import { CardTable, CardTableItem, Chip, Card } from '@lightelligence/react';
 const fields = [
   { key: 'id', label: '' },
   { key: 'default', label: 'Default'},
@@ -36,17 +41,17 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    default:    wrap(<Chip iconLeft="add" color="default">Chip</Chip>),
-    dark:      wrap(<Chip iconLeft="add" color="dark">Chip</Chip>),
-    light:        wrap(<Chip iconLeft="add" color="light">Chip</Chip>, true),
-    primary_active: wrap(<Chip iconLeft="add" color="primary">Chip</Chip>),
+    default:    wrap(<Chip iconLeft="add-default" color="default">Chip</Chip>),
+    dark:      wrap(<Chip iconLeft="add-default" color="dark">Chip</Chip>),
+    light:        wrap(<Chip iconLeft="add-default" color="light">Chip</Chip>, true),
+    primary_active: wrap(<Chip iconLeft="add-default" color="primary">Chip</Chip>),
   },
   {
     id: 'Decoration Right',
-    default:    wrap(<Chip iconRight="add" color="default">Chip</Chip>),
-    dark:      wrap(<Chip iconRight="add" color="dark">Chip</Chip>),
-    light:        wrap(<Chip iconRight="add" color="light">Chip</Chip>, true),
-    primary_active: wrap(<Chip iconRight="add" color="primary">Chip</Chip>),
+    default:    wrap(<Chip iconRight="add-default" color="default">Chip</Chip>),
+    dark:      wrap(<Chip iconRight="add-default" color="dark">Chip</Chip>),
+    light:        wrap(<Chip iconRight="add-default" color="light">Chip</Chip>, true),
+    primary_active: wrap(<Chip iconRight="add-default" color="primary">Chip</Chip>),
   },
   {
     id: 'Count',
@@ -57,10 +62,10 @@ const rows = [
   },
   {
     id: 'Count + Decoration Left',
-    default:    wrap(<Chip iconLeft="add" color="default" bubble={5}>Chip</Chip>),
-    dark:      wrap(<Chip iconLeft="add" color="dark" bubble={5}>Chip</Chip>),
-    light:        wrap(<Chip iconLeft="add" color="light" bubble={5}>Chip</Chip>, true),
-    primary_active: wrap(<Chip iconLeft="add" color="primary" bubble={5}>Chip</Chip>),
+    default:    wrap(<Chip iconLeft="add-default" color="default" bubble={5}>Chip</Chip>),
+    dark:      wrap(<Chip iconLeft="add-default" color="dark" bubble={5}>Chip</Chip>),
+    light:        wrap(<Chip iconLeft="add-default" color="light" bubble={5}>Chip</Chip>, true),
+    primary_active: wrap(<Chip iconLeft="add-default" color="primary" bubble={5}>Chip</Chip>),
   },
   {
     id: 'Shortened',
@@ -84,21 +89,21 @@ const rows = [
     primary_active: wrap(<Chip disabled color="primary">Chip</Chip>),
   },
 ];
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="default" />
-  <DataCardsItem halfSize align="center" field="dark" />
-  <DataCardsItem halfSize align="center" field="light" />
-  <DataCardsItem halfSize align="center" field="primary_active" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="default" />
+  <CardTableItem halfSize align="center" field="dark" />
+  <CardTableItem halfSize align="center" field="light" />
+  <CardTableItem halfSize align="center" field="primary_active" />
+</CardTable>;
 ```
 
 - **Error**: Negative Emphasis, No destructive CTA<br />
@@ -111,7 +116,7 @@ Not Clickable
 
 
 ```js
-import { DataCards, DataCardsItem, Chip, Card } from '@lightelligence/react';
+import { CardTable, CardTableItem, Chip, Card } from '@lightelligence/react';
 const fields = [
   { key: 'id', label: '' },
   { key: 'error', label: 'Error'},
@@ -121,7 +126,7 @@ const fields = [
 
 const wrap = (chip) => (<div style={{ textAlign: 'center' }}>{chip}</div>);
 const rows = [
-  
+
   {
     id: 'Default',
     error:    wrap(<Chip color="error">Chip</Chip>),
@@ -130,9 +135,9 @@ const rows = [
   },
   {
     id: 'Decoration Left',
-    error:    wrap(<Chip iconLeft="add" color="error">Chip</Chip>),
-    success:      wrap(<Chip iconLeft="add" color="success">Chip</Chip>),
-    info:        wrap(<Chip iconLeft="add" color="info">Chip</Chip>),
+    error:    wrap(<Chip iconLeft="add-default" color="error">Chip</Chip>),
+    success:      wrap(<Chip iconLeft="add-default" color="success">Chip</Chip>),
+    info:        wrap(<Chip iconLeft="add-default" color="info">Chip</Chip>),
   },
   {
     id: 'Count',
@@ -142,9 +147,9 @@ const rows = [
   },
   {
     id: 'Count + Decoration Left',
-    error:    wrap(<Chip iconLeft="add" color="error" bubble={5}>Chip</Chip>),
-    success:      wrap(<Chip iconLeft="add" color="success" bubble={5}>Chip</Chip>),
-    info:        wrap(<Chip iconLeft="add" color="info" bubble={5}>Chip</Chip>),
+    error:    wrap(<Chip iconLeft="add-default" color="error" bubble={5}>Chip</Chip>),
+    success:      wrap(<Chip iconLeft="add-default" color="success" bubble={5}>Chip</Chip>),
+    info:        wrap(<Chip iconLeft="add-default" color="info" bubble={5}>Chip</Chip>),
   },
   {
     id: 'Shortened',
@@ -153,23 +158,23 @@ const rows = [
     info:        wrap(<Chip color="info">Lore...sum</Chip>),
   }
 ];
-<DataCards
+<CardTable
   fields={fields}
   rows={rows}
   align="center"
   layout="table"
 >
-  <DataCardsItem
+  <CardTableItem
     align="center"
     field="id"
   />
-  <DataCardsItem halfSize align="center" field="error" />
-  <DataCardsItem halfSize align="center" field="success" />
-  <DataCardsItem halfSize align="center" field="info" />
-</DataCards>;
+  <CardTableItem halfSize align="center" field="error" />
+  <CardTableItem halfSize align="center" field="success" />
+  <CardTableItem halfSize align="center" field="info" />
+</CardTable>;
 ```
 
-### Colors
+## Colors
 
 ```js
 import { Chip, Card, FloatingList } from '@lightelligence/react';
@@ -178,8 +183,8 @@ import { Chip, Card, FloatingList } from '@lightelligence/react';
 <FloatingList>
   <Chip>Default</Chip>
   <Chip color="primary">Primary</Chip>
-  <Chip color="active">Active</Chip>
   <Chip color="dark">Dark</Chip>
+  <Chip color="light">Light</Chip>
   <Chip color="info">Info</Chip>
   <Chip color="error">Error</Chip>
   <Chip color="success">Success</Chip>
@@ -190,9 +195,9 @@ import { Chip, Card, FloatingList } from '@lightelligence/react';
 </Card>
 </>
 ```
-### Variations
+## Variations
 
-#### Disabled
+### Disabled
 
 Chips which do not have the color `error`, `success` or `info` can have the `disabled` property set which will make them disabled.
 
@@ -203,7 +208,7 @@ import { Chip, FloatingList, Card } from '@lightelligence/react';
 <FloatingList>
   <Chip disabled>Default</Chip>
   <Chip disabled color="primary">Primary</Chip>
-  <Chip disabled color="active">Active</Chip>
+  <Chip disabled color="light">Light</Chip>
   <Chip disabled color="dark">Dark</Chip>
 </FloatingList>
 </Card>
@@ -213,7 +218,7 @@ import { Chip, FloatingList, Card } from '@lightelligence/react';
 </>
 ```
 
-#### Selectable and onClick
+### Selectable and onClick
 
 Chips that are `selectable` can have an `onClick` property.
 
@@ -226,77 +231,101 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
 </FloatingList>;
 ```
 
-### Decorations
+## Decorations
 
-#### Icons
+### Icons
 
 Each Chip can have an icon rendered on the left or on the right side by adding `iconLeft` or `iconRight` properties to the component.
 
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <Chip onClick={() => alert('Chip closed!')} color="primary" selectable iconLeft="add">
+  <Chip onClick={() => alert('Chip closed!')} color="primary" selectable iconLeft="add-default">
     Primary
   </Chip>
-  <Chip onClick={() => alert('Chip closed!')} selectable iconRight="add">
+  <Chip onClick={() => alert('Chip closed!')} selectable iconRight="add-default">
     Primary
   </Chip>
 </FloatingList>;
 ```
 
 
-#### Bubble
+### Bubble
 
 Each Chip can have an additional bubble rendered on the top right side by setting the `bubble` property.
 
 ```js
-import { Chip, Icon, FloatingList } from '@lightelligence/react';
-<FloatingList>
-  <Chip bubble={1}>
-    Default
+import { Card, Chip, Icon, FloatingList } from '@lightelligence/react';
+<>
+<Card>
+  <FloatingList>
+    <Chip bubble={1}>
+      Default
+    </Chip>
+    <Chip bubble={42} color="primary" >
+      Primary
+    </Chip>
+    <Chip bubble={5} color="dark" >
+      Dark
+    </Chip>
+    <Chip bubble={9} color="light" >
+      Light
+    </Chip>
+    <Chip bubble={11} color="error" >
+      Error
+    </Chip>
+    <Chip bubble={23} color="success" >
+      Success
+    </Chip>
+    <Chip bubble={3} color="info" >
+      Info
+    </Chip>
+  </FloatingList>
+</Card>
+<Card color="dark">
+  <Chip bubble={9} color="light" >
+    Light
   </Chip>
-  <Chip bubble={42} color="primary" >
-    Primary
-  </Chip>
-  <Chip bubble={5} color="dark" >
-    Dark
-  </Chip>
-  <Chip bubble={11} color="error" >
-    Error
-  </Chip>
-  <Chip bubble={23} color="success" >
-    Success
-  </Chip>
-  <Chip bubble={3} color="info" >
-    Info
-  </Chip>
-</FloatingList>;
+</Card>
+</>
 ```
 
 The Chip's bubble can also be an icon by setting the `bubbleIcon` property.
 
 ```js
-import { Chip, Icon, FloatingList } from '@lightelligence/react';
-<FloatingList>
-  <Chip bubbleIcon="add">
-    Default
+import { Card, Chip, Icon, FloatingList } from '@lightelligence/react';
+<>
+<Card>
+  <FloatingList>
+    <Chip bubbleIcon="add-default">
+      Default
+    </Chip>
+    <Chip color="primary" bubbleIcon="add-default">
+      Primary
+    </Chip>
+    <Chip color="dark" bubbleIcon="add-default">
+      Dark
+    </Chip>
+    <Chip color="light" bubbleIcon="add-default">
+      Light
+    </Chip>
+    <Chip color="error" bubbleIcon="add-default">
+      Error
+    </Chip>
+    <Chip color="success" bubbleIcon="add-default">
+      Success
+    </Chip>
+    <Chip color="info" bubbleIcon="add-default">
+      Info
+    </Chip>
+  </FloatingList>
+</Card>
+<Card color="dark">
+  <Chip bubble={9} color="light" >
+    Light
   </Chip>
-  <Chip color="primary" bubbleIcon="add">
-    Primary
-  </Chip>
-  <Chip color="dark" bubbleIcon="add">
-    Dark
-  </Chip>
-  <Chip color="error" bubbleIcon="add">
-    Error
-  </Chip>
-  <Chip color="success" bubbleIcon="add">
-    Success
-  </Chip>
-  <Chip color="info" bubbleIcon="add">
-    Info
-  </Chip>
-</FloatingList>;
+</Card>
+</>
 ```
 
 Bubble's colors can also be fixed by setting the `bubbleColor` property to `info`, `success`, `warning` or `error`. They only work with the default Chip.
@@ -304,16 +333,16 @@ Bubble's colors can also be fixed by setting the `bubbleColor` property to `info
 ```js
 import { Chip, Icon, FloatingList } from '@lightelligence/react';
 <FloatingList>
-  <Chip bubbleColor="info" bubbleIcon="add">
+  <Chip bubbleColor="info" bubbleIcon="add-default">
     Info with icon
   </Chip>
   <Chip bubbleColor="success" bubble={42}>
     Success with Counter
   </Chip>
-  <Chip bubbleColor="warning" bubbleIcon="add">
+  <Chip bubbleColor="warning" bubbleIcon="add-default">
     Warning with icon
   </Chip>
-  <Chip bubbleColor="error" bubbleIcon="add">
+  <Chip bubbleColor="error" bubbleIcon="add-default">
     Error with icon
   </Chip>
 </FloatingList>;
