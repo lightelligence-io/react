@@ -1,12 +1,27 @@
 /**
- * get the min-width for the currently active breakpoint (e.g. "768px")
+ * get the min-width for the given active breakpoint (e.g. "768px")
+ *
+ * @param breakpoint (e.g. "xl")
+ * @returns number
+ * @example
+ *  getWidthForBreakpoint('xl') -> "1200"
+ */
+export const getBreakpointWidth = (breakpoint) =>
+  convertBreakpointValueToNumber(
+    getComputedStyle(document.documentElement)
+      .getPropertyValue(`--olt-breakpoint-${breakpoint}`)
+      .trim(),
+  );
+
+/**
+ * get the value for the given active breakpoint (e.g. "768px")
  *
  * @param breakpoint (e.g. "xl")
  * @returns string
  * @example
  *  getWidthForBreakpoint('xl') -> "1200px"
  */
-export const getWidthForBreakpoint = (breakpoint) =>
+export const getBreakpointValue = (breakpoint) =>
   getComputedStyle(document.documentElement)
     .getPropertyValue(`--olt-breakpoint-${breakpoint}`)
     .trim();
