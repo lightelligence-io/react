@@ -41,30 +41,3 @@ deploy:
     target_branch: gh-pages
     on:
       branch: master
-
-  - provider: releases
-    api_key: $GITHUB_ACCESS_TOKEN
-    tag_name: $TRAVIS_TAG
-    on:
-      branch: alpha
-      repo: lightelligence-io/react
-      condition: '$TRAVIS_COMMIT_MESSAGE =~ ^release*'
-
-  - provider: npm
-    email: 'support@lightelligence.io'
-    api_key: $NPM_TOKEN_PUBLISH
-    skip_cleanup: true
-    tag: alpha
-    on:
-      branch: alpha
-      repo: lightelligence-io/react
-      condition: '$TRAVIS_COMMIT_MESSAGE =~ ^release*'
-
-  - provider: pages
-    local_dir: gh-pages
-    skip_cleanup: true
-    github_token: $GITHUB_ACCESS_TOKEN
-    keep_history: true
-    target_branch: gh-pages
-    on:
-      branch: alpha
