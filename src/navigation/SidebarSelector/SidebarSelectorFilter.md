@@ -1,4 +1,6 @@
-### Example
+## Description
+
+Create a Filter Selector element for the sidebar.
 
 ```jsx
 import {

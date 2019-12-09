@@ -1,4 +1,12 @@
-#### Card with headline
+## Description
+
+The Card is used as a key element to group content and components.
+
+It supports several elements like title, description, actions, etc that can be passed as properties for a unified layout.
+
+Cards can also be used as buttons or edit cards as described below.
+
+## Card with headline
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -8,7 +16,7 @@ import { Card } from '@lightelligence/react';
 ```
 
 
-#### Card with headline and subtitle.
+## Card with headline and subtitle.
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -20,7 +28,7 @@ import { Card } from '@lightelligence/react';
 </Card>
 ```
 
-#### Card with action item
+## Card with action item
 
 ```js
 import { Card, Icon } from '@lightelligence/react';
@@ -35,7 +43,7 @@ import { Card, Icon } from '@lightelligence/react';
 </Card>
 ```
 
-#### Card with headline and action item only.
+## Card with headline and action item only.
 
 ```js
 import { Card, Button } from '@lightelligence/react';
@@ -53,7 +61,7 @@ import { Card, Button } from '@lightelligence/react';
 ```
 
 
-#### Card with content only.
+## Card with content only.
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -63,7 +71,7 @@ import { Card } from '@lightelligence/react';
 ```
 
 
-#### Card as Button
+## Card as Button
 
 ```js
 import { Card, Icon } from '@lightelligence/react';
@@ -77,7 +85,7 @@ import { Card, Icon } from '@lightelligence/react';
   }}/>
 ```
 
-#### Card as Links
+## Card as Links
 
 ```js
 import { Card, Link, Icon } from '@lightelligence/react';
@@ -96,7 +104,7 @@ import { Card, Link, Icon } from '@lightelligence/react';
 ```
 
 
-#### Context Cards
+## Context Cards
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -118,7 +126,7 @@ import { Card } from '@lightelligence/react';
 </Card>
 ```
 
-#### Card with teaser image
+## Card with teaser image
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -130,7 +138,7 @@ import { Card } from '@lightelligence/react';
 </Card>
 ```
 
-#### Disabled Card
+## Disabled Card
 
 ```js
 import { Card } from '@lightelligence/react';
@@ -139,7 +147,7 @@ import { Card } from '@lightelligence/react';
 </Card>
 ```
 
-#### Edit Card
+## Edit Card
 
 ```js
 import { Card } from '@lightelligence/react';

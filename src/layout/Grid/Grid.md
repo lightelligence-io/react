@@ -1,3 +1,5 @@
+## Description
+
 *Grid* is our main layout component, which can be used to create responsive
 grid layouts of your application.
 

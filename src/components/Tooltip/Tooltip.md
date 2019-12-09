@@ -1,4 +1,10 @@
-### Sizes
+## Description
+
+Use the tooltip to render information when the user hovers over an element with the mouse.
+
+Use this scarcely as the user experience is less good on touch devices that don't support hovering.
+
+## Sizes
 
 ```js
 import { Tooltip, Button, Card } from '@lightelligence/react';
@@ -18,7 +24,7 @@ import { Tooltip, Button, Card } from '@lightelligence/react';
 </>;
 ```
 
-### Positions
+## Positions
 
 ```js
 import { Tooltip, Button, Card } from '@lightelligence/react';
@@ -37,7 +43,7 @@ import { Tooltip, Button, Card } from '@lightelligence/react';
 </>;
 ```
 
-### Context Colors
+## Context Colors
 
 ```js
 import { Tooltip, Button } from '@lightelligence/react';
@@ -74,7 +80,7 @@ import { Tooltip, Button } from '@lightelligence/react';
 </>;
 ```
 
-### Other trigger components
+## Other trigger components
 
 ```js
 import { Tooltip, Button, Card } from '@lightelligence/react';

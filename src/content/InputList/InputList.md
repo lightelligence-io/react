@@ -1,4 +1,6 @@
-### Example
+## Description
+
+The input list is used to simplify the rendering of [Dropdown](#/Components/Dropdown) components for basic content.
 
 ```jsx
 import { InputList, InputListItem } from '@lightelligence/react';

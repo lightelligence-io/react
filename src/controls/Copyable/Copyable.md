@@ -1,3 +1,7 @@
+## Description
+
+Allow to copy text to the clipboard.
+
 ```js
 import { Copyable } from '@lightelligence/react';
 

@@ -1,4 +1,6 @@
-### Example
+## Description
+
+The sidebar for the navigation.
 
 The mobile behaviour should be implemented in your application
 

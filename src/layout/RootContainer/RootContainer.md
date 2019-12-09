@@ -1,4 +1,4 @@
-### Example
+## Description
 
 Note that in this example we take care of triggering the
 [SecondarySidebar](#/Navigation/SecondarySidebar) with a simple use of
