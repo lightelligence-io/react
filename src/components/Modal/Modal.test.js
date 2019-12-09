@@ -6,13 +6,6 @@ import { oltStyles } from '../..';
 import { Icon } from '../Icon';
 import { Button } from '../Button';
 import { Modal } from './Modal';
-import {
-  MODAL_TYPE_CRITICAL,
-  MODAL_TYPE_SUCCESS,
-  MODAL_TYPE_INFO,
-  MODAL_TYPE_WARNING,
-  MODAL_TYPE_ACTION,
-} from './types';
 
 const renderModal = (props) => {
   return render(
@@ -91,35 +84,35 @@ describe('Modal', () => {
   });
   test('renders critical modifier', () => {
     const { getByTestId } = renderModal({
-      type: MODAL_TYPE_CRITICAL,
+      type: 'critical',
     });
     const modal = getByTestId('modal');
     expect(modal.classList.contains(oltStyles.ModalCritical)).toBe(true);
   });
   test('renders warning modifier', () => {
     const { getByTestId } = renderModal({
-      type: MODAL_TYPE_WARNING,
+      type: 'warning',
     });
     const modal = getByTestId('modal');
     expect(modal.classList.contains(oltStyles.ModalWarning)).toBe(true);
   });
   test('renders info modifier', () => {
     const { getByTestId } = renderModal({
-      type: MODAL_TYPE_INFO,
+      type: 'info',
     });
     const modal = getByTestId('modal');
     expect(modal.classList.contains(oltStyles.ModalInfo)).toBe(true);
   });
   test('renders success modifier', () => {
     const { getByTestId } = renderModal({
-      type: MODAL_TYPE_SUCCESS,
+      type: 'success',
     });
     const modal = getByTestId('modal');
     expect(modal.classList.contains(oltStyles.ModalSuccess)).toBe(true);
   });
   test('renders action modifier', () => {
     const { getByTestId } = renderModal({
-      type: MODAL_TYPE_ACTION,
+      type: 'action',
     });
     const modal = getByTestId('modal');
     expect(modal.classList.contains(oltStyles.ModalAction)).toBe(true);

@@ -1,4 +1,6 @@
-# Showing a Modal
+## Description
+
+Use modals to demand the user's confirmation or warn the user if he is making significant changes.
 
 Use the *Modal* Component to render a modal.
 
@@ -26,24 +28,24 @@ const toggleModal = () => {
 The *Modal* can be rendered with different variations based on the context.
 
 We support the following types:
-- `MODAL_TYPE_CRITICAL = 'critical'`<br/>
+- `critical`<br/>
   Use the critical *Modal* whenever you want to communicate a critical or error state to the user. Especially when proceeding will likely lead to an undesired outcome for the user that he is probably not aware of. e.g.: Deleting a role will lead to users being deleted from the tenant because they have no role afterward.
 
-- `MODAL_TYPE_WARNING = 'warning'`<br/>
+- `warning`<br/>
   The warning *Modal* is used when needing to show important information e.g. to prevent errors. e.g.: 15 of your devices have not responded, check your device management.
 
-- `MODAL_TYPE_INFO = 'info'`<br/>
+- `info`<br/>
   The info *Modal* can be used whenever an additional non-critical information should be provided to the user. The info will not have negative results no matter the users choice. e.g.: You have been invited to a tenant, accept or decline.
 
-- `MODAL_TYPE_SUCCESS = 'success'`<br/>
+- `success`<br/>
   Use the success *Modal* to communicate a success message the user has to be made aware of. e.g.: You successfully finished an action.
 
-- `MODAL_TYPE_ACTION = 'action'`<br/>
+- `action`<br/>
   Use the action *Modal* for changes that demand active user input. e.g.: Edit the description of a tenant.
 
 
 ```js
-import { Modal, MODAL_TYPE_CRITICAL, MODAL_TYPE_SUCCESS, MODAL_TYPE_INFO, MODAL_TYPE_WARNING, MODAL_TYPE_ACTION, Button, FloatingList } from '@lightelligence/react';
+import { Modal, Button, FloatingList } from '@lightelligence/react';
 initialState = { modalOpen: {
   error: false,
   warning: false,
@@ -74,7 +76,7 @@ const onSubmit = (type) => {
     <Button buttonType="action" onClick={() => toggleModal('action')}>Open Action Modal</Button>
   </FloatingList>
   <Modal
-    type={MODAL_TYPE_CRITICAL}
+    type={'critical'}
     title="Error!!!!!"
     content="Lorem ipsum dolor sit amet."
     open={state.modalOpen.error}
@@ -96,7 +98,7 @@ const onSubmit = (type) => {
       </Button>
     ]}/>
   <Modal
-    type={MODAL_TYPE_WARNING}
+    type={'warning'}
     title="Warning!"
     content="Lorem ipsum dolor sit amet."
     open={state.modalOpen.warning}
@@ -118,7 +120,7 @@ const onSubmit = (type) => {
       </Button>
     ]}/>
   <Modal
-    type={MODAL_TYPE_INFO}
+    type={'info'}
     title="Info!"
     content="Lorem ipsum dolor sit amet."
     open={state.modalOpen.info}
@@ -140,7 +142,7 @@ const onSubmit = (type) => {
       </Button>
     ]}/>
   <Modal
-    type={MODAL_TYPE_SUCCESS}
+    type={'success'}
     title="Success!!"
     content="Lorem ipsum dolor sit amet."
     open={state.modalOpen.success}
@@ -162,7 +164,7 @@ const onSubmit = (type) => {
       </Button>
     ]}/>
   <Modal
-    type={MODAL_TYPE_ACTION}
+    type={'action'}
     title="Action!!"
     content="Lorem ipsum dolor sit amet."
     open={state.modalOpen.action}

@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useEffect, useState } from 'react';
 import { number, arrayOf, func } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
+import { getCurrentBreakpoint } from '../../utils/breakpoints';
 import { Select } from '../../controls/Select';
 import { Description } from '../../content/Fonts';
 import { Button } from '../Button';
@@ -19,10 +20,8 @@ const Pagination = ({
   const [isMobile, setIsMobile] = useState({ isMobile: 0 });
 
   const setMobileFlag = useCallback(() => {
-    setIsMobile(
-      paginationBar.current.clientWidth < 576, // TODO: use styles breakpoint! used to be parseInt(olt.theme.breakpoint.sm, 10),
-    );
-  }, [paginationBar]);
+    setIsMobile(getCurrentBreakpoint() === 'xs');
+  }, []);
 
   useEffect(() => {
     setMobileFlag();

@@ -2,7 +2,11 @@
 
 You can use the tooltip component to show a tooltip for a component (like a button) or on any text.
 
-### Sizes
+Use the tooltip to render information when the user hovers over an element with the mouse.
+
+Use this scarcely as the user experience is less good on touch devices that don't support hovering.
+
+## Sizes
 
 ```js
 import { Tooltip, Button, Card } from '@lightelligence/react';
@@ -22,7 +26,7 @@ import { Tooltip, Button, Card } from '@lightelligence/react';
 </>;
 ```
 
-### Positions
+## Positions
 
 ```js
 import { Tooltip, Button, Card } from '@lightelligence/react';
@@ -37,7 +41,7 @@ import { Tooltip, Button, Card } from '@lightelligence/react';
 </>;
 ```
 
-### Colors
+## Colors
 
 ```js
 import { Tooltip, Button } from '@lightelligence/react';
@@ -68,7 +72,7 @@ import { Tooltip, Button } from '@lightelligence/react';
 </>;
 ```
 
-### Other trigger components
+## Other trigger components
 
 ```js
 import { Tooltip, Button, Card } from '@lightelligence/react';

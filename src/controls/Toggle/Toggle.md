@@ -1,3 +1,5 @@
+## Description
+
 A Toggle can be used instead of Checkbox to toggle between 2 states.
 
 ```js

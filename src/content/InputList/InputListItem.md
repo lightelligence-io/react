@@ -1,7 +1,9 @@
 
-### Example
+## Description
 
-```jsx 
+The input list item is used to inside a [InputList](#/Content/InputList) simplify the rendering of [Dropdown](#/Components/Dropdown) components for basic content.
+
+```jsx
 import { InputList, InputListItem } from '@lightelligence/react';
 const onChange = (value) => {
   console.log(`changed to ${value}`);

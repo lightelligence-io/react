@@ -1,4 +1,4 @@
-## General
+## Description
 
 You can use the Filter component to show a dropdown that opens a filter popup and displays an additional number representing the number of filters selected.
 
