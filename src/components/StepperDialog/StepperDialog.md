@@ -1,8 +1,6 @@
-# Showing a StepperDialog
+## Description
 
 Use the *StepperDialog* Component to render a modal dialog with multiple steps.
-
-## A Basic Stepper
 
 To render a basic stepper, pass the header for the stepper sidebar and a list of steps, each containing of title and the dialog elements (title, description, content). Dialog content can be a string or a react node.
 

@@ -1,3 +1,7 @@
+## Description
+
+A simple list component.
+
 ```jsx
 import { List, ListItem } from '@lightelligence/react';
 <List>
@@ -7,7 +11,7 @@ import { List, ListItem } from '@lightelligence/react';
 </List>
 ```
 
-Ordered Lists
+## Ordered Lists
 
 ```jsx
 import { List, ListItem } from '@lightelligence/react';
@@ -18,7 +22,7 @@ import { List, ListItem } from '@lightelligence/react';
 </List>
 ```
 
-Definition Lists
+## Definition Lists
 
 ```jsx
 import { List, ListItem, Chip } from '@lightelligence/react';
@@ -37,7 +41,7 @@ import { List, ListItem, Chip } from '@lightelligence/react';
 </List>
 ```
 
-Vertically stacked definition lists
+## Vertically stacked definition lists
 
 ```jsx
 import { List, ListItem, Chip } from '@lightelligence/react';

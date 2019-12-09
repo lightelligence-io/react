@@ -1,3 +1,7 @@
+## Description
+
+A select component. Use the [Dropdown](#/Controls/Dropdown) if you need a styled / flexible list.
+
 ```js
 import { Select } from '@lightelligence/react';
 

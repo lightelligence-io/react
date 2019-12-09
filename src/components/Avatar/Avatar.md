@@ -1,11 +1,13 @@
-Avatar for User **Jim**
+## Description
+
+The component renders an Avatar for a user, e.g. **Jim**
 
 ```js
 import { Avatar } from '@lightelligence/react';
 <Avatar name="Jim" />
 ```
 
-# Size
+## Size
 
 ```js
 import { Avatar, FloatingList } from '@lightelligence/react';
@@ -16,7 +18,7 @@ import { Avatar, FloatingList } from '@lightelligence/react';
 </FloatingList>
 ```
 
-# Colors
+## Colors
 
 The Avatar can be rendered with any of the defined colors.
 
@@ -33,7 +35,7 @@ import { Avatar, FloatingList } from '@lightelligence/react';
 </FloatingList>
 ```
 
-# Presets
+## Presets
 
 There are two presets `User`and `Tenant` that can be used for the avatar.
 

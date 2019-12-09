@@ -1,4 +1,4 @@
-### Example
+## Description
 
 For better understanding on the interaction between the
 [Header](#/Navigation/Header), [Sidebar](#/Navigation/Sidebar) and

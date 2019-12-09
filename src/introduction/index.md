@@ -1,5 +1,9 @@
-React components for Lightelligence. These React Components represent [Lightelligence
-UI Styleguide](https://developers.lightelligence.io/styles).
+## Description
+
+React components for Lightelligence.
+
+These React Components represent [Lightelligence
+UI Styleguide](https://lightelligence-io.github.io/styles).
 
 ## Getting Started
 
@@ -13,7 +17,7 @@ $ npm install @lightelligence/styles
 
 ## Usage
 
-You can use the components directly into your React Application.
+You can use the components directly in your React Application.
 
 ```jsx static
 import React from 'react';
@@ -27,7 +31,7 @@ const App = () => (
 ```
 
 The components rely on [Lightelligence
-UI Styleguide](https://developers.lightelligence.io/styles), so make sure that
+UI Styleguide](https://lightelligence-io.github.io/styles), so make sure that
 it is loaded via webpack
 
 ```js static

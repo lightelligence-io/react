@@ -1,8 +1,13 @@
-### Description
+## Description
 
-Chip can be used with <span> elements and and occupy the olt-Chip* class names.
+Chips are a perfect fit for small pieces of information such as tags with predefined and variable text or numbers. They can be used with different types of decorations to provide more clarity of their function to the user.
 
-### Overview
+Use chips to visually label UI elements for quick recognition and navigation. Chips can also be used in a group to provide filter functionality. For a Call to Action please use the Button Component.
+
+
+They can be used with <span> elements and and occupy the olt-Chip* class names.
+
+## Overview
 
 - **Default**: Tags, Attributes, Filters<br />
 Clickable but no Call To Action
@@ -169,7 +174,7 @@ const rows = [
 </CardTable>;
 ```
 
-### Colors
+## Colors
 
 ```js
 import { Chip, Card, FloatingList } from '@lightelligence/react';
@@ -190,9 +195,9 @@ import { Chip, Card, FloatingList } from '@lightelligence/react';
 </Card>
 </>
 ```
-### Variations
+## Variations
 
-#### Disabled
+### Disabled
 
 Chips which do not have the color `error`, `success` or `info` can have the `disabled` property set which will make them disabled.
 
@@ -213,7 +218,7 @@ import { Chip, FloatingList, Card } from '@lightelligence/react';
 </>
 ```
 
-#### Selectable and onClick
+### Selectable and onClick
 
 Chips that are `selectable` can have an `onClick` property.
 
@@ -226,9 +231,9 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
 </FloatingList>;
 ```
 
-### Decorations
+## Decorations
 
-#### Icons
+### Icons
 
 Each Chip can have an icon rendered on the left or on the right side by adding `iconLeft` or `iconRight` properties to the component.
 
@@ -245,7 +250,7 @@ import { Chip, Icon, FloatingList } from '@lightelligence/react';
 ```
 
 
-#### Bubble
+### Bubble
 
 Each Chip can have an additional bubble rendered on the top right side by setting the `bubble` property.
 
