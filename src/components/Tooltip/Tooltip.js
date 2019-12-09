@@ -34,7 +34,7 @@ const Tooltip = ({
       <div
         className={classnames(
           olt.TooltipContent,
-          color && olt[`TooltipContent${pascalize(color)}`],
+          color && olt[`Tooltip${pascalize(color)}`],
           contentClassName,
         )}
       >
