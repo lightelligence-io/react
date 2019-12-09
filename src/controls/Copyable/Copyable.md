@@ -2,6 +2,7 @@
 
 An element showing an icon to copied the content to the clipboard.
 
+
 ```js
 import { Copyable } from '@lightelligence/react';
 

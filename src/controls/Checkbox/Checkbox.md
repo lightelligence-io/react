@@ -1,3 +1,5 @@
+## Description
+
 A Checkbox implementation.
 
 ```js

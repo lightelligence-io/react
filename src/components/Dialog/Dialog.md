@@ -1,9 +1,12 @@
-# Showing a Dialog
+## Showing a Dialog
 
 Use the *Dialog* Component to render a modal dialog.
 
+A dialog displays content in a layer above the application interface, requiring user interaction.
+
 The dialog changes to full screen on mobile and tablet devices.
 
+On desktops it can take any size up to `95vw`. The size it actually takes depends on the size of the content you set.
 
 ```js
 import { Dialog, Button, Paragraph } from '@lightelligence/react';

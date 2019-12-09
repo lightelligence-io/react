@@ -1,4 +1,6 @@
-### Example
+## Description
+
+The header element that can be rendered on top of your page.
 
 ```jsx harmony
 import { Header, ActionButton, Tabs, Tab } from '@lightelligence/react';
