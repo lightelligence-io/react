@@ -8,6 +8,10 @@
 /.travis.yml
 /resources
 /scripts
+/gh-pages
+/audit-ci.json
+/styleguide
 
 # Log files
 npm-debug.log*
+
