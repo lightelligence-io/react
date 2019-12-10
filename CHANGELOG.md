@@ -9,3 +9,7 @@
 
 #v1.0.0
 - Full release of lightelligence design system
+
+#v1.1.0
+- Added *Undo* and *Redo* icons
+
