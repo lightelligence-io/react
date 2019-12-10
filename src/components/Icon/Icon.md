@@ -69,6 +69,7 @@ import { Support, Card, FloatingList } from '@lightelligence/react';
     "location",
     "locked",
     "logo",
+    "logout",
     "maintenance",
     "message",
     "move",
