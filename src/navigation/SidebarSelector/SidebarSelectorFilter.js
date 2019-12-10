@@ -1,16 +1,7 @@
-import {
-  bool,
-  arrayOf,
-  func,
-  oneOf,
-  oneOfType,
-  shape,
-  string,
-} from 'prop-types';
+import { bool, func, node, string } from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
-import { SidebarSelectorFilterItem } from './SidebarSelectorFilterItem';
 
 /**
  * Sidebar selector is a selector component that is used in the Sidebar to
@@ -56,10 +47,7 @@ SidebarSelectorFilter.propTypes = {
    * must be of
    * [SidebarSelectorFilterItem](#/Navigation/SidebarSelectorFilterItem) type.
    */
-  children: oneOfType([
-    shape({ type: oneOf([SidebarSelectorFilterItem]) }),
-    arrayOf(shape({ type: oneOf([SidebarSelectorFilterItem]) })),
-  ]).isRequired,
+  children: node.isRequired,
   /**
    * The title of this component
    */

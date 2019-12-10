@@ -1,9 +1,9 @@
 import classnames from 'classnames';
-import { string, oneOfType, shape, oneOf, arrayOf, func } from 'prop-types';
+import { string, shape, node, func } from 'prop-types';
 import React, { useCallback, useState } from 'react';
 import * as olt from '@lightelligence/styles';
 import { Label } from '../Label';
-import { InputListItem, InputList } from '../../content/InputList';
+import { InputList } from '../../content/InputList';
 
 export const Dropdown = React.forwardRef(
   (
@@ -92,10 +92,7 @@ Dropdown.propTypes = {
    * Content of the element should always be consisted of
    * [InputListItem](/#/Components/InputListItem) components.
    */
-  children: oneOfType([
-    shape({ type: oneOf([InputListItem]) }),
-    arrayOf(shape({ type: oneOf([InputListItem]) })),
-  ]),
+  children: node,
   /**
    * The current value of the input list
    */
