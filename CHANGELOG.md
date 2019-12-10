@@ -13,3 +13,7 @@
 #v1.1.0
 - Added *Undo* and *Redo* icons
 
+#v1.1.1
+- chore: upgraded styles
+- fix: removed unnecessary files in the npm package
+- fix: loose prop types on some component
