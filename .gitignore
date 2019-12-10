@@ -33,3 +33,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .npmrc
+/gh-pages
+/docs
+/audit-ci.json
+/styleguide
+/styleguide.config.js

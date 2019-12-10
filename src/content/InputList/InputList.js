@@ -1,8 +1,7 @@
 import classnames from 'classnames';
-import { func, oneOf, string, arrayOf, shape, oneOfType } from 'prop-types';
+import { func, string, node } from 'prop-types';
 import React from 'react';
 import * as olt from '@lightelligence/styles';
-import { InputListItem } from './InputListItem';
 
 /**
  * Input list is a list of items, used as the body of a dropdown. Can be used
@@ -36,10 +35,7 @@ InputList.propTypes = {
    * Content of the element should always be consisted of
    * [InputListItem](/#/Components/InputListItem) components.
    */
-  children: oneOfType([
-    shape({ type: oneOf([InputListItem]) }),
-    arrayOf(shape({ type: oneOf([InputListItem]) })),
-  ]),
+  children: node,
   /**
    * Callback when the value of the input list was changed
    */

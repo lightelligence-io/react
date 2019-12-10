@@ -1,11 +1,10 @@
 import classnames from 'classnames';
 import { pascalize } from 'humps';
-import { string, oneOfType, shape, oneOf, arrayOf } from 'prop-types';
+import { string, node } from 'prop-types';
 import React from 'react';
 import * as olt from '@lightelligence/styles';
 import { matchPath } from 'react-router-dom';
 import { Link } from '../../content/Link';
-import { SidebarSubNavigationItem } from './SidebarSubNavigationItem';
 
 /**
  * Navigation item for the [SidebarNavigation](#/Navigation/SidebarNavigation)
@@ -80,10 +79,7 @@ SidebarNavigationItem.propTypes = {
    * [SidebarSubNavigationItem](/#/Navigation/SidebarSubNavigationItem)
    * components.
    */
-  children: oneOfType([
-    shape({ type: oneOf([SidebarSubNavigationItem]) }),
-    arrayOf(shape({ type: oneOf([SidebarSubNavigationItem]) })),
-  ]),
+  children: node,
 };
 
 SidebarNavigationItem.defaultProps = {
