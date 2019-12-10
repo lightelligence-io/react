@@ -13,3 +13,5 @@
 #v1.1.0
 - Added *Undo* and *Redo* icons
 
+#v1.1.1
+- Upgraded styles
