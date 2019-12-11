@@ -17,3 +17,6 @@
 - chore: upgraded styles
 - fix: removed unnecessary files in the npm package
 - fix: loose prop types on some component
+
+#next
+- Feature: Added *Logout* icon
