@@ -17,6 +17,7 @@ export const Button = React.forwardRef(
       tag,
       iconLeft,
       iconRight,
+      loading,
       onClick,
       ...props
     },
@@ -38,6 +39,7 @@ export const Button = React.forwardRef(
           iconLeft && olt.ButtonIconLeft,
           iconRight && olt[`Icon${pascalize(iconRight)}`],
           iconRight && olt.ButtonIconRight,
+          loading && olt.ButtonProgress,
           className,
         )}
       >
@@ -76,6 +78,10 @@ Button.propTypes = {
    */
   disabled: bool,
   /**
+   * The `laoding` state of this button.
+   */
+  loading: bool,
+  /**
    * The label of this button.
    */
   children: node,
@@ -108,6 +114,7 @@ Button.defaultProps = {
   tag: 'button',
   className: undefined,
   disabled: undefined,
+  loading: false,
   icon: undefined,
   iconLeft: undefined,
   iconRight: undefined,

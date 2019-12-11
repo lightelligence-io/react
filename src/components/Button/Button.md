@@ -396,6 +396,23 @@ import { Button } from '@lightelligence/react';
 <Button disabled>Disabled</Button>;
 ```
 
+### Loading
+
+```js
+import { Button, FloatingList } from '@lightelligence/react';
+initialState = { loading: false};
+const load = () => {
+  setState({ loading: true });
+  setTimeout(()=>setState({ loading: false }), 2500)
+};
+
+<FloatingList>
+  <Button onClick={load} loading={state.loading}>Spin Them</Button>
+  <Button onClick={load} emphasis="secondary" loading={state.loading}>Spin Them</Button>
+  <Button onClick={load} emphasis="tertiary" loading={state.loading}>Spin Them</Button>
+</FloatingList>
+```
+
 ### Emphasis
 
 The emphasis of this button. Valid values are:
