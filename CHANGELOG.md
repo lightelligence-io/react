@@ -22,3 +22,7 @@
 - chore: upgraded styles
 - feat: added logout icon
 - fix: reduce the size of the package
+
+#v1.2.1
+- chore: upgrade styles
+- fix: pass className prop to tabs
