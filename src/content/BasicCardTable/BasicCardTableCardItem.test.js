@@ -54,6 +54,20 @@ describe('BasicCardTableItem', () => {
     ).toBeTruthy();
   });
 
+  test('renders forwardRef of content', async () => {
+    const Content = React.forwardRef((props, ref) => (
+      <BasicCardTableContent {...props}>Foo</BasicCardTableContent>
+    ));
+
+    const { container } = renderCardItem({
+      children: <Content />,
+    });
+
+    expect(
+      container.querySelectorAll(`.${oltStyles.CardTableContent}`).length,
+    ).toBe(1);
+  });
+
   test('renders array of content children', async () => {
     const { container } = renderCardItem({
       children: [

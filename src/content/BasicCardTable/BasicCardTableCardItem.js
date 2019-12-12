@@ -1,5 +1,6 @@
-import React, { Fragment, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import * as olt from '@lightelligence/styles';
+import { isForwardRef, isFragment } from 'react-is';
 import { node, bool, shape, string, oneOf } from 'prop-types';
 import classnames from 'classnames';
 import { BasicCardTableTitle } from './BasicCardTableTitle';
@@ -9,8 +10,12 @@ const contentRequiresWrapping = (children) => {
   if (Array.isArray(children)) {
     return contentRequiresWrapping(children[0]);
   }
-  if (children.type === Fragment) {
+  if (isFragment(children)) {
     return contentRequiresWrapping(children.props.children);
+  }
+
+  if (isForwardRef(children)) {
+    return false;
   }
 
   return !children.type || children.type !== BasicCardTableContent;
