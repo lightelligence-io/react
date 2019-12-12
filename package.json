@@ -1,6 +1,6 @@
 {
   "name": "@lightelligence/react",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@lightelligence/styles": "1.2.0",
+    "@lightelligence/styles": "1.2.1",
     "classnames": "^2.2.6",
     "clipboard-copy": "^3.1.0",
     "humps": "^2.0.1",

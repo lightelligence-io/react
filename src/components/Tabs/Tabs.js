@@ -3,14 +3,7 @@ import { func, string, node, shape } from 'prop-types';
 import classnames from 'classnames';
 import * as olt from '@lightelligence/styles';
 
-export const Tabs = ({
-  value,
-  onSelect,
-  className,
-  children,
-  tabsProps,
-  ...props
-}) => {
+export const Tabs = ({ value, onSelect, children, tabsProps, ...props }) => {
   const tabBar = useRef(null);
   const [gradient, setGradient] = useState({ left: false, right: false });
 

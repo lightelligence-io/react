@@ -18,5 +18,7 @@
 - fix: removed unnecessary files in the npm package
 - fix: loose prop types on some component
 
-#next
-- Feature: Added *Logout* icon
+#v1.2.0
+- chore: upgraded styles
+- feat: added logout icon
+- fix: reduce the size of the package
