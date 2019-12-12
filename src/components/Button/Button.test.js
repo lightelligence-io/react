@@ -51,6 +51,15 @@ describe('Button', () => {
     expect(button.classList.contains('myClass')).toBe(true);
   });
 
+  test('correctly sets the css-modifier for loading', () => {
+    const { getByText } = renderButton({
+      children: 'Button',
+      loading: true,
+    });
+    const button = getByText('Button');
+    expect(button.classList.contains(oltStyles.ButtonProgress)).toBe(true);
+  });
+
   test('correctly sets the css-modifier for emphasis secondary', () => {
     const { getByText } = renderButton({
       children: 'Button',
