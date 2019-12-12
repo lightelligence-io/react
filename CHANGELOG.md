@@ -22,3 +22,9 @@
 - chore: upgraded styles
 - feat: added logout icon
 - fix: reduce the size of the package
+
+#v1.2.1
+- fix(styles): remove transition for modal background due to slowness on 4K Monitors
+- fix(styles): table header is now blue
+- fix(styles): sidebar color is applied to tabs background
+- fix: pass className prop to tabs
