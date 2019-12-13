@@ -28,3 +28,9 @@
 - fix(styles): table header is now blue
 - fix(styles): sidebar color is applied to tabs background
 - fix: pass className prop to tabs
+
+#v1.3.1
+- fix(styles): checkboxes are now themeable
+- feat: progress button
+- fix: disable wrapping for forward refs in TableCardContent
+
